@@ -1,0 +1,47 @@
+% Hoeffding decomposition 1948
+\subsection*{Early work on fANOVA}
+\begin{itemize}
+    \item The idea of fANOVA decomposition dates back to \cite{hoeffding_class_1948}.
+    \item Introduces Hoeffding decomposition (or U-statistics ANOVA decomposition).
+    \item Math-workings: involves orthogonal sums, projection functions, orthogonal kernels, and subtracting lower-order contributions.
+    \item Assupmtions: unclear about all but one assumptions is (mututal?) independence of input variables, which is unrealistic in practice.
+    \item Relevance: shows that U-statistics or any symmetric function of the data can be broken down into simpler pieces (e.g., main effects, two-way interactions) without overlap.
+    \item Pieces can be used to dissect/explain the variance.
+    \item fANOVA performs a similar decomposition, not for U-statistics but for functions.
+\end{itemize}
+
+\textbf{fANOVA and U-statistics}
+
+% Sobol Indices 1993, 2001
+\begin{itemize}
+    \item In "Sensitivity Estimates for Nonlinear Mathematical Models" (1993), Sobol first introduces decomposition into summands of different dimensions of a square integrable function.
+    \item Does not cite Hoeffding nor discuss U-statistics.
+    \item "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates" (2001) builds on his prior work.
+    \item Math-workings: similar to Hoeffding, involving orthogonal projections, sums, and independent terms.
+    \item Sobol focuses on sensitivity analysis for deterministic models, while Hoeffding is concerned with estimates of probabilistic models.
+\end{itemize}
+
+\textbf{fANOVA and sensitivity analysis}
+
+% Stone 1994
+\begin{itemize}
+    \item \cite{stone_use_1994}
+    \item Math-workings: sum of main terms, lower-order terms, etc., with an identifiability constraint (zero-sum constraint); follows the same principle as the decomposition frameworks by \cite{hoeffding_class_1948} and \cite{sobol_global_2001}.
+    \item All of them work independently, do not cite each other, and use the principle with different goals/build different tools on it.
+    \item Stone's work is part of a broader body of fANOVA models.
+\end{itemize}
+
+\textbf{fANOVA and smooth regression models / GAMs}
+
+\subsection*{Modern Interpretations of fANOVA}
+
+% Rabitz and Alis¸ (1999), Peccati (2004), Hooker (2007), Kuo et al. (2009), Hart and Gremaud (2018), and Chastaing, Gamboa, and
+% Prieur (2012), Il Idrissi (2025)
+\begin{itemize}
+    \item Work of \cite{hooker_generalized_2007} can be seen as an attempt to generalize Hoeffding decomposition (or the Hoeffding principle) to dependent variables. According to \href{https://static1.squarespace.com/static/5f704d21e5464d602d153738/t/66ec27cadf4e8d42ed9018d0/1726752718798/20240918_SADiscord_MIL.pdf}{Slides to talk on Shapley and Sobol indices}
+    \item At least in his talk which is based on the paper \cite{il_idrissi_hoeffding_2025} he puts his work in a broader context of modern attempts to generalize Hoeffding indices. So \cite{il_idrissi_hoeffding_2025} can be seen as one attempt to generalize Hoeffding decomposition to dependent variables.
+\end{itemize}
+
+
+
+
