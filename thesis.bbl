@@ -6,6 +6,11 @@ Hoeffding, W.  \harvardyearleft 1948\harvardyearright .
 \newblock Publisher: Institute of Mathematical Statistics.
 \newline\harvardurl{https://www.jstor.org/stable/2235637}
 
+\harvarditem{Hooker}{2004}{hooker_discovering_2004}
+Hooker, G.  \harvardyearleft 2004\harvardyearright .
+\newblock Discovering additive structure in black box functions, {\em Proceedings of the tenth {ACM} {SIGKDD} international conference on {Knowledge} discovery and data mining}, ACM, Seattle WA USA, pp.~575--580.
+\newline\harvardurl{https://dl.acm.org/doi/10.1145/1014052.1014122}
+
 \harvarditem{Hooker}{2007}{hooker_generalized_2007}
 Hooker, G.  \harvardyearleft 2007\harvardyearright .
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}, {\em Journal of Computational and Graphical Statistics} {\bf 16}(3):~709--732.

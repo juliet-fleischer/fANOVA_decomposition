@@ -4,24 +4,29 @@
     \item The idea of fANOVA decomposition dates back to \cite{hoeffding_class_1948}.
     \item Introduces Hoeffding decomposition (or U-statistics ANOVA decomposition).
     \item Math-workings: involves orthogonal sums, projection functions, orthogonal kernels, and subtracting lower-order contributions.
-    \item Assupmtions: unclear about all but one assumptions is (mututal?) independence of input variables, which is unrealistic in practice.
+    \item Assupmtions: unclear about all but one assumptions is (mututal?) independence of input variables, which is unrealistic in practice (different generalizations to dependent variables follow, e.g. \cite{il_idrissi_hoeffding_2025})
     \item Relevance: shows that U-statistics or any symmetric function of the data can be broken down into simpler pieces (e.g., main effects, two-way interactions) without overlap.
     \item Pieces can be used to dissect/explain the variance.
     \item fANOVA performs a similar decomposition, not for U-statistics but for functions.
 \end{itemize}
-
 \textbf{fANOVA and U-statistics}
+
 
 % Sobol Indices 1993, 2001
 \begin{itemize}
-    \item In "Sensitivity Estimates for Nonlinear Mathematical Models" (1993), Sobol first introduces decomposition into summands of different dimensions of a square integrable function.
+    \item In "Sensitivity Estimates for Nonlinear Mathematical Models" (1993), Sobol first introduces decomposition into summands of different dimensions of a (square) integrable function.
     \item Does not cite Hoeffding nor discuss U-statistics.
     \item "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates" (2001) builds on his prior work.
     \item Math-workings: similar to Hoeffding, involving orthogonal projections, sums, and independent terms.
     \item Sobol focuses on sensitivity analysis for deterministic models, while Hoeffding is concerned with estimates of probabilistic models.
 \end{itemize}
 
+I think in his 1993 paper Sobol mainly introduces fANOVA decomposition (definition, orthogonality, L1 integrability), already speaks of L2 integrability and variance decompsoition, which leads to Sobol indices, gives some analytical examples and MC algorithm for calculations.
+In the 2001 paper he focuses on illustrating three usecases of the sobol indices + the decomposition 1) ranking of variables; 2) fixing unessential variables; 3) deleting high order members; for each of the three there are some mathematical statements, sometimes an algorithm or an example.
+In I.M. Sobol (1993) Theorem 1 states that for any function $f(x)$ which is integrable on $K^n$, there exists a unique expansion of \autoref{eq:fanova_decomposition} (proof follows after the theorem in the same paper).
+
 \textbf{fANOVA and sensitivity analysis}
+
 
 % Stone 1994
 \begin{itemize}
@@ -30,16 +35,87 @@
     \item All of them work independently, do not cite each other, and use the principle with different goals/build different tools on it.
     \item Stone's work is part of a broader body of fANOVA models.
 \end{itemize}
-
 \textbf{fANOVA and smooth regression models / GAMs}
+I think the main focus of this paper is to extend the theoretical framework of GAMs with interactions. So the baseline is logistic regression with smooth terms but only univariate components are considered. Now the paper goes deeper into the theory where multivariate terms are also considered. For this they refer to the "ANOVA decomposition" of a function. The focus of the paper is on how the smooth multivariate interaction terms can be estimated, what mathematical properties they have, etc.
+
 
 \subsection*{Modern Interpretations of fANOVA}
-
 % Rabitz and Alis¸ (1999), Peccati (2004), Hooker (2007), Kuo et al. (2009), Hart and Gremaud (2018), and Chastaing, Gamboa, and
 % Prieur (2012), Il Idrissi (2025)
 \begin{itemize}
+    \item Rabitz and Alis¸ (1999) see ANOVA decomposition as a specific high dimensional model representation (HDMR); the goal is to decompose the model iteratively from main effects, to lower order interactions and so on, but to do this in an efficient way and seletect only interaction terms that are necessary (most often lower-order interactions are sufficient). $\rightarrow$ chemistry paper
     \item Work of \cite{hooker_generalized_2007} can be seen as an attempt to generalize Hoeffding decomposition (or the Hoeffding principle) to dependent variables. According to \href{https://static1.squarespace.com/static/5f704d21e5464d602d153738/t/66ec27cadf4e8d42ed9018d0/1726752718798/20240918_SADiscord_MIL.pdf}{Slides to talk on Shapley and Sobol indices}
     \item At least in his talk which is based on the paper \cite{il_idrissi_hoeffding_2025} he puts his work in a broader context of modern attempts to generalize Hoeffding indices. So \cite{il_idrissi_hoeffding_2025} can be seen as one attempt to generalize Hoeffding decomposition to dependent variables.
+\end{itemize}
+
+
+\subsection*{Formal Setting of fANOVA}
+% Assumptions and prerequisites
+\begin{itemize}
+    \item we look at a function (which represents a mathematical model) from high dimensional space (or often the high dimensional unit hypercube, without loss of generality) to reel number line
+    \item in \cite{hooker_discovering_2004,hooker_generalized_2007} the function is square integrable/ is $L^2$
+    \item I think in the basic setting of \cite{sobol_global_2001} the function is not square integrable per se but if it is then desirable properties are met or sth.
+    \item Lecture Notes on Sensitivity Analysis already say that the input X is uncorrelated
+\end{itemize}
+
+Let $f(x): I[0,1]^n \rightarrow I[0,1] \quad with \quad x = (x_1, ... x_n) $ be a function from the unit hypercube to the unit interval. $f(x)$ represents a mathematical model.\par
+\textbf{Definition:} $f(x)$ can be represented as a sum of main effects and interaction effects
+\begin{equation}
+    f = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
+    \label{eq:fanova_decomposition}
+\end{equation}
+with $1 \leq i_1 < .... < i_s \leq n$.
+\autoref{eq:fanova_decomposition} is the "ANOVA-representation" \cite{sobol_global_2001} or functional ANOVA decomposition \cite{hooker_discovering_2004} is $f_0$ is constant and the integrals of the summands $f_{i_{1}...i_{s}}$ with respect to any of their included variables are zero.
+\begin{equation}
+    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, dx_k = 0 for k = i_1, ...., i_s
+    \label{eq:zero_mean_condition}
+\end{equation}
+In words so far: a function is decomposed into constant term $f_0$ and a sum of main effects and interaction effects. If each term "is centred" (i.e. has zero mean) with respect to the variables it includes, then the terms are orthogonal to each other. In an applied context orthogonality means that the terms capture the isolated effect and there is no redundancy in information, i.e. no information of $x_1$ is also included in the interaction of $x_12$
+"Expansion into summands of different dimensions" (I.M. Sobol, 1993)/ "fANOVA decomposition"\citep{hooker_discovering_2004} 
+\textbf{Example for $n=3$}:
+\begin{equation}
+    f(x_1,x_2,x_3) = f_0 + f_{1}(x_1) + f_{2}(x_2) + f_{3}(x_3) + f_{12}(x_1,x_2) + f_{13}(x_1,x_3) + f_{23}(x_2,x_3)
+    \label{eq:fanova_decomposition_example}
+\end{equation}
+
+We can use \autoref{eq:zero_mean_condition} and \autoref{eq:fanova_decomposition} to formulate expressions for specific components of $f(x)$, i.e.:
+\begin{equation}
+    \int f(x) dx = f_0
+\end{equation}
+This means that the integral over the entire domain and all inputs gives us the constant term/ intercept == overall average
+\begin{equation}
+    \int f(x) \prod_{k \neq i} d_{x_{k}} = f_0 + f_i(x_i)
+\end{equation}
+The integral over all variables expect $x_i$ is equal to adding up the overall mean and the main effect of $x_i$.
+\begin{equation}
+    \int f(x) \prod_{k \neq i,j} d_{x_{k}} = f_0 + f_i(x_i) + f_j(x_j)
+\end{equation}
+The integral over all variables expect $x_i$ and $x_j$ is equal to adding up the overall mean, the main effect of $x_i$, and the main effect of $x_j$, and the interaction effect of $x_i, x_j$.\par
+Inhaltlich: when we are interested in "the average effect of ..." we may add the main effect and their interaction effects together.??
+
+
+% (Desirable ) properties of fANOVA
+\begin{itemize}
+    \item decomposition always exists
+    \item zero-mean-condition $\rightarrow$ orthogonality of the terms
+    \item $K^n$-integrable functions $\rightarrow$ uniqueness of the decomposition ($L^1$ integrable, which means that the integral of the absolute value of the function is finite)
+    \item when does the variance decomposition exist? I think this i related to square integrability, i.e. $L^2$ integrable\footnote{$L^1$ integrable does not imply $L^2$ integrable, and vice versa}, which means that the integral of the square of the function is finite
+    \item keep in mind: projections, hierarchical orthogonality constraints
+\end{itemize}
+
+
+
+% inner math workings of fANOVA
+\begin{itemize}
+    \item orthogonal projections
+\end{itemize}
+
+% Questions
+\begin{itemize}
+    \item in \cite{hooker_discovering_2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol_global_2001} they only work with $f(x)$
+    \item zero mean condition vs. zero-sum condition: according to GPT zero mean condition is related to orthogonality and zero-sum to the additivity
+    \item does orthogonality mean that all terms are orthogonal to each other? or that a term is orthogonal to all lower-order terms?
+    \item function space vs. finite vector space, projections in both of these, projections as integrals
 \end{itemize}
 
 
