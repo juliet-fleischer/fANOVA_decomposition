@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1746282446 "thesis.aux" "thesis.bbl" "thesis" 1746370742 0
+["bibtex thesis"] 1746371262 "thesis.aux" "thesis.bbl" "thesis" 1746371359 0
   "./bibliography.bib" 1745420062 75983 3a4d598f6e0be3cdc469a8d5fee78f5a ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/harvard/dcu.bst" 1233413381 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1746370742 2589 f466061f1e518b9e37852918eb3b3c53 "pdflatex"
+  "thesis.aux" 1746371358 2466 8380630589bfaabc4a86d080c85e005c "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1746370737 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1746370742 0
+["pdflatex"] 1746371351 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1746371359 0
   "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1745414285 5052 c15af1f5d3b71312343cf2ff321354df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -101,14 +101,14 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "chapters/appendix.tex" 1745328355 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "chapters/foundations.tex" 1746370736 13608 90b64bcb24735a3a5cb850f65eb5aa0e ""
+  "chapters/foundations.tex" 1746371351 12896 62564eeae69c9038fcc28918b45b447f ""
   "chapters/introduction.tex" 1745328205 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sigillum.png" 1745325080 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "thesis.aux" 1746370742 2589 f466061f1e518b9e37852918eb3b3c53 "pdflatex"
-  "thesis.bbl" 1746282446 2417 084357cb96ca65f788468364512790ca "bibtex thesis"
-  "thesis.out" 1746370742 520 d1ca6d1aea98ef772edfd4602d346199 "pdflatex"
+  "thesis.aux" 1746371358 2466 8380630589bfaabc4a86d080c85e005c "pdflatex"
+  "thesis.bbl" 1746371263 2417 084357cb96ca65f788468364512790ca "bibtex thesis"
+  "thesis.out" 1746371358 520 d1ca6d1aea98ef772edfd4602d346199 "pdflatex"
   "thesis.tex" 1745414285 5052 c15af1f5d3b71312343cf2ff321354df ""
-  "thesis.toc" 1746370742 343 818440cd7538f0b1c7efd7e42b78ef18 "pdflatex"
+  "thesis.toc" 1746371358 343 818440cd7538f0b1c7efd7e42b78ef18 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"
