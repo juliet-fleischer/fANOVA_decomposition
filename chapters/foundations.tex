@@ -99,7 +99,7 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 \subsection*{Formal Introduction to fANOVA}
 % Prerequesites: L2 space, inner product, orthogonal projections, integrals
 \subsubsection{Prerequisites}
-We are operating the space of square integrable functions. The space of square integrable functions is denoted by $\mathcal{L}^2$ and is defined as follows:
+We are operating in the space of square integrable functions. The space of square integrable functions is denoted by $\mathcal{L}^2$ and is defined as follows:
 \[
 \mathcal{L}^2 = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
 = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
@@ -109,48 +109,40 @@ We are operating the space of square integrable functions. The space of square i
     \item $\mathbb{R}^{n}$ is the n-dimensional Euclidean space
     \item $\nu$ is the measure of the Lebesgue integral
 \end{itemize}
-For the following we will restrict ourselves to functions defined on the unit hypercube $[0,1]^n$, i.e. all functions $f(x): [0,1]^n \rightarrow \mathbb{R}$, where $[0,1]^n \subset \mathcal{L}^2$ \par
-$\mathcal{L}^2$ is a Hilbert space with an inner product defined as
+For the following we will restrict ourselves to functions defined on the unit hypercube $[0,1]^n$, i.e. all functions $f(x): [0,1]^n \rightarrow \mathbb{R}$, while $[0,1]^n \subset \mathcal{L}^2$. $\mathcal{L}^2$ is a Hilbert space with an inner product defined as
 \[
-\langle f, g \rangle = \int f(x) g(x) \, d\mu(x)
+\langle f, g \rangle = \int f(x) g(x) \, d\nu(x) \quad \forall f, g \in \mathcal{L}^2
 \]
-where $f,g \in \mathcal{L}^2$ are two functions.\par
 The norm is then defined as
 \[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\mu(x)}
+\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\mu(x) \quad \forall f \in \mathcal{L}^2}
 \]
-\begin{itemize}
-    \item inputs $x_1, \dots, x_n$ are independent
-    \item we assume that each input is uniformly distributed over the unit interval, i.e. $x_i \sim U[0,1]$ for $i = 1, \dots, n$ (but this is not necessary, independence is though (ANOVA lecture notes by Owen))
-\end{itemize}
-
 {\color{blue} could cite this resource for general definition of Normed vectors paces, Hilbert space, inner product, etc. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
 \subsubsection{fANOVA decomposition}
-This chapter is based on the formal introductions by \cite{hoeffding_class_1948, sobol_global_2001, hooker_discovering_2004}.
-Let $f(x)$ be a mathematical model. $f(x) \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. $f(x)$ is a multivariate function with input $x = (x_1,\dots, x_n)$ and output $f(x) \in \mathbb{R}$.
-In order for fANOVA decomposition to be unique, the function has to be in the unit hypercube, i.e. $f: [0,1]^n \rightarrow \mathbb{R}$ (reference?).\par
-\textbf{Definition.} We can represent such a function $f(x)$ as a sum of specific basis functions
+This chapter is based on the formal introductions by \cite{hoeffding_class_1948, sobol1993sensitivity, sobol_global_2001, hooker_discovering_2004}.
+Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. We assume for the input $x = (x_1,\dots, x_n)$ that the $x_i$ are independent from each other and $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$.\par
+
+\textbf{Definition.} We can represent such a model $f$ as a sum of specific basis functions
 \begin{equation}
     f = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
     \label{eq:fanova_decomposition}
 \end{equation}
 
-To ensure identifiability and interpretation, we set the zero-mean constraint. It requires that all effects are centred around zero\footnote{Except for the constant term}. Since that the constant term $f_0$ captures the overall mean of $f$, the remaining effects quantify the deviation from the overall mean.
+To ensure identifiability and interpretation, we set the zero-mean constraint. It requires that all effects, except for the constant terms, are centred around zero. Since that the constant term $f_0$ captures the overall mean of $f$, the remaining effects quantify the deviation from the overall mean. Mathematically this means
 \begin{equation}
-    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, dx_k = 0 \forall k = i_1, ...., i_s
+    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, dx_k = 0 \quad \forall k = i_1, ...., i_s
     \label{eq:zero_mean_condition}
 \end{equation}
-In combination with \autoref{eq:zero_mean_condition} I.M. Sobol (1993) calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol_global_2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker_discovering_2004}.\par
-The basis components as they are defined offer a clear interpretation of the model. They are nothing other than the main effects $f_i(x_i)$, two-way interaction effects $f_{ij}(x_i,x_j)$, three-way interaction effects $f_{ijk}(x_i,x_j,x_k)$, and so on. This is why the idea of fANOVA decomposition has received increasing attention in the IML and XAI literature.\par
+In combination with \autoref{eq:zero_mean_condition}  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol_global_2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker_discovering_2004}.\par
 
 The single terms that make up \autoref{eq:fanova_decomposition} are defined as follows.
 First, we take the integral of $f$ w.r.t. all variables:
 \begin{equation}
-    f_{\emptyset}(\mathbf{x}) = \int_{[0, 1]^n} f(\mathbf{x}) d\nu(\mathbf{x}) = \mathbb{E}[f(x)]
+    f_{0}(\mathbf{x}) = \int_{[0, 1]^n} f(\mathbf{x}) d\nu(\mathbf{x}) = \mathbb{E}[f(x)]
     \label{eq:intercapt}
 \end{equation}
-Next, we take the integral of $f$ w.r.t. all variables except for $x_i$. This gives us the sum of the constant term and the isolated effect of $x_i$, called main effect of $x_i$.
+Next, we take the integral of $f$ w.r.t. all variables except for $x_i$. This represents $f$ as the sum of the constant term the isolated effect of one variable $x_i$ (main effect of $x_i$).
 \begin{equation}
     f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} d_{x_{k}} = g_i(x_i)
     \label{eq:main_effect}
@@ -162,20 +154,18 @@ Following the same principle, we can take the integral of $f$ w.r.t. all variabl
 \end{equation}
 And so on, up to the n-way interaction of all $x_1, \dots, x_n$.\par
 
-To actually compute the fANOVA decomposition for $f$, it is clearer to rearrange terms. We write \autoref{eq:main_effect} as
+To actually compute the fANOVA decomposition for $f$, it is clearer to rearrange terms. When we rearrange \autoref{eq:main_effect} we get that the main effect of $x_i$ is calculated by taking the marginal effect while explicitly accounting for what was already explained by lower terms, in this case the intercept. 
 \begin{equation}
     f_i(x_i) = \int f(x) \prod_{k \neq i} d_{x_{k}} - f_0
     \label{eq:main_effect_rearranged}
 \end{equation}
-Then \autoref{eq:interaction_effects} becomes
+The two-way interactions can then be seen as the marginal effects of the involved variables, while accounting for all main effects and the constant term. 
 \begin{equation}
     f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} d_{x_{k}} - f_0 - f_i(x_i) - f_j(x_j) 
     \label{eq:interaction_effects}
 \end{equation}
-Intuitively we adjust for the effects already explained by lower order terms by substracting them from {\color{blue}the overall effects (not true, not the overall but a partial effect, a conditional effect)}.\par
 
 Therefore, it is also common to formulate the fANOVA decomposition in the following way \citep{hooker_generalized_2007,hooker_discovering_2004}:
-
 \begin{equation}
     f_u(\mathbf{x}) = \int_{[0,1]^{d - |u|}} \left( f(\mathbf{x}) - \sum_{v \subsetneq u} f_v(\mathbf{x}) \right) \, d\nu(\mathbf{x}_{-u}).
 \end{equation}
@@ -183,6 +173,8 @@ Which simplifies to:
 \begin{equation}
     f_u(\mathbf{x}) = \int_{[0,1]^{d - |u|}} f(\mathbf{x}) \, d\nu(\mathbf{x}_{-u}) - \sum_{v \subsetneq u} f_v(\mathbf{x}).
 \end{equation}
+
+The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
 A technical remark: The fANOVA terms can be understood as projections.\par
 
@@ -194,27 +186,108 @@ The two-way interaction effect $f_{ij}(x_i,x_j)$ is the projection of $f$ onto t
 In general, \ldq each term is calculated as the projection of $f$ onto a particular subset of the predictors, taking out the lower-order effects which have already been accounted for.\rdq \cite{hooker_discovering_2004}.\par
 
 \subsubsection*{Orthogonality of the fANOVA terms}
-Orthogonality of the fANOVA terms follows using \autoref{eq:zero_mean_condition}. If two sets of indices are not completely equivalent $(i_1, \dots, i_s) \neq (j_1, \dots, j_l)$ then
+Orthogonality of the fANOVA terms follows using the zero-mean constraint (\autoref{eq:zero_mean_condition}). If two sets of indices are not completely equivalent $(i_1, \dots, i_s) \neq (j_1, \dots, j_l)$ then
 \begin{equation}
     \int f_{i_{1}, \dots, i_{s}} f_{j_{1}, \dots, j_{l}} dx = 0
     \label{eq:orthogonality}
 \end{equation}
+This means that fANOVA terms are ``fully orthogonal'' to each other.\par
+Consider an example for $(i_1, i_2) = (1, 2)$ and $(j_1, j_2) = (1, 3)$. We take the inner product between these fANOVA components
+\[
+\int_0^1 \int_0^1 \int_0^1 f_{1,2}(x_1, x_2) \cdot f_{1,3}(x_1, x_3) \, dx_1 \, dx_2 \, dx_3
+\]
+
+We begin by integrating with respect to \( x_1 \) and define
+\[
+\int_0^1 f_{1,2}(x_1, x_2) \cdot f_{1,3}(x_1, x_3) \, dx_1 := h(x_2, x_3)
+\]
+
+Then the full integral becomes
+\[
+\int_0^1 \int_0^1 \left( \int_0^1 f_{1,2}(x_1, x_2) \cdot f_{1,3}(x_1, x_3) \, dx_1 \right) dx_2 dx_3 = \int_0^1 \int_0^1 h(x_2, x_3) \, dx_2 \, dx_3
+\]
+
+But can I now simply say that the integral wrt to $x_2$ is zero because of the zero-mean constraint \autoref{eq:zero_mean_condition}?
+\[
+\int_0^1 h(x_2, x_3) \, dx_2 = 0 \quad \text{for all } x_3
+\]
+
 
 \subsubsection*{Variance decomposition}
-If $f \in \mathcal{L}^2$, it follows that $f_{i_{1}, \dots, i_{n}} \in \mathcal{L}^2$ {\color{blue}proof? reference?; Sobol 1993 says it is easy to show using Schwarz inequality and the definition of the single fANOVA terms.}
-Therefore, we define the variance of f as follows:
-\begin{equation}
-    D = \int_{K^n} f^2(x)d\nu (x) - f^2_{0} = \int_{K^n} f^2(x)d\nu (x) - (\int_{K^n} f(x)d\nu (x))^2
+If $f \in \mathcal{L}^2$, then $f_{i_{1}, \dots, i_{n}} \in \mathcal{L}^2$ {\color{blue}proof? reference?; Sobol 1993 says it is easy to show using Schwarz inequality and the definition of the single fANOVA terms.}
+Therefore, we define the variance of $f$ as follows:
+\begin{align*}
+    D = \int_{K^n} f^2(x)d\nu (x) - f^2_{0} &= \int_{K^n} f^2(x)d\nu (x) - (\int_{K^n} f(x)d\nu (x))^2 &= \mathbb{E}[f^2(x)] - \mathbb{E}[f(x)]^2
     \label{variance_whole}
-\end{equation}
+\end{align*}
 The variance of the fANOVA components is then defined as
 \begin{align*}
     D_{i_{1}, \dots, i_{n}} 
-    &= \int \cdots \int f^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) \\
-    &\quad - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) \right)^2 \\
-    &= \int \cdots \int f^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n)
+    &= \int \cdots \int f^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) \right)^2
 \end{align*}
-This means that the variance of $f$ can be decomposed into the variance of the fANOVA components. Sobol 1993 uses this result to construct the Sobol Indices used in sensitivity analysis.
+Because of the zero-mean constraint (\autoref{eq:zero_mean_condition}) the second term vanishes and we get
+\begin{align*}
+    D_{i_{1}, \dots, i_{n}} = \int \cdots \int f^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n)
+\end{align*}
+
+With the definition of the total variance $D$ and the component-wise variance $D_{i_{1}, \dots, i_{n}}$ we can now see that the total variance can be decomposed into the sum of the component-wise variances.
+
+We illustrate this for a fANOVA decomposition function \( f(x_1, x_2) \in L^2 \):
+
+\[
+f(x_1, x_2) = f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)
+\]
+
+where:
+\begin{itemize}
+  \item \( f_0 \in \mathbb{R} \) is a constant,
+  \item \( f_1(x_1) \), \( f_2(x_2) \), and \( f_{1,2}(x_1, x_2) \) have zero mean in their own variables,
+  \item all components are mutually orthogonal in \( L^2([0,1]^2) \).
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Step 1: Square the decomposition.}
+
+\begin{align*}
+f^2(x_1, x_2) &= \left(f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)\right)^2 \\
+&= f_0^2 + f_1(x_1)^2 + f_2(x_2)^2 + f_{1,2}(x_1, x_2)^2 \\
+&\quad + 2f_0 f_1(x_1) + 2f_0 f_2(x_2) + 2f_0 f_{1,2}(x_1, x_2) \\
+&\quad + 2f_1(x_1) f_2(x_2) + 2f_1(x_1) f_{1,2}(x_1, x_2) + 2f_2(x_2) f_{1,2}(x_1, x_2)
+\end{align*}
+
+\vspace{1em}
+
+\textbf{Step 2: Integrate over the domain \( [0,1]^2 \).}
+
+\begin{align*}
+\int f^2(x_1, x_2) \, dx_1 dx_2 &= \int f_0^2 \, dx_1 dx_2 + \int f_1(x_1)^2 \, dx_1 dx_2 + \int f_2(x_2)^2 \, dx_1 dx_2 \\
+&\quad + \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2 \\
+&\quad + \text{(all cross-terms vanish due to orthogonality)} \\
+&= f_0^2 + \int f_1(x_1)^2 \, dx_1 + \int f_2(x_2)^2 \, dx_2 + \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
+\end{align*}
+
+\vspace{1em}
+
+\textbf{Step 3: Define the variance.}
+
+\[
+D := \int f(x_1, x_2)^2 \, dx_1 dx_2 - f_0^2
+\]
+
+Then the total variance decomposes as:
+
+\[
+D = D_1 + D_2 + D_{1,2}
+\]
+
+where:
+
+\[
+D_1 = \int f_1(x_1)^2 \, dx_1, \quad
+D_2 = \int f_2(x_2)^2 \, dx_2, \quad
+D_{1,2} = \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
+\]
 
 % \subsection*{Alternative Formulation of fANOVA}
 % Based on \cite{hooker_discovering_2004} and Owen Lecture notes (find paper to cite).

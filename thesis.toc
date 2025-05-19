@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {2}Foundations}{2}{section.2}%
 \contentsline {subsubsection}{\numberline {2.0.1}Prerequisites}{4}{subsubsection.2.0.1}%
 \contentsline {subsubsection}{\numberline {2.0.2}fANOVA decomposition}{5}{subsubsection.2.0.2}%
-\contentsline {subsubsection}{\numberline {2.0.3}Example fANOVA decomposition}{8}{subsubsection.2.0.3}%
-\contentsline {section}{\numberline {3}Conclusion}{10}{section.3}%
+\contentsline {subsubsection}{\numberline {2.0.3}Example fANOVA decomposition}{9}{subsubsection.2.0.3}%
+\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
