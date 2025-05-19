@@ -1,8 +1,12 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Foundations}{2}{section.2}%
-\contentsline {subsubsection}{\numberline {2.0.1}Prerequisites}{4}{subsubsection.2.0.1}%
-\contentsline {subsubsection}{\numberline {2.0.2}fANOVA decomposition}{5}{subsubsection.2.0.2}%
-\contentsline {subsubsection}{\numberline {2.0.3}Example fANOVA decomposition}{9}{subsubsection.2.0.3}%
-\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}%
+\contentsline {subsection}{\numberline {2.1}Early Work on fANOVA}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Modern Work on fANOVA}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Formal Introduction to fANOVA}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Method Comparison}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}fANOVA and PD}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}fANOVA and ALE}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}fANOVA and SHAP}{12}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Conclusion}{12}{section.4}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%

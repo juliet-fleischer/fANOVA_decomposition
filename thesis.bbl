@@ -4,6 +4,11 @@
 Efron, B. \harvardand\ Stein, C.  \harvardyearleft 1981\harvardyearright .
 \newblock The {Jackknife} {Estimate} of {Variance},  {\bf The Annals of Statistic}(Vol. 9, No. 3):~pp. 586--596.
 
+\harvarditem{Friedman}{2001}{jerome2001}
+Friedman, J.~H.  \harvardyearleft 2001\harvardyearright .
+\newblock {Greedy function approximation: A gradient boosting machine.}, {\em The Annals of Statistics} {\bf 29}(5):~1189 -- 1232.
+\newline\harvardurl{https://doi.org/10.1214/aos/1013203451}
+
 \harvarditem{Hoeffding}{1948}{hoeffding_class_1948}
 Hoeffding, W.  \harvardyearleft 1948\harvardyearright .
 \newblock A {Class} of {Statistics} with {Asymptotically} {Normal} {Distribution}, {\em The Annals of Mathematical Statistics} {\bf 19}(3):~293--325.

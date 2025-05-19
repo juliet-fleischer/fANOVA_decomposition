@@ -1,6 +1,6 @@
 % Good historical overview of fANOVA decomposition found in: Owen (2003), Takemura (1983)
 
-\subsection*{Early work on fANOVA}
+\subsection{Early Work on fANOVA}
 \subsubsection*{Hoeffding decomposition 1948}
 \begin{itemize}
     \item The idea of fANOVA decomposition dates back to \cite{hoeffding_class_1948}.
@@ -49,7 +49,7 @@ I think the main focus of this paper is to extend the theoretical framework of G
 Now the paper goes deeper into the theory where multivariate terms are also considered. For this they refer to the \ldq ANOVA decomposition\rdq of a function. The focus of the paper is on how the smooth multivariate interaction terms can be estimated, what mathematical properties they have, etc.
 
 
-\subsection*{Modern Interpretations of fANOVA}
+\subsection{Modern Work on fANOVA}
 % Rabitz and Alis¸ (1999), Peccati (2004), Hooker (2007), Kuo et al. (2009), Hart and Gremaud (2018), and Chastaing, Gamboa, and
 % Prieur (2012), Il Idrissi (2025)
 \begin{itemize}
@@ -96,9 +96,9 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 % Inhaltlich: when we are interested in "the average effect of ..." we may add the main effect and their interaction effects together.??
 
 
-\subsection*{Formal Introduction to fANOVA}
+\subsection{Formal Introduction to fANOVA}
 % Prerequesites: L2 space, inner product, orthogonal projections, integrals
-\subsubsection{Prerequisites}
+\subsubsection*{Prerequisites}
 We are operating in the space of square integrable functions. The space of square integrable functions is denoted by $\mathcal{L}^2$ and is defined as follows:
 \[
 \mathcal{L}^2 = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
@@ -119,7 +119,7 @@ The norm is then defined as
 \]
 {\color{blue} could cite this resource for general definition of Normed vectors paces, Hilbert space, inner product, etc. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
-\subsubsection{fANOVA decomposition}
+\subsubsection*{fANOVA decomposition}
 This chapter is based on the formal introductions by \cite{hoeffding_class_1948, sobol1993sensitivity, sobol_global_2001, hooker_discovering_2004}.
 Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. We assume for the input $x = (x_1,\dots, x_n)$ that the $x_i$ are independent from each other and $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$.\par
 
@@ -238,16 +238,9 @@ We illustrate this for a fANOVA decomposition function \( f(x_1, x_2) \in L^2 \)
 f(x_1, x_2) = f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)
 \]
 
-where:
-\begin{itemize}
-  \item \( f_0 \in \mathbb{R} \) is a constant,
-  \item \( f_1(x_1) \), \( f_2(x_2) \), and \( f_{1,2}(x_1, x_2) \) have zero mean in their own variables,
-  \item all components are mutually orthogonal in \( L^2([0,1]^2) \).
-\end{itemize}
-
 \vspace{1em}
 
-\textbf{Step 1: Square the decomposition.}
+First, we square the decomposition
 
 \begin{align*}
 f^2(x_1, x_2) &= \left(f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)\right)^2 \\
@@ -258,7 +251,7 @@ f^2(x_1, x_2) &= \left(f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)\right)^2 \\
 
 \vspace{1em}
 
-\textbf{Step 2: Integrate over the domain \( [0,1]^2 \).}
+Next, we integrate over the domain \( [0,1]^2 \)
 
 \begin{align*}
 \int f^2(x_1, x_2) \, dx_1 dx_2 &= \int f_0^2 \, dx_1 dx_2 + \int f_1(x_1)^2 \, dx_1 dx_2 + \int f_2(x_2)^2 \, dx_1 dx_2 \\
@@ -269,25 +262,27 @@ f^2(x_1, x_2) &= \left(f_0 + f_1(x_1) + f_2(x_2) + f_{1,2}(x_1, x_2)\right)^2 \\
 
 \vspace{1em}
 
-\textbf{Step 3: Define the variance.}
+After rearranging terms, we find that
 
 \[
-D := \int f(x_1, x_2)^2 \, dx_1 dx_2 - f_0^2
+\int f(x_1, x_2)^2 \, dx_1 dx_2 - f_0^2 = \int f_1(x_1)^2 \, dx_1 + \int f_2(x_2)^2 \, dx_2 + \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
 \]
 
-Then the total variance decomposes as:
+which is equivalent to 
 
 \[
 D = D_1 + D_2 + D_{1,2}
 \]
 
-where:
+The variance decomposition only holds when the $x_i$ are independent and therefore all fANOVA terms are orthogonal to each other (Fumagalli, 2025).
 
-\[
-D_1 = \int f_1(x_1)^2 \, dx_1, \quad
-D_2 = \int f_2(x_2)^2 \, dx_2, \quad
-D_{1,2} = \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
-\]
+% where
+
+% \[
+% D_1 = \int f_1(x_1)^2 \, dx_1, \quad
+% D_2 = \int f_2(x_2)^2 \, dx_2, \quad
+% D_{1,2} = \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
+% \]
 
 % \subsection*{Alternative Formulation of fANOVA}
 % Based on \cite{hooker_discovering_2004} and Owen Lecture notes (find paper to cite).
@@ -316,7 +311,7 @@ D_{1,2} = \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
 % \]
 
 
-\subsubsection{Example fANOVA decomposition}
+\subsubsection*{Example fANOVA decomposition}
 We will now make the fANOVA decomposition of a function $f \in \mathcal{L}^2$ explicit for n = 4. We continue to follow the definition by \cite{sobol_global_2001}.
 
 
@@ -344,10 +339,15 @@ We will now make the fANOVA decomposition of a function $f \in \mathcal{L}^2$ ex
 \subsection*{Questions}
 
 
-
 \begin{itemize}
     \item Use of AI tools?
-    \item -----------------------
+    \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $K^n$
+    \item Parallel between Partial dependence \citep{jerome2001} and fANOVA decomposition
+    \item Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example)
+    \item $x_1, \dots, x_k$ sind schon einfach die (normierten) features mit denen wir modellieren wollen oder? Weil ist die Kette: Independence of $x_1, \dots, x_k$ $\rightarrow$ Independence of fANOVA terms $\rightarrow$ orthogonality of fANOVA terms
+    \item {\color{orange}My current understanding: we need independence of $x_1, \dots x_k$ so that fANOVA decomposition is unique (and orthogonality holds). We need zero-mean constraint for the orthogonality of the components. We need orthogonality for the variance decomposition.}
+    \item Next step might be to investigate the (mathematical) parallels of fANOVA decomposition and other IML methods (PDP, ALE, SHAP), e.g. there is definitely a strong relationship between Partial dependence (PD) and fANOVA terms, and PD is itself again related to other IML methods; Also look how are other IML models studied and study fANOVA in a similar way (e.g. other IML methods are defined, checked for certain properties, examined under different conditions (dependent features, independent features) etc.) (see dissertation by Christoph Molnar for this)
+    \item 
     \item In \cite{hooker_discovering_2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol_global_2001} they only work with $f(x)$. I think this is only notation? \textit{Only notation.}
     \item Does orthogonality in fANOVA context mean that all terms are orthogonal to each other? Or that a term is orthogonal to all lower-order terms (\ldq Hierarchical orthogonality \rdq)? \textit{The terms are hierarchically orthogonal, so each term is orthogonal to all lower-order terms, but not to the same-order terms! So $f_1$ is not necessarily orthogonal to $f_2$ but it is orthogonal to $f_{12}$, $f_{0}$.} 
     \item Do the projections here serve as approximations? (linalg skript 2024 5.7.4 Projektionen als beste Annäherung) \textit{Yes, they can be interpreted as sort of approximation.}

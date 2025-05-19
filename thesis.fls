@@ -715,10 +715,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT thesis.toc
-INPUT ./chapters/introduction.tex
-INPUT chapters/introduction.tex
-INPUT ./chapters/introduction.tex
-INPUT chapters/introduction.tex
 INPUT ./chapters/foundations.tex
 INPUT chapters/foundations.tex
 INPUT ./chapters/foundations.tex
@@ -737,6 +733,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT ./chapters/iml_methods.tex
+INPUT chapters/iml_methods.tex
+INPUT ./chapters/iml_methods.tex
+INPUT chapters/iml_methods.tex
 INPUT ./chapters/appendix.tex
 INPUT ./chapters/appendix.tex
 INPUT ./chapters/appendix.tex
