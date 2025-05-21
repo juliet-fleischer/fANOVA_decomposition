@@ -2,46 +2,46 @@ This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: dcu.bst
-Database file #1: bibliography.bib
+Database file #1: bibliography_2.bib
 Database file #2: bibliography_manual.bib
-You've used 9 entries,
+You've used 10 entries,
             2921 wiz_defined-function locations,
-            708 strings with 6729 characters,
-and the built_in function-call counts, 25154 in all, are:
-= -- 3950
-> -- 327
+            714 strings with 7127 characters,
+and the built_in function-call counts, 49111 in all, are:
+= -- 8113
+> -- 548
 < -- 0
-+ -- 1761
-- -- 98
-* -- 2080
-:= -- 5261
-add.period$ -- 20
-call.type$ -- 9
-change.case$ -- 126
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 136
-empty$ -- 323
-format.name$ -- 121
-if$ -- 4480
++ -- 3877
+- -- 168
+* -- 4276
+:= -- 9734
+add.period$ -- 23
+call.type$ -- 10
+change.case$ -- 140
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 145
+empty$ -- 345
+format.name$ -- 195
+if$ -- 8816
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 9
-newline$ -- 48
-num.names$ -- 91
-pop$ -- 20
+newline$ -- 54
+num.names$ -- 103
+pop$ -- 26
 preamble$ -- 1
-purify$ -- 135
+purify$ -- 150
 quote$ -- 0
-skip$ -- 122
+skip$ -- 133
 stack$ -- 0
-substring$ -- 5485
+substring$ -- 11634
 swap$ -- 24
-text.length$ -- 126
+text.length$ -- 140
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 40
 warning$ -- 0
-while$ -- 207
+while$ -- 228
 width$ -- 0
-write$ -- 135
+write$ -- 154

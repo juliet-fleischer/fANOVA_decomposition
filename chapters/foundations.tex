@@ -3,10 +3,10 @@
 \subsection{Early Work on fANOVA}
 \subsubsection*{Hoeffding decomposition 1948}
 \begin{itemize}
-    \item The idea of fANOVA decomposition dates back to \cite{hoeffding_class_1948}.
+    \item The idea of fANOVA decomposition dates back to \cite{hoeffding1948}.
     \item Introduces Hoeffding decomposition (or U-statistics ANOVA decomposition).
     \item Math-workings: involves orthogonal sums, projection functions, orthogonal kernels, and subtracting lower-order contributions.
-    \item Assupmtions: unclear about all but one assumptions is (mututal?) independence of input variables, which is unrealistic in practice (different generalizations to dependent variables follow, e.g. \cite{il_idrissi_hoeffding_2025})
+    \item Assupmtions: unclear about all but one assumptions is (mututal?) independence of input variables, which is unrealistic in practice (different generalizations to dependent variables follow, e.g. \cite{ilidrissi2025})
     \item Relevance: shows that U-statistics or any symmetric function of the data can be broken down into simpler pieces (e.g., main effects, two-way interactions) without overlap.
     \item Pieces can be used to dissect/explain the variance.
     \item fANOVA performs a similar decomposition, not for U-statistics but for functions.
@@ -17,7 +17,7 @@ $\Rightarrow$\textbf{fANOVA and U-statistics}
 \begin{itemize}
     \item In "Sensitivity Estimates for Nonlinear Mathematical Models" (1993), Sobol first introduces decomposition into summands of different dimensions of a (square) integrable function.
     \item Does not cite Hoeffding nor discuss U-statistics.
-    \item "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates" (2001) builds on his prior work \citep{sobol_global_2001}.
+    \item "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates" (2001) builds on his prior work \citep{sobol2001}.
     \item Math-workings: similar to Hoeffding, involving orthogonal projections, sums, and independent terms.
     \item Sobol focuses on sensitivity analysis for deterministic models, while Hoeffding is concerned with estimates of probabilistic models.
 \end{itemize}
@@ -34,13 +34,13 @@ $\Rightarrow$\\textbf{fANOVA and sensitivity analysis}
 
 \subsubsection*{Efron and Stein (1981)}
 \begin{itemize}
-    \item Use idea to proof a famous lemma on jackknife variances \citep{efron_jackknife_1981}
+    \item Use idea to proof a famous lemma on jackknife variances \citep{efron1981}
 \end{itemize}
 
 \subsubsection*{Stone 1994}
 \begin{itemize}
-    \item \cite{stone_use_1994}
-    \item Math-workings: sum of main terms, lower-order terms, etc., with an identifiability constraint (zero-sum constraint); follows the same principle as the decomposition frameworks by \cite{hoeffding_class_1948} and \cite{sobol_global_2001}.
+    \item \cite{stone1994}
+    \item Math-workings: sum of main terms, lower-order terms, etc., with an identifiability constraint (zero-sum constraint); follows the same principle as the decomposition frameworks by \cite{hoeffding1948} and \cite{sobol2001}.
     \item All of them work independently, do not cite each other, and use the principle with different goals/build different tools on it.
     \item Stone's work is part of a broader body of fANOVA models.
 \end{itemize}
@@ -54,8 +54,8 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 % Prieur (2012), Il Idrissi (2025)
 \begin{itemize}
     \item Rabitz and Alis¸ (1999) see ANOVA decomposition as a specific high dimensional model representation (HDMR); the goal is to decompose the model iteratively from main effects, to lower order interactions and so on, but to do this in an efficient way and seletect only interaction terms that are necessary (most often lower-order interactions are sufficient). $\rightarrow$ chemistry paper
-    \item Work of \cite{hooker_generalized_2007} can be seen as an attempt to generalize Hoeffding decomposition (or the Hoeffding principle) to dependent variables. According to \href{https://static1.squarespace.com/static/5f704d21e5464d602d153738/t/66ec27cadf4e8d42ed9018d0/1726752718798/20240918_SADiscord_MIL.pdf}{Slides to talk on Shapley and Sobol indices}
-    \item At least in his talk which is based on the paper \cite{il_idrissi_hoeffding_2025} he puts his work in a broader context of modern attempts to generalize Hoeffding indices. So \cite{il_idrissi_hoeffding_2025} can be seen as one attempt to generalize Hoeffding decomposition to dependent variables.
+    \item Work of \cite{hooker2007} can be seen as an attempt to generalize Hoeffding decomposition (or the Hoeffding principle) to dependent variables. According to \href{https://static1.squarespace.com/static/5f704d21e5464d602d153738/t/66ec27cadf4e8d42ed9018d0/1726752718798/20240918_SADiscord_MIL.pdf}{Slides to talk on Shapley and Sobol indices}
+    \item At least in his talk which is based on the paper \cite{ilidrissi2025} he puts his work in a broader context of modern attempts to generalize Hoeffding indices. So \cite{ilidrissi2025} can be seen as one attempt to generalize Hoeffding decomposition to dependent variables.
 \end{itemize}
 
 
@@ -68,7 +68,7 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 %     \label{eq:fanova_decomposition}
 % \end{equation}
 % with $1 \leq i_1 < .... < i_s \leq n$.
-% \autoref{eq:fanova_decomposition} is the "ANOVA-representation" \cite{sobol_global_2001} or "functional ANOVA decomposition" \cite{hooker_discovering_2004} if $f_0$ is constant and the integrals of the summands $f_{i_{1}...i_{s}}$ with respect to any of their included variables are zero.
+% \autoref{eq:fanova_decomposition} is the "ANOVA-representation" \cite{sobol2001} or "functional ANOVA decomposition" \cite{hooker2004} if $f_0$ is constant and the integrals of the summands $f_{i_{1}...i_{s}}$ with respect to any of their included variables are zero.
 % \begin{equation}
 %     \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, dx_k = 0 for k = i_1, ...., i_s
 %     \label{eq:zero_mean_condition}
@@ -99,7 +99,7 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 \subsection{Formal Introduction to fANOVA}
 % Prerequesites: L2 space, inner product, orthogonal projections, integrals
 \subsubsection*{Prerequisites}
-We are operating in the space of square integrable functions. The space of square integrable functions is denoted by $\mathcal{L}^2$ and is defined as follows:
+We are operating in the space of square integrable functions $\mathcal{L}^2$, which is defined as follows:
 \[
 \mathcal{L}^2 = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
 = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
@@ -115,13 +115,13 @@ For the following we will restrict ourselves to functions defined on the unit hy
 \]
 The norm is then defined as
 \[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\mu(x) \quad \forall f \in \mathcal{L}^2}
+\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\mu(x)} \quad \forall f \in \mathcal{L}^2
 \]
-{\color{blue} could cite this resource for general definition of Normed vectors paces, Hilbert space, inner product, etc. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
+{\color{blue} Which resource should I cite for these ``general'' definitions? e.g. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
 \subsubsection*{fANOVA decomposition}
-This chapter is based on the formal introductions by \cite{hoeffding_class_1948, sobol1993sensitivity, sobol_global_2001, hooker_discovering_2004}.
-Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. We assume for the input $x = (x_1,\dots, x_n)$ that the $x_i$ are independent from each other and $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$.\par
+This chapter is based on the formal introductions by \cite{sobol1993sensitivity, sobol2001, hooker2004}, Owen.
+Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. We assume for the input $x = (x_1,\dots, x_n)$ that the $x_i$ are independent from each other and $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$, thought the uniform distribution is not crucial.\par
 
 \textbf{Definition.} We can represent such a model $f$ as a sum of specific basis functions
 \begin{equation}
@@ -131,11 +131,20 @@ Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathca
 
 To ensure identifiability and interpretation, we set the zero-mean constraint. It requires that all effects, except for the constant terms, are centred around zero. Since that the constant term $f_0$ captures the overall mean of $f$, the remaining effects quantify the deviation from the overall mean. Mathematically this means
 \begin{equation}
-    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, dx_k = 0 \quad \forall k = i_1, ...., i_s
+    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, d\nu (x_k) = 0 \quad \forall k = i_1, ...., i_s
     \label{eq:zero_mean_condition}
 \end{equation}
-In combination with \autoref{eq:zero_mean_condition}  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol_global_2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker_discovering_2004}.\par
+In combination with \autoref{eq:zero_mean_condition}  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker2004}.\par
 
+The fANOVA decomposition for a \( f(x_1, x_2, x_3, x_4) \) would look like
+\begin{align*}
+    f(x_1, x_2, x_3, x_4) &= f_0 + f_1(x_1) + f_2(x_2) + f_3(x_3) + f_4(x_4) \\
+    &+ f_{1,2}(x_1, x_2) + f_{1,3}(x_1, x_3) + f_{1,4}(x_1, x_4) + f_{2,3}(x_2, x_3) + f_{2,4}(x_2, x_4) + f_{3,4}(x_3, x_4) \\
+    &+ f_{1,2,3}(x_1, x_2, x_3) + f_{1,2,4}(x_1, x_2, x_4) + f_{1,3,4}(x_1, x_3, x_4) + f_{2,3,4}(x_2, x_3, x_4) \\
+    &+ f_{1,2,3,4}(x_1, x_2, x_3, x_4)
+\end{align*}
+
+    
 The single terms that make up \autoref{eq:fanova_decomposition} are defined as follows.
 First, we take the integral of $f$ w.r.t. all variables:
 \begin{equation}
@@ -144,28 +153,28 @@ First, we take the integral of $f$ w.r.t. all variables:
 \end{equation}
 Next, we take the integral of $f$ w.r.t. all variables except for $x_i$. This represents $f$ as the sum of the constant term the isolated effect of one variable $x_i$ (main effect of $x_i$).
 \begin{equation}
-    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} d_{x_{k}} = g_i(x_i)
+    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} \nu (d_{x_{k}}) = g_i(x_i)
     \label{eq:main_effect}
 \end{equation}
 Following the same principle, we can take the integral of $f$ w.r.t. all variables except for $x_i$ and $x_j$. With this we capture everything up to the interaction effect of $x_i$ and $x_j$:
 \begin{equation}
-    f_0 + f_i(x_i) + f_j(x_j) + f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} d_{x_{k}} = g_{ij}(x_i, x_j)
+    f_0 + f_i(x_i) + f_j(x_j) + f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} \nu(d_{x_{k}}) = g_{ij}(x_i, x_j)
     \label{eq:interaction_effects}
 \end{equation}
 And so on, up to the n-way interaction of all $x_1, \dots, x_n$.\par
 
 To actually compute the fANOVA decomposition for $f$, it is clearer to rearrange terms. When we rearrange \autoref{eq:main_effect} we get that the main effect of $x_i$ is calculated by taking the marginal effect while explicitly accounting for what was already explained by lower terms, in this case the intercept. 
 \begin{equation}
-    f_i(x_i) = \int f(x) \prod_{k \neq i} d_{x_{k}} - f_0
+    f_i(x_i) = \int f(x) \prod_{k \neq i} \nu(d_{x_{k}}) - f_0
     \label{eq:main_effect_rearranged}
 \end{equation}
 The two-way interactions can then be seen as the marginal effects of the involved variables, while accounting for all main effects and the constant term. 
 \begin{equation}
-    f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} d_{x_{k}} - f_0 - f_i(x_i) - f_j(x_j) 
+    f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} \nu(d_{x_{k}}) - f_0 - f_i(x_i) - f_j(x_j) 
     \label{eq:interaction_effects}
 \end{equation}
 
-Therefore, it is also common to formulate the fANOVA decomposition in the following way \citep{hooker_generalized_2007,hooker_discovering_2004}:
+Therefore, it is also common to formulate the fANOVA decomposition in the following way \citep{hooker2007,hooker2004}:
 \begin{equation}
     f_u(\mathbf{x}) = \int_{[0,1]^{d - |u|}} \left( f(\mathbf{x}) - \sum_{v \subsetneq u} f_v(\mathbf{x}) \right) \, d\nu(\mathbf{x}_{-u}).
 \end{equation}
@@ -183,12 +192,12 @@ $f_0$ is the projections of $f$ onto the space of all constant functions $G = \{
 The main effect $f_i(x_i)$ is the projection of $f$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero, $G = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$. It is a mean conditioned on $x_i$ and the best approximation of $f$ given by a function that depends on a single variable $x_i$.\par
 
 The two-way interaction effect $f_{ij}(x_i,x_j)$ is the projection of $f$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, $G = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. It is the expected value conditioned on $x_i, x_j$ and the best approximation of $f$ given by a function that depends on only two variables.\par
-In general, \ldq each term is calculated as the projection of $f$ onto a particular subset of the predictors, taking out the lower-order effects which have already been accounted for.\rdq \cite{hooker_discovering_2004}.\par
+In general, \ldq each term is calculated as the projection of $f$ onto a particular subset of the predictors, taking out the lower-order effects which have already been accounted for.\rdq \cite{hooker2004}.\par
 
 \subsubsection*{Orthogonality of the fANOVA terms}
 Orthogonality of the fANOVA terms follows using the zero-mean constraint (\autoref{eq:zero_mean_condition}). If two sets of indices are not completely equivalent $(i_1, \dots, i_s) \neq (j_1, \dots, j_l)$ then
 \begin{equation}
-    \int f_{i_{1}, \dots, i_{s}} f_{j_{1}, \dots, j_{l}} dx = 0
+    \int f_{i_{1}, \dots, i_{s}} f_{j_{1}, \dots, j_{l}} d\nu(x) = 0
     \label{eq:orthogonality}
 \end{equation}
 This means that fANOVA terms are ``fully orthogonal'' to each other.\par
@@ -285,7 +294,7 @@ The variance decomposition only holds when the $x_i$ are independent and therefo
 % \]
 
 % \subsection*{Alternative Formulation of fANOVA}
-% Based on \cite{hooker_discovering_2004} and Owen Lecture notes (find paper to cite).
+% Based on \cite{hooker2004} and Owen Lecture notes (find paper to cite).
 % We again work with a square integrable function $f(x): [0, 1]^n \rightarrow \mathbb{R}$ with $x = (x_1, \dots, x_n)$ and $x_1, \dots, x_n$ are independent.
 % The set of indices $1, \dots, n$ is denoted as $1\colon d$. $u \subset 1\colon d$ and $-u$ is the complement of $u$, i.e. $1\colon d \backslash u$.
 % Given a set of indices $u = {i_1, i_2, \dots, i_{|u|}}$ we can write $x_u$ for $(x_{i_1}, x_{i_2}, \dots, x_{i_{|u|}}) = (x_i)_{i \in u}$.\par
@@ -312,7 +321,7 @@ The variance decomposition only holds when the $x_i$ are independent and therefo
 
 
 \subsubsection*{Example fANOVA decomposition}
-We will now make the fANOVA decomposition of a function $f \in \mathcal{L}^2$ explicit for n = 4. We continue to follow the definition by \cite{sobol_global_2001}.
+Example for a specific function $f$?
 
 
 % \subsection*{An attempt to explain the motivation behind fANOVA}
@@ -342,13 +351,12 @@ We will now make the fANOVA decomposition of a function $f \in \mathcal{L}^2$ ex
 \begin{itemize}
     \item Use of AI tools?
     \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $K^n$
-    \item Parallel between Partial dependence \citep{jerome2001} and fANOVA decomposition
-    \item Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example)
-    \item $x_1, \dots, x_k$ sind schon einfach die (normierten) features mit denen wir modellieren wollen oder? Weil ist die Kette: Independence of $x_1, \dots, x_k$ $\rightarrow$ Independence of fANOVA terms $\rightarrow$ orthogonality of fANOVA terms
+    \item Still unlcear: Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example)
+    \item $x_1, \dots, x_k$ are simply the standardized features, right?
     \item {\color{orange}My current understanding: we need independence of $x_1, \dots x_k$ so that fANOVA decomposition is unique (and orthogonality holds). We need zero-mean constraint for the orthogonality of the components. We need orthogonality for the variance decomposition.}
-    \item Next step might be to investigate the (mathematical) parallels of fANOVA decomposition and other IML methods (PDP, ALE, SHAP), e.g. there is definitely a strong relationship between Partial dependence (PD) and fANOVA terms, and PD is itself again related to other IML methods; Also look how are other IML models studied and study fANOVA in a similar way (e.g. other IML methods are defined, checked for certain properties, examined under different conditions (dependent features, independent features) etc.) (see dissertation by Christoph Molnar for this)
+    \item Next step might be to investigate the (mathematical) parallels of fANOVA decomposition and other IML methods (PDP, ALE, SHAP), e.g. there is definitely a strong relationship between Partial dependence (PD) and fANOVA terms, and PD is itself again related to other IML methods; Also look how are other IML models studied and study fANOVA in a similar way (e.g. other IML methods are defined, checked for certain properties, examined under different conditions (dependent features, independent features) etc.) (see dissertation by Christoph Molnar for this); Also I would be very interested in investigating the game theory paper further \citep{fumagalli2025} but still a bit unsure if it is too complex.
     \item 
-    \item In \cite{hooker_discovering_2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol_global_2001} they only work with $f(x)$. I think this is only notation? \textit{Only notation.}
+    \item In \cite{hooker2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol2001} they only work with $f(x)$. I think this is only notation? \textit{Only notation.}
     \item Does orthogonality in fANOVA context mean that all terms are orthogonal to each other? Or that a term is orthogonal to all lower-order terms (\ldq Hierarchical orthogonality \rdq)? \textit{The terms are hierarchically orthogonal, so each term is orthogonal to all lower-order terms, but not to the same-order terms! So $f_1$ is not necessarily orthogonal to $f_2$ but it is orthogonal to $f_{12}$, $f_{0}$.} 
     \item Do the projections here serve as approximations? (linalg skript 2024 5.7.4 Projektionen als beste Annäherung) \textit{Yes, they can be interpreted as sort of approximation.}
     \item Which sub-space are we exactly projecting onto? Are the projections orthogonal by construction (orthogonal projections) or only when the zero-mean constraint is set? \textit{The subspace we project onto depends on the component. For $f_0$ we project onto the subspace of constant functions, for $f_1$ we project onto the subspace of all functions that involve $x_1$ and have an expected value of 0 (zero-mean constraint to ensure orthogonality). It depends on the formulation of the fANOVA decomposition if you need to explicitly set the zero-mean constraint for orthogonality or if it is met by construction.}

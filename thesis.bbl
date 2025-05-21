@@ -1,36 +1,42 @@
 \begin{thebibliography}{xx}
 
-\harvarditem{Efron \harvardand\ Stein}{1981}{efron_jackknife_1981}
+\harvarditem[{Andrew Nii Anang} et~al.]{{Andrew Nii Anang}, {Oluwatosin Esther Ajewumi}, {Tobi Sonubi}, {Kenneth Chukwujekwu Nwafor}, {John Babatope Arogundade} \harvardand\ {Itiade James Akinbi}}{2024}{andrewniianang2024}
+{Andrew Nii Anang}, {Oluwatosin Esther Ajewumi}, {Tobi Sonubi}, {Kenneth Chukwujekwu Nwafor}, {John Babatope Arogundade} \harvardand\ {Itiade James Akinbi}  \harvardyearleft 2024\harvardyearright .
+\newblock Explainable {AI} in financial technologies: {Balancing} innovation with regulatory compliance, {\em International Journal of Science and Research Archive} {\bf 13}(1):~1793--1806.
+\newline\harvardurl{https://ijsra.net/node/5858}
+
+\harvarditem{Efron \harvardand\ Stein}{1981}{efron1981}
 Efron, B. \harvardand\ Stein, C.  \harvardyearleft 1981\harvardyearright .
 \newblock The {Jackknife} {Estimate} of {Variance},  {\bf The Annals of Statistic}(Vol. 9, No. 3):~pp. 586--596.
 
-\harvarditem{Friedman}{2001}{jerome2001}
-Friedman, J.~H.  \harvardyearleft 2001\harvardyearright .
-\newblock {Greedy function approximation: A gradient boosting machine.}, {\em The Annals of Statistics} {\bf 29}(5):~1189 -- 1232.
-\newline\harvardurl{https://doi.org/10.1214/aos/1013203451}
+\harvarditem[Fumagalli et~al.]{Fumagalli, Muschalik, Hüllermeier, Hammer \harvardand\ Herbinger}{2025}{fumagalli2025}
+Fumagalli, F., Muschalik, M., Hüllermeier, E., Hammer, B. \harvardand\ Herbinger, J.  \harvardyearleft 2025\harvardyearright .
+\newblock Unifying {Feature}-{Based} {Explanations} with {Functional} {ANOVA} and {Cooperative} {Game} {Theory}.
+\newblock arXiv:2412.17152 [cs].
+\newline\harvardurl{http://arxiv.org/abs/2412.17152}
 
-\harvarditem{Hoeffding}{1948}{hoeffding_class_1948}
+\harvarditem{Hoeffding}{1948}{hoeffding1948}
 Hoeffding, W.  \harvardyearleft 1948\harvardyearright .
 \newblock A {Class} of {Statistics} with {Asymptotically} {Normal} {Distribution}, {\em The Annals of Mathematical Statistics} {\bf 19}(3):~293--325.
 \newblock Publisher: Institute of Mathematical Statistics.
 \newline\harvardurl{https://www.jstor.org/stable/2235637}
 
-\harvarditem{Hooker}{2004}{hooker_discovering_2004}
+\harvarditem{Hooker}{2004}{hooker2004}
 Hooker, G.  \harvardyearleft 2004\harvardyearright .
 \newblock Discovering additive structure in black box functions, {\em Proceedings of the tenth {ACM} {SIGKDD} international conference on {Knowledge} discovery and data mining}, ACM, Seattle WA USA, pp.~575--580.
 \newline\harvardurl{https://dl.acm.org/doi/10.1145/1014052.1014122}
 
-\harvarditem{Hooker}{2007}{hooker_generalized_2007}
+\harvarditem{Hooker}{2007}{hooker2007}
 Hooker, G.  \harvardyearleft 2007\harvardyearright .
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}, {\em Journal of Computational and Graphical Statistics} {\bf 16}(3):~709--732.
 \newline\harvardurl{http://www.tandfonline.com/doi/abs/10.1198/106186007X237892}
 
-\harvarditem[Il~Idrissi et~al.]{Il~Idrissi, Bousquet, Gamboa, Iooss \harvardand\ Loubes}{2025}{il_idrissi_hoeffding_2025}
+\harvarditem[Il~Idrissi et~al.]{Il~Idrissi, Bousquet, Gamboa, Iooss \harvardand\ Loubes}{2025}{ilidrissi2025}
 Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  \harvardyearleft 2025\harvardyearright .
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0047259X25000399}
 
-\harvarditem{Sobol}{2001}{sobol_global_2001}
+\harvarditem{Sobol}{2001}{sobol2001}
 Sobol, I.  \harvardyearleft 2001\harvardyearright .
 \newblock Global sensitivity indices for nonlinear mathematical models and their {Monte} {Carlo} estimates, {\em Mathematics and Computers in Simulation} {\bf 55}(1-3):~271--280.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0378475400002706}
@@ -39,7 +45,7 @@ Sobol, I.  \harvardyearleft 2001\harvardyearright .
 Sobol, I.~M.  \harvardyearleft 1993\harvardyearright .
 \newblock Sensitivity estimates for nonlinear mathematical models, {\em Mathematical Modelling and Computational Experiments} {\bf 1}:~407--414.
 
-\harvarditem{Stone}{1994}{stone_use_1994}
+\harvarditem{Stone}{1994}{stone1994}
 Stone, C.~J.  \harvardyearleft 1994\harvardyearright .
 \newblock The {Use} of {Polynomial} {Splines} and {Their} {Tensor} {Products} in {Multivariate} {Function} {Estimation}, {\em The Annals of Statistics} {\bf 22}(1):~118--171.
 \newblock Publisher: Institute of Mathematical Statistics.
