@@ -99,33 +99,32 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 \subsection{Formal Introduction to fANOVA}
 % Prerequesites: L2 space, inner product, orthogonal projections, integrals
 \subsubsection*{Prerequisites}
-We are operating in the space of square integrable functions $\mathcal{L}^2$, which is defined as follows:
+Let $(X, \mathcal{F}, \nu)$ be a measure space. Then the space of all square-integrable functions is given by
 \[
-\mathcal{L}^2 = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
+\mathcal{L}^2(X, \mathcal{F}, \nu) = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
 = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
 \]
-\begin{itemize}
-    \item $\mathbb{E}$ denotes the expectation operator
-    \item $\mathbb{R}^{n}$ is the n-dimensional Euclidean space
-    \item $\nu$ is the measure of the Lebesgue integral
-\end{itemize}
-For the following we will restrict ourselves to functions defined on the unit hypercube $[0,1]^n$, i.e. all functions $f(x): [0,1]^n \rightarrow \mathbb{R}$, while $[0,1]^n \subset \mathcal{L}^2$. $\mathcal{L}^2$ is a Hilbert space with an inner product defined as
+
+$\mathcal{L}^2$ is a Hilbert space with the inner product defined as
 \[
 \langle f, g \rangle = \int f(x) g(x) \, d\nu(x) \quad \forall f, g \in \mathcal{L}^2
 \]
 The norm is then defined as
 \[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\mu(x)} \quad \forall f \in \mathcal{L}^2
+\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\nu(x)} \quad \forall f \in \mathcal{L}^2
 \]
+
 {\color{blue} Which resource should I cite for these ``general'' definitions? e.g. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
 \subsubsection*{fANOVA decomposition}
 This chapter is based on the formal introductions by \cite{sobol1993sensitivity, sobol2001, hooker2004}, Owen.
-Let $f: [0,1]^n \rightarrow \mathbb{R}$  be a mathematical model. $f \in \mathcal{L}^2$, which means $\int|f(x)|^2 < \infty$. We assume for the input $x = (x_1,\dots, x_n)$ that the $x_i$ are independent from each other and $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$, thought the uniform distribution is not crucial.\par
+For now, we work with the measure space $(X, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1])^n, \lambda_{n})$. $\mathcal{B}([0, 1])^n$ is the Borel $\sigma$-Algebra on the unit interval (wrong formulation, how is the correct definition?), $\lambda_{n}$ is the n-dimensional Lebesgue measure. 
+This means we look at functions $f: [0,1]^n \rightarrow \mathbb{R}$  that represent mathematical models and for which $\int f^2(x) < \infty$ holds.
+Further we assume that $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ (we will generalize this later).\par
 
 \textbf{Definition.} We can represent such a model $f$ as a sum of specific basis functions
 \begin{equation}
-    f = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
+    f(x) = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
     \label{eq:fanova_decomposition}
 \end{equation}
 
@@ -136,6 +135,10 @@ To ensure identifiability and interpretation, we set the zero-mean constraint. I
 \end{equation}
 In combination with \autoref{eq:zero_mean_condition}  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker2004}.\par
 
+Before moving to properties of the fANOVA decomposition, let us introduce a simple function $g$ as running example. It contains a constant term $a$, isolated linear effects of two variables $x_1$ and $x_2$ and their interaction.
+\[
+g(x_1, x_2) = a + x_1 + 2*x_2 + x_1 * x_2 \quad \text{for} \quad a, x_1, x_2 \in \mathbb{R}
+\]
 The fANOVA decomposition for a \( f(x_1, x_2, x_3, x_4) \) would look like
 \begin{align*}
     f(x_1, x_2, x_3, x_4) &= f_0 + f_1(x_1) + f_2(x_2) + f_3(x_3) + f_4(x_4) \\
@@ -350,11 +353,12 @@ Example for a specific function $f$?
 
 \begin{itemize}
     \item Use of AI tools?
-    \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $K^n$
-    \item Still unlcear: Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example)
+    \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $R^d$ \textit{Generally no restriction, so next step could be to generalize, to $\mathbb{R}^n$, other measures, dependent variables}
+    \item Still unclear: Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example) \textit{I think in the original fANOVA decomposition the terms are orthogonal but in the generalized fANOVA \citep{hooker2007} they are hierarchically orthogonal.} \textit{fully orthogonal when independence assumption, probably partially when no independence}
     \item $x_1, \dots, x_k$ are simply the standardized features, right?
-    \item {\color{orange}My current understanding: we need independence of $x_1, \dots x_k$ so that fANOVA decomposition is unique (and orthogonality holds). We need zero-mean constraint for the orthogonality of the components. We need orthogonality for the variance decomposition.}
+    \item {\color{orange}My current understanding: we need independence of $x_1, \dots x_k$ so that fANOVA decomposition is unique (and orthogonality holds). We need zero-mean constraint for the orthogonality of the components. We need orthogonality for the variance decomposition.}\textit{zero-mean $\rightarrow$ orthogonality $\rightarrow$ uniqueness; Lemma 1 im Hooker 2007 ist verallgemeinerg ds zero-mean constraint}
     \item Next step might be to investigate the (mathematical) parallels of fANOVA decomposition and other IML methods (PDP, ALE, SHAP), e.g. there is definitely a strong relationship between Partial dependence (PD) and fANOVA terms, and PD is itself again related to other IML methods; Also look how are other IML models studied and study fANOVA in a similar way (e.g. other IML methods are defined, checked for certain properties, examined under different conditions (dependent features, independent features) etc.) (see dissertation by Christoph Molnar for this); Also I would be very interested in investigating the game theory paper further \citep{fumagalli2025} but still a bit unsure if it is too complex.
+    \item Why does a fANOVA decomposition of a simple GAM not lead to the ``true'' coefficients? \href{https://christophm.github.io/interpretable-ml-book/decomposition.html}{https://christophm.github.io/interpretable-ml-book/decomposition.html} talks about this a bit in the subchapter ``Statistical regression models''
     \item 
     \item In \cite{hooker2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol2001} they only work with $f(x)$. I think this is only notation? \textit{Only notation.}
     \item Does orthogonality in fANOVA context mean that all terms are orthogonal to each other? Or that a term is orthogonal to all lower-order terms (\ldq Hierarchical orthogonality \rdq)? \textit{The terms are hierarchically orthogonal, so each term is orthogonal to all lower-order terms, but not to the same-order terms! So $f_1$ is not necessarily orthogonal to $f_2$ but it is orthogonal to $f_{12}$, $f_{0}$.} 
@@ -363,18 +367,6 @@ Example for a specific function $f$?
     \item How \ldq far\rdq should I go back, formally introduce $L^2$ space, etc. or assume that the reader is familiar with it? \textit{Yes, space, the inner product on this space should be formally introduced.}
     % \item zero mean condition vs. zero-sum condition: according to GPT zero mean condition is related to orthogonality and zero-sum to the additivity
 \end{itemize}
-
-
-\subsection*{Notes}
-% (Desirable ) properties of fANOVA
-\begin{itemize}
-    \item decomposition always exists
-    \item zero-mean-condition $\rightarrow$ orthogonality of the terms
-    \item $K^n$-integrable functions $\rightarrow$ uniqueness of the decomposition
-    \item when does the variance decomposition exist? I think this is related to square integrability, i.e. $L^2$ integrable\footnote{$L^1$ integrable does not imply $L^2$ integrable, and vice versa}, which means that the integral of the square of the function is finite
-    \item keep in mind: projections, hierarchical orthogonality constraints
-\end{itemize}
-
 
 
 % % inner math workings of fANOVA

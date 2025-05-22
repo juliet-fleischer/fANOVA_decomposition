@@ -4,9 +4,7 @@
 \contentsline {subsection}{\numberline {2.2}Modern Work on fANOVA}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Formal Introduction to fANOVA}{4}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Method Comparison}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}fANOVA and PD}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}fANOVA and ALE}{12}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}fANOVA and SHAP}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.1}fANOVA and Shapley values}{12}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Conclusion}{12}{section.4}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
