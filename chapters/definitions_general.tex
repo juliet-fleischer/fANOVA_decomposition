@@ -1,0 +1,5 @@
+\subsubsection*{Projection\footnote{\href{https://tnagler.github.io/mathstat-lmu-2024.pdf}{https://tnagler.github.io/mathstat-lmu-2024.pdf}}}
+Let $\mathcal{H} := \mathcal{L}^2(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n),\nu)$ be the Borel measure space of square integrable functions (?) with an inner product and a norm induced by it. Let $\mathcal{G}$ be a linear subspace of $\mathcal{H}$. The projection of $f \in \mathcal{H}$ onto subset $\mathcal{G}$ is then defined as:
+\[
+\Pi_{\mathcal{G}}(f) = \arg\min_{g \in \mathcal{G}} \int_{\mathbb{R}^n} \left( f(x) - g(x) \right)^2 \nu(dx) = \arg\min_{g \in \mathcal{G}} \mathbb{E}[(f(x) - g(x))^2]
+\]

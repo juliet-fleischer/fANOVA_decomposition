@@ -15,6 +15,7 @@ bindingoffset = 0mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{adjustbox}
 \usepackage{ragged2e}
 \usepackage{xcolor}
 \usepackage[round, comma]{natbib}
@@ -123,12 +124,20 @@ culpa qui officia deserunt mollit anim id est laborum.
     
 \section{Introduction}
 \label{intro}
-% \input{chapters/introduction.tex}
+\input{chapters/introduction.tex}
 \newpage
+
+\section{General Definitions}
+\label{general_definitions}
+\input{chapters/definitions_general.tex}
 
 \section{Foundations}
 \label{foundations}
 \input{chapters/foundations.tex}
+\newpage
+\section{Generalization}
+\label{generalization}
+\input{chapters/generalized_fANOVA.tex}
 \newpage
 \section{Method Comparison}
 \label{iml_methods_comparison}

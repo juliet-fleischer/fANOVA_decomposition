@@ -1,18 +1,96 @@
 % setup
 % space we live in, functions we deal with
 The chapter is based on \cite{hooker2007}. We want to let go of two key assumptions of the classical fANOVA decomposition (as introduced by \cite{sobol1993sensitivity}): We widen the input domain to the reel number line, i.e. we now allow for the measure space $(X, \mathcal{F}, \nu) = (\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$. This goes hand in hand with dropping the assumption about the uniform distribution of the $X_i$. Further, we investigate what happens when the variables are no longer independent of each other.\par
-The inner product in $\mathcal{L}^2(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$ is now defined more generally as the integral of a weighted product:
+The inner product on $\mathcal{L}^2(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$ is now defined more generally as the integral of a weighted product:
 \[
-
+\langle f, g \rangle = \int f(x) g(x) \, d\nu(x) \quad \forall f, g \in \mathcal{L}^2 \quad \text{with} \quad \nu(dx) = w(x)dx
 \]
 
 The norm is given by 
+\[
+\|f\|_{w} = \sqrt{\langle f, f \rangle_{w}} = \sqrt{\int f^2(x) \, w(x)dx} \quad \forall f \in \mathcal{L}^2
+\]
 % definition 
-The general definition of the function $f(x)$ as a weighted sum stays the same (\autoref{eq:fanova_decomposition}). What changes is the definition of the fANOVA components.
+The general definition of the function $f(x)$ as a weighted sum stays the same (see \autoref{eq:fanova_decomposition}). What changes is the definition of the fANOVA components. The components are simultaneously defined as:
+\begin{equation}
+\left\{ f_u(x_u) \,\middle|\, u \subseteq d \right\}
+= \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
+\int \left( \sum_{u \subseteq d} g_u(x_u) - F(x) \right)^2 w(x) \, dx
+\label{eq:fanova_decomposition_generalized}
+\end{equation}
+There is a key difference to the classical definition: All the components are defined simultaneously via the orthogonal projections of the original function $f(x)$. This means the components $f_u$ are a set of functions that jointly minimize the weighted squared difference to the original function $f(x)$ and fulfil the generalized zero-mean constraint and hierarchical orthogonality (both defined in the following). A natural choice for the weights is the probability distribution/ density of the $x_i$ \citep{hooker2007}.\par
 
-% zero-mean constraint
+We require the fANOVA terms to be centred around the grand mean, in the same way as we did for the classical approach.
+\cite{hooker2007} formulates this in a generalized zero-mean condition for dependent variables:
+\begin{equation}
+\forall u \subseteq d,\ \forall i \in u: \quad 
+\int f_u(x_u)\, w(x)\, dx_i\, dx_{-u} = 0
+\label{eq:zero_mean_condition_generalized}
+\end{equation}
+{\color{blue}What is the conceptual difference here? How can I explain the difference in word?}
 
 % orthogonality
+Orthogonality of the fANOVA terms plays and important role. It ensures that they represent isolated effects which makes the interpretation of fANOVA so useful in practice.
+In contrast to the classical fANOVA, we set a hierarchical orthogonality constraint (instead of a general orthogonality constraint):
+\begin{equation}
+\forall v \subseteq u,\ \forall g:\quad 
+\int f_u(x_u)\ g_v(x_v) w(x)\ dx = 0
+\label{eq:orthogonality_generalized}
+\end{equation}
+{\color{blue} I am always puzzled by this definition because v could theoretically be equal to u which would require the function to be orthogonal to itself (doesn't make sense). But wanting this for all functions g somehow changes something, but I am not super clear why. Would it be correct to write:}
+\begin{equation}
+\forall v \subset u :\quad 
+\int f_u(x_u)\ g_v(x_v) w(x)\ dx = 0
+\label{eq:orthogonality_generalized}
+\end{equation}
+
+\begin{table}[htbp]
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Classical} & \textbf{Generalized} \\
+\hline
+$([0,1]^n, \mathcal{B}([0,1]^n))$ & $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ \\
+\hline
+$\mathbb{P}: \mathcal{B}([0,1]^n) \rightarrow [0,1]$ & 
+$\mu: \mathcal{B}(\mathbb{R}^n) \rightarrow [0,\infty)$, \\
+& where $\mu(A) = \int_A w(x)\,dx$ and $w(x) = \frac{d\mu}{d\lambda}$ \\
+\hline
+$\mathbf{X} = (X_1, \dots, X_n) \overset{\text{iid}}{\sim} \mathcal{U}([0,1])$ & 
+$\mathbf{X} = (X_1, \dots, X_n) \sim \text{any distribution}$ \\
+\hline
+$\mathbf{X}: \Omega \rightarrow [0,1]^n$, $\mu := \mathbf{X}_\# \mathbb{P}$ & 
+$\mathbf{X}_*: \Omega \rightarrow \mathbb{R}^n$, $w(x)\,dx = \mathbf{X}_\# \mathbb{P}$ \\
+\hline
+$\langle f, g \rangle = \int f(x)g(x)\,d\mu(x) = \mathbb{E}[f(\mathbf{X})g(\mathbf{X})]$ & 
+$\langle f, g \rangle_w = \int f(x)g(x)\,d\mu(x)$ \\
+with $\mu(dx) = dx$ & with $\mu(dx) = w(x)\,dx$ \\
+$\Rightarrow \int f(x)g(x)\,dx$ & $\Rightarrow \int f(x)g(x)\,w(x)\,dx$ \\
+\hline
+$\|f\| = \sqrt{\langle f, f \rangle} = \left( \int f(x)^2\,dx \right)^{1/2}$ & 
+$\|f\|_w = \sqrt{\langle f, f \rangle_w} = \left( \int f(x)^2 w(x)\,dx \right)^{1/2}$ \\
+$= \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ & $= \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ \\
+\hline
+$f_u(x) = \int_{x_{-u}} \left( F(x) - \sum_{v \subset u} f_v(x) \right) dx_{-u}$ & 
+$\{f_u(x_u)\}_{u \subset d} = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subset d}}$ \\
+& $\int \left( \sum_{u \subset d} g_u(x_u) - F(x) \right)^2 w(x)\,dx$ \\
+\hline
+\textit{Zero mean:} $\int f_u(x_u)\,dx_u = 0$ for $u \neq \emptyset$ & 
+\textit{Zero mean:} $\forall u \subset d, \forall i \in u:\ \int f_u(x_u)\,w(x)\,dx_i\,dx_{-u} = 0$ \\
+\hline
+\textit{Orthogonality:} $\int f_u(x_u) f_v(x_v)\,dx = 0$ for $u \ne v$ & 
+\textit{Hierarchical orthogonality:} $\forall v \subset u,\, \forall g_v:\ \int f_u(x_u) g_v(x_v) w(x)\,dx = 0$ \\
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Comparison of classical and generalized functional ANOVA (fANOVA) decompositions.}
+\label{tab:fanova_comparison}
+\end{table}
+
+
+
 
 % Comparison table
 

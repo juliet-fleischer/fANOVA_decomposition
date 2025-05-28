@@ -348,31 +348,6 @@ Example for a specific function $f$?
 
 
 
-\subsection*{Questions}
-
-
-\begin{itemize}
-    \item 
-    \item In the hierarchical orthogonality condition (4.2) formulated in \cite{hooker2007} for the gerneralized fAVNOA framework, shouldn't we explicitly exclude the case that $v = u$, because then, we would require that the inner product of the fANOVA component is zero wouldn't we?
-    \item Why is it a problem, when explainability methods also place large emphasis on regions of low probability mass when dependencies between variables exist - because in the end explainability is about explaining the model, not the data generating process; and after all it is how the model works in these regions (it might inhibit artefacts and weird behaviour because there was to little data for good model fit in the regions but still that's how the specific model works) 
-    \item \cite{hooker2007} what should the conditional expectation (dotted line) in Figure 2 show? How should it look like for the true data generating process?
-    \item If the general fANOVA formulation is a true generalization then I should be able to take the general form and construct from it the simple form when I use certain constrains (such as independence, uniform distribution, etc.) right?
-    \item 
-    \item Use of AI tools?
-    \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $R^d$ \textit{Generally no restriction, so next step could be to generalize, to $\mathbb{R}^n$, other measures, dependent variables}
-    \item Still unclear: Are the terms fully orthogonal or hierarchically? See subsection on Orthogonality of the fANOVA terms (especially the example) I think in the original fANOVA decomposition the terms are orthogonal but in the generalized fANOVA \citep{hooker2007} they are hierarchically orthogonal. \textit{fully orthogonal when independence assumption, probably partially when no independence}
-    \item $x_1, \dots, x_k$ are simply the standardized features, right? \textit{Yes}
-    \item {\color{orange}My current understanding: we need independence of $x_1, \dots x_k$ so that fANOVA decomposition is unique (and orthogonality holds). We need zero-mean constraint for the orthogonality of the components. We need orthogonality for the variance decomposition.}\textit{zero-mean $\rightarrow$ orthogonality $\rightarrow$ uniqueness; Lemma 1 im Hooker 2007 ist verallgemeinerg ds zero-mean constraint}
-    \item Next step might be to investigate the (mathematical) parallels of fANOVA decomposition and other IML methods (PDP, ALE, SHAP), e.g. there is definitely a strong relationship between Partial dependence (PD) and fANOVA terms, and PD is itself again related to other IML methods; Also look how are other IML models studied and study fANOVA in a similar way (e.g. other IML methods are defined, checked for certain properties, examined under different conditions (dependent features, independent features) etc.) (see dissertation by Christoph Molnar for this); Also I would be very interested in investigating the game theory paper further \citep{fumagalli2025} but still a bit unsure if it is too complex.
-    \item Why does a fANOVA decomposition of a simple GAM not lead to the ``true'' coefficients? \href{https://christophm.github.io/interpretable-ml-book/decomposition.html}{https://christophm.github.io/interpretable-ml-book/decomposition.html} talks about this a bit in the subchapter ``Statistical regression models'' \textit{It should actually lead to the GAM; at least under all the constraint like zero-mean constraint and orthogonality}
-    \item 
-    \item In \cite{hooker2004} they work with $F(x)$ and $f(x)$, but in \cite{sobol2001} they only work with $f(x)$. I think this is only notation? \textit{Only notation.}
-    \item Does orthogonality in fANOVA context mean that all terms are orthogonal to each other? Or that a term is orthogonal to all lower-order terms (\ldq Hierarchical orthogonality \rdq)? \textit{The terms are hierarchically orthogonal, so each term is orthogonal to all lower-order terms, but not to the same-order terms! So $f_1$ is not necessarily orthogonal to $f_2$ but it is orthogonal to $f_{12}$, $f_{0}$.} 
-    \item Do the projections here serve as approximations? (linalg skript 2024 5.7.4 Projektionen als beste Annäherung) \textit{Yes, they can be interpreted as sort of approximation.}
-    \item Which sub-space are we exactly projecting onto? Are the projections orthogonal by construction (orthogonal projections) or only when the zero-mean constraint is set? \textit{The subspace we project onto depends on the component. For $f_0$ we project onto the subspace of constant functions, for $f_1$ we project onto the subspace of all functions that involve $x_1$ and have an expected value of 0 (zero-mean constraint to ensure orthogonality). It depends on the formulation of the fANOVA decomposition if you need to explicitly set the zero-mean constraint for orthogonality or if it is met by construction.}
-    \item How \ldq far\rdq should I go back, formally introduce $L^2$ space, etc. or assume that the reader is familiar with it? \textit{Yes, space, the inner product on this space should be formally introduced.}
-    % \item zero mean condition vs. zero-sum condition: according to GPT zero mean condition is related to orthogonality and zero-sum to the additivity
-\end{itemize}
 
 
 % % inner math workings of fANOVA
