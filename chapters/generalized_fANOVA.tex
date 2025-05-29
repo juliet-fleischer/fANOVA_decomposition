@@ -44,50 +44,56 @@ In contrast to the classical fANOVA, we set a hierarchical orthogonality constra
 \label{eq:orthogonality_generalized}
 \end{equation}
 
+
 \begin{table}[htbp]
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\renewcommand{\arraystretch}{2.0}
-\begin{tabular}{|c|c|}
+\renewcommand{\arraystretch}{3.0}
+\begin{tabular}{|c|c|c|} % |p{3.2cm}|p{6.5cm}|p{6.5cm}|
 \hline
-\textbf{Classical} & \textbf{Generalized} \\
+\textbf{Category}  & \textbf{Classical} & \textbf{Generalized} \\
 \hline
-$([0,1]^n, \mathcal{B}([0,1]^n))$ & $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ \\
+Measure space & $([0,1]^n, \mathcal{B}([0,1]^n))$ & $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ \\
 \hline
-$\mathbb{P}: \mathcal{B}([0,1]^n) \rightarrow [0,1]$ & 
-$\mu: \mathcal{B}(\mathbb{R}^n) \rightarrow [0,\infty)$, \\
-& where $\mu(A) = \int_A w(x)\,dx$ and $w(x) = \frac{d\mu}{d\lambda}$ \\
+Measure &
+$\mathbb{P}: \mathcal{B}([0,1]^n) \rightarrow [0,1]$ &
+$\mu: \mathcal{B}(\mathbb{R}^n) \rightarrow [0,\infty)$,
+where $\mu(A) = \int_A w(x)\,dx$, $w(x) = \frac{d\mu}{d\lambda}$ \\
 \hline
-$\mathbf{X} = (X_1, \dots, X_n) \overset{\text{iid}}{\sim} \mathcal{U}([0,1])$ & 
+Distribution assumption &
+$\mathbf{X} = (X_1, \dots, X_n) \overset{\text{iid}}{\sim} \mathcal{U}([0,1])$ &
 $\mathbf{X} = (X_1, \dots, X_n) \sim \text{any distribution}$ \\
 \hline
-$\mathbf{X}: \Omega \rightarrow [0,1]^n$, $\mu := \mathbf{X}_\# \mathbb{P}$ & 
+Random Variable &
+$\mathbf{X}: \Omega \rightarrow [0,1]^n$, $\mu := \mathbf{X}_\# \mathbb{P}$ &
 $\mathbf{X}_*: \Omega \rightarrow \mathbb{R}^n$, $w(x)\,dx = \mathbf{X}_\# \mathbb{P}$ \\
 \hline
-$\langle f, g \rangle = \int f(x)g(x)\,d\mu(x) = \mathbb{E}[f(\mathbf{X})g(\mathbf{X})]$ & 
-$\langle f, g \rangle_w = \int f(x)g(x)\,d\mu(x)$ \\
-with $\mu(dx) = dx$ & with $\mu(dx) = w(x)\,dx$ \\
-$\Rightarrow \int f(x)g(x)\,dx$ & $\Rightarrow \int f(x)g(x)\,w(x)\,dx$ \\
+Inner product &
+$\langle f, g \rangle = \int f(x)g(x)\,dx$ &
+$\langle f, g \rangle_w = \int f(x)g(x)\,w(x)\,dx$ \\
 \hline
-$\|f\| = \sqrt{\langle f, f \rangle} = \left( \int f(x)^2\,dx \right)^{1/2}$ & 
-$\|f\|_w = \sqrt{\langle f, f \rangle_w} = \left( \int f(x)^2 w(x)\,dx \right)^{1/2}$ \\
-$= \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ & $= \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ \\
+Norm &
+$\|f\| = \left( \int f(x)^2\,dx \right)^{1/2} = \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ &
+$\|f\|_w = \left( \int f(x)^2 w(x)\,dx \right)^{1/2} = \sqrt{\mathbb{E}[f(\mathbf{X})^2]}$ \\
 \hline
-$f_u(x) = \int_{x_{-u}} \left( F(x) - \sum_{v \subset u} f_v(x) \right) dx_{-u}$ & 
-$\{f_u(x_u)\}_{u \subset d} = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subset d}}$ \\
-& $\int \left( \sum_{u \subset d} g_u(x_u) - F(x) \right)^2 w(x)\,dx$ \\
+fANOVA components &
+$f_u(x) = \int_{x_{-u}} \left( F(x) - \sum_{v \subset u} f_v(x) \right) dx_{-u}$ &
+$\{f_u(x_u)\}_{u \subset d} = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}} \int \left( \sum_{u \subset d} g_u(x_u) - F(x) \right)^2 w(x)\,dx$ \\
 \hline
-\textit{Zero mean:} $\int f_u(x_u)\,dx_u = 0$ for $u \neq \emptyset$ & 
-\textit{Zero mean:} $\forall u \subset d, \forall i \in u:\ \int f_u(x_u)\,w(x)\,dx_i\,dx_{-u} = 0$ \\
+Zero-mean constraint &
+$\int f_u(x_u)\,dx_u = 0$ for $u \ne \emptyset$ &
+$\forall u \subset d, \forall i \in u:\ \int f_u(x_u)\,w(x)\,dx_i\,dx_{-u} = 0$ \\
 \hline
-\textit{Orthogonality:} $\int f_u(x_u) f_v(x_v)\,dx = 0$ for $u \ne v$ & 
-\textit{Hierarchical orthogonality:} $\forall v \subset u,\, \forall g_v:\ \int f_u(x_u) g_v(x_v) w(x)\,dx = 0$ \\
+Orthogonality &
+$\int f_u(x_u) f_v(x_v)\,dx = 0$ for $u \ne v$ &
+$\forall v \subset u,\ \forall g_v:\ \int f_u(x_u) g_v(x_v) w(x)\,dx = 0$ \\
 \hline
 \end{tabular}
 \end{adjustbox}
 \caption{Comparison of classical and generalized functional ANOVA (fANOVA) decompositions.}
 \label{tab:fanova_comparison}
 \end{table}
+
 
 
 
