@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1748516416 "thesis.aux" "thesis.bbl" "thesis" 1748516667 0
+["bibtex thesis"] 1748525518 "thesis.aux" "thesis.bbl" "thesis" 1748525535 0
   "./bibliography_2.bib" 1747902822 249184 6cb1e08fd0fad674893cc681e78d63f6 ""
   "./bibliography_manual.bib" 1747658239 986 150f2ee2cbb93e8f9c4ceb80f6ae9cef ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/harvard/dcu.bst" 1233413381 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1748516666 5581 b2a24c99a4704cfd6f36b6e5f247c410 "pdflatex"
+  "thesis.aux" 1748525534 5431 f6b17d402f5507770bffd700fbba444b "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1748516662 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1748516667 0
+["pdflatex"] 1748525531 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1748525535 0
   "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1748448769 5489 af92a5ddd53db210ea77fb8499baa1d0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -134,17 +134,17 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "chapters/appendix.tex" 1745328355 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "chapters/definitions_general.tex" 1748511379 2158 945969ab5349a1e0dfe152c7c8915f6d ""
-  "chapters/foundations.tex" 1748516662 22938 b80b4425c0dfb415fbc64be789726ac8 ""
+  "chapters/definitions_general.tex" 1748524999 1614 952c84e263127b7df64c94e955767e6b ""
+  "chapters/foundations.tex" 1748525531 24022 f0d28b59094a0857be81c1cf45be9c13 ""
   "chapters/generalized_fANOVA.tex" 1748504191 5426 8b729dd910e2a1a74b135a73004e407e ""
   "chapters/iml_methods.tex" 1747902823 507 2289b20c63b245f5a5abd0e2549a3d26 ""
-  "chapters/introduction.tex" 1748445782 5551 a9df1436df792f22ee5643b0bda57b89 ""
+  "chapters/introduction.tex" 1748523529 5631 2f81e4af01c630db65a6a9ed0dd2d4ff ""
   "sigillum.png" 1745325080 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "thesis.aux" 1748516666 5581 b2a24c99a4704cfd6f36b6e5f247c410 "pdflatex"
-  "thesis.bbl" 1748516416 3961 79b5d6149f0018537d7e42746df934a9 "bibtex thesis"
-  "thesis.out" 1748516666 1914 cd4caffa6a5dfcdf983379810c403634 "pdflatex"
+  "thesis.aux" 1748525534 5431 f6b17d402f5507770bffd700fbba444b "pdflatex"
+  "thesis.bbl" 1748525518 3961 79b5d6149f0018537d7e42746df934a9 "bibtex thesis"
+  "thesis.out" 1748525534 1748 eb072ffa55716766cc5db691bd66fcfe "pdflatex"
   "thesis.tex" 1748448769 5489 af92a5ddd53db210ea77fb8499baa1d0 ""
-  "thesis.toc" 1748516666 1099 80c3b69bc650117127dec3fb498fdf77 "pdflatex"
+  "thesis.toc" 1748525534 1012 bda6735a236b40cabdee2f54472ae7c5 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"
