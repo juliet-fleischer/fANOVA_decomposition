@@ -3,6 +3,11 @@ The mathematics of cooperation and attribution.
 
 \subsection*{Questions}
 \begin{itemize}
+    \item Imagine someone gives you only the fANOVA terms of a function, but not the function itself. Could you reconstruct it? Under what conditions would this reconstruction be exact? I think it can be reconstructed only if variables are independent, have zero-mean, are orthogonal?
+    \item Is it possible to perform fANOVA for non-square-integrable functions? I think in general yes but the variance decomposition doesn't work then.
+    \item fANOVA decomposition for discrete variables possible?
+    \item Denote original model with $y$ or $f$?
+    \item I have to clarify something about notation from the first sobol paper about fANOVA decomposition. the original model to be decomposed is given by f. the single fANOVA terms are given by $f_1, f_2, f_1,2$ and so on, so small f with indices, arent they? And then he somhow introduced additional notation, functions g with indices, but aren't they the same as the fANOVA components? 
     \item Is there now a connection between projection and expected value? Because I thought we can write: fANOVA term $g_u = \text{projection of f onto subspace} - \text{lower order terms} = \text{conditional expected value} - \text{lower order terms}$
     \item Need a citation to write the (conditional) expected value as (partial) integral?
     \item In the hierarchical orthogonality condition (4.2) formulated in \cite{hooker2007} for the gerneralized fAVNOA framework, shouldn't we explicitly exclude the case that $v = u$, because then, we would require that the inner product of the fANOVA component is zero wouldn't we?
@@ -24,4 +29,50 @@ The mathematics of cooperation and attribution.
     \item Which sub-space are we exactly projecting onto? Are the projections orthogonal by construction (orthogonal projections) or only when the zero-mean constraint is set? \textit{The subspace we project onto depends on the component. For $f_0$ we project onto the subspace of constant functions, for $f_1$ we project onto the subspace of all functions that involve $x_1$ and have an expected value of 0 (zero-mean constraint to ensure orthogonality). It depends on the formulation of the fANOVA decomposition if you need to explicitly set the zero-mean constraint for orthogonality or if it is met by construction.}
     \item How \ldq far\rdq should I go back, formally introduce $L^2$ space, etc. or assume that the reader is familiar with it? \textit{Yes, space, the inner product on this space should be formally introduced.}
     % \item zero mean condition vs. zero-sum condition: according to GPT zero mean condition is related to orthogonality and zero-sum to the additivity
+\end{itemize}
+
+\section*{fANOVA Brainstorming Questions}
+
+\subsection*{What happens if...?}
+\begin{itemize}
+    \item What happens if the function \( f \) is linear in all its variables? What do the fANOVA terms look like in that case?
+    \item What happens if some variables are independent? Do any Sobol’ terms vanish automatically?
+    \item What happens if you permute the inputs? Do the Sobol’ indices change?
+    \item What happens if two variables are strongly collinear? How does that affect the interpretability of fANOVA?
+\end{itemize}
+
+\subsection*{Why is...?}
+\begin{itemize}
+    \item Why is orthogonality (zero mean and mutual independence of components) important in fANOVA?
+    \item Why is the constant term \( f_0 \) equal to the expected value of \( f \)?
+    \item Why is fANOVA usually associated with variance-based methods like Sobol indices?
+    \item Why is it necessary to subtract lower-order terms when computing higher-order ones?
+    \item Why is the decomposition hierarchical?
+\end{itemize}
+
+\subsection*{Is it possible to...?}
+\begin{itemize}
+    \item Is it possible to compute fANOVA in closed form for certain functions (e.g., polynomials)?
+    \item Is it possible to use fANOVA in models where inputs are dependent?
+    \item Is it possible to extend fANOVA to time-series models or dynamic systems?
+    \item Is it possible to use fANOVA ideas in neural networks? How would you interpret interactions then?
+\end{itemize}
+
+\subsection*{What does this remind you of? (Analogies and Parallels)}
+\begin{itemize}
+    \item fANOVA reminds me of \emph{Fourier decomposition}: projecting a function onto orthogonal basis functions.
+    \item It feels similar to \emph{PCA}, but in the input space instead of the output space.
+    \item fANOVA terms are like \emph{partial derivatives} in symbolic differentiation — quantifying localized influence.
+    \item It’s analogous to \emph{ANOVA in statistics}, but instead of experimental groups, you decompose function behavior.
+    \item In machine learning, it reminds me of \emph{feature importance} in random forests or \emph{Shapley values}.
+    \item fANOVA’s additive structure is similar to \emph{GAMs (Generalized Additive Models)}.
+\end{itemize}
+
+\subsection*{How does fANOVA compare to...?}
+\begin{itemize}
+    \item How does fANOVA compare to Shapley values? (Shapley is axiomatic, fANOVA is Hilbert space projection-based.)
+    \item How does fANOVA compare to LIME/SHAP in interpretability?
+    \item How does fANOVA compare to gradient-based sensitivity methods?
+    \item How does fANOVA compare to partial dependence plots?
+    \item How does fANOVA compare to mutual information as a dependence measure?
 \end{itemize}

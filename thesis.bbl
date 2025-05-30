@@ -36,6 +36,11 @@ Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0047259X25000399}
 
+\harvarditem[Muehlenstaedt et~al.]{Muehlenstaedt, Roustant, Carraro \harvardand\ Kuhnt}{2012}{muehlenstaedt2012}
+Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyearleft 2012\harvardyearright .
+\newblock Data-driven {Kriging} models based on {FANOVA}-decomposition, {\em Statistics and Computing} {\bf 22}(3):~723--738.
+\newline\harvardurl{http://link.springer.com/10.1007/s11222-011-9259-7}
+
 \harvarditem{Sobol}{2001}{sobol2001}
 Sobol, I.  \harvardyearleft 2001\harvardyearright .
 \newblock Global sensitivity indices for nonlinear mathematical models and their {Monte} {Carlo} estimates, {\em Mathematics and Computers in Simulation} {\bf 55}(1-3):~271--280.

@@ -99,7 +99,7 @@ Now the paper goes deeper into the theory where multivariate terms are also cons
 \subsection{Formal Introduction to fANOVA}
 
 \subsubsection*{fANOVA decomposition}
-This chapter is based on the formal introductions by \cite{sobol1993sensitivity, sobol2001, hooker2004}, Owen.
+This chapter is based on the formal introductions by \cite{sobol1993sensitivity, sobol2001, hooker2004}, Owen, \cite{muehlenstaedt2012}. Where suitable we show both formulations of the fANOVA, via the integral and via the expected value.
 For now, we assume that $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ and work in the measure space $(X, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1])^n, \lambda_{n})$. $\mathcal{B}([0, 1])^n$ is the Borel $\sigma$-Algebra on the unit interval (wrong formulation, how is the correct definition?) and $\lambda_{n}$ is the n-dimensional Lebesgue measure. 
 The general inner product and norm we defined earlier simplify under these assumptions.\par
 The inner product under uniform distribution assumption:
@@ -111,9 +111,9 @@ The norm under uniform distribution assumption:
 \|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d(x)} \quad \forall f \in \mathcal{L}^2
 \]
 Some more notation: $i_1, \dots , i_s$ is a set of indices.\par
-\textbf{Definition.} Let $y(x)$  be a mathematical model with input $X_i$ as described above. We can represent such a model $y$ as a sum of specific basis functions
+\textbf{Definition.} Let $f(x)$  be a mathematical model with input $X_i$ as described above. We can represent such a model $f$ as a sum of specific basis functions
 \begin{equation}
-    y(x) = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
+    f(x) = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
     \label{eq:fanova_decomposition}
 \end{equation}
 
@@ -135,22 +135,25 @@ In combination with \autoref{eq:zero_mean_condition}  \cite{sobol1993sensitivity
 The single terms that make up \autoref{eq:fanova_decomposition} are defined as follows.
 To get the constant term, we take the integral of $f$ w.r.t. all variables:
 \begin{equation}
-    f_{0}(x) = \int_{[0, 1]^n} f(x) d\nu(x) = \mathbb{E}[y(x)]
+    f_{0}(x) = \int_{[0, 1]^n} f(x) d\nu(x) = \mathbb{E}[f(X)]
     \label{eq:intercapt}
 \end{equation}
 We see that $f_0$ is the overall mean of the function and serves as a baseline. Next, we take the integral of $y$ w.r.t. all variables except for $x_i$. This represents $f$ as the sum of the constant term the isolated effect of one variable $x_i$ (main effect of $x_i$).
 \begin{equation}
-    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} \nu (d_{x_{k}}) = g_i(x_i)
+    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} \nu (d_{x_{k}}) = \mathbb{E}[f(X) | X_i = x_i]
     \label{eq:main_effect}
 \end{equation}
 Following the same principle, we can take the integral of $f$ w.r.t. all variables except for $x_i$ and $x_j$. With this we capture everything up to the interaction effect of $x_i$ and $x_j$:
 \begin{equation}
-    f_0 + f_i(x_i) + f_j(x_j) + f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} \nu(d_{x_{k}}) = g_{ij}(x_i, x_j)
+    f_0 + f_i(x_i) + f_j(x_j) + f_{ij}(x_i,x_j) = \int f(x) \prod_{k \neq i,j} \nu(d_{x_{k}}) = \mathbb{E}[f(X) | X_i = x_i, X_j = x_j]
     \label{eq:interaction_effects}
 \end{equation}
-And so on, up to the n-way interaction of all $x_1, \dots, x_n$.\par
-
-To actually compute the fANOVA decomposition for $f$, it is clearer to rearrange terms. When we rearrange \autoref{eq:main_effect} we get that the main effect of $x_i$ is calculated by taking the marginal effect while explicitly accounting for what was already explained by lower terms, in this case the intercept. 
+Generally, we can write:
+\begin{equation}
+    f_u(x_u) = \int f(x) \prod_{k \notin u} \nu(d_{x_{k}}) = \mathbb{E}[f(X) | X_u = x_u]
+    \label{eq:fanova_component}
+\end{equation}
+With these definitions we build up the fANOVA decomposition in a cumulative way. To actually see the fANOVA terms defined in isolation, it is clearer to rearrange terms. When we rearrange \autoref{eq:main_effect} we get that the main effect of $x_i$ is calculated by taking the marginal effect while explicitly accounting for what was already explained by lower terms, in this case the intercept. 
 \begin{equation}
     f_i(x_i) = \int f(x) \prod_{k \neq i} \nu(d_{x_{k}}) - f_0
     \label{eq:main_effect_rearranged}
@@ -287,23 +290,23 @@ $f_0$ is the projections of the original function $f$ onto the space of all cons
 \begin{align*}
     \Pi_{\mathcal{G}_0}(f) 
     &= \arg \min_{g \in \mathcal{G}_0} \|f(x) - g\|^2 \\
-    &= \mathbb{E}[\|f(x) - g\|^2] \\
-    &= \mathbb{E}[f(x)]
+    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[\|f(x) - g\|^2] \\
+    &= \mathbb{E}[f(X)]
 \end{align*}
 The main effect $f_i(x_i)$ is the projection of $f$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
 \begin{align*}
     \Pi_{\mathcal{G}_i}(f) - f_0
     &= \arg \min_{g \in \mathcal{G}_i} \|f(x) - g(x_i)\|^2 - f_0\\
-    &= \mathbb{E}_{-x_i}[\|f(x) - g(x_i)\|^2] - \mathbb{E}[f(x)] \\
-    &= \mathbb{E}_{-x_i}[f(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[f(x)]
+    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}_{-x_i}[\|f(x) - g(x_i)\|^2] - \mathbb{E}[f(x)] \\
+    &= \mathbb{E}_{-x_i}[f(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[f(X)]
 \end{align*}
 
 The two-way interaction effect $f_{ij}(x_i,x_j)$ is the projection of $f$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
     \Pi_{\mathcal{G}_{ij}}(f) - f_0 - f_1(x_i) - \dots
     &= \arg \min_{g \in \mathcal{G}_{ij}} \|f(x) - g(x_i, x_j)\|^2 - f_0 - f_1(x_i) - \dots \\
-    &= \mathbb{E}_{-x_i, -x_j}[\|f(x) - g(x_i, x_j)\|^2] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]\\
-    &= \mathbb{E}_{-x_i, -x_j}[f(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]
+    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}_{-x_i, -x_j}[\|f(x) - g(x_i, x_j)\|^2] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]\\
+    &= \mathbb{E}_{-x_i, -x_j}[f(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(X)]
 \end{align*}
 {\color{blue}I think the last inequality in each definition is not directly visible, would need to be shown?}
 
