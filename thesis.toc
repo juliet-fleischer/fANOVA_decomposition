@@ -1,9 +1,9 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}General Definitions}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}$\mathcal {L}_2$ space}{4}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Foundations}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Early Work on fANOVA}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Modern Work on fANOVA}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {3}Foundations}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Early Work on fANOVA}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Modern Work on fANOVA}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Formal Introduction to fANOVA}{7}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Generalization}{14}{section.4}%
 \contentsline {section}{\numberline {5}Method Comparison}{16}{section.5}%

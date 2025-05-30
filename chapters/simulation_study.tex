@@ -1,0 +1,37 @@
+% -----------------------------
+% fANOVA Simulation Study Notes
+% -----------------------------
+% Baseline:
+% Simple additive model with 1 interaction: f(x1, x2) = x1 + x2 + 0.5 * x1 * x2
+% Inputs: x1, x2 ~ U(0,1), independent
+
+% Simulation variants:
+% 1. Input Distributions:
+%    - Normal, exponential, log-normal, beta, Poisson, bimodal
+% 2. Correlation:
+%    - Use Gaussian copula to vary correlation (ρ ∈ [0, 0.9])
+% 3. Functional Forms:
+%    - Quadratic, exponential, sinusoidal, threshold (e.g. step/ReLU)
+% 4. Noise:
+%    - Add Gaussian noise ε ~ N(0, σ²), vary σ²
+% 5. High-dimensional additive models:
+%    - f(x) = x1 + x2² + log(x3+1) + sin(x4) with no interaction
+% 6. Sparse interactions in many variables:
+%    - Only a few interaction terms (e.g. x1*x2), rest irrelevant
+% 7. Model misfit:
+%    - Use approximate models (e.g., linear regressor on nonlinear function)
+% 8. Compare with PDP and ALE:
+%    - Use PDP/ALE for 1D/2D plots; explore where fANOVA gives better variance attribution
+
+% Visualization:
+% - Bar plots: variance shares per term
+% - Line plots: interaction strength vs. correlation
+% - Heatmaps: pairwise interaction strengths
+% - Surface plots: function + components
+% - Comparison: true vs estimated decomposition
+
+% Design tips:
+% - Use known ground truth
+% - Fix seeds for repeatability
+% - Use both analytic and model-based fANOVA
+% -----------------------------

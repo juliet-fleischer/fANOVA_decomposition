@@ -1,6 +1,10 @@
-% Prerequesites: L2 space, inner product, orthogonal projections, integrals
+% Prerequesites:
+% L2 space, Hilbert space
+% inner product, norm
+% orthogonal projections
+% expected value, conditional expected value
 \subsection{$\mathcal{L}_2$ space}
-Let $(X, \mathcal{F}, \nu)$ be a measure space, where $X$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra for $X$ and $\nu$ is a general measure. Then the space of all square-integrable functions is given by
+Let $(X, \mathcal{F}, \nu)$ be a measure space, where $X$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra for $X$ and $\nu$ is a general measure. Then the vector space of all square-integrable functions is given by
 \[
 \mathcal{L}^2(X, \mathcal{F}, \nu) = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
 = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
@@ -8,22 +12,27 @@ Let $(X, \mathcal{F}, \nu)$ be a measure space, where $X$ is a sample space, $\m
 
 $\mathcal{L}^2$ is a Hilbert space with the inner product defined as
 \[
-\langle f, g \rangle = \int f(x) g(x) \, d\nu(x) \quad \forall f, g \in \mathcal{L}^2
+\langle f, g \rangle = \int f(x) g(x) \, d\nu(x) = \mathbb{E}[fg] \quad \forall f, g \in \mathcal{L}^2
 \]
 The norm is then defined as
 \[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\nu(x)} \quad \forall f \in \mathcal{L}^2
+\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\nu(x)} = \mathbb{E}[f^2] \quad \forall f \in \mathcal{L}^2
 \]
 
 {\color{blue} Which resource should I cite for these ``general'' definitions? e.g. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
-\subsubsection*{(Conditional) expected value and orthogonal projection}
-Given a measure space $(X, \mathcal{F}, \nu)$, the expected value of a random variable $X$ is defined as:
+\subsubsection*{Orthogonal projection}
+$\mathcal{G} \subset \mathcal{L}^2$ denotes a linear subspace. The projection of $f$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}f$ which minimizes the distance to $f$ in $\mathcal{L}^2$.
 \[
-\mathbb{E}[X] = \int_X X \, d\nu
+\Pi_{\mathcal{G}}f = \arg\min_{g \in \mathcal{G}} \int \|f - g\|^2 \, d\nu
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(f - g)^2]
 \]
-The conditional expected value of a random variable $X$ conditioned on information only present in $\mathcal{G} \subseteq \mathcal{F}$ is defined as the orthogonal projection of $X$ onto the subspace $\mathcal{G}$:
-\[
-\Pi_{\mathcal{G}}(f) = \arg\min_{g \in \mathcal{G}} \int_X (X - g)^2 \, d\nu
-= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(X - g)^2] = \mathbb{E}[X | \mathcal{G}]
-\]
+
+Definition of $\mathcal{L}^2$ space and projection modified from \href{https://tnagler.github.io/mathstat-lmu-2024.pdf}{https://tnagler.github.io/mathstat-lmu-2024.pdf}.
+
+it is yet another step to show that the solution to the arg min problem is an expected value? Depending on what functions exactly are in the subspace G it is the expected value of the function f or the conditional expected value
+identification of the orthogonal projection in $\mathcal{L}^2$ with the conditional expectation is a well established result in probability theory according to GPT - find official sources.
+Maybe good resource:\href{https://www.stat.berkeley.edu/~pitman/s205f02/lecture15.pdf?utm_source=chatgpt.com}{Berkely lecture notes}
+
+
+% conditional expectation defined via integral conditioned on certain value/ partial integral
