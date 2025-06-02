@@ -24,15 +24,11 @@ The norm is then defined as
 \subsubsection*{Orthogonal projection}
 $\mathcal{G} \subset \mathcal{L}^2$ denotes a linear subspace. The projection of $f$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}f$ which minimizes the distance to $f$ in $\mathcal{L}^2$.
 \[
-\Pi_{\mathcal{G}}f = \arg\min_{g \in \mathcal{G}} \int \|f - g\|^2 \, d\nu
+\Pi_{\mathcal{G}}f = \arg\min_{g \in \mathcal{G}} \|f - g\|^2 \, d\nu
 = \arg\min_{g \in \mathcal{G}} \mathbb{E}[(f - g)^2]
 \]
 
+{\color{blue}I think this is closely related to Hilbert projection theorem?}\par
 Definition of $\mathcal{L}^2$ space and projection modified from \href{https://tnagler.github.io/mathstat-lmu-2024.pdf}{https://tnagler.github.io/mathstat-lmu-2024.pdf}.
-
-it is yet another step to show that the solution to the arg min problem is an expected value? Depending on what functions exactly are in the subspace G it is the expected value of the function f or the conditional expected value
-identification of the orthogonal projection in $\mathcal{L}^2$ with the conditional expectation is a well established result in probability theory according to GPT - find official sources.
-Maybe good resource:\href{https://www.stat.berkeley.edu/~pitman/s205f02/lecture15.pdf?utm_source=chatgpt.com}{Berkely lecture notes}
-
 
 % conditional expectation defined via integral conditioned on certain value/ partial integral

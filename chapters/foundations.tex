@@ -315,35 +315,37 @@ Notice that we used the independence assumption and the zero-mean constraint aga
 % which is equivalent to 
 
 \subsubsection*{fANOVA as projection}
-Referring to the general connection between the expected value and orthogonal projections presented in section ~\ref{general_definitions}, the fANOVA terms can also be understood from this view, which will help to understand the generalization of fANOVA in section ~\ref{generalization}.\par
+Referring to the general connection between the expected value and orthogonal projections presented in section~\ref{general_definitions}, the fANOVA terms can also be understood from a viewpoint of projections. This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
 
-$f_0$ is the projections of the original function $f$ onto the space of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. It is an unconditional expected value and the best approximation of $f$ given my a constant function:
+$f_0$ is the projections of the original function $f$ onto the space of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. It is an unconditional expected value and the best approximation of $f$ given a constant function:
 \begin{align*}
-    \Pi_{\mathcal{G}_0}(f) 
+    \Pi_{\mathcal{G}_0}f
     &= \arg \min_{g \in \mathcal{G}_0} \|f(x) - g\|^2 \\
     &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[\|f(x) - g\|^2] \\
     &= \mathbb{E}[f(X)]
 \end{align*}
 The main effect $f_i(x_i)$ is the projection of $f$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
 \begin{align*}
-    \Pi_{\mathcal{G}_i}(f) - f_0
+    \Pi_{\mathcal{G}_i}f - f_0
     &= \arg \min_{g \in \mathcal{G}_i} \|f(x) - g(x_i)\|^2 - f_0\\
-    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}_{-x_i}[\|f(x) - g(x_i)\|^2] - \mathbb{E}[f(x)] \\
+    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}_{-x_i}[\|f(x) - g(x_i)\|^2] - \mathbb{E}[f(x)] \\
     &= \mathbb{E}_{-x_i}[f(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[f(X)]
 \end{align*}
 
 The two-way interaction effect $f_{ij}(x_i,x_j)$ is the projection of $f$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    \Pi_{\mathcal{G}_{ij}}(f) - f_0 - f_1(x_i) - \dots
+    \Pi_{\mathcal{G}_{ij}}f - f_0 - f_1(x_i) - \dots
     &= \arg \min_{g \in \mathcal{G}_{ij}} \|f(x) - g(x_i, x_j)\|^2 - f_0 - f_1(x_i) - \dots \\
-    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}_{-x_i, -x_j}[\|f(x) - g(x_i, x_j)\|^2] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]\\
+    &= \arg \min_{g \in \mathcal{G}_{ij}} \mathbb{E}_{-x_i, -x_j}[\|f(x) - g(x_i, x_j)\|^2] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]\\
     &= \mathbb{E}_{-x_i, -x_j}[f(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(X)]
 \end{align*}
-{\color{blue}I think the last inequality in each definition is not directly visible, would need to be shown?}
+{\color{blue}I think Hilbert space theorem tells us that the orthogonal projection minimizes the squared difference in a Hilbert space?
+So the projection is the solution to the minimization problem that wants to minimize the squared differences between two elements of the vector space.
+This would be the first equality. The last equality that the solution is equal to the (conditional) expected value also has to be shown, still have to look which theorem this is proven by.}
 
 In general, general we can write:
 \begin{equation}
-    f_u(x) = \Pi_{\mathcal{G}_u}(f) - \sum_{v \subsetneq u} f_v(x)
+    f_u(x) = \Pi_{\mathcal{G}_u}f - \sum_{v \subsetneq u} f_v(x)
 \end{equation}
 We project $f$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
 

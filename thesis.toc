@@ -5,9 +5,11 @@
 \contentsline {subsection}{\numberline {3.1}Early Work on fANOVA}{7}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Modern Work on fANOVA}{9}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Formal Introduction to fANOVA}{9}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Generalization}{16}{section.4}%
-\contentsline {section}{\numberline {5}Method Comparison}{18}{section.5}%
-\contentsline {subsection}{\numberline {5.1}fANOVA and Shapley values}{18}{subsection.5.1}%
-\contentsline {section}{\numberline {6}Conclusion}{18}{section.6}%
+\contentsline {section}{\numberline {4}Generalization}{17}{section.4}%
+\contentsline {section}{\numberline {5}Simulation Study}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Software implementations}{19}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Method Comparison}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}fANOVA and Shapley values}{20}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Conclusion}{20}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%

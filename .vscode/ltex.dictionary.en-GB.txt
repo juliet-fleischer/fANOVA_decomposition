@@ -1,2 +1,3 @@
 fANOVA
 Hoeffding
+kriging

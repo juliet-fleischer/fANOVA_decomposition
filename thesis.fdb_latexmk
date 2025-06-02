@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex thesis"] 1748861112 "thesis.aux" "thesis.bbl" "thesis" 1748861179 0
+["bibtex thesis"] 1748893894 "thesis.aux" "thesis.bbl" "thesis" 1748895238 0
   "./bibliography_2.bib" 1747902822 249184 6cb1e08fd0fad674893cc681e78d63f6 ""
   "./bibliography_manual.bib" 1747658239 986 150f2ee2cbb93e8f9c4ceb80f6ae9cef ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/harvard/dcu.bst" 1233413381 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1748861178 5656 e4724c63b139335d8968fc5529adbe3d "pdflatex"
+  "thesis.aux" 1748895237 5985 2ff00250d9656e1adf73441cb468f190 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1748861173 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1748861179 0
-  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1748448769 5489 af92a5ddd53db210ea77fb8499baa1d0 ""
+["pdflatex"] 1748895234 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1748895238 0
+  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1748893890 5596 7d2897719833efbdfd7ab4add726be7b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -134,17 +134,18 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "chapters/appendix.tex" 1745328355 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "chapters/definitions_general.tex" 1748595833 2316 392182e4c09f7b48acb55fe837056ada ""
-  "chapters/foundations.tex" 1748861172 26854 c6c74a00784c789f03564717d814d41c ""
-  "chapters/generalized_fANOVA.tex" 1748504191 5426 8b729dd910e2a1a74b135a73004e407e ""
+  "chapters/definitions_general.tex" 1748893337 1839 f47d611880ce3c320370e18119c71829 ""
+  "chapters/foundations.tex" 1748893460 27231 22e71de06f6948ec44a2597612a7c8d8 ""
+  "chapters/generalized_fANOVA.tex" 1748895137 5424 b642e72519b2cf0495434a90c7c8a294 ""
   "chapters/iml_methods.tex" 1747902823 507 2289b20c63b245f5a5abd0e2549a3d26 ""
-  "chapters/introduction.tex" 1748600818 9536 b43ccdf741eff1aa2ff9234592d4439b ""
+  "chapters/introduction.tex" 1748895234 8904 d96f369e85404fbf878c4a99de1c7bdd ""
+  "chapters/simulation_study.tex" 1748895137 2092 a48358d6638e4e3a9d2c1b8c1824e9e0 ""
   "sigillum.png" 1745325080 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "thesis.aux" 1748861178 5656 e4724c63b139335d8968fc5529adbe3d "pdflatex"
-  "thesis.bbl" 1748861113 4383 5000de9f1933bf3e153a43c121046be2 "bibtex thesis"
-  "thesis.out" 1748861178 1748 eb072ffa55716766cc5db691bd66fcfe "pdflatex"
-  "thesis.tex" 1748448769 5489 af92a5ddd53db210ea77fb8499baa1d0 ""
-  "thesis.toc" 1748861178 1012 1249d65bc990ea7ba12747bc31ba44d8 "pdflatex"
+  "thesis.aux" 1748895237 5985 2ff00250d9656e1adf73441cb468f190 "pdflatex"
+  "thesis.bbl" 1748893894 4383 5000de9f1933bf3e153a43c121046be2 "bibtex thesis"
+  "thesis.out" 1748895237 2056 40f99f0d378c3abfcaab5c439c1d57c7 "pdflatex"
+  "thesis.tex" 1748893890 5596 7d2897719833efbdfd7ab4add726be7b ""
+  "thesis.toc" 1748895237 1176 399cae4661b46b101eaa22029f81a6f0 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"

@@ -1,6 +1,6 @@
 % setup
 % space we live in, functions we deal with
-The chapter is based on \cite{hooker2007}. We want to let go of two key assumptions of the classical fANOVA decomposition (as introduced by \cite{sobol1993sensitivity}): We widen the input domain to the reel number line, i.e. we now allow for the measure space $(X, \mathcal{F}, \nu) = (\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$. This goes hand in hand with dropping the assumption about the uniform distribution of the $X_i$. Further, we investigate what happens when the variables are no longer independent of each other.\par
+The chapter is based on \cite{hooker2007}. We want to let go of two key assumptions of the classical fANOVA decomposition (as introduced by \cite{sobol1993sensitivity}): We widen the input domain to the multidimensional reel number line, i.e. we now work in the measure space $(X, \mathcal{F}, \nu) = (\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$. This goes hand in hand with dropping the assumption about the uniform distribution of the $X_i$. Further, we investigate what happens when the variables are no longer independent of each other.\par
 The inner product on $\mathcal{L}^2(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), dw(x))$ is now defined more generally as the integral of a weighted product:
 \[
 \langle f, g \rangle = \int f(x) g(x) \, d\nu(x) \quad \forall f, g \in \mathcal{L}^2 \quad \text{with} \quad \nu(dx) = w(x)dx
@@ -15,10 +15,10 @@ The general definition of the function $f(x)$ as a weighted sum stays the same (
 \begin{equation}
 \left\{ f_u(x_u) \,\middle|\, u \subseteq d \right\}
 = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
-\int \left( \sum_{u \subseteq d} g_u(x_u) - F(x) \right)^2 w(x) \, dx
+\int \left( \sum_{u \subseteq d} g_u(x_u) - f(x) \right)^2 w(x) \, dx
 \label{eq:fanova_decomposition_generalized}
 \end{equation}
-There is a key difference to the classical definition: All the components are defined simultaneously via the orthogonal projections of the original function $f(x)$. This means the components $f_u$ are a set of functions that jointly minimize the weighted squared difference to the original function $f(x)$ and fulfil the generalized zero-mean constraint and hierarchical orthogonality (both defined in the following). A natural choice for the weights is the probability distribution/ density of the $x_i$ \citep{hooker2007}.\par
+There is a key difference to the classical definition: All the components are defined simultaneously via the orthogonal projections of the original function $f(x)$. This means the components $f_u$ are a set of functions that jointly minimize the weighted squared difference to the original function $f(x)$ and fulfil the generalized zero-mean constraint and hierarchical orthogonality (both defined in the following). A natural choice for the weights $w(x)$ is the probability distribution of the $x_i$ \citep{hooker2007}.\par
 
 We require the fANOVA terms to be centred around the grand mean, in the same way as we did for the classical approach.
 \cite{hooker2007} formulates this in a generalized zero-mean condition for dependent variables:
@@ -27,7 +27,7 @@ We require the fANOVA terms to be centred around the grand mean, in the same way
 \int f_u(x_u)\, w(x)\, dx_i\, dx_{-u} = 0
 \label{eq:zero_mean_condition_generalized}
 \end{equation}
-{\color{blue}What is the conceptual difference here? How can I explain the difference in word?}
+% {\color{blue}What is the conceptual difference here? How can I explain the difference in word?}
 
 % orthogonality
 Orthogonality of the fANOVA terms plays and important role. It ensures that they represent isolated effects which makes the interpretation of fANOVA so useful in practice.
@@ -37,7 +37,7 @@ In contrast to the classical fANOVA, we set a hierarchical orthogonality constra
 \int f_u(x_u)\ g_v(x_v) w(x)\ dx = 0
 \label{eq:orthogonality_generalized}
 \end{equation}
-{\color{blue} I am always puzzled by this definition because v could theoretically be equal to u which would require the function to be orthogonal to itself (doesn't make sense). But wanting this for all functions g somehow changes something, but I am not super clear why. Would it be correct to write:}
+{\color{blue} I am always puzzled by this definition because $v$ could theoretically be equal to $u$ which would require the function to be orthogonal to itself. But wanting this for all functions g somehow changes something, but I am not super clear why. Would it be correct to write:}
 \begin{equation}
 \forall v \subset u :\quad 
 \int f_u(x_u)\ g_v(x_v) w(x)\ dx = 0

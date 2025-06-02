@@ -1,19 +1,17 @@
-The mathematics of cooperation and attribution.
+% The mathematics of cooperation and attribution.
 
 
 \subsection*{Questions}
 \begin{itemize}
-    \item Imagine someone gives you only the fANOVA terms of a function, but not the function itself. Could you reconstruct it? Under what conditions would this reconstruction be exact? I think it can be reconstructed only if variables are independent, have zero-mean, are orthogonal?
-    \item Is it possible to perform fANOVA for non-square-integrable functions? I think in general yes but the variance decomposition doesn't work then.
-    \item fANOVA decomposition for discrete variables possible?
+    \item Can you reconstruct the function from only the fANOVA terms? I think it can be reconstructed only if variables are independent, have zero-mean, are orthogonal?
+    \item Is it possible to perform fANOVA for non-square-integrable functions? I think in general yes but the variance decomposition doesn't work then or might have problems.
+    \item fANOVA decomposition for discrete variables possible? Does it make sense even?
     \item Denote original model with $y$ or $f$?
-    \item I have to clarify something about notation from the first sobol paper about fANOVA decomposition. the original model to be decomposed is given by f. the single fANOVA terms are given by $f_1, f_2, f_1,2$ and so on, so small f with indices, arent they? And then he somhow introduced additional notation, functions g with indices, but aren't they the same as the fANOVA components? 
-    \item Is there now a connection between projection and expected value? Because I thought we can write: fANOVA term $g_u = \text{projection of f onto subspace} - \text{lower order terms} = \text{conditional expected value} - \text{lower order terms}$
-    \item Need a citation to write the (conditional) expected value as (partial) integral?
-    \item In the hierarchical orthogonality condition (4.2) formulated in \cite{hooker2007} for the gerneralized fAVNOA framework, shouldn't we explicitly exclude the case that $v = u$, because then, we would require that the inner product of the fANOVA component is zero wouldn't we?
-    \item Why is it a problem, when explainability methods also place large emphasis on regions of low probability mass when dependencies between variables exist - because in the end explainability is about explaining the model, not the data generating process; and after all it is how the model works in these regions (it might inhibit artefacts and weird behaviour because there was to little data for good model fit in the regions but still that's how the specific model works) 
+    \item Connection between the (conditional) expected value, (partial) integral, projections (section~\ref{general_definitions})?
+    \item In the hierarchical orthogonality condition (4.2) formulated in \cite{hooker2007} for the gerneralized fAVNOA framework, shouldn't we explicitly exclude the case that $v = u$, because then, we would require that the inner product of the fANOVA component is zero wouldn't we (section~\ref{generalization})?
     \item \cite{hooker2007} what should the conditional expectation (dotted line) in Figure 2 show? How should it look like for the true data generating process?
     \item If the general fANOVA formulation is a true generalization then I should be able to take the general form and construct from it the simple form when I use certain constrains (such as independence, uniform distribution, etc.) right?
+    \item \item Why is it a problem, when explainability methods also place large emphasis on regions of low probability mass when dependencies between variables exist - because in the end explainability is about explaining the model, not the data generating process; and after all it is how the model works in these regions (it might inhibit artefacts and weird behaviour because there was to little data for good model fit in the regions but still that's how the specific model works) 
     \item 
     \item Use of AI tools?
     \item Do we need to restrict ourselves to the unit hypercube? Or does fANOVA decomposition work in general, but maybe with some constraints? Originally it was constructed for models on the unit hypercube $[0,1]$, but other papers also use models from $R^d$ \textit{Generally no restriction, so next step could be to generalize, to $\mathbb{R}^n$, other measures, dependent variables}
