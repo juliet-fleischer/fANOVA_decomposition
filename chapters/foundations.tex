@@ -120,7 +120,7 @@ The norm under uniform distribution assumption:
 To ensure identifiability and interpretation, we set the zero-mean constraint. It requires that all effects, except for the constant terms, are centred around zero.
 Mathematically this means that the effects integrate to zero w.r.t. their own variables:
 \begin{equation}
-    \int_{0}^{1} f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, d\nu (x_k) = 0 \quad \forall k = i_1, ...., i_s
+    \int f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, d\nu (x_k) = 0 \quad \forall k = i_1, ...., i_s
     \label{eq:zero_mean_condition}
 \end{equation}
 In combination with the zero-mean constraint (\autoref{eq:zero_mean_condition}),  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker2004}.\par
@@ -136,7 +136,7 @@ In combination with the zero-mean constraint (\autoref{eq:zero_mean_condition}),
 The individual terms that make up \autoref{eq:fanova_decomposition} are defined in the following.
 To get the constant term, we take the integral of $f$ w.r.t. all variables:
 \begin{equation}
-    f_{0}(x) = \int_{[0, 1]^n} f(x) d\nu(x) = \mathbb{E}[f(X)]
+    f_{0}(x) = \int f(x) d\nu(x) = \mathbb{E}[f(X)]
     \label{eq:intercapt}
 \end{equation}
 The constant term $f_0$ captures the overall mean of $f$ and serves as a baseline. Since the the remaining effects are centred around zero, they quantify the deviation from the overall mean.  Next, we take the integral of $y$ w.r.t. all variables except for $x_i$. This represents $f$ as the sum of the constant term and the isolated effect of one variable $x_i$ (main effect of $x_i$). This partial integral is equivalent to the expected value conditioned on the variable of interest $x_i$.

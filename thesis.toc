@@ -11,5 +11,6 @@
 \contentsline {section}{\numberline {6}Method Comparison}{20}{section.6}%
 \contentsline {subsection}{\numberline {6.1}fANOVA and Shapley values}{20}{subsection.6.1}%
 \contentsline {section}{\numberline {7}Conclusion}{20}{section.7}%
+\contentsline {section}{\numberline {8}Mathematical Statements}{20}{section.8}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
