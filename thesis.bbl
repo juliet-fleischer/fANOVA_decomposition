@@ -4,6 +4,12 @@
 Efron, B. \harvardand\ Stein, C.  \harvardyearleft 1981\harvardyearright .
 \newblock The {Jackknife} {Estimate} of {Variance},  {\bf The Annals of Statistic}(Vol. 9, No. 3):~pp. 586--596.
 
+\harvarditem{Friedman}{2001}{friedman2001}
+Friedman, J.~H.  \harvardyearleft 2001\harvardyearright .
+\newblock Greedy function approximation: {A} gradient boosting machine., {\em The Annals of Statistics} {\bf 29}(5):~1189--1232.
+\newblock Publisher: Institute of Mathematical Statistics.
+\newline\harvardurl{https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-5/Greedy-function-approximation-A-gradient-boosting-machine/10.1214/aos/1013203451.full}
+
 \harvarditem[Fumagalli et~al.]{Fumagalli, Muschalik, Hüllermeier, Hammer \harvardand\ Herbinger}{2025}{fumagalli2025}
 Fumagalli, F., Muschalik, M., Hüllermeier, E., Hammer, B. \harvardand\ Herbinger, J.  \harvardyearleft 2025\harvardyearright .
 \newblock Unifying {Feature}-{Based} {Explanations} with {Functional} {ANOVA} and {Cooperative} {Game} {Theory}.
@@ -31,10 +37,21 @@ Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0047259X25000399}
 
+\harvarditem{Liu \harvardand\ Owen}{2006}{liu2006}
+Liu, R. \harvardand\ Owen, A.~B.  \harvardyearleft 2006\harvardyearright .
+\newblock Estimating {Mean} {Dimensionality} of {Analysis} of {Variance} {Decompositions}, {\em Journal of the American Statistical Association} {\bf 101}(474):~712--721.
+\newline\harvardurl{https://www.tandfonline.com/doi/full/10.1198/016214505000001410}
+
 \harvarditem[Muehlenstaedt et~al.]{Muehlenstaedt, Roustant, Carraro \harvardand\ Kuhnt}{2012}{muehlenstaedt2012}
 Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyearleft 2012\harvardyearright .
 \newblock Data-driven {Kriging} models based on {FANOVA}-decomposition, {\em Statistics and Computing} {\bf 22}(3):~723--738.
 \newline\harvardurl{http://link.springer.com/10.1007/s11222-011-9259-7}
+
+\harvarditem{Owen}{2013}{owen2013}
+Owen, A.~B.  \harvardyearleft 2013\harvardyearright .
+\newblock Variance components and generalized sobol' indices, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 1}(1):~19--41.
+\newblock tex.eprint: https://doi.org/10.1137/120876782.
+\newline\harvardurl{https://doi.org/10.1137/120876782}
 
 \harvarditem{Sobol}{2001}{sobol2001}
 Sobol, I.  \harvardyearleft 2001\harvardyearright .
