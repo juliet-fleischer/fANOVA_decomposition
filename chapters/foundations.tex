@@ -96,7 +96,12 @@ This means we subtract all lower-order terms from the original function $f$ and 
 The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
 \subsubsection*{Example 1}
-Before moving to properties of the fANOVA decomposition, let us introduce a simple function $g$ as running example. It contains a constant term $a$, isolated linear effects of two variables $x_1$ and $x_2$ and their interaction.
+I am still confused if setting the zero-mean constraint for $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ is essentially saying that we centre the distribution and now assume $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[-1, 1]$. 
+So can we, instead of explicitly stating the zero-mean constraint just assume $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[-1, 1]$? And following the same principle we would shift other distributions by altering their parameters, not by explicitly stating the zero-mean constraint? Then for the standard normal distribution we wouldn't need to do anything, it is already centred around 0. For other distributions we would need to change, and for some it doesn't make inhaltlichen Sinn e.g. Poisson distribution?
+
+Before moving to properties of the fANOVA decomposition, let us look at some examples.
+First, we look at a simple function, with a constant term $a$, isolated linear effects of two variables $x_1$ and $x_2$ and their interaction.
+We assume that $X_1 \perp X_2$ and no specific distribution for them.
 \[
 g_{1}(x_1, x_2) = a + x_1 + 2x_2 + x_1x_2 \quad \text{for} \quad a, x_1, x_2 \in \mathbb{R}
 \]
@@ -123,7 +128,7 @@ f_{12}(x_1, x_2) &= \mathbb{E}[g_{1}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
 It comes as no surprise that in this simple case the fANOVA decomposition does not provide any additional insights. This is because the model consists of only linear terms, constant terms, and an interaction. We show this simple example nevertheless to illustrate at which step we use which assumption. Understanding this will be relevant for the generalization of the method to dependent inputs later on. Also, it is interesting to compare this example with only linear effects (and an interaction) to the following, which will include a non-linear effect.\par
 
 \subsubsection*{Example 2}
-We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effects. The constant fANOVA term is given by:
+We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effect. We again assume $X_1 \perp X_2$. The constant fANOVA term is given by:
 \begin{align*}
     &f_0 = \mathbb{E}[g_{2}(x_1, x_2)] = \mathbb{E}[a + x_1 + x_{2}^2] = a + \mathbb{E}[X_1] + \mathbb{E}[X_{2}^2] = a + \frac{1}{12} \\
     &\text{This works because we are still in the setting, in which we assume } X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1], \\

@@ -21,6 +21,26 @@ The norm is then defined as
 
 {\color{blue} Which resource should I cite for these ``general'' definitions? e.g. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
 
+
+
+\subsection{Conditional expectation}
+In general, we define the conditional expectation of a vector of random variables $X = X_1, X_2$ as follows:
+\[
+\mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] = \int g(x_1, s_2) \, p_{X_2 \mid X_1}(s_2 \mid x_1) \, ds_2
+\]
+Only when $X_1$ and $X_2$ are independent can we write
+\begin{align*}
+    \mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] = \int g(x_1, s_2) \, p_{X_2 \mid X_1}(s_2 \mid x_1) \, ds_2 = \int g(x_1, s_2) \, p_{X_2}(s_2) \, ds_2 = \mathbb{E}_{X_2}[g(x_1, X_2)]
+\end{align*}
+
+Extended to $n$ random variables it looks as follows. Without loss of generality, we condition on $X_1 = x_1$:
+\begin{align*}
+    \mathbb{E}[g(X_1, \dots, X_n) \mid X_1 = x_1] &= \int g(x_1, s_2, \dots, s_n) \, p_{X_2, \dots, X_n \mid X_1}(s_2, \dots, s_n \mid x_1) \, ds_2 \dots ds_n \\
+    &= \int g(x_1, s_2, \dots, s_n) \, p_{X_2}(s_2, \dots, s_n) \, ds_2 \dots, ds_n \\
+    &= \mathbb{E}_{X_2, \dots, X_n}[g(x_1, X_2, \dots, X_n)]
+\end{align*}
+
+
 \subsubsection*{Orthogonal projection}
 $\mathcal{G} \subset \mathcal{L}^2$ denotes a linear subspace. The projection of $f$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}f$ which minimizes the distance to $f$ in $\mathcal{L}^2$.
 \[

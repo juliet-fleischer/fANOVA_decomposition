@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  4 JUN 2025 12:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  4 JUN 2025 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -451,7 +451,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<sigillum.png, id=60, 2946.00626pt x 2991.175pt>
+<sigillum.png, id=64, 2946.00626pt x 2991.175pt>
 File: sigillum.png Graphic file (type png)
 <use sigillum.png>
 Package pdftex.def Info: sigillum.png  used on input line 81.
@@ -466,13 +466,13 @@ pdfTeX warning: pdflatex (file ./sigillum.png): large interlaced PNG might cause
 \openout4 = `thesis.toc'.
 
  [2] (./chapters/introduction.tex
-<images/hooker_2007_figure2.png, id=98, 684.5575pt x 455.7025pt>
+<images/hooker_2007_figure2.png, id=103, 684.5575pt x 455.7025pt>
 File: images/hooker_2007_figure2.png Graphic file (type png)
 <use images/hooker_2007_figure2.png>
 Package pdftex.def Info: images/hooker_2007_figure2.png  used on input line 6.
 (pdftex.def)             Requested size: 364.19664pt x 242.44597pt.
 
-Overfull \hbox (21.39441pt too wide) in paragraph at lines 13--14
+Overfull \hbox (21.39441pt too wide) in paragraph at lines 15--16
 []\OT1/cmr/m/n/12 Effect of non-linear main ef-fects in clas-si-cal fANOVA (see ``Gen-eral[]fANOVA[]handnote'') 
  []
 
@@ -480,8 +480,8 @@ Overfull \hbox (21.39441pt too wide) in paragraph at lines 13--14
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21     \item I
-                 am a bit confused by Figure 2 in \cite{hooker2007} (see \au... [1{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/hooker_2007_figure2.png>] [2] [3]) [4] (./chapters/definitions_general.tex
+l.19     \item f
+                ANOVA decomposition for discrete variables possible? Does it... [1{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/hooker_2007_figure2.png>] [2] [3]) [4] (./chapters/definitions_general.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 6.
@@ -499,17 +499,22 @@ Overfull \hbox (57.41087pt too wide) in paragraph at lines 22--23
 []\OT1/cmr/m/n/12 Which re-source should I cite for these ``gen-eral'' def-i-ni-tions? e.g. [][]https://apachepersonal.miun.se/ an-
  []
 
-) [5] (./chapters/foundations.tex [6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (33.80397pt too wide) detected at line 217
+
+Overfull \hbox (42.4961pt too wide) detected at line 34
 []
  []
 
-[13] [14]) [15] (./chapters/generalized_fANOVA.tex [16]) [17] (./chapters/simulation_study.tex) [18] (./chapters/proofs.tex
+[5]) [6] (./chapters/foundations.tex [7] [8] [9] [10] [11] [12] [13]
+Overfull \hbox (33.80397pt too wide) detected at line 222
+[]
+ []
+
+[14] [15]) [16] (./chapters/generalized_fANOVA.tex [17]) [18] (./chapters/simulation_study.tex) [19] (./chapters/proofs.tex
 Overfull \hbox (8.21432pt too wide) detected at line 36
 []
  []
 
-) [19] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
+) [20] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
 Underfull \hbox (badness 5446) in paragraph at lines 11--12
 \OT1/cmr/bx/n/12 URL: \OT1/cmr/m/it/12 https://projecteuclid.org/journals/annals-of-statistics/volume- 
  []
@@ -529,21 +534,21 @@ Underfull \hbox (badness 2326) in paragraph at lines 51--54
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D4E3CAA9FA89D81E22C74CDDA54A6AFC;1894.
+(rerunfilecheck)             Checksum: 2703D2885B18B08AEFFD3A9E5D515941;2075.
  ) 
 Here is how much of TeX's memory you used:
- 12523 strings out of 476025
- 197936 string characters out of 5790017
+ 12526 strings out of 476025
+ 197973 string characters out of 5790017
  1868388 words of memory out of 5000000
- 32661 multiletter control sequences out of 15000+600000
+ 32662 multiletter control sequences out of 15000+600000
  525526 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,76p,869b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,76p,882b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (27 pages, 757200 bytes).
+Output written on thesis.pdf (28 pages, 761782 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 354 compressed objects within 4 object streams
- 84 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
