@@ -15,9 +15,9 @@ $\Rightarrow$\textbf{fANOVA and U-statistics}
 
 \subsubsection*{Sobol Indices 1993, 2001}
 \begin{itemize}
-    \item In "Sensitivity Estimates for Nonlinear Mathematical Models" (1993), Sobol first introduces decomposition into summands of different dimensions of a (square) integrable function.
+    \item In ``Sensitivity Estimates for Nonlinear Mathematical Model'' (1993), Sobol first introduces decomposition into summands of different dimensions of a (square) integrable function.
     \item Does not cite Hoeffding nor discuss U-statistics.
-    \item "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates" (2001) builds on his prior work \citep{sobol2001}.
+    \item``Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimate'' (2001) builds on his prior work \citep{sobol2001}.
     \item Math-workings: similar to Hoeffding, involving orthogonal projections, sums, and independent terms.
     \item Sobol focuses on sensitivity analysis for deterministic models, while Hoeffding is concerned with estimates of probabilistic models.
 \end{itemize}
@@ -30,7 +30,7 @@ In the 2001 paper he focuses on illustrating three usecases of the sobol indices
     \item deleting high order members
 \end{itemize}
 For each of the three there are some mathematical statements, sometimes an algorithm or an example.
-$\Rightarrow$\\textbf{fANOVA and sensitivity analysis}
+$\Rightarrow$ \textbf{fANOVA and sensitivity analysis}
 
 \subsubsection*{Efron and Stein (1981)}
 \begin{itemize}
@@ -176,14 +176,14 @@ This means we subtract all lower-order terms from the original function $f$ and 
 
 The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
-\subsubsection*{Example}
+\subsubsection*{Example 1}
 Before moving to properties of the fANOVA decomposition, let us introduce a simple function $g$ as running example. It contains a constant term $a$, isolated linear effects of two variables $x_1$ and $x_2$ and their interaction.
 \[
-g(x_1, x_2) = a + x_1 + 2x_2 + x_1x_2 \quad \text{for} \quad a, x_1, x_2 \in \mathbb{R}
+g_{1}(x_1, x_2) = a + x_1 + 2x_2 + x_1x_2 \quad \text{for} \quad a, x_1, x_2 \in \mathbb{R}
 \]
 Computing the fANOVA decomposition of $g(x_1, x_2)$ by hand, we start with the constant term and make use of formulation via the expected value instead of the integral for notational simplicity:
 \[
-f_0 = \mathbb{E}[g(x_1, x_2)] = \mathbb{E}[a + x_1 + 2x_2 + x_1x_2] = \mathbb{E}[a] + \mathbb{E}[x_1] + 2\mathbb{E}[x_2] + \mathbb{E}[x_1x_2]
+f_0 = \mathbb{E}[g_{1}(x_1, x_2)] = \mathbb{E}[a + x_1 + 2x_2 + x_1x_2] = \mathbb{E}[a] + \mathbb{E}[x_1] + 2\mathbb{E}[x_2] + \mathbb{E}[x_1x_2]
 \]
 Making use of the independence assumption of $x_1$ and $x_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish and we obtain:
 \[
@@ -191,17 +191,47 @@ f_0 = \mathbb{E}[a] + \mathbb{E}[x_1] + 2\mathbb{E}[x_2] + \mathbb{E}[x_1]\mathb
 \]
 Under zero-mean constraint and independence, the main effects and the interaction effect can be computed as follows:
 \begin{align*}
-f_1(x_1) &= \mathbb{E}_{X_2}[g(x_1, X_2)] - f_0 \\
+f_1(x_1) &= \mathbb{E}_{X_2}[g_{1}(x_1, X_2)] - f_0 \\
 &= \mathbb{E}_{X_2}[a + x_1 + 2x_2 + x_1x_2] - a \\
 &= x_1 + 2\mathbb{E}[x_2] + x_1\mathbb{E}[x_2] = x_1\\
-f_2(x_2) &= \mathbb{E}_{X_1}[g(X_1, x_2)] - f_0 \\
+f_2(x_2) &= \mathbb{E}_{X_1}[g_{1}(X_1, x_2)] - f_0 \\
 &= \mathbb{E}_{X_1}[a + x_1 + 2x_2 + x_1x_2] - a \\
 &= \mathbb{E}_{X_1}[x_1] + 2x_2 + x_2\mathbb{E}_{X_1}[x_1] = 2x_2\\
-f_{12}(x_1, x_2) &= \mathbb{E}[g(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
+f_{12}(x_1, x_2) &= \mathbb{E}[g_{1}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
 &= a + x_1 + 2x_2 + x_1x_2 - a - x_1 - 2x_2 = x_1x_2
 \end{align*}
 
-It comes as no surprise that in this simple case the fANOVA decomposition does not provide any additional insights. This is because the model consists of only linear terms, constant terms, and an interaction. We show this simple example nevertheless to illustrate at which step we use which assumption. Understanding this will be relevant for the generalization of the method to dependent inputs later on.\par
+It comes as no surprise that in this simple case the fANOVA decomposition does not provide any additional insights. This is because the model consists of only linear terms, constant terms, and an interaction. We show this simple example nevertheless to illustrate at which step we use which assumption. Understanding this will be relevant for the generalization of the method to dependent inputs later on. Also, it is interesting to compare this example with only linear effects (and an interaction) to the following, which will include a non-linear effect.\par
+
+\subsubsection*{Example 2}
+We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effects. The constant fANOVA term is given by:
+\begin{align*}
+    &f_0 = \mathbb{E}[g_{2}(x_1, x_2)] = \mathbb{E}[a + x_1 + x_{2}^2] = a + \mathbb{E}[X_1] + \mathbb{E}[X_{2}^2] = a + \frac{1}{12} \\
+    &\text{This works because we are still in the setting, in which we assume } X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1], \\
+    &\text{in combination with the zero-mean constraint this allows us to state:} \\
+    &\mathbb{E}[X_2^2] = \mathbb{V}[X_2] = \frac{1}{12}(1 - 0)^2 = \frac{1}{12} \\
+    &\text{Next, we write the main effects:} \\
+    &f_1(x_1) = \mathbb{E}_{X_2}[g_{2}(x_1, X_2)] - f_0 = \mathbb{E}_{X_2}[a + x_1 + X_{2}^2] - f_0 \\
+    &= a + x_1 + \mathbb{E}[X_{2}^2] - f_0 = a + x_1 + \frac{1}{12} - \left( a + \frac{1}{12} \right) = x_1 \\
+    &f_2(x_2) = \mathbb{E}_{X_1}[g_{2}(X_1, x_2)] - f_0 = \mathbb{E}_{X_1}[a + X_1 + x_{2}^2] - f_0 \\
+    &= a + \mathbb{E}[X_1] + x_{2}^2 - f_0 = a + x_{2}^2 - \left( a + \frac{1}{12} \right) = x_{2}^2 - \frac{1}{12} \\
+    &\text{Finally, we compute the interaction effect:} \\
+    &f_{12}(x_1, x_2) = \mathbb{E}[g_{2}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
+    &= a + x_1 + x_{2}^2 - \left( a + \frac{1}{12} \right) - x_1 - \left( x_{2}^2 - \frac{1}{12} \right) = 0
+\end{align*}
+This example reveals something interesting about quadratic effects. It shows that they contain a constant effects, which is attributed to the constant terms $f_0$ and subtracted from the main effects. The quadratic effects does not influence the effects of the other terms, as the main effects of $x_1$ behaves as one would expect for a linear term; same goes for the non-existent interaction effect. 
+Under the uniform distribution assumption, we can continue the calculations for higher powers of $X_2$ and still get a nice representation of the components, because following Cavalieri's quadrature formula we can find the moment of a uniformly distributed random variable $X$ on the unit interval raised to the power of $k$ as follows:
+\begin{equation}
+    \mathbb{E}[X^k] = \int_0^1 x^k \, dx = \frac{1}{k+1} \quad \text{for } k \in \mathbb{N}_0
+    \label{eq:cavalieri_formula}
+\end{equation}
+Therefore, if we deal with a cubic term $g_3 = a + x_1 + x_2^2 + x_2^3$, we can compute the fANOVA decomposition as follows:
+\begin{align*}
+    &f_0 = a + \mathbb{E}[X_1] + \mathbb{E}[X_2^2] + \mathbb{E}[X_2^3] = a + \frac{1}{12} + \frac{1}{4} = a + \frac{1}{3} \\
+    &f_1(x_1) = x_1 \\
+    &f_2(x_2) = x_{2}^2 - \frac{1}{12} + x_{2}^3 - \frac{1}{4} = x_{2}^2 + x_{2}^3 - \frac{7}{12} \\
+    &f_{12}(x_1, x_2) = 0
+\end{align*}
 
 \subsubsection*{Orthogonality of the fANOVA terms}
 Orthogonality of the fANOVA terms follows using the zero-mean constraint (\autoref{eq:zero_mean_condition}). If two sets of indices are not completely equivalent $(i_1, \dots, i_s) \neq (j_1, \dots, j_l)$ then
