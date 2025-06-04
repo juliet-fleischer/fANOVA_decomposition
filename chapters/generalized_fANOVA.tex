@@ -94,9 +94,29 @@ $\forall v \subset u,\ \forall g_v:\ \int f_u(x_u) g_v(x_v) w(x)\,dx = 0$ \\
 \label{tab:fanova_comparison}
 \end{table}
 
-\subsubsection*{Example}
-Can I even calculate generalized fANOVA by hand? Because we need to optimize simultaneously?
-After introducing a framework for generalized fANOVA it is interesting to come back to our previous example \(g(x_1, x_2) = a+ x_1 + 2x_2 + x_1x_2\) and see how the general decomposition works differently.
+\subsubsection*{Example 1}
+
+\subsubsection*{Example 2}
+Function $g(x_1, x_2) = a + x_1 + 2x_2 + x_1x_2$. We do not assume independence of $X_1$ and $X_2$.
+\begin{align*}
+    f_0 &= \mathbb{E}[g(X_1, X_2)] \\
+        &= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2] \\
+        &= a + \mathbb{E}[X_1X_2] \quad \text{(assuming } \mathbb{E}[X_1] = \mathbb{E}[X_2] = 0\text{)} \\
+    \\
+    f_1(x_1) &= \mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] - f_0 \\
+            &= \mathbb{E}[a + x_1 + 2X_2 + x_1X_2 \mid X_1 = x_1] - (a + \mathbb{E}[X_1X_2]) \\
+            &= a + x_1 + 2\mathbb{E}[X_2 \mid X_1 = x_1] + x_1\mathbb{E}[X_2 \mid X_1 = x_1] - a - \mathbb{E}[X_1X_2] \\
+            &= x_1 + (2 + x_1)\mathbb{E}[X_2 \mid X_1 = x_1] - \mathbb{E}[X_1X_2] \\
+    \\
+    f_2(x_2) &= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - f_0 \\
+            &= \mathbb{E}[a + X_1 + 2x_2 + X_1x_2 \mid X_2 = x_2] - (a + \mathbb{E}[X_1X_2]) \\
+            &= a + \mathbb{E}[X_1 \mid X_2 = x_2] + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \mathbb{E}[X_1X_2] \\
+            &= 2x_2 + (1 + x_2)\mathbb{E}[X_1 \mid X_2 = x_2]  - \mathbb{E}[X_1X_2] \\
+    \\
+    f_{12}(x_1, x_2) &= g(x_1, x_2) - f_0 - f_1(x_1) - f_2(x_2) \\
+            &= a + x_1 + 2x_2 + x_1x_2 - \left( a + \mathbb{E}[X_1X_2] \right) - \left( x_1 + (2 + x_1)\mathbb{E}[X_2 \mid X_1 = x_1] - \mathbb{E}[X_1X_2] \right) \\
+            &- \left( 2x_2 + (1 + x_2)\mathbb{E}[X_1 \mid X_2 = x_2] - \mathbb{E}[X_1X_2] \right)
+\end{align*}
 
 % Comparison table
 

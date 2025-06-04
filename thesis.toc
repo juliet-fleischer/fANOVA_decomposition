@@ -7,9 +7,9 @@
 \contentsline {subsection}{\numberline {3.2}Modern Work on fANOVA}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Formal Introduction to fANOVA}{8}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Generalization}{17}{section.4}%
-\contentsline {section}{\numberline {5}Simulation Study}{19}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Software implementations}{19}{subsection.5.1}%
-\contentsline {section}{\numberline {6}Conclusion}{20}{section.6}%
-\contentsline {section}{\numberline {7}Mathematical Statements}{20}{section.7}%
+\contentsline {section}{\numberline {5}Simulation Study}{20}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Software implementations}{20}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Conclusion}{21}{section.6}%
+\contentsline {section}{\numberline {7}Mathematical Statements}{21}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
