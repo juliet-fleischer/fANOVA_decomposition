@@ -96,28 +96,62 @@ $\forall v \subset u,\ \forall g_v:\ \int f_u(x_u) g_v(x_v) w(x)\,dx = 0$ \\
 
 \subsubsection*{Example 1}
 
-\subsubsection*{Example 2}
-Function $g(x_1, x_2) = a + x_1 + 2x_2 + x_1x_2$. We do not assume independence of $X_1$ and $X_2$.
+\subsubsection*{Example 2: Multivariate Normal Inputs}
+
+We return to our example function \(g(x_1, x_2) = a + x_1 + 2x_2 + x_1 x_2\) and assume that:
+
+\[
+\begin{pmatrix}
+X_1 \\
+X_2
+\end{pmatrix}
+\sim \mathcal{N}\left(
+\begin{pmatrix} 0 \\ 0 \end{pmatrix},
+\begin{pmatrix}
+1 & \rho \\
+\rho & 1
+\end{pmatrix}
+\right), \quad \rho > 0
+\]
+
+From the properties of the MVN, we know that marginal distributions are standard normal:
+\[
+X_i \sim \mathcal{N}(0, 1) \quad \text{for } i = 1, 2
+\]
+
+We also know that the conditional distributions are:
+\[
+X_1 \mid X_2 = x_2 \sim \mathcal{N}(\rho x_2, 1 - \rho^2), \quad
+X_2 \mid X_1 = x_1 \sim \mathcal{N}(\rho x_1, 1 - \rho^2)
+\]
+
+The constant term \( f_0 \) is given by:
 \begin{align*}
-    f_0 &= \mathbb{E}[g(X_1, X_2)] \\
-        &= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2] \\
-        &= a + \mathbb{E}[X_1X_2] \quad \text{(assuming } \mathbb{E}[X_1] = \mathbb{E}[X_2] = 0\text{)} \\
-    \\
-    f_1(x_1) &= \mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] - f_0 \\
-            &= \mathbb{E}[a + x_1 + 2X_2 + x_1X_2 \mid X_1 = x_1] - (a + \mathbb{E}[X_1X_2]) \\
-            &= a + x_1 + 2\mathbb{E}[X_2 \mid X_1 = x_1] + x_1\mathbb{E}[X_2 \mid X_1 = x_1] - a - \mathbb{E}[X_1X_2] \\
-            &= x_1 + (2 + x_1)\mathbb{E}[X_2 \mid X_1 = x_1] - \mathbb{E}[X_1X_2] \\
-    \\
-    f_2(x_2) &= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - f_0 \\
-            &= \mathbb{E}[a + X_1 + 2x_2 + X_1x_2 \mid X_2 = x_2] - (a + \mathbb{E}[X_1X_2]) \\
-            &= a + \mathbb{E}[X_1 \mid X_2 = x_2] + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \mathbb{E}[X_1X_2] \\
-            &= 2x_2 + (1 + x_2)\mathbb{E}[X_1 \mid X_2 = x_2]  - \mathbb{E}[X_1X_2] \\
-    \\
-    f_{12}(x_1, x_2) &= g(x_1, x_2) - f_0 - f_1(x_1) - f_2(x_2) \\
-            &= a + x_1 + 2x_2 + x_1x_2 - \left( a + \mathbb{E}[X_1X_2] \right) - \left( x_1 + (2 + x_1)\mathbb{E}[X_2 \mid X_1 = x_1] - \mathbb{E}[X_1X_2] \right) \\
-            &- \left( 2x_2 + (1 + x_2)\mathbb{E}[X_1 \mid X_2 = x_2] - \mathbb{E}[X_1X_2] \right)
+f_0 &= \mathbb{E}[g(X_1, X_2)] 
+= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
+&= a + \mathbb{E}[X_1 X_2] 
+= a + \left( \text{Cov}(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
+&= a + \rho
 \end{align*}
 
-% Comparison table
+The main effects can be computed as:
+\begin{align*}
+f_1(x_1) 
+&= \mathbb{E}[g(X_1, X_2) | X_1 = x_1] - f_0 \\
+&= \mathbb{E}[a + x_1 + 2X_2 + x_1 X_2 | X_1 = x1] - (a + \rho) \\
+&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho \\
+&= x_1 - \rho + \rho(2 + x_1) \\
+f_2(x_2) 
+&= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - f_0 \\
+&= \mathbb{E}[a + X_1 + 2x_2 + X_1 x_2 \mid X_2 = x_2] - (a + \rho) \\
+&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho \\
+&= 2x_2 + x_2^2\rho + \rho
+\end{align*}
 
-% Comparison Example
+Finally, the interaction effect \( f_{12}(x_1, x_2) \) is given by:
+\begin{align*}
+f_{12}(x_1, x_2) 
+&= g(x_1, x_2) - f_0 - f_1(x_1) - f_2(x_2) \\
+&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 - \rho + 2\rho x_1 + \rho x_1^2) - (2x_2 + x_2^2 \rho + \rho) \\
+&= x_1 x_2 - 2\rho x_1 - \rho x_1^2 - \rho x_2^2 - \rho
+\end{align*}

@@ -1,0 +1,110 @@
+% Prerequesites:
+% L2 space, Hilbert space
+% inner product, norm
+% orthogonal projections
+% expected value, conditional expected value
+\subsection{$\mathcal{L}_2$ space}
+Let $(X, \mathcal{F}, \nu)$ be a measure space, where $X$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra for $X$ and $\nu$ is a general measure. Then the vector space of all square-integrable functions is given by
+\[
+\mathcal{L}^2(X, \mathcal{F}, \nu) = \left\{ f(x) : \mathbb{E}[f^2(x)] < \infty \right\}
+= \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
+\]
+
+$\mathcal{L}^2$ is a Hilbert space with the inner product defined as
+\[
+\langle f, g \rangle = \int f(x) g(x) \, d\nu(x) = \mathbb{E}[fg] \quad \forall f, g \in \mathcal{L}^2
+\]
+The norm is then defined as
+\[
+\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\nu(x)} = \mathbb{E}[f^2] \quad \forall f \in \mathcal{L}^2
+\]
+
+{\color{blue} Which resource should I cite for these ``general'' definitions? e.g. \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}?}
+
+
+
+\subsection{Conditional expectation}
+In general, we define the conditional expectation of a vector of random variables $X = X_1, X_2$ as follows:
+\[
+\mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] = \int g(x_1, s_2) \, p_{X_2 \mid X_1}(s_2 \mid x_1) \, ds_2
+\]
+Only when $X_1$ and $X_2$ are independent can we write
+\begin{align*}
+    \mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] = \int g(x_1, s_2) \, p_{X_2 \mid X_1}(s_2 \mid x_1) \, ds_2 = \int g(x_1, s_2) \, p_{X_2}(s_2) \, ds_2 = \mathbb{E}_{X_2}[g(x_1, X_2)]
+\end{align*}
+
+Extended to $n$ random variables it looks as follows. Without loss of generality, we condition on $X_1 = x_1$:
+\begin{align*}
+    \mathbb{E}[g(X_1, \dots, X_n) \mid X_1 = x_1] &= \int g(x_1, s_2, \dots, s_n) \, p_{X_2, \dots, X_n \mid X_1}(s_2, \dots, s_n \mid x_1) \, ds_2 \dots ds_n \\
+    &= \int g(x_1, s_2, \dots, s_n) \, p_{X_2}(s_2, \dots, s_n) \, ds_2 \dots, ds_n \\
+    &= \mathbb{E}_{X_2, \dots, X_n}[g(x_1, X_2, \dots, X_n)]
+\end{align*}
+
+
+\subsubsection*{Orthogonal projection}
+$\mathcal{G} \subset \mathcal{L}^2$ denotes a linear subspace. The projection of $f$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}f$ which minimizes the distance to $f$ in $\mathcal{L}^2$.
+\[
+\Pi_{\mathcal{G}}f = \arg\min_{g \in \mathcal{G}} \|f - g\|^2 \, d\nu
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(f - g)^2]
+\]
+
+{\color{blue}I think this is closely related to Hilbert projection theorem?}\par
+Definition of $\mathcal{L}^2$ space and projection modified from \href{https://tnagler.github.io/mathstat-lmu-2024.pdf}{https://tnagler.github.io/mathstat-lmu-2024.pdf}.
+
+% conditional expectation defined via integral conditioned on certain value/ partial integral
+
+\subsection*{Properties of the Multivariate Normal Distribution}
+
+Let $\boldsymbol{X} = (X_1, \dots, X_d)^\top \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ be a $d$-dimensional multivariate normal (MVN) random vector, where $\boldsymbol{\mu} \in \mathbb{R}^d$ is the mean vector and $\boldsymbol{\Sigma} \in \mathbb{R}^{d \times d}$ is the symmetric positive semi-definite covariance matrix.
+
+\begin{itemize}
+    \item \textbf{Marginal distributions:} \\
+    Each component $X_i$ is univariate normally distributed:
+    \[
+    X_i \sim \mathcal{N}(\mu_i, \Sigma_{ii}) \quad \text{for all } i = 1, \dots, d.
+    \]
+    This holds regardless of the dependence structure between the variables.
+
+    \item \textbf{Conditional distributions:} \\
+    Any subset of variables conditioned on another subset is also normally distributed. Partition $\boldsymbol{X}$ as
+    \[
+    \boldsymbol{X} = 
+    \begin{pmatrix}
+    \boldsymbol{X}_A \\
+    \boldsymbol{X}_B
+    \end{pmatrix}
+    \sim \mathcal{N}\left(
+    \begin{pmatrix}
+    \boldsymbol{\mu}_A \\
+    \boldsymbol{\mu}_B
+    \end{pmatrix},
+    \begin{pmatrix}
+    \boldsymbol{\Sigma}_{AA} & \boldsymbol{\Sigma}_{AB} \\
+    \boldsymbol{\Sigma}_{BA} & \boldsymbol{\Sigma}_{BB}
+    \end{pmatrix}
+    \right),
+    \]
+    then the conditional distribution of $\boldsymbol{X}_B$ given $\boldsymbol{X}_A = \boldsymbol{x}_A$ is
+    \[
+    \boldsymbol{X}_B \mid \boldsymbol{X}_A = \boldsymbol{x}_A \sim 
+    \mathcal{N} \left(
+    \boldsymbol{\mu}_B + \boldsymbol{\Sigma}_{BA} \boldsymbol{\Sigma}_{AA}^{-1} (\boldsymbol{x}_A - \boldsymbol{\mu}_A),
+    \boldsymbol{\Sigma}_{BB} - \boldsymbol{\Sigma}_{BA} \boldsymbol{\Sigma}_{AA}^{-1} \boldsymbol{\Sigma}_{AB}
+    \right).
+    \]
+    The conditional mean is a linear function of the conditioning variable, and the conditional covariance does not depend on the conditioning value.
+
+    \item \textbf{Independence and covariance:} \\
+    In the MVN setting, zero covariance implies independence:
+    \[
+    \text{If } \text{Cov}(X_i, X_j) = 0 \text{, then } X_i \perp X_j.
+    \]
+    This property does not hold in general for arbitrary distributions, but is a special property of the multivariate normal.
+
+    \item \textbf{Linearity of expectations:} \\
+    For any real vector $\boldsymbol{a} \in \mathbb{R}^d$, the linear combination $\boldsymbol{a}^\top \boldsymbol{X}$ is normally distributed:
+    \[
+    \boldsymbol{a}^\top \boldsymbol{X} \sim \mathcal{N}(\boldsymbol{a}^\top \boldsymbol{\mu}, \boldsymbol{a}^\top \boldsymbol{\Sigma} \boldsymbol{a}).
+    \]
+\end{itemize}
+{\color{blue}Find official resource for these properties; review how this can be shown.}
