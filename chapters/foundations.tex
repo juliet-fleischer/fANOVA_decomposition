@@ -19,27 +19,29 @@ There are specific domains of statistics, such as geostatistics, that explcitly 
 
 \subsubsection*{fANOVA decomposition}
 This chapter is based on the formal introductions by \cite{sobol1993sensitivity, sobol2001, hooker2004}, Owen, \cite{muehlenstaedt2012}. Where suitable we show both formulations of the fANOVA, via the integral and via the expected value.
-Let $i_1, \dots , i_s$ denote a set of indices. For now, we assume that $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ and work in the measure space $(X, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1]^n), \lambda_{n})$. $\mathcal{B}([0, 1]^n)$ is the Borel $\sigma$-algebra on the n-dimensional unit interval and $\lambda_{n}$ is the n-dimensional Lebesgue measure. 
-The general inner product and norm we defined earlier simplify under these assumptions.\par
-The inner product under uniform distribution assumption:
-\[
-\langle f, g \rangle = \int f(x) g(x) \, d(x) \quad \forall f, g \in \mathcal{L}^2
-\]
-The norm under uniform distribution assumption:
-\[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d(x)} \quad \forall f \in \mathcal{L}^2
-\]
+To introduce fANOVA in a similar way as originally proposed by \cite{sobol1993sensitivity}, we deviate slightly from the general setup introduced in section~\ref{background} and restrict the range of the input variables to the unit interval, so we work in the measure space $(\Omega, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$.
+
+% Let $i_1, \dots , i_s$ denote a set of indices. For now, we assume that $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ and work in the measure space $(\Omega, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1]^n), \lambda_{n})$. $\mathcal{B}([0, 1]^n)$ is the Borel $\sigma$-algebra on the n-dimensional unit interval and $\lambda_{n}$ is the n-dimensional Lebesgue measure. 
+% The general inner product and norm we defined earlier simplify under these assumptions.\par
+% The inner product under uniform distribution assumption is
+% \[
+% \langle f, g \rangle = \int f(x) g(x) \, d(x), \quad \forall f, g \in \mathcal{L}^2.
+% \]
+% The norm under uniform distribution assumption is
+% \[
+% \|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d(x)}, \quad \forall f \in \mathcal{L}^2.
+% \]
 
 \textbf{Definition.} Let $f(x)$  be a mathematical model with input $X_i$ as described above. We can represent such a model $f$ as a sum of specific basis functions
 \begin{equation}
-    f(x) = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}})
+    f(x) = f_0 + \sum_{s=1}^{n} \sum_{i_1 <...<i_s}^{n} f_{i_{1}...i_{s}} (x_{i_{1}} , ....,x_{i_{s}}).
     \label{eq:fanova_decomposition}
 \end{equation}
 
 To ensure identifiability and interpretation, we set the zero-mean constraint. It requires that all effects, except for the constant terms, are centred around zero.
 Mathematically this means that the effects integrate to zero w.r.t. their own variables:
 \begin{equation}
-    \int f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, d\nu (x_k) = 0 \quad \forall k = i_1, ...., i_s
+    \int f_{i_{1}...i_{s}} (x_{i_{1}}, ...., x_{i_{s}}) \, d\nu (x_k) = 0, \quad \forall k = i_1, ...., i_s.
     \label{eq:zero_mean_condition}
 \end{equation}
 % In combination with the zero-mean constraint (\autoref{eq:zero_mean_condition}),  \cite{sobol1993sensitivity} calls \autoref{eq:fanova_decomposition} initially the \ldq Expansion into Summands of Different Dimensions\rdq. In \cite{sobol2001} he renames the decomposition to the \ldq ANOVA-representation\rdq. Now, it is mostly referred to as the \ldq functional ANOVA decomposition\rdq \citep{hooker2004}.\par
@@ -55,12 +57,12 @@ Mathematically this means that the effects integrate to zero w.r.t. their own va
 The individual terms that make up \autoref{eq:fanova_decomposition} are defined in the following.
 To get the constant term, we take the integral of $f$ w.r.t. all variables:
 \begin{equation}
-    f_{0}(x) = \int f(x) d\nu(x) = \mathbb{E}[f(X)]
+    f_{0}(x) = \int f(x) d\nu(x) = \mathbb{E}[f(X)].
     \label{eq:intercapt}
 \end{equation}
 The constant term $f_0$ captures the overall mean of $f$ and serves as a baseline. Since the the remaining effects are centred around zero, they quantify the deviation from the overall mean.  Next, we take the integral of $y$ w.r.t. all variables except for $x_i$. This represents $f$ as the sum of the constant term and the isolated effect of one variable $x_i$ (main effect of $x_i$). This partial integral is equivalent to the expected value conditioned on the variable of interest $x_i$.
 \begin{equation}
-    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} \nu (d_{x_{k}}) = \mathbb{E}[f(X) | X_i = x_i]
+    f_0 + f_i(x_i) = \int f(x) \prod_{k \neq i} \nu(dx_{k}) = \mathbb{E}[f(X) | X_i = x_i]
     \label{eq:main_effect}
 \end{equation}
 Following the same principle, we can take the integral of $f$ w.r.t. all variables except for $x_i$ and $x_j$. With this we capture everything up to the interaction effect of $x_i$ and $x_j$. This is equivalent to the expected value conditioned on both variables $x_i$ and $x_j$:
