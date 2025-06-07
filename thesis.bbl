@@ -53,6 +53,11 @@ Owen, A.~B.  \harvardyearleft 2013\harvardyearright .
 \newblock tex.eprint: https://doi.org/10.1137/120876782.
 \newline\harvardurl{https://doi.org/10.1137/120876782}
 
+\harvarditem{Rahman}{2014}{rahman2014}
+Rahman, S.  \harvardyearleft 2014\harvardyearright .
+\newblock A generalized anova dimensional decomposition for dependent probability measures, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2}(1):~670--697.
+\newline\harvardurl{https://doi.org/10.1137/120904378}
+
 \harvarditem{Sobol}{2001}{sobol2001}
 Sobol, I.  \harvardyearleft 2001\harvardyearright .
 \newblock Global sensitivity indices for nonlinear mathematical models and their {Monte} {Carlo} estimates, {\em Mathematics and Computers in Simulation} {\bf 55}(1-3):~271--280.
