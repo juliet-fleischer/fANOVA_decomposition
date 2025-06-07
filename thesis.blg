@@ -4,44 +4,44 @@ The top-level auxiliary file: thesis.aux
 The style file: dcu.bst
 Database file #1: bibliography_2.bib
 Database file #2: bibliography_manual.bib
-You've used 14 entries,
+You've used 16 entries,
             2921 wiz_defined-function locations,
-            743 strings with 7863 characters,
-and the built_in function-call counts, 47129 in all, are:
-= -- 7537
-> -- 625
+            757 strings with 8186 characters,
+and the built_in function-call counts, 53484 in all, are:
+= -- 8550
+> -- 719
 < -- 0
-+ -- 3475
-- -- 189
-* -- 3997
-:= -- 9666
-add.period$ -- 33
-call.type$ -- 14
-change.case$ -- 196
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 201
-empty$ -- 479
-format.name$ -- 228
-if$ -- 8417
++ -- 3950
+- -- 217
+* -- 4531
+:= -- 10987
+add.period$ -- 37
+call.type$ -- 16
+change.case$ -- 224
+chr.to.int$ -- 16
+cite$ -- 16
+duplicate$ -- 228
+empty$ -- 534
+format.name$ -- 261
+if$ -- 9549
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 76
-num.names$ -- 143
-pop$ -- 32
+missing$ -- 15
+newline$ -- 84
+num.names$ -- 164
+pop$ -- 35
 preamble$ -- 1
-purify$ -- 210
+purify$ -- 240
 quote$ -- 0
-skip$ -- 181
+skip$ -- 209
 stack$ -- 0
-substring$ -- 10566
-swap$ -- 32
-text.length$ -- 196
+substring$ -- 11968
+swap$ -- 36
+text.length$ -- 224
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
+type$ -- 64
 warning$ -- 0
-while$ -- 319
+while$ -- 362
 width$ -- 0
-write$ -- 214
+write$ -- 242

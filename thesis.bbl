@@ -1,5 +1,9 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Chastaing et~al.]{Chastaing, Gamboa \harvardand\ Prieur}{2012}{chastaing2012}
+Chastaing, G., Gamboa, F. \harvardand\ Prieur, C.  \harvardyearleft 2012\harvardyearright .
+\newblock Generalized {{Hoeffding-Sobol}} decomposition for dependent variables - application to sensitivity analysis, {\em Electronic Journal of Statistics} {\bf 6}(none).
+
 \harvarditem{Efron \harvardand\ Stein}{1981}{efron1981}
 Efron, B. \harvardand\ Stein, C.  \harvardyearleft 1981\harvardyearright .
 \newblock The {Jackknife} {Estimate} of {Variance},  {\bf The Annals of Statistic}(Vol. 9, No. 3):~pp. 586--596.
@@ -46,6 +50,10 @@ Liu, R. \harvardand\ Owen, A.~B.  \harvardyearleft 2006\harvardyearright .
 Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyearleft 2012\harvardyearright .
 \newblock Data-driven {Kriging} models based on {FANOVA}-decomposition, {\em Statistics and Computing} {\bf 22}(3):~723--738.
 \newline\harvardurl{http://link.springer.com/10.1007/s11222-011-9259-7}
+
+\harvarditem{Owen}{2003}{owen2003}
+Owen, A.  \harvardyearleft 2003\harvardyearright .
+\newblock The dimension distribution and quadrature test functions, {\em Statistica Sinica} {\bf 13}:~1--17.
 
 \harvarditem{Owen}{2013}{owen2013}
 Owen, A.~B.  \harvardyearleft 2013\harvardyearright .
