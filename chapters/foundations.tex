@@ -107,112 +107,89 @@ For all other effects $u \neq \emptyset$ we can write:
 
 The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
-\subsubsection*{Example 2}
-We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effect. We again assume $X_1 \perp X_2$. The constant fANOVA term is given by:
-\begin{align*}
-    &f_0 = \mathbb{E}[g_{2}(X_1, X_2)] = \mathbb{E}[a + X_1 + X_{2}^2] = a + \mathbb{E}[X_1] + \mathbb{E}[X_{2}^2] = a + \frac{1}{12} \\
-    &\text{This works because we are still in the setting, in which we assume } X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1], \\
-    &\text{in combination with the zero-mean constraint this allows us to state:} \\
-    &\mathbb{E}[X_2^2] = \mathbb{V}[X_2] = \frac{1}{12}(1 - 0)^2 = \frac{1}{12} \\
-    &\text{Next, we write the main effects:} \\
-    &f_1(x_1) = \mathbb{E}_{X_2}[g_{2}(x_1, X_2)] - f_0 = \mathbb{E}_{X_2}[a + x_1 + X_{2}^2] - f_0 \\
-    &= a + x_1 + \mathbb{E}[X_{2}^2] - f_0 = a + x_1 + \frac{1}{12} - \left( a + \frac{1}{12} \right) = x_1 \\
-    &f_2(x_2) = \mathbb{E}_{X_1}[g_{2}(X_1, x_2)] - f_0 = \mathbb{E}_{X_1}[a + X_1 + x_{2}^2] - f_0 \\
-    &= a + \mathbb{E}[X_1] + x_{2}^2 - f_0 = a + x_{2}^2 - \left( a + \frac{1}{12} \right) = x_{2}^2 - \frac{1}{12} \\
-    &\text{Finally, we compute the interaction effect:} \\
-    &f_{12}(x_1, x_2) = \mathbb{E}[g_{2}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
-    &= a + x_1 + x_{2}^2 - \left( a + \frac{1}{12} \right) - x_1 - \left( x_{2}^2 - \frac{1}{12} \right) = 0
-\end{align*}
-What we observe in this example is that explicit centering of the quadratic effect by subtracting a constant is necessary.
-
-% Under the uniform distribution assumption, we can continue the calculations for higher powers of $X_2$ and still get a nice representation of the components, because following Cavalieri's quadrature formula we can find the moment of a uniformly distributed random variable $X$ on the unit interval raised to the power of $k$ as follows:
-
-% \begin{equation}
-%     \mathbb{E}[X^k] = \int_0^1 x^k \, dx = \frac{1}{k+1} \quad \text{for } k \in \mathbb{N}_0
-%     \label{eq:cavalieri_formula}
-% \end{equation}
-% Therefore, if we deal with a cubic term $g_3 = a + x_1 + x_2^2 + x_2^3$, we can compute the fANOVA decomposition as follows:
+% \subsubsection*{Example 2}
+% We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effect. We again assume $X_1 \perp X_2$. The constant fANOVA term is given by:
 % \begin{align*}
-%     &f_0 = a + \mathbb{E}[X_1] + \mathbb{E}[X_2^2] + \mathbb{E}[X_2^3] = a + \frac{1}{12} + \frac{1}{4} = a + \frac{1}{3} \\
-%     &f_1(x_1) = x_1 \\
-%     &f_2(x_2) = x_{2}^2 - \frac{1}{12} + x_{2}^3 - \frac{1}{4} = x_{2}^2 + x_{2}^3 - \frac{7}{12} \\
-%     &f_{12}(x_1, x_2) = 0
+%     &f_0 = \mathbb{E}[g_{2}(X_1, X_2)] = \mathbb{E}[a + X_1 + X_{2}^2] = a + \mathbb{E}[X_1] + \mathbb{E}[X_{2}^2] = a + \frac{1}{12} \\
+%     &\text{This works because we are still in the setting, in which we assume } X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1], \\
+%     &\text{in combination with the zero-mean constraint this allows us to state:} \\
+%     &\mathbb{E}[X_2^2] = \mathbb{V}[X_2] = \frac{1}{12}(1 - 0)^2 = \frac{1}{12} \\
+%     &\text{Next, we write the main effects:} \\
+%     &f_1(x_1) = \mathbb{E}_{X_2}[g_{2}(x_1, X_2)] - f_0 = \mathbb{E}_{X_2}[a + x_1 + X_{2}^2] - f_0 \\
+%     &= a + x_1 + \mathbb{E}[X_{2}^2] - f_0 = a + x_1 + \frac{1}{12} - \left( a + \frac{1}{12} \right) = x_1 \\
+%     &f_2(x_2) = \mathbb{E}_{X_1}[g_{2}(X_1, x_2)] - f_0 = \mathbb{E}_{X_1}[a + X_1 + x_{2}^2] - f_0 \\
+%     &= a + \mathbb{E}[X_1] + x_{2}^2 - f_0 = a + x_{2}^2 - \left( a + \frac{1}{12} \right) = x_{2}^2 - \frac{1}{12} \\
+%     &\text{Finally, we compute the interaction effect:} \\
+%     &f_{12}(x_1, x_2) = \mathbb{E}[g_{2}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
+%     &= a + x_1 + x_{2}^2 - \left( a + \frac{1}{12} \right) - x_1 - \left( x_{2}^2 - \frac{1}{12} \right) = 0
 % \end{align*}
+% What we observe in this example is that explicit centering of the quadratic effect by subtracting a constant is necessary.
+% To write the expected value of a product as the product of the expected values we needed the independence assumption. To state that the product of the expected values is equal to zero, we used the zero-mean constraint. This shows that the independence assumption and zero-mean constraint are critical to ensure orthogonality in this traditional formulation of the fANOVA decomposition. This is of course also true for terms of different order, e.g. \( f_{1,2}(x_1, x_2) \) and \( f_{1}(x_1) \). Orthogonality ensures that the effects do not overlap and each term represents the isolated contribution.
 
-
-% To see this, consider a simple example for $(i_1, i_2) = (1, 2)$ and $(j_1, j_2) = (1, 3)$. We take the inner product between these fANOVA components:
-% \[
-% \int_0^1 \int_0^1 \int_0^1 f_{1,2}(x_1, x_2) \cdot f_{1,3}(x_1, x_3) \, dx_1 \, dx_2 \, dx_3
-% \]
-
-% It is allowed to switch the order of integration because of the independence assumption and \href{https://en.wikipedia.org/wiki/Fubini%27s_theorem}{Fubini theorem}, so we begin by integrating with respect to \( x_2 \). Because $x_2$ integrates to zero w.r.t any of its own terms, we immediately get that the whole integral becomes zero:
-% \[
-% \int_0^1 \int_0^1 \left( \int_0^1 f_{1,2}(x_1, x_2) \cdot f_{1,3}(x_1, x_3) \, dx_2 \right) dx_1 dx_3 = 0
-% \]
-To write the expected value of a product as the product of the expected values we needed the independence assumption. To state that the product of the expected values is equal to zero, we used the zero-mean constraint. This shows that the independence assumption and zero-mean constraint are critical to ensure orthogonality in this traditional formulation of the fANOVA decomposition. This is of course also true for terms of different order, e.g. \( f_{1,2}(x_1, x_2) \) and \( f_{1}(x_1) \). Orthogonality ensures that the effects do not overlap and each term represents the isolated contribution.
-
-\subsubsection*{Variance decomposition}
-The variance decomposition is Sobol's major use of fANOVA. He built the Sobol indices for sensitivity analysis on it. We sketch the variance decomposition here and note that it is only possible under independence assumption.\par
-If $f \in \mathcal{L}^2$, then $f_{i_{1}, \dots, i_{n}} \in \mathcal{L}^2$ {\color{blue}proof? reference?; Sobol 1993 says it is easy to show using Schwarz inequality and the definition of the single fANOVA terms.}
+\subsubsection*{Second-moment statistics}
+We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
+For the variance of $y(\boldsymbol{X})$, we find that the total variance can be decomposed into the sum of the fANOVA term variances. The variance decomposition is a major result in \cite{sobol1993sensitivity} and forms the basis for the Sobol indices in sensitivity analysis. We sketch the variance decomposition here and note that it is only possible under independence assumption.\par
+If $y \in \mathcal{L}^2$, then $y_{i_{1}, \dots, y_{n}} \in \mathcal{L}^2$ {\color{blue}proof? reference?; Sobol 1993 says it is easy to show using Schwarz inequality and the definition of the single fANOVA terms.}
 Therefore, we define the variance of $f$ as follows:
 \begin{align*}
-    \sigma^2(y(\boldsymbol{X})) &= \int y^2(x)d\nu (x) - (y_0)^2 \\
-    &= \int y^2(x)d\nu (x) - (\int y(x)d\nu (x))^2 \\
-    &= \mathbb{E}[y^2(\boldsymbol{C})] - \mathbb{E}[y(\boldsymbol{X})]^2
+    \sigma^2 &:= \int y^2(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) - (y_0)^2 \\
+    &= \int y^2(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) - (\int y(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}))^2 \\
+    &= \mathbb{E}[y^2(\boldsymbol{X})] - \mathbb{E}[y(\boldsymbol{X})]^2
     \label{variance_whole}
 \end{align*}
 The variance of the fANOVA components is then defined as
 \begin{align*}
-    \sigma(x_{i_1}, \dots, x_{i_n})
-    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
+    \sigma^2_{x_{i_1}, \dots, x_{i_n})}
+    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
     &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}] - \mathbb{E}[y_{i_{1}, \dots, i_{n}}]^2
 \end{align*}
-Because of the zero-mean constraint (\autoref{eq:zero_mean_condition}) the second term vanishes and we get
+Because of the orthogonality property, the second term vanished and we get:
 \begin{align*}
-    \sigma(x_{i_1}, \dots, x_{i_n})
-    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, d\nu(x_1) \cdots d\nu(x_n)\\
+    \sigma^2_{x_{i_1}, \dots, x_{i_n})}
+    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n)\\
     &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}]
 \end{align*}
 
-With the definition of the total variance $D$ and the component-wise variance $D_{i_{1}, \dots, i_{n}}$ we can now see that the total variance can be decomposed into the sum of the component-wise variances.
+With the definition of the total variance $\sigma^2$ and the component-wise variance $\sigma^2_{x_{i_1}, \dots, x_{i_n}}$ we can now see that the total variance can be decomposed into the sum of the component-wise variances.
 
-Alternatively we can formulate this via the expected value, throughout it is $\emptyset \neq u \subseteq \{1, \dots, N\}$:
+% Second variant of variance decomposition formulated via the expected value
+% I could first show this and then show in a Lemma that if the expected value of y^2(X) exists (is smaller than \infinity) then the expected value of y_u^2(X_u) also exists, this would essentially be the translation from Sobols L^2 statement to the expected value wouldn't it?
+Alternatively we can formulate this via the expected value. We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
 \begin{align*}
     \sigma^2 := \mathbb{E}[(y(\boldsymbol{X}) - \mu])^2]
     &= \mathbb{E}[(y_{\emptyset} + \sum_{u} y_u({\boldsymbol{X}_u}) - y_{\emptyset})^2] \\
     &= \mathbb{E}[(\sum_{u} y_u({\boldsymbol{X}_u}))^2] \\
     &= \mathbb{E}[\sum_{u} y_u^2({\boldsymbol{X}_u})] + 2 \mathbb{E}[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] \\
-    & = \mathbb{E}[\sum_{u} y_u^2({\boldsymbol{X}_u})]
+    & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})]
 \end{align*}
 
-Notice that we used the independence assumption and the zero-mean constraint again for the variance decomposition.
 
 
 
 \subsubsection*{fANOVA as projection}
-Referring to the general connection between the expected value and orthogonal projections presented in section~\ref{general_definitions}, the fANOVA terms can also be understood from a viewpoint of projections. This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
+Referring to the general connection between the expected value and orthogonal projections presented in section~\ref{background}, the fANOVA terms can also be understood from a viewpoint of projections. This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
 
-$f_0$ is the projections of the original function $f$ onto the space of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. It is an unconditional expected value and the best approximation of $f$ given a constant function:
+$y_\emptyset$ is the projections of the original function $y$ onto the space of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. It is an unconditional expected value and the best approximation of $y$ given a constant function:
 \begin{align*}
-    \Pi_{\mathcal{G}_0}f
-    &= \arg \min_{g \in \mathcal{G}_0} \|f(x) - g\|^2 \\
-    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[\|f(x) - g\|^2] \\
-    &= \mathbb{E}[f(X)]
+    \Pi_{\mathcal{G}_0}y
+    &= \arg \min_{g \in \mathcal{G}_0} \|y(\boldsymbol{X}) - g\|^2 \\
+    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[(y(\boldsymbol{X}) - g)^2] \\
+    &= \mathbb{E}[y(\boldsymbol{X})]
 \end{align*}
-The main effect $f_i(x_i)$ is the projection of $f$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
+The main effect $f_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
 \begin{align*}
-    \Pi_{\mathcal{G}_i}f - f_0
-    &= \arg \min_{g \in \mathcal{G}_i} \|f(x) - g(x_i)\|^2 - f_0\\
-    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}_{-x_i}[\|f(x) - g(x_i)\|^2] - \mathbb{E}[f(x)] \\
-    &= \mathbb{E}_{-x_i}[f(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[f(X)]
+    \Pi_{\mathcal{G}_i}y - y_0
+    &= \arg \min_{g \in \mathcal{G}_i} \|y(x) - g(x_i)\|^2 - f_0\\
+    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}_{-x_i}[(f(x) - g(x_i))^2] - \mathbb{E}[y(x)] \\
+    &= \mathbb{E}_{-x_i}[y(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[y(X)]
 \end{align*}
 
-The two-way interaction effect $f_{ij}(x_i,x_j)$ is the projection of $f$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
+The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    \Pi_{\mathcal{G}_{ij}}f - f_0 - f_1(x_i) - \dots
-    &= \arg \min_{g \in \mathcal{G}_{ij}} \|f(x) - g(x_i, x_j)\|^2 - f_0 - f_1(x_i) - \dots \\
-    &= \arg \min_{g \in \mathcal{G}_{ij}} \mathbb{E}_{-x_i, -x_j}[\|f(x) - g(x_i, x_j)\|^2] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(x)]\\
-    &= \mathbb{E}_{-x_i, -x_j}[f(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[f(x)] - \mathbb{E}_{-x_i}[f(X)]
+    \Pi_{\mathcal{G}_{ij}}y - y_0 - f_1(x_i) - \dots
+    &= \arg \min_{g \in \mathcal{G}_{ij}} \|y(x) - g(x_i, x_j)\|^2 - f_0 - f_1(x_i) - \dots \\
+    &= \arg \min_{g \in \mathcal{G}_{ij}} \mathbb{E}_{-x_i, -x_j}[(y(x) - g(x_i, x_j))^2] - \mathbb{E}[y(x)] - \mathbb{E}_{-x_i}[y(x)]\\
+    &= \mathbb{E}_{-x_i, -x_j}[y(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[y(x)] - \mathbb{E}_{-x_i}[y(X)]
 \end{align*}
 {\color{blue}I think Hilbert space theorem tells us that the orthogonal projection minimizes the squared difference in a Hilbert space?
 So the projection is the solution to the minimization problem that wants to minimize the squared differences between two elements of the vector space.
@@ -220,43 +197,9 @@ This would be the first equality. The last equality that the solution is equal t
 
 In general, we can write:
 \begin{equation}
-    f_u(x) = \Pi_{\mathcal{G}_u}f - \sum_{v \subsetneq u} f_v(x)
+    y_u(x) = \Pi_{\mathcal{G}_u}y - \sum_{v \subsetneq u} f_v(x)
 \end{equation}
-We project $f$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
-
-% where
-
-% \[
-% D_1 = \int f_1(x_1)^2 \, dx_1, \quad
-% D_2 = \int f_2(x_2)^2 \, dx_2, \quad
-% D_{1,2} = \int f_{1,2}(x_1, x_2)^2 \, dx_1 dx_2
-% \]
-
-% \subsection*{Alternative Formulation of fANOVA}
-% Based on \cite{hooker2004} and Owen Lecture notes (find paper to cite).
-% We again work with a square integrable function $f(x): [0, 1]^n \rightarrow \mathbb{R}$ with $x = (x_1, \dots, x_n)$ and $x_1, \dots, x_n$ are independent.
-% The set of indices $1, \dots, n$ is denoted as $1\colon d$. $u \subset 1\colon d$ and $-u$ is the complement of $u$, i.e. $1\colon d \backslash u$.
-% Given a set of indices $u = {i_1, i_2, \dots, i_{|u|}}$ we can write $x_u$ for $(x_{i_1}, x_{i_2}, \dots, x_{i_{|u|}}) = (x_i)_{i \in u}$.\par
-
-% This notation allows us to sum over a set of indices, which avoids lengthy notation. The fANOVA can then be formulated as follows:
-% \begin{equation}
-%     f_{\emptyset}(\mathbf{x}) = \int_{[0, 1]^n} f(\mathbf{x}) d\nu(\mathbf{x}) = \mu
-% \end{equation}
-
-% Generally, the fANOVA decomposition can be written as
-% \begin{equation}
-%     f_u(\mathbf{x}) = \int_{[0,1]^{d - |u|}} \left( f(\mathbf{x}) - \sum_{v \subsetneq u} f_v(\mathbf{x}) \right) \, d\nu(\mathbf{x}_{-u}).
-% \end{equation}
-% We can rewrite this as follows, which simplifies the calculation of the integral:
-% \begin{equation}
-%     f_u(\mathbf{x}) = \int_{[0,1]^{d - |u|}} f(\mathbf{x}) \, d\nu(\mathbf{x}_{-u}) - \sum_{v \subsetneq u} f_v(\mathbf{x}).
-% \end{equation}
-
-% In Lemma A.3. Owen states a general formulation of orthogonality of two functions, which is applicable for the fANOVA components and ensures their orthogonality.
-% Given to square-integrable, real-valued functions on the unit hypercube $f(x)$ and $g(x)$ with $u,v \subseteq {1, \dots, d}$, it is true that, if $u \neq v$, then
-% \[
-% \int_{[0,1]^n} f_u(\mathbf{x}) g_v(\mathbf{x}) \, d\nu(\mathbf{x}) = 0
-% \]
+We project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
 
 
 
