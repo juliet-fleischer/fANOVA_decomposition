@@ -1,0 +1,87 @@
+\subsection{Multivariate Normal Inputs}
+
+Consider the function \(g = a + X_1 + 2X_2 + X_1 X_2\). We assume that $\boldsymbol{X} = (X_1, X_2)^T$ follows a MVN distribution:
+
+\[
+\begin{pmatrix}
+X_1 \\
+X_2
+\end{pmatrix}
+\sim \mathcal{N}\left(
+\begin{pmatrix} 0 \\ 0 \end{pmatrix},
+\begin{pmatrix}
+\sigma_1^2 & \rho_{12}\sigma_1 \sigma_2 \\
+\rho_{12}\sigma_1 \sigma_2  & \sigma_2^2
+\end{pmatrix}
+\right)
+\]
+where we assume that $\sigma_1 = \sigma_2 = 1$, while we will vary the values for $\rho_{12}$ to distinguish between varying degrees of dependence between the two variables.
+From the properties of the MVN, we know that marginal distributions are standard normal:
+\[
+X_i \sim \mathcal{N}(0, \sigma_i) \quad \text{for } i = 1, 2 \quad \text{and} \quad \sigma_i = 1
+\]
+
+We also know that the conditional distributions are:
+\[
+X_1 \mid X_2 = x_2 \sim \mathcal{N}(\rho_{12} x_2, 1 - \rho_{12}^2), \quad
+X_2 \mid X_1 = x_1 \sim \mathcal{N}(\rho_{12} x_1, 1 - \rho_{12}^2)
+\]
+
+\subsubsection*{Case 1: Independent Inputs}
+Computing the fANOVA decomposition of $g(x_1, x_2)$ by hand, we start with the constant term and make use of formulation via the expected value instead of the integral for notational simplicity:
+\[
+f_0 = \mathbb{E}[g_{1}(X_1, X_2)] = \mathbb{E}[a + X_1 + 2X_2 + X_1X_2] = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2]
+\]
+Making use of the independence assumption of $x_1$ and $x_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish and we obtain:
+\[
+f_0 = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1]\mathbb{E}[X_2] = a
+\]
+Under zero-mean constraint and independence, the main effects and the interaction effect can be computed as follows:
+\begin{align*}
+f_1(x_1) &= \mathbb{E}_{X_2}[g_{1}(x_1, X_2)] - f_0 \\
+&= \mathbb{E}_{X_2}[a + x_1 + 2X_2 + x_1X_2] - a \\
+&= x_1 + 2\mathbb{E}[X_2] + x_1\mathbb{E}[X_2] = x_1\\
+f_2(x_2) &= \mathbb{E}_{X_1}[g_{1}(X_1, x_2)] - f_0 \\
+&= \mathbb{E}_{X_1}[a + X_1 + 2x_2 + X_1x_2] - a \\
+&= \mathbb{E}_{X_1}[X_1] + 2x_2 + x_2\mathbb{E}_{X_1}[X_1] = 2x_2\\
+f_{12}(x_1, x_2) &= \mathbb{E}[g_{1}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
+&= a + x_1 + 2x_2 + x_1x_2 - a - x_1 - 2x_2 = x_1x_2
+\end{align*}
+
+It comes as no surprise that in this simple case the fANOVA decomposition does not provide any additional insights, as the isolated effects can be directly seen from the function.
+In case of independence the generalized fANOVA decomposition is of course equal to the classical one.
+We show this simple example nevertheless to illustrate at which step which assumption is used. This motivates the need for a generalization of the fANOVA decomposition to dependent variables.
+
+\subsubsection*{Case 2: Dependent Inputs (weak)}
+Now assume $\rho_{12} = 0.2,\, \sigma_1 = \sigma_2 = 1$. The constant term \( f_0 \) is given by:
+\begin{align*}
+f_0 &= \mathbb{E}[g(X_1, X_2)] 
+= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
+&= a + \mathbb{E}[X_1 X_2] 
+= a + \left( \text{Cov}(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
+&= a + \rho_{12}
+\end{align*}
+
+The main effects can be computed as:
+\begin{align*}
+f_1(x_1) 
+&= \mathbb{E}[g(X_1, X_2) | X_1 = x_1] - f_0 \\
+&= \mathbb{E}[a + x_1 + 2X_2 + x_1 X_2 | X_1 = x1] - (a + \rho_{12}) \\
+&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho_{12} \\
+&= x_1 - \rho_{12} + \rho_{12}(2 + x_1) \\
+f_2(x_2) 
+&= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - f_0 \\
+&= \mathbb{E}[a + X_1 + 2x_2 + X_1 x_2 \mid X_2 = x_2] - (a + \rho_{12}) \\
+&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho_{12} \\
+&= 2x_2 + x_2^2\rho_{12} + \rho_{12}
+\end{align*}
+
+Finally, the interaction effect \( f_{12}(x_1, x_2) \) is given by:
+\begin{align*}
+f_{12}(x_1, x_2) 
+&= g(x_1, x_2) - f_0 - f_1(x_1) - f_2(x_2) \\
+&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho_{12}) - (x_1 - \rho_{12} + 2\rho_{12} x_1 + \rho_{12} x_1^2) - (2x_2 + x_2^2 \rho_{12} + \rho_{12}) \\
+&= x_1 x_2 - 2\rho_{12} x_1 - \rho_{12} x_1^2 - \rho_{12} x_2^2 - \rho_{12}
+\end{align*}
+
+\subsection*{Case 3: Dependent Inputs (strong)}
