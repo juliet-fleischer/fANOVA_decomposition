@@ -167,13 +167,16 @@ Alternatively we can formulate this via the expected value. We write the sum ove
 
 
 \subsubsection*{fANOVA as projection}
-Referring to the general connection between the expected value and orthogonal projections presented in section~\ref{background}, the fANOVA terms can also be understood from a viewpoint of projections. This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
+In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
+This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
 
-$y_\emptyset$ is the projections of the original function $y$ onto the space of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. It is an unconditional expected value and the best approximation of $y$ given a constant function:
+Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
+
+When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable. So intuitively, in the absence of any additional information, the expected value is our best guess. More formally we can write:
 \begin{align*}
     \Pi_{\mathcal{G}_0}y
-    &= \arg \min_{g \in \mathcal{G}_0} \|y(\boldsymbol{X}) - g\|^2 \\
-    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[(y(\boldsymbol{X}) - g)^2] \\
+    &= \arg \min_{g \in \mathcal{G}_0} \|y - g\|^2 \\ % here we still focus on the functions (function space view)
+    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
     &= \mathbb{E}[y(\boldsymbol{X})]
 \end{align*}
 The main effect $f_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
