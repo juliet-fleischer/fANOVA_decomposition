@@ -170,41 +170,72 @@ Alternatively we can formulate this via the expected value. We write the sum ove
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
 This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
 
-Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
-
-When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable. So intuitively, in the absence of any additional information, the expected value is our best guess. More formally we can write:
+When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write:
 \begin{align*}
     \Pi_{\mathcal{G}_0}y
-    &= \arg \min_{g \in \mathcal{G}_0} \|y - g\|^2 \\ % here we still focus on the functions (function space view)
-    &= \arg \min_{g \in \mathcal{G}_0} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
-    &= \mathbb{E}[y(\boldsymbol{X})]
+    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ % here we still focus on the functions (function space view)
+    &= \arg \min_{a_0 \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
+    &= \mathbb{E}[y(\boldsymbol{X})] = y_0
 \end{align*}
-The main effect $f_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
+The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
+The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
 \begin{align*}
-    \Pi_{\mathcal{G}_i}y - y_0
-    &= \arg \min_{g \in \mathcal{G}_i} \|y(x) - g(x_i)\|^2 - f_0\\
-    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}_{-x_i}[(f(x) - g(x_i))^2] - \mathbb{E}[y(x)] \\
-    &= \mathbb{E}_{-x_i}[y(X_1, \dots, x_i, \dots, X_n)] - \mathbb{E}[y(X)]
+    (\Pi_{\mathcal{G}_i}y) - (y_0)
+    &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
+    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i)] - y_0 = y_i(x_i)
 \end{align*}
+
 
 The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    \Pi_{\mathcal{G}_{ij}}y - y_0 - f_1(x_i) - \dots
-    &= \arg \min_{g \in \mathcal{G}_{ij}} \|y(x) - g(x_i, x_j)\|^2 - f_0 - f_1(x_i) - \dots \\
-    &= \arg \min_{g \in \mathcal{G}_{ij}} \mathbb{E}_{-x_i, -x_j}[(y(x) - g(x_i, x_j))^2] - \mathbb{E}[y(x)] - \mathbb{E}_{-x_i}[y(x)]\\
-    &= \mathbb{E}_{-x_i, -x_j}[y(X_1, \dots, x_i, x_j, \dots, X_n)] - \mathbb{E}[y(x)] - \mathbb{E}_{-x_i}[y(X)]
+    (\Pi_{\mathcal{G}_{ij}}y) - (y_0 + y_i(x_i) + y_j(x_j))
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(x_i) + y_j(x_j))\\
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_i, X_j))^2] - (y_0 + y_i(x_i) + y_j(x_j))\\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(x_i) + y_j(x_j)) = y_{ij}(x_i, x_j)
 \end{align*}
-{\color{blue}I think Hilbert space theorem tells us that the orthogonal projection minimizes the squared difference in a Hilbert space?
-So the projection is the solution to the minimization problem that wants to minimize the squared differences between two elements of the vector space.
-This would be the first equality. The last equality that the solution is equal to the (conditional) expected value also has to be shown, still have to look which theorem this is proven by.}
 
-In general, we can write:
+In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u); \int g(\boldsymbol{x}) d\nu (\boldsymbol{x}_u) = 0\}$:
+\begin{align*}
+    (\Pi_{\mathcal{G}_u}y) - \sum_{v \subsetneq u} y_v(x)
+    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - y_0\\
+    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_u))^2] \\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(\boldsymbol{x}_u),
+\end{align*}
+which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
+
+
+\subsubsection*{Notes \& Questions}
+When i start from \cite{muehlenstaedt2012} and basically go the way \textit{fANOVA term $\rightarrow$ expected value $\rightarrow$ projection}, I arrive at the formulation where we first compute the projection and afterwards subtract lower order terms.
+But when I get it correctly \cite{hooker2007} actually writes his generalized fANOVA components actually as the projection of the differences, so he basically goes the other way around, starting from the projections (and we could restate this as the conditional expected value).
+
+Because Hooker defines the fANOVA terms as:
 \begin{equation}
-    y_u(x) = \Pi_{\mathcal{G}_u}y - \sum_{v \subsetneq u} f_v(x)
+\left\{ f_u(x_u) \,\middle|\, u \subseteq d \right\}
+= \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
+\int \left( y(\boldsymbol{X}) - \sum_{u \subseteq d} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x}
+\label{eq:fanova_decomposition_generalized}
 \end{equation}
-We project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
+And I think we can rewrite this as the conditional expected value. We write an example for $u = \{1,2\}$:
+\begin{align*}
+    y_{12}(x_1, x_2) &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - \sum_{\{1,2\}} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - y_\emptyset - y_1 - y_2 - g_{12}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \mathbb{E}[(y(\boldsymbol{X}) - y_\emptyset - y_1 - y_2 - g_{12}(x_1, x_2))^2] \\
+    &= \mathbb{E}[y(\boldsymbol{X}) - y_{\emptyset} - y_1(x_1) - y_2(x_2) | X_1 = x_1, X_2 = x_2]
+\end{align*}
+So he takes the projection of the difference. 
 
+Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
+\cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
+The correct version?
+\begin{align*}
+    \Pi_{\mathcal{G}_i}(y - y_0)
+    &= \arg \min_{g \in \mathcal{G}_i} \|y - y_0 - g_i\|^2\\
+    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}[((y(\boldsymbol{X}) - y_0) - g(X_i))^2] \\
+    &= \mathbb{E}[(y(\boldsymbol{X}) - y_0) \mid y(X_1) = y_(x_1)] \\
+    &= \mathbb{E}[(y(\boldsymbol{X})) \mid y(X_1) = y_(x_1)] - y_0 \text{ if $y_0$ is regarded as a constant term}
+\end{align*}
 
 
 
