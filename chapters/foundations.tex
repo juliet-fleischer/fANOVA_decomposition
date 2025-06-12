@@ -58,14 +58,14 @@ The fANOVA terms should be constructed in such a way that they have two specific
     The zero-mean property states that all effects, except for the constant terms, are centred around zero.
 Mathematically this means that the effects integrate to zero w.r.t. their own variables:
 \begin{equation}
-    \int y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) = \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0
+    \int y_u(\boldsymbol{x_u)}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) = \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0
     \label{eq:zero_mean_c}
 \end{equation}
 \end{proposition}
 \begin{proposition}
     The second property is the orthogonality of the fANOVA terms. If two sets of indices are not completely equivalent, i.e. $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that their fANOVA terms are orthogonal to each other:
 \begin{equation}
-    \int y_u(\boldsymbol{x}_u) y_v(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0
+    \int y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0
     \label{eq:orthogonality_c}
 \end{equation}
 \end{proposition}
@@ -139,7 +139,7 @@ Therefore, we define the variance of $f$ as follows:
 \end{align*}
 The variance of the fANOVA components is then defined as
 \begin{align*}
-    \sigma^2_{x_{i_1}, \dots, x_{i_n})}
+    \sigma^2_{x_{i_1}, \dots, x_{i_n}}
     &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
     &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}] - \mathbb{E}[y_{i_{1}, \dots, i_{n}}]^2
 \end{align*}
@@ -183,9 +183,8 @@ The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$
     (\Pi_{\mathcal{G}_i}y) - (y_0)
     &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
     &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i)] - y_0 = y_i(x_i)
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i\\
 \end{align*}
-
 
 The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
@@ -204,10 +203,16 @@ In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ a
 \end{align*}
 which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
 
-
 \subsubsection*{Notes \& Questions}
-When i start from \cite{muehlenstaedt2012} and basically go the way \textit{fANOVA term $\rightarrow$ expected value $\rightarrow$ projection}, I arrive at the formulation where we first compute the projection and afterwards subtract lower order terms.
-But when I get it correctly \cite{hooker2007} actually writes his generalized fANOVA components actually as the projection of the differences, so he basically goes the other way around, starting from the projections (and we could restate this as the conditional expected value).
+When I start from \cite{muehlenstaedt2012} and basically go the way: \textit{fANOVA term $\rightarrow$ expected value $\rightarrow$ projection}, I arrive at the formulation where we first compute the projection and afterwards subtract lower order terms. For example following the definition by \cite{muehlenstaedt2012} and using the parallel between (conditional) expected value and the projection \citep{vanravenzwaaij2018} we can write:
+\begin{align*}
+    y_{\{1,2\}}(x_1, x_2)
+    &:= \mathbb{E}[y(\boldsymbol{X}) \mid X_1 = x_1, X_2 = x_2] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
+    &= \arg\min_{g_{\{1,2\}} \in \mathcal{G}_{\{1,2\}}} \mathbb{E}\left[(y(\boldsymbol{X}) - g_{\{1,2\}}(X_1, X_2))^2\right] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
+    &= (\Pi_{\mathcal{G}_{\{1,2\}}}y(\boldsymbol{X})) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)
+\end{align*}
+
+But when I get it correctly \cite{hooker2007} actually writes his generalized fANOVA components actually as the projection of the differences. Also, he goes the other way around, starting from the projections (and we could restate this as the conditional expected value).
 
 Because Hooker defines the fANOVA terms as:
 \begin{equation}
@@ -216,26 +221,27 @@ Because Hooker defines the fANOVA terms as:
 \int \left( y(\boldsymbol{X}) - \sum_{u \subseteq d} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x}
 \label{eq:fanova_decomposition_generalized}
 \end{equation}
-And I think we can rewrite this as the conditional expected value. We write an example for $u = \{1,2\}$:
+And I think we can rewrite this as the conditional expected value. For example for $u = \{1,2\}$:
 \begin{align*}
-    y_{12}(x_1, x_2) &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - \sum_{\{1,2\}} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
-    &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - y_\emptyset - y_1 - y_2 - g_{12}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
-    &= \arg \min_{g_{12} \in L^2(\mathbb{R}^2)} \mathbb{E}[(y(\boldsymbol{X}) - y_\emptyset - y_1 - y_2 - g_{12}(x_1, x_2))^2] \\
-    &= \mathbb{E}[y(\boldsymbol{X}) - y_{\emptyset} - y_1(x_1) - y_2(x_2) | X_1 = x_1, X_2 = x_2]
+    y_{12}(x_1, x_2) &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - \sum_{\{1,2\}} g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \mathbb{E}[(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2))^2] \\
+    &= \Pi_{\mathcal{G}_{\{1,2\}}}(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)) \\
+    &= \mathbb{E}[y(\boldsymbol{X}) - y_{\emptyset} - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) | X_1 = x_1, X_2 = x_2]
 \end{align*}
-So he takes the projection of the difference. 
+So \cite{hooker2007} defines the fANOVA terms via the projection \textit{fANOVA term $\rightarrow$ projection $\rightarrow$ expected value (not in Hooker)}. But he takes the projection of the differences. 
 
 Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
 \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
-The correct version?
-\begin{align*}
-    \Pi_{\mathcal{G}_i}(y - y_0)
-    &= \arg \min_{g \in \mathcal{G}_i} \|y - y_0 - g_i\|^2\\
-    &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}[((y(\boldsymbol{X}) - y_0) - g(X_i))^2] \\
-    &= \mathbb{E}[(y(\boldsymbol{X}) - y_0) \mid y(X_1) = y_(x_1)] \\
-    &= \mathbb{E}[(y(\boldsymbol{X})) \mid y(X_1) = y_(x_1)] - y_0 \text{ if $y_0$ is regarded as a constant term}
-\end{align*}
+% The correct version?
+% \begin{align*}
+%     \Pi_{\mathcal{G}_i}(y - y_0)
+%     &= \arg \min_{g \in \mathcal{G}_i} \|y - y_0 - g_i\|^2\\
+%     &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}[((y(\boldsymbol{X}) - y_0) - g(X_i))^2] \\
+%     &= \mathbb{E}[(y(\boldsymbol{X}) - y_0) \mid y(X_1) = y_(x_1)] \\
+%     &= \mathbb{E}[(y(\boldsymbol{X})) \mid y(X_1) = y_(x_1)] - y_0 \text{ if $y_0$ is regarded as a constant term}
+% \end{align*}
 
 
 

@@ -1,27 +1,48 @@
 % The mathematics of cooperation and attribution.
 
-% insert an image right here
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/hooker_2007_figure2.png}
-    \label{fig:hooker_graph}
-\end{figure}
-
 \subsection*{Questions}
+\subsubsection*{Clarifying the connection between fANOVA, expected value, and projection \& bringing together different definitions}
+When I start from \cite{muehlenstaedt2012} and basically go the way: \textit{fANOVA term $\rightarrow$ expected value $\rightarrow$ projection}, I arrive at the formulation where we first compute the projection and afterwards subtract lower order terms. For example following the definition by \cite{muehlenstaedt2012} and using the parallel between (conditional) expected value and the projection \citep{vanravenzwaaij2018} we can write for example for $u = \{1,2\}$:
+\begin{align*}
+    y_{\{1,2\}}(x_1, x_2)
+    &:= \mathbb{E}[y(\boldsymbol{X}) \mid X_1 = x_1, X_2 = x_2] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
+    &= \arg\min_{g_{\{1,2\}} \in \mathcal{G}_{\{1,2\}}} \mathbb{E}\left[(y(\boldsymbol{X}) - g_{\{1,2\}}(X_1, X_2))^2\right] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
+    &= (\Pi_{\mathcal{G}_{\{1,2\}}}y(\boldsymbol{X})) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)
+\end{align*}
+
+But when I get it correctly \cite{hooker2007} writes his generalized fANOVA components as the projection of the differences. Also, he goes the other way around, starting from the projections (and we could restate this as the conditional expected value).
+
+Because Hooker defines the fANOVA terms as:
+\begin{equation}
+\left\{ f_u(x_u) \,\middle|\, u \subseteq d \right\}
+= \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
+\int \left( y(\boldsymbol{X}) - \sum_{u \subseteq d} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x}
+\label{eq:fanova_decomposition_generalized}
+\end{equation}
+And I think we can rewrite this as the conditional expected value. For example for $u = \{1,2\}$:
+\begin{align*}
+    y_{12}(x_1, x_2) &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - \sum_{\{1,2\}} g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
+    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \mathbb{E}[(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2))^2] \\
+    &= \Pi_{\mathcal{G}_{\{1,2\}}}(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)) \\
+    &= \mathbb{E}[y(\boldsymbol{X}) - y_{\emptyset} - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) | X_1 = x_1, X_2 = x_2]
+\end{align*}
+So \cite{hooker2007} defines the fANOVA terms via the projection \textit{fANOVA term $\rightarrow$ projection $\rightarrow$ expected value (not in Hooker)}. But he takes the projection of the differences. 
+
+\vspace{5cm}
+Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
+\cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
+
 \begin{itemize}
-    \item I am confused: I was not clear about the distriction between deterministic input and random variables in the definitions and the examples; and now things are mixed up when it comes to notation, as well as the setup. In general I am now confused if we deal with random variables or deterministic inputs and on which basis fANOVA is really constructed?
     \item I am still confused if setting the zero-mean constraint for $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ is essentially saying that we centre the distribution and now assume $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[-1, 1]$. So can we, instead of explicitly stating the zero-mean constraint just assume $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[-1, 1]$? And following the same principle we would shift other distributions by altering their parameters, not by explicitly stating the zero-mean constraint? Then for the standard normal distribution we wouldn't need to do anything, it is already centred around 0. For other distributions we would need to change, and for some it doesn't make inhaltlichen Sinn e.g. Poisson distribution?
     \item 
-    \item How is the generalized fANOVA really computed? Could you compute it by hand?
-    \item Effect of non-linear main effects in classical fANOVA (see ``General\_fANOVA\_handnote'')
     \item fANOVA decomposition via the integral, how would the zero mean constraint look here? (see ``General\_fANOVA\_handnotes'')
     \item Can you reconstruct the function from only the fANOVA terms? I think it can be reconstructed only if variables are independent, have zero-mean, are orthogonal?
-    \item Is it possible to perform fANOVA for non-square-integrable functions? I think in general yes but the variance decomposition doesn't work then or might have problems. 
+    \item Is it possible to perform fANOVA for non-square-integrable functions? \textit{in general yes but the variance decomposition doesn't work then or might have problems.}
     \item fANOVA decomposition for discrete variables possible? Does it make sense even?
     % \item Denote original model with $y$ or $f$?
     \item Connection between the (conditional) expected value, (partial) integral, projections (section~\ref{general_definitions})?
     \item In the hierarchical orthogonality condition (4.2) formulated in \cite{hooker2007} for the gerneralized fAVNOA framework, shouldn't we explicitly exclude the case that $v = u$, because then, we would require that the inner product of the fANOVA component is zero wouldn't we (section~\ref{generalization})?
-    \item I am a bit confused by Figure 2 in \cite{hooker2007} (see \autoref{fig:hooker_graph}), especially by the dotted line for conditional expectation. What should it tell us? I think what the dashed line (learned approximation) shows is that the model estimates a non-linear effect for x1, even though the true effect is linear. The reasons are the problematic data points in the top right region.
     % \item If the general fANOVA formulation is a true generalization then I should be able to take the general form and construct from it the simple form when I use certain constrains (such as independence, uniform distribution, etc.) right?
     \item Why is it a problem, when explainability methods also place large emphasis on regions of low probability mass when dependencies between variables exist - because in the end explainability is about explaining the model, not the data generating process; and after all it is how the model works in these regions. [But as the Hooker example illustrates, how the model works and what it estimates in these regions is wrong and then it's better to not report any model behaviour or come closer to the DGP than to give wrong estimations?]
     \item 
