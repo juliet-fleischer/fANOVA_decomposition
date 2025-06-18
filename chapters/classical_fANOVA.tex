@@ -1,37 +1,7 @@
-% Good historical overview of fANOVA decomposition found in: Owen (2003), Takemura (1983)
-
-\subsection{Early Work on fANOVA}
-The main idea of the fANOVA decomposition is to decompose a statistical model into the sum of the main effects and interaction effects of its input variables. The underlying principle of fANOVA decomposition dates back to \cite{hoeffding1948}. In his famous paper he introduced U-statistics, along with the ``Hoeffding decomposition'', which allows to write a symmetric function of the data as a sum of orthogonal components. \cite{sobol1993sensitivity} used the same principle and applied it to deterministic mathematical models.
-% Both methods involve the sum of orthogonal components and independent input variables.
-He built on the originally called ``decomposition into summands of different dimension'' in \cite{sobol2001}, where he introduces Sobol indices and renames the method to the ``ANOVA-representation''. Sobol indices are now commonly used in sensitivity analysis. \cite{efron1981} use the idea of the decomposition to proof their famous lemma on jackknife variances. \cite{stone1994} mainly uses fANOVA decomposition to base smooth regression models with interactions on it and his paper is the building block for a broader body of work of fANOVA-based models {\color{blue}example citations needed}.
-
-
-\subsection{Modern Work on fANOVA}
-The fANOVA decomposition has a long history with roots in mathematical statistics and non-parametric estimation theory. In more recent years, the method has been rediscovered by the machine-learning community, especially in the context of interpretable machine learning (IML) and explainable AI (XAI). \cite{hooker2004} introduces the fANOVA decomposition with the goal of providing a global explanation method for black-box models. Since the assumptions of independent variables in classical fANOVA is often too restrictive in practice, \cite{hooker2007} generalizes the method to dependent variables. A recent paper by \cite{ilidrissi2025} can be seen as another approach to generalize the principle of fANOVA decomposition to dependent inputs.\par
-There are specific domains of statistics, such as geostatistics, that explicitly build models on fANOVA framework (see \cite{muehlenstaedt2012} for fANOVA Kriging models). And recent work discovered interesting mathematical parallels between fANOVA and other IML methods, such as PDP \cite{friedman2001}, or Shapley values (\cite{fumagalli2025}, Herren, Owen preprint).
-
-\cite{liu2006} use of fANOVA and sensitivity analysis for functions arising in computational finance.
-\cite{owen2013} formal intro to fANOVA decomposition and generalization of Sobol indices.
-Owen has generally a lot of work related to fANOVA decomposition, either lecture notes explaining the decomposition, methods based on it \cite{owen2003}, or deeper into sensitivity analysis and fANOVA \cite{owen2013}.
-
-\textbf{fANOVA and U-statistics, fANOVA and sensitivity analysis, fANOVA and GAMs (with interactions)}
-
 \subsection{Formal Introduction to fANOVA}
 This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
 Originally, \cite{sobol1993sensitivity} presented the fANOVA decomposition with independent input variables with support bounded to the unit interval, i.e. he considered the measure space $([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$. Later work shows that this restriction is not necessary, and we can work with the Borel $\sigma$-algebra on the n-dimensional real number line, i.e. $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it (see e.g. \cite{rahman2014}).
 Since we assume independence of the input variables, their joint distribution is given by the product over the marginal distributions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\). \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$.
-
-
-% Let $i_1, \dots , i_s$ denote a set of indices. For now, we assume that $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1]$ and work in the measure space $(\Omega, \mathcal{F}, \nu) = ([0, 1]^n, \mathcal{B}([0, 1]^n), \lambda_{n})$. $\mathcal{B}([0, 1]^n)$ is the Borel $\sigma$-algebra on the n-dimensional unit interval and $\lambda_{n}$ is the n-dimensional Lebesgue measure. 
-% The general inner product and norm we defined earlier simplify under these assumptions.\par
-% The inner product under uniform distribution assumption is
-% \[
-% \langle f, g \rangle = \int f(x) g(x) \, d(x), \quad \forall f, g \in \mathcal{L}^2.
-% \]
-% The norm under uniform distribution assumption is
-% \[
-% \|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d(x)}, \quad \forall f \in \mathcal{L}^2.
-% \]
 
 \begin{definition}
 Let $y(\boldsymbol{X})$  be a mathematical model with realizations of independent random variables $x_1, \dots, x_N$ as input. We can represent such a model $y$ as the hierarchical sum of specific basis functions with increasing dimensionality:
@@ -106,25 +76,6 @@ For all other effects $u \neq \emptyset$ we can write:
 \end{equation}
 
 The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
-
-% \subsubsection*{Example 2}
-% We now look at the function $g_{2} = a + x_1 + x_{2}^2$ which includes a quadratic effect. We again assume $X_1 \perp X_2$. The constant fANOVA term is given by:
-% \begin{align*}
-%     &f_0 = \mathbb{E}[g_{2}(X_1, X_2)] = \mathbb{E}[a + X_1 + X_{2}^2] = a + \mathbb{E}[X_1] + \mathbb{E}[X_{2}^2] = a + \frac{1}{12} \\
-%     &\text{This works because we are still in the setting, in which we assume } X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}[0, 1], \\
-%     &\text{in combination with the zero-mean constraint this allows us to state:} \\
-%     &\mathbb{E}[X_2^2] = \mathbb{V}[X_2] = \frac{1}{12}(1 - 0)^2 = \frac{1}{12} \\
-%     &\text{Next, we write the main effects:} \\
-%     &f_1(x_1) = \mathbb{E}_{X_2}[g_{2}(x_1, X_2)] - f_0 = \mathbb{E}_{X_2}[a + x_1 + X_{2}^2] - f_0 \\
-%     &= a + x_1 + \mathbb{E}[X_{2}^2] - f_0 = a + x_1 + \frac{1}{12} - \left( a + \frac{1}{12} \right) = x_1 \\
-%     &f_2(x_2) = \mathbb{E}_{X_1}[g_{2}(X_1, x_2)] - f_0 = \mathbb{E}_{X_1}[a + X_1 + x_{2}^2] - f_0 \\
-%     &= a + \mathbb{E}[X_1] + x_{2}^2 - f_0 = a + x_{2}^2 - \left( a + \frac{1}{12} \right) = x_{2}^2 - \frac{1}{12} \\
-%     &\text{Finally, we compute the interaction effect:} \\
-%     &f_{12}(x_1, x_2) = \mathbb{E}[g_{2}(x_1, x_2)] - f_0 - f_1(x_1) - f_2(x_2) \\
-%     &= a + x_1 + x_{2}^2 - \left( a + \frac{1}{12} \right) - x_1 - \left( x_{2}^2 - \frac{1}{12} \right) = 0
-% \end{align*}
-% What we observe in this example is that explicit centering of the quadratic effect by subtracting a constant is necessary.
-% To write the expected value of a product as the product of the expected values we needed the independence assumption. To state that the product of the expected values is equal to zero, we used the zero-mean constraint. This shows that the independence assumption and zero-mean constraint are critical to ensure orthogonality in this traditional formulation of the fANOVA decomposition. This is of course also true for terms of different order, e.g. \( f_{1,2}(x_1, x_2) \) and \( f_{1}(x_1) \). Orthogonality ensures that the effects do not overlap and each term represents the isolated contribution.
 
 \subsubsection*{Second-moment statistics}
 We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
@@ -204,44 +155,9 @@ In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ a
 which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
 
 \subsubsection*{Notes \& Questions}
-When I start from \cite{muehlenstaedt2012} and basically go the way: \textit{fANOVA term $\rightarrow$ expected value $\rightarrow$ projection}, I arrive at the formulation where we first compute the projection and afterwards subtract lower order terms. For example following the definition by \cite{muehlenstaedt2012} and using the parallel between (conditional) expected value and the projection \citep{vanravenzwaaij2018} we can write:
-\begin{align*}
-    y_{\{1,2\}}(x_1, x_2)
-    &:= \mathbb{E}[y(\boldsymbol{X}) \mid X_1 = x_1, X_2 = x_2] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
-    &= \arg\min_{g_{\{1,2\}} \in \mathcal{G}_{\{1,2\}}} \mathbb{E}\left[(y(\boldsymbol{X}) - g_{\{1,2\}}(X_1, X_2))^2\right] - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) \\
-    &= (\Pi_{\mathcal{G}_{\{1,2\}}}y(\boldsymbol{X})) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)
-\end{align*}
-
-But when I get it correctly \cite{hooker2007} actually writes his generalized fANOVA components actually as the projection of the differences. Also, he goes the other way around, starting from the projections (and we could restate this as the conditional expected value).
-
-Because Hooker defines the fANOVA terms as:
-\begin{equation}
-\left\{ f_u(x_u) \,\middle|\, u \subseteq d \right\}
-= \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
-\int \left( y(\boldsymbol{X}) - \sum_{u \subseteq d} g_u(x_u) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x}
-\label{eq:fanova_decomposition_generalized}
-\end{equation}
-And I think we can rewrite this as the conditional expected value. For example for $u = \{1,2\}$:
-\begin{align*}
-    y_{12}(x_1, x_2) &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - \sum_{\{1,2\}} g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
-    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \int \left( y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2) \right)^2 w(\boldsymbol{x}) \, d\boldsymbol{x} \\
-    &= \arg \min_{g_{\{1,2\}} \in L^2(\mathbb{R}^2)} \mathbb{E}[(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - g_{\{1,2\}}(x_1, x_2))^2] \\
-    &= \Pi_{\mathcal{G}_{\{1,2\}}}(y(\boldsymbol{X}) - y_\emptyset - y_{\{1\}}(x_1) - y_{\{2\}}(x_2)) \\
-    &= \mathbb{E}[y(\boldsymbol{X}) - y_{\emptyset} - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) | X_1 = x_1, X_2 = x_2]
-\end{align*}
-So \cite{hooker2007} defines the fANOVA terms via the projection \textit{fANOVA term $\rightarrow$ projection $\rightarrow$ expected value (not in Hooker)}. But he takes the projection of the differences. 
-
 Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
 \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
-% The correct version?
-% \begin{align*}
-%     \Pi_{\mathcal{G}_i}(y - y_0)
-%     &= \arg \min_{g \in \mathcal{G}_i} \|y - y_0 - g_i\|^2\\
-%     &= \arg \min_{g \in \mathcal{G}_i} \mathbb{E}[((y(\boldsymbol{X}) - y_0) - g(X_i))^2] \\
-%     &= \mathbb{E}[(y(\boldsymbol{X}) - y_0) \mid y(X_1) = y_(x_1)] \\
-%     &= \mathbb{E}[(y(\boldsymbol{X})) \mid y(X_1) = y_(x_1)] - y_0 \text{ if $y_0$ is regarded as a constant term}
-% \end{align*}
 
 
 

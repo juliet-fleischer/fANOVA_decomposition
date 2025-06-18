@@ -9,11 +9,22 @@ The definition of the fANOVA decomposition, and the two main properties - zero m
 
 \begin{definition}
     \textbf{Generalized fANOVA decomposition.}
+    We denote the generalized functional fANOVA decomposition as:
+    \begin{equation}
+        y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u, G}(\boldsymbol{X}_u)
+    \end{equation}
 \end{definition}
+The subscript $G$ indicates that we are working with the generalized fANOVA components. The rest is equivalent to the classical fANOVA. The difference comes from how the components look, which we will see in the following. 
 
-\textbf{Weak annihilating conditions.}
-
-From this we derive
+\begin{proposition}
+    \textbf{Weak annihilating conditions.}
+    The weak annihilating conditions are the foundation for the generalized fANOVA decomposition. They are exactly formulated as the strong annihilating conditions, with the exception that the integral uses the joint-probability density function of the variables of interest, instead of the individual marginal probability density functions.
+    This makes sense, since for the general case we cannot ensure to recover the marginal densities from the joint density function. {\color{red}{Is this really the reason? Or is the reason: When there are dependencies between variables then the individual pdfs would not assign the ``correct weight'' as they ignore the dependence between features in $u$.}}
+    The weak annihilating conditions require that:
+\begin{equation}
+    \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} i \in u \neq \emptyset
+\end{equation}
+\end{proposition}
 
 \begin{proposition}
     % zero mean condition

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  12 JUN 2025 09:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  18 JUN 2025 16:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,9 +378,6 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Label `eq:fanova_decomposition_generalized' multiply defined.
 
 
-LaTeX Warning: Label `eq:fanova_decomposition_generalized' multiply defined.
-
-
 LaTeX Warning: Label `eq:orthogonality_generalized' multiply defined.
 
 )
@@ -470,7 +467,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<sigillum.png, id=84, 2946.00626pt x 2991.175pt>
+<sigillum.png, id=92, 2946.00626pt x 2991.175pt>
 File: sigillum.png Graphic file (type png)
 <use sigillum.png>
 Package pdftex.def Info: sigillum.png  used on input line 86.
@@ -488,12 +485,12 @@ pdfTeX warning: pdflatex (file ./sigillum.png): large interlaced PNG might cause
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 S
-      ituation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega,... [1]
+l.36     \item C
+                ould it happen that based on fANOVA decomposition we build a... [1]
 
-LaTeX Warning: Reference `general_definitions' on page 2 undefined on input line 44.
+LaTeX Warning: Reference `general_definitions' on page 2 undefined on input line 45.
 
-[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3]) [4] (./chapters/background.tex
+[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3] [4]) [5] (./chapters/background.tex
 Overfull \hbox (57.41087pt too wide) in paragraph at lines 29--30
 []\OT1/cmr/m/n/12 Which re-source should I cite for these ``gen-eral'' def-i-ni-tions? e.g. [][]https://apachepersonal.miun.se/ an-
  []
@@ -503,32 +500,32 @@ Overfull \hbox (45.75995pt too wide) detected at line 41
 []
  []
 
-[5] [6]
+[6] [7]
 Overfull \hbox (12.25827pt too wide) in paragraph at lines 96--99
 \OT1/cmr/m/n/12 For nor-mally dis-tributed ran-dom vari-ables, we also know that $[](\OML/cmm/m/it/12 X[]; X[]\OT1/cmr/m/n/12 ) = 0[]\OML/cmm/m/it/12 X[] \OMS/cmsy/m/n/12 ?
  []
 
-) [7] (./chapters/foundations.tex [8] [9] [10]
-Overfull \hbox (34.76262pt too wide) detected at line 145
+) [8] (./chapters/history_fANOVA.tex [9]) [10] (./chapters/classical_fANOVA.tex [11] [12]
+Overfull \hbox (34.76262pt too wide) detected at line 96
 []
  []
 
-[11] [12]
-Overfull \hbox (35.76665pt too wide) detected at line 195
+[13] [14]
+Overfull \hbox (35.76665pt too wide) detected at line 146
 []
  []
 
-[13] [14]) [15] (./chapters/v2_generalized_fANOVA.tex) (./chapters/v1_generalized_fANOVA.tex [16] [17]) [18] (./chapters/example.tex [19] [20]
+[15]) [16] (./chapters/v2_generalized_fANOVA.tex [17]) (./chapters/v1_generalized_fANOVA.tex [18]) [19] (./chapters/estimation_fANOVA.tex) (./chapters/example.tex [20] [21]
 Overfull \hbox (37.63657pt too wide) detected at line 85
 []
  []
 
-) (./chapters/simulation_study.tex) [21] (./chapters/proofs.tex
+) (./chapters/implementations.tex [22]) [23] (./chapters/proofs.tex
 Overfull \hbox (8.21432pt too wide) detected at line 36
 []
  []
 
-) [22] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
+) [24] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
 Underfull \hbox (badness 5446) in paragraph at lines 15--16
 \OT1/cmr/bx/n/12 URL: \OT1/cmr/m/it/12 https://projecteuclid.org/journals/annals-of-statistics/volume- 
  []
@@ -551,21 +548,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B25B5DA341FD7E58C7865813E22864C3;2973.
+(rerunfilecheck)             Checksum: FC08447834F77116F4A3A286A46D5AD1;3350.
  ) 
 Here is how much of TeX's memory you used:
- 12673 strings out of 476025
- 200084 string characters out of 5790017
- 1867388 words of memory out of 5000000
- 32779 multiletter control sequences out of 15000+600000
+ 12693 strings out of 476025
+ 200506 string characters out of 5790017
+ 1869388 words of memory out of 5000000
+ 32787 multiletter control sequences out of 15000+600000
  527726 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,76p,919b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,76p,1179b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (30 pages, 636410 bytes).
+Output written on thesis.pdf (32 pages, 639132 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 475 compressed objects within 5 object streams
- 101 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 572 PDF objects out of 1000 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
