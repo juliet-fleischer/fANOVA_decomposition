@@ -3,6 +3,7 @@ This chapter is based on the formal introductions by \cite{rahman2014, sobol1993
 Originally, \cite{sobol1993sensitivity} presented the fANOVA decomposition with independent input variables with support bounded to the unit interval, i.e. he considered the measure space $([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$. Later work shows that this restriction is not necessary, and we can work with the Borel $\sigma$-algebra on the n-dimensional real number line, i.e. $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it (see e.g. \cite{rahman2014}).
 Since we assume independence of the input variables, their joint distribution is given by the product over the marginal distributions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\). \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$.
 
+% How is fANOVA defined? As a sum of basis components.
 \begin{definition}
 Let $y(\boldsymbol{X})$  be a mathematical model with realizations of independent random variables $x_1, \dots, x_N$ as input. We can represent such a model $y$ as the hierarchical sum of specific basis functions with increasing dimensionality:
 \begin{equation}
@@ -22,13 +23,29 @@ If $|u| = 0$ it describes the constant term, if $|u| = 1$ it describes the main 
 %     \end{equation}
 % \end{proposition}
 
-The fANOVA terms should be constructed in such a way that they have two specific properties crucial for identifiability and interpretation.
+% How are the basis components defined? Via partial integrals.
+\subsubsection*{Construction of the fANOVA Terms}
+The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
+Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
+\begin{equation}
+    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    \label{eq:intercept}
+\end{equation}
+For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can write:
+\begin{equation}
+    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v),
+    \label{eq:fanova_component}
+\end{equation}
+Notice that this definition relies on a product-type measure rooted in the independence of the variables. We will see what changes when we let got of this assumption in the next section.\par
+The fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
+% The terms need to have some nice properties to really fulfill their purpose
+The fANOVA terms should be constructed in such a way that they have two specific properties crucial for identifiability and interpretation.
 \begin{proposition}
     The zero-mean property states that all effects, except for the constant terms, are centred around zero.
 Mathematically this means that the effects integrate to zero w.r.t. their own variables:
 \begin{equation}
-    \int y_u(\boldsymbol{x_u)}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) = \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0
+    \int y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0
     \label{eq:zero_mean_c}
 \end{equation}
 \end{proposition}
@@ -41,16 +58,18 @@ Mathematically this means that the effects integrate to zero w.r.t. their own va
 \end{proposition}
 This means that fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are.\par
 
+% To get these properties, we set the strong annihilating conditions.
 \cite{rahman2014} derives these two properties (\autoref{eq:zero_mean_c}, \autoref{eq:orthogonality_c})from a more general condition, he calls the ``strong annihilating conditions''.\par
 \textbf{The strong annihilating conditions} require that the fANOVA terms integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal probability density functions:
 \begin{equation}
     \int y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
     \label{eq:strong_annihilating_conditions}
 \end{equation}
-
+% Quick check that it works, all round.
 We can reassure ourselves that the properties in fact follow from the strong annihilating conditions. For the zero-mean constraint we can write:
 \begin{align*}
-    \mathbb{E}[y_u(\boldsymbol{X}_u)] &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\
+    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= = \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{i \in u} f_{X_i}(x_i) \, d\nu (\boldsymbol{x}_u) \\
     &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{X_i}(x_i) \, dx_u \prod_{j \in u, j \neq i} f_{X_j}(x_j) = 0
 \end{align*}
@@ -60,23 +79,52 @@ One can follow the same reasoning for the orthogonality condition:
     &= \int_{\mathbb{R}^{\mathbb{N}}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) \\
     &= \int_{\mathbb{R}^{\mathbb{N}-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{X_i}(x_i) \, dx_u \prod_{j \in \{1, \dots, N\}, j \neq i} f_{X_j}(x_j) = 0
 \end{align*}
+% So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
+% There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
 
+\subsubsection*{fANOVA as projection}
+In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
+This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
 
-\subsubsection*{Construction of fANOVA terms}
-The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
-Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
-\begin{equation}
-    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
-    \label{eq:intercept}
-\end{equation}
-For all other effects $u \neq \emptyset$ we can write:
-\begin{equation}
-    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_u) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v),
-    \label{eq:fanova_component}
-\end{equation}
+When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write:
+\begin{align*}
+    \Pi_{\mathcal{G}_0}y
+    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ % here we still focus on the functions (function space view)
+    &= \arg \min_{a_0 \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
+    &= \mathbb{E}[y(\boldsymbol{X})] = y_0
+\end{align*}
+The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
+The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
+\begin{align*}
+    (\Pi_{\mathcal{G}_i}y) - (y_0)
+    &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
+    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i\\
+\end{align*}
 
-The basis components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
+The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
+\begin{align*}
+    (\Pi_{\mathcal{G}_{ij}}y) - (y_0 + y_i(x_i) + y_j(x_j))
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(x_i) + y_j(x_j))\\
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_i, X_j))^2] - (y_0 + y_i(x_i) + y_j(x_j))\\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(x_i) + y_j(x_j)) = y_{ij}(x_i, x_j)
+\end{align*}
 
+In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u); \int g(\boldsymbol{x}) d\nu (\boldsymbol{x}_u) = 0\}$:
+\begin{align*}
+    (\Pi_{\mathcal{G}_u}y) - \sum_{v \subsetneq u} y_v(x)
+    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - y_0\\
+    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_u))^2] \\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(\boldsymbol{x}_u),
+\end{align*}
+which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
+\subsubsection*{Notes \& Questions}
+Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
+\cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
+
+% A lot of theory, running example to illustrate.
+
+% further analysis of the model via fANOVA decomposition --> variance decomposition
 \subsubsection*{Second-moment statistics}
 We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
 For the variance of $y(\boldsymbol{X})$, we find that the total variance can be decomposed into the sum of the fANOVA term variances. The variance decomposition is a major result in \cite{sobol1993sensitivity} and forms the basis for the Sobol indices in sensitivity analysis. We sketch the variance decomposition here and note that it is only possible under independence assumption.\par
@@ -117,46 +165,6 @@ Alternatively we can formulate this via the expected value. We write the sum ove
 
 
 
-\subsubsection*{fANOVA as projection}
-In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
-This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
-
-When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write:
-\begin{align*}
-    \Pi_{\mathcal{G}_0}y
-    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ % here we still focus on the functions (function space view)
-    &= \arg \min_{a_0 \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
-    &= \mathbb{E}[y(\boldsymbol{X})] = y_0
-\end{align*}
-The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
-The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
-\begin{align*}
-    (\Pi_{\mathcal{G}_i}y) - (y_0)
-    &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
-    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i\\
-\end{align*}
-
-The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
-\begin{align*}
-    (\Pi_{\mathcal{G}_{ij}}y) - (y_0 + y_i(x_i) + y_j(x_j))
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(x_i) + y_j(x_j))\\
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_i, X_j))^2] - (y_0 + y_i(x_i) + y_j(x_j))\\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(x_i) + y_j(x_j)) = y_{ij}(x_i, x_j)
-\end{align*}
-
-In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u); \int g(\boldsymbol{x}) d\nu (\boldsymbol{x}_u) = 0\}$:
-\begin{align*}
-    (\Pi_{\mathcal{G}_u}y) - \sum_{v \subsetneq u} y_v(x)
-    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - y_0\\
-    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_u))^2] \\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(\boldsymbol{x}_u),
-\end{align*}
-which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
-
-\subsubsection*{Notes \& Questions}
-Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
-\cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
 
 

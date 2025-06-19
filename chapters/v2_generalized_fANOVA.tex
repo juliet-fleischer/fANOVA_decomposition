@@ -1,12 +1,11 @@
-\subsection{Motivating Example}
-Some good example that illustrates how dependent input variables can lead to misleading results and break the fANOVA.
+% \subsection{Motivating Example}
+% Some good example that illustrates how dependent input variables can lead to misleading results and break the fANOVA.
 \subsection{Formal Introduction to Generalized fANOVA}
 In practice assuming independent input variables is often not realistic. When this assumption is violated, it can lead to misleading results \citep{hooker2007}. The need for a generalization to dependent variables is evident. We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}.\par
 
 Letting go of the independence assumption means that we no longer work with a product-type probability measure. $f_{\boldsymbol{X}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$ denotes an arbitrary probability density function and $f_{\boldsymbol{X}_u}: \mathbb{R}^u \rightarrow \mathbb{R}_{0}^{+}$ the marginal probability density function of the subset of variables $u \subseteq d$.\par
 
-The definition of the fANOVA decomposition, and the two main properties - zero mean and orthogonality - can be stated in the same way as for the classical case, with s slight change for the orthogonality. We build now on the weak annihilating conditions instead of the strong ones, which results in hierarchical orthogonality instead of full orthogonality.\par
-
+% How is generalized fANOVA denoted? (bc the definition perse doesn't change, we still write the model as a sum of basis components of increasing dimensionality)
 \begin{definition}
     \textbf{Generalized fANOVA decomposition.}
     We denote the generalized functional fANOVA decomposition as:
@@ -14,28 +13,56 @@ The definition of the fANOVA decomposition, and the two main properties - zero m
         y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u, G}(\boldsymbol{X}_u)
     \end{equation}
 \end{definition}
-The subscript $G$ indicates that we are working with the generalized fANOVA components. The rest is equivalent to the classical fANOVA. The difference comes from how the components look, which we will see in the following. 
+The subscript $G$ indicates that we are working with the generalized fANOVA components.
+The definition of the fANOVA decomposition, and the two main properties - zero mean and orthogonality - can be stated in the same way as for the classical case, with s slight change for the orthogonality. We build now on the weak annihilating conditions instead of the strong ones, which results in hierarchical orthogonality instead of full orthogonality.\par
 
+% But how do the components look like now? This is a difference
+\subsubsection*{Construction of the Generalized fANOVA Terms}
+Since our earlier definition of the fANOVA components $y_u$ relied on a product-type probability measure, the generalized components look more complicated, apart from the constant term:
+\begin{align}
+y_{\emptyset, G} &= \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\boldsymbol{x}, \tag{4.5a} \\
+y_{u,G}(\boldsymbol{X}_u) &= \int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) f_{\boldsymbol{X}_{-u}}(\boldsymbol{x}_{-u}) \, d\boldsymbol{x}_{-u}
+- \sum_{v \subset u} y_{v,G}(\boldsymbol{X}_v) \notag \\
+&\quad - \sum_{\substack{\emptyset \neq v \subseteq \{1, \ldots, N\} \\ v \cap u \neq \emptyset, v \not\subset u}}
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{X}_{v \cap u}, \boldsymbol{x}_{v \cap -u}) 
+f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d\boldsymbol{x}_{v \cap -u}. \tag{4.5b}
+\end{align}
+The constant term remains the same, which conceptually makes sense as we integrate the term with the joint density in both versions.  The first part of the non-constant components looks very similar to the classical formulation, but instead of the product pdf we use the joint pdf of all variables except for the ones of interest. The terms we subtract from this are also more complicated. What happens is that we do not only control for the effects explained by terms of lower order than the ones of interest but we account for all the terms in which the term of interest is somehow involved in. This will become clearer in the example at the end of this section.\par
+
+% What conditions do they fulfill? Does it differ? Yes, slightly.
+TO ensure identifiability and interpretation, the generalized components should also have the two central properties of zero mean and orthogonality. 
 \begin{proposition}
-    \textbf{Weak annihilating conditions.}
-    The weak annihilating conditions are the foundation for the generalized fANOVA decomposition. They are exactly formulated as the strong annihilating conditions, with the exception that the integral uses the joint-probability density function of the variables of interest, instead of the individual marginal probability density functions.
-    This makes sense, since for the general case we cannot ensure to recover the marginal densities from the joint density function. {\color{red}{Is this really the reason? Or is the reason: When there are dependencies between variables then the individual pdfs would not assign the ``correct weight'' as they ignore the dependence between features in $u$.}}
-    The weak annihilating conditions require that:
+    % zero mean condition
+    The generalized fANOVA components $y_{u, G}$, with $\emptyset \neq u \subseteq \{1, \ldots, N\}$, are centred around zero:
 \begin{equation}
-    \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} i \in u \neq \emptyset
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
+    \label{eq:zero_mean_g}
 \end{equation}
 \end{proposition}
 
 \begin{proposition}
-    % zero mean condition
-\end{proposition}
-
-\begin{proposition}
     % hierarchical orthogonality
+    The fANOVA components are hierarchically orthogonal. This means that for two components $y_{u, G}$ and $y_{v, G}$ with $u \subset v, emptyset \neq u \subseteq \{1, \ldots, N\}, emptyset \neq v \subseteq \{1, \ldots, N\} $ it holds that:
+\begin{equation}
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{X}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
+\end{equation}
+\label{eq:orthogonality_g}
 \end{proposition}
 
+% So the constraint we set to the optimization problem is modified, milder.
+To ensure that these statements hold for the generalized fANOVA components, we need to set the weak annihilating conditions.
+They fulfill the same function as the strong annihilating conditions do in the classical case but work with the joint density of the variables of interest, instead of the individual marginal probability density functions.
+This makes sense, since for the general case we cannot ensure to recover the marginal densities from the joint density function. {\color{red}{Is this really the reason? Or is the reason: When there are dependencies between variables then the individual pdfs would not assign the ``correct weight'' as they ignore the dependence between features in $u$.}}
+\begin{proposition}
+    \textbf{Weak annihilating conditions.}
+    The weak annihilating conditions require that:
+\begin{equation}
+    \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} \quad i \in u \neq \emptyset
+\end{equation}
+\end{proposition}
 
-\subsection{Generalization by Hooker}
+To show that zero mean and hierarchical orthogonality follow from the weak annihilating conditions, \cite{rahman2014} makes use of Fubini's theorem (see his proof in section 4 of his paper - or should I write the commented proof here?).
+
 
 
 
