@@ -5,7 +5,7 @@ Since we assume independence of the input variables, their joint distribution is
 
 % How is fANOVA defined? As a sum of basis components.
 \begin{definition}
-Let $y(\boldsymbol{X})$  be a mathematical model with realizations of independent random variables $x_1, \dots, x_N$ as input. We can represent such a model $y$ as the hierarchical sum of specific basis functions with increasing dimensionality:
+Let $y$  denote a mathematical model with realizations of independent random variables $x_1, \dots, x_N$ as input. We can represent such a model $y$ as the hierarchical sum of specific basis functions with increasing dimensionality:
 \begin{equation}
     y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u),
     \label{eq:fanova_decomposition}
@@ -81,6 +81,61 @@ One can follow the same reasoning for the orthogonality condition:
 \end{align*}
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
+
+\subsection{Example: Multivariate Normal Inputs}
+
+Before further investigating the fANOVA decomposition, let us consider the following function as example: \(g = a + X_1 + 2X_2 + X_1 X_2\). We assume that $\boldsymbol{X} = (X_1, X_2)^T$ follows a standard MVN distribution, i.e.:
+
+\[
+\begin{pmatrix}
+X_1 \\
+X_2
+\end{pmatrix}
+\sim \mathcal{N}\left(
+\begin{pmatrix} 0 \\ 0 \end{pmatrix},
+\begin{pmatrix}
+1 & \rho_{12} \\
+\rho_{12} & 1
+\end{pmatrix}
+\right).
+\]
+From the properties of the MVN, we know that marginal distributions are standard normal:
+\[
+X_i \sim \mathcal{N}(0, 1) \quad \text{for } i = 1, 2
+\]
+
+We also know that the conditional distributions are given by:
+\[
+X_1 \mid X_2 = x_2 \sim \mathcal{N}(\rho_{12} x_2, 1 - \rho_{12}^2), \quad
+X_2 \mid X_1 = x_1 \sim \mathcal{N}(\rho_{12} x_1, 1 - \rho_{12}^2)
+\]
+
+\subsubsection*{Case 1: Independent Inputs}
+The classical fANOVA decomposition we covered so far assumes $\rho_{12} = 0$. Computing the fANOVA decomposition of $g(x_1, x_2)$ by hand, we start with the constant term and make use of formulation via the expected value:
+\[
+y_0 = \mathbb{E}[g_{1}(X_1, X_2)] = \mathbb{E}[a + X_1 + 2X_2 + X_1X_2] = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2]
+\]
+Making use of the independence assumption of $X_1$ and $X_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish and we obtain:
+\[
+y_0 = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1]\mathbb{E}[X_2] = a
+\]
+
+Under zero-mean constraint and independence, the main effects and the interaction effect can be computed as follows:
+\begin{align*}
+y_1(x_1) &= \mathbb{E}_{X_2}[g_{1}(x_1, X_2)] - y_0 \\
+&= \mathbb{E}_{X_2}[a + x_1 + 2X_2 + x_1X_2] - a \\
+&= x_1 + 2\mathbb{E}[X_2] + x_1\mathbb{E}[X_2] = x_1\\
+y_2(x_2) &= \mathbb{E}_{X_1}[g_{1}(X_1, x_2)] - y_0 \\
+&= \mathbb{E}_{X_1}[a + X_1 + 2x_2 + X_1x_2] - a \\
+&= \mathbb{E}_{X_1}[X_1] + 2x_2 + x_2\mathbb{E}_{X_1}[X_1] = 2x_2\\
+y_{12}(x_1, x_2) &= \mathbb{E}[g_{1}(x_1, x_2)] - y_0 - y_1(x_1) - y_2(x_2) \\
+&= a + x_1 + 2x_2 + x_1x_2 - a - x_1 - 2x_2 = x_1x_2
+\end{align*}
+
+It comes as no surprise that in this simple case the fANOVA decomposition does not provide any additional insights, as the isolated effects can be directly seen from the function.
+We show this simple example nevertheless to illustrate at which step which assumption is used.
+This will make clearer what breaks down when we generalize to dependent variables.
+
 
 \subsubsection*{fANOVA as projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.

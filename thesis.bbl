@@ -36,6 +36,16 @@ Hooker, G.  \harvardyearleft 2007\harvardyearright .
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}, {\em Journal of Computational and Graphical Statistics} {\bf 16}(3):~709--732.
 \newline\harvardurl{http://www.tandfonline.com/doi/abs/10.1198/106186007X237892}
 
+\harvarditem{Huang}{1998a}{Huang1996}
+Huang, J.~Z.  \harvardyearleft 1998a\harvardyearright .
+\newblock {Functional ANOVA Models for Generalized Regression}, {\em Journal of Multivariate Analysis} {\bf 67}(1):~49--71.
+\newline\harvardurl{https://ideas.repec.org/a/eee/jmvana/v67y1998i1p49-71.html}
+
+\harvarditem{Huang}{1998b}{huang1998a}
+Huang, J.~Z.  \harvardyearleft 1998b\harvardyearright .
+\newblock Projection estimation in multiple regression with application to functional {ANOVA} models, {\em The Annals of Statistics} {\bf 26}(1).
+\newline\harvardurl{https://projecteuclid.org/journals/annals-of-statistics/volume-26/issue-1/Projection-estimation-in-multiple-regression-with-application-to-functional-ANOVA/10.1214/aos/1030563984.full}
+
 \harvarditem[Il~Idrissi et~al.]{Il~Idrissi, Bousquet, Gamboa, Iooss \harvardand\ Loubes}{2025}{ilidrissi2025}
 Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  \harvardyearleft 2025\harvardyearright .
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.

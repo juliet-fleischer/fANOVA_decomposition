@@ -2,3 +2,4 @@ fANOVA
 Hoeffding
 kriging
 fulfill
+asymptotical
