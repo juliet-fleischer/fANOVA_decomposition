@@ -2,9 +2,8 @@
 Recall our example setup of standard MVN input variables and \(g = a + X_1 + 2X_2 + X_1 X_2\) from the previous section~\ref{classical_fANOVA}.
 For classical fANOVA we make the assumption of independent inputs, which is often violated in practice. Let us therefore investigate what happens, when we allow for dependency between variables.
 
-\subsubsection*{Case 2: Dependent Inputs (weak)}
-Now $\rho_{12} \neq 0$, while keeping everything else the same. We follow the exact same logic as above to calculate the
-constant terms under dependent inputs. Notice that the fANOVA components look more complicated and involve the correlation $\rho$. {\color{red}maybe call these components $\tilde{y}_i$ or sth. like this to emphasize that it is not the same as above (and that they turn out to not be fANOVA components after all)}:
+\subsubsection*{Case 2: Dependent Inputs}
+Now $\rho_{12} \neq 0$, while keeping everything else the same. When we follow the exact same logic as above we obtain the following terms:
 \begin{align*}
 \tilde{y}_0 &= \mathbb{E}[g(X_1, X_2)] 
 = a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
@@ -30,15 +29,16 @@ constant terms under dependent inputs. Notice that the fANOVA components look mo
 \end{align*}
 
 The fANOVA components are characterized by two central properties zero mean and orthogonality which follow from \autoref{eq:strong_annihilating_conditions}.
-When we check if the components $\tilde{y}_0, \tilde{y}1, \tilde{y}_2, \tilde{y}_{1,2}$ satisfy the properties, we find out that all components are zero-centred, but not all are hierarchical to each other. We can, for example, immediately see that checking orthogonality between $\tilde{y}_{1}, \tilde{y}_{1,2}$ will yield the expectation over the constant term $\rho_{1,2}$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero.
+When we check if the components $\tilde{y}_0, \tilde{y}_1, \tilde{y}_2, \tilde{y}_{12}$ satisfy these properties, we find out that all components are zero-centred, but not all are orthogonal to each other. We can, for example, immediately see that checking orthogonality between $\tilde{y}_{1}, \tilde{y}_{1,2}$ will yield the expectation over the constant term $\rho_{1,2}$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero:
 \begin{align*}
     \mathbb{E}(\tilde{y}_1(X_1)\tilde{y}_{1,2}(X_1, X_2)) 
     &= \mathbb{E}[(X_1 + 2\rho_{12}X_1 + \rho_{12}X_1^2 - \rho_{12}) \\
     &\quad \cdot (X_1 X_2 - 2\rho_{12} X_1 - \rho_{12} X_2 - \rho_{12} X_1^2 - \rho_{12} X_2^2 + \rho_{12})] \\
-    &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho_{12}^2] \neq 0
+    &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho_{12}^2] \neq 0.
 \end{align*}
 
 When we no longer have independent inputs naively computing the ``fANOVA decomposition'' does not yield the fANOVA components as it turns out. What we performed in this example is not the fANOVA decomposition for dependent variables. It is Hoeffding decomposition and results in zero mean but not mutually orthogonal component functions. This shows the need for a more involved approach for generalizing fANOVA.
+We basically can see from this example that correlation between features distorts the fANOVA component function, it is not pure anymore but this is the whole point of the fANOVA decomposition and central so that it adds sth. IML.
 
 \subsection{Formal Introduction to Generalized fANOVA}
 We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}.\par
@@ -115,11 +115,69 @@ To show that zero mean and hierarchical orthogonality follow from the weak annih
 \end{equation}
 In Hookers definition we recognize a projection problem. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under zero mean and hierarchical orthogonality constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$, which we defined generally in section ~\ref{background}.\par
 
-A crucial difference both versions of the generalized components have in common is that they are defined in dependence of each other (\autoref{eq:generalized_fanova_components_rahman}, \autoref{eq:generalized_fanova_components_hooker}).
-Since they form a coupled system, which needs to be solved simultaneously, it is clear now why the approach in the beginning was too simple.
+A crucial difference to the classical case is that both versions of the generalized components are defined in dependence of each other (\autoref{eq:generalized_fanova_components_rahman}, \autoref{eq:generalized_fanova_components_hooker}).
 
-% Now a correction of the example from the beginning would need to follow
+Let us come back to our example from the beginning. The goal is to write
+\[
+g(x_1, x_2) = y_{\emptyset, G} + y_{\{1\}, G}(x_1) + y_{\{2\}, G}(x_2) + y_{\{1,2\}, G}(x_1, x_2)
+\]
+under dependent inputs. We present two ways in which the problem solution can be stated.\par
+
+\subsubsection*{Rahman method}
+The system to find the generalized fANOVA components for $g$ according to \cite{rahman2014} method looks as follows:
+\begin{align}
+    y_{\emptyset, G} &= \int_{\mathbb{R}^2} g(x_1, x_2)\, f(x_1, x_2)\, dx_1 dx_2 \label{eq:y0} \\
+    y_{\{1\}, G}(x_1) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_2(x_2)\, dx_2
+    - y_{\emptyset, G}
+    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_2(x_2)\, dx_2 \label{eq:y1} \\
+    y_{\{2\}, G}(x_2) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_1(x_1)\, dx_1
+    - y_{\emptyset, G}
+    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_1(x_1)\, dx_1 \label{eq:y2} \\
+    y_{\{1,2\}, G}(x_1, x_2) &= g(x_1, x_2) - y_{\emptyset, G} - y_{\{1\}, G}(x_1) - y_{\{2\}, G}(x_2) \label{eq:y12}
+\end{align}
+
+Since the components form a coupled system where the components are defined in interdependence of each other, finding the solution is not straight forward, even for simple examples.
+
+\subsubsection*{Hooker method}
+An alternative way to phrase the problem can be found in \cite{hooker2007}.
+To find the generalized fANOVA components, we can formulate a minimization problem for each of them. 
+\begin{align}
+y_{\emptyset} &= \arg\min_{c \in \mathbb{R}} \int_{\mathbb{R}^2} 
+\left( g(x_1, x_2) 
+- \left( c + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
+&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y0_hooker} \\
+y_{\{1\}}(x_1) &= \arg\min_{h_1 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
+\left( g(x_1, x_2) 
+- \left( y_{\emptyset} + h_1(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
+&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y1_hooker} \\
+y_{\{2\}}(x_2) &= \arg\min_{h_2 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
+\left( g(x_1, x_2) 
+- \left( y_{\emptyset} + y_{\{1\}}(x_1) + h_2(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
+&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y2_hooker} \\
+y_{\{1,2\}}(x_1, x_2) &= \arg\min_{h_{12} \in L^2(\mathbb{R}^2)} \int_{\mathbb{R}^2} 
+\left( g(x_1, x_2) 
+- \left( y_{\emptyset} + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + h_{12}(x_1, x_2) \right) \right)^2 \nonumber \\
+&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y12_hooker}
+\end{align}
+
+
+The least-squares problems are solved subject to the following constraints, which ensure that the resulting components are zero centred and hierarchically orthogonal:
+\begin{align*}
+\int_{\mathbb{R}^2} y_{\{1\}}(x_1) \cdot f(x_1, x_2)\, dx_1 dx_2 &= 0 \\[1ex]
+\int_{\mathbb{R}^2} y_{\{2\}}(x_2) \cdot f(x_1, x_2)\, dx_1 dx_2 &= 0 \\[1.4ex]
+\int_{\mathbb{R}} y_{\{1,2\}}(x_1, x_2) \cdot f(x_1, x_2)\, dx_1 &= 0 \quad \forall x_2 \\[1ex]
+\int_{\mathbb{R}} y_{\{1,2\}}(x_1, x_2) \cdot f(x_1, x_2)\, dx_2 &= 0 \quad \forall x_1
+\end{align*}
+
+
+Conceptually \cite{hooker2007} is doing nothing other than a projection. Earlier, we established that a projection is the same as the conditional expected value, and fANOVA can be expressed via the conditional expected value. This means from the initial idea, we do not change anything apart from the fact that we have to integrate via the joint pdf, but this is something one is ``forced'' to under dependence, not something one ``invents''. However, projections onto subspaces become more difficult under dependence; therefore, setting these constraints explicitly is necessary to ensure (hierarchical) orthogonality.\par
+
+Obtaining an analytical solution for either of the methods is tedious even for our simple example. We leave it at the problem formulation, so that we have the comparison between which problem one has to solve the classical case versus the generalized case. In the next section, we sketch ways to estimate the fANOVA components conceptually.
+
+% Now a correction of the example from the beginning would need to follow...
 % --> If not what we thought, what are the real generalized fANOVA components then??
+% but maybe i have to come to the (very unsatifying) end that i cannot correct the above components 
+% because solving this coupled system is too complex...?
 
 % estimating them is more involved, we need to introduce this in the next section
 % more or less formal intro to Hookers general estimation approach
