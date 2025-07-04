@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  4 JUL 2025 14:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  4 JUL 2025 17:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -508,12 +508,33 @@ Overfull \hbox (34.76262pt too wide) detected at line 199
 []
  []
 
-[16]) [17] (./chapters/v2_generalized_fANOVA.tex [18] [19] [20] [21] [22]) [23] (./chapters/estimation_fANOVA.tex) [24] (./chapters/proofs.tex
+[16]) [17] (./chapters/v2_generalized_fANOVA.tex [18] [19] [20] [21] [22]) [23] (./chapters/estimation_fANOVA.tex) (./chapters/example.tex
+<images/p_main_effect_ex1.png, id=422, 578.16pt x 433.62pt>
+File: images/p_main_effect_ex1.png Graphic file (type png)
+<use images/p_main_effect_ex1.png>
+Package pdftex.def Info: images/p_main_effect_ex1.png  used on input line 16.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/p_contour_ex1.png, id=423, 578.16pt x 433.62pt>
+File: images/p_contour_ex1.png Graphic file (type png)
+<use images/p_contour_ex1.png>
+Package pdftex.def Info: images/p_contour_ex1.png  used on input line 23.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/p_main_effect_ex1_rho06.png, id=424, 578.16pt x 433.62pt>
+File: images/p_main_effect_ex1_rho06.png Graphic file (type png)
+<use images/p_main_effect_ex1_rho06.png>
+Package pdftex.def Info: images/p_main_effect_ex1_rho06.png  used on input line 41.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/p_contour_ex1_rho06.png, id=425, 578.16pt x 433.62pt>
+File: images/p_contour_ex1_rho06.png Graphic file (type png)
+<use images/p_contour_ex1_rho06.png>
+Package pdftex.def Info: images/p_contour_ex1_rho06.png  used on input line 48.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+ [24 <./images/p_main_effect_ex1.png> <./images/p_contour_ex1.png>]) [25 <./images/p_main_effect_ex1_rho06.png> <./images/p_contour_ex1_rho06.png>] (./chapters/proofs.tex
 Overfull \hbox (8.21432pt too wide) detected at line 36
 []
  []
 
-) [25] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
+) [26] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
 Underfull \hbox (badness 5446) in paragraph at lines 15--16
 \OT1/cmr/bx/n/12 URL: \OT1/cmr/m/it/12 https://projecteuclid.org/journals/annals-of-statistics/volume- 
  []
@@ -536,18 +557,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 9BBA8DFD4BF3E7A51D832930B05DF172;2672.
  ) 
 Here is how much of TeX's memory you used:
- 12703 strings out of 476025
- 200378 string characters out of 5790017
+ 12748 strings out of 476025
+ 201545 string characters out of 5790017
  1868388 words of memory out of 5000000
- 32790 multiletter control sequences out of 15000+600000
+ 32821 multiletter control sequences out of 15000+600000
  528063 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,14n,76p,1179b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (34 pages, 652721 bytes).
+Output written on thesis.pdf (35 pages, 1912198 bytes).
 PDF statistics:
- 584 PDF objects out of 1000 (max. 8388607)
- 495 compressed objects within 5 object streams
- 121 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 605 PDF objects out of 1000 (max. 8388607)
+ 506 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 

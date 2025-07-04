@@ -12,7 +12,6 @@ theme_set(
       panel.grid.minor = element_blank(),
       axis.line = element_line(color = "black", linewidth = 0.3),
       panel.border = element_blank(),
-      plot.margin = margin(5, 5, 5, 5),     # Tight margins
       legend.position = "none"              # No legend (unless explicitly needed)
     )
 )
@@ -31,7 +30,7 @@ g <- function(x1, x2) {
 }
 grid$gval <- with(grid, g(x1, x2))
 
-rho <- 0
+rho <- 0.6
 Sigma <- matrix(c(1, rho, rho, 1), 2, 2)
 grid$density <- mapply(function(x1, x2) {
   dmvnorm(c(x1, x2), mean = c(0, 0), sigma = Sigma)

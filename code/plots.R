@@ -3,12 +3,26 @@ library(ggplot2)
 library(plotly)
 library(tidyverse)
 
+theme_set(
+  theme_minimal(base_size = 11) +
+    theme(
+      plot.title = element_blank(),         # No title (handled by LaTeX caption)
+      axis.title = element_text(size = 11), # Axis labels
+      axis.text = element_text(size = 10),  # Tick labels
+      panel.grid.major = element_line(color = "grey85", size = 0.3),
+      panel.grid.minor = element_blank(),
+      axis.line = element_line(color = "black", linewidth = 0.3),
+      panel.border = element_blank(),
+      legend.position = "none"              # No legend (unless explicitly needed)
+    )
+)
+
 
 
 # Standard MVN input (with varying rho) ----
 ## Setup
 x_seq <- seq(-3, 3, length.out = 100)
-rho = 0.5 # only if rho = 0 do we get fANOVA components
+rho = 0.6 # only if rho = 0 do we get fANOVA components
 
 df_wide <- tibble(
   x = x_seq,
@@ -23,9 +37,10 @@ df_long <- df_wide %>%
     values_to = "y"
   )
 
-ggplot(df_long, aes(x = x, y = y, color = Effects)) +
+p_main_effect <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
   geom_line(size = 1) +
-  scale_y_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(-6, 6)) + # make both lines grey
+  scale_color_manual(values = c("y1" = "plum", "y2" = "gray40")) +
   labs(x = "", y = "") +
   theme_minimal() +
   theme(legend.title = element_blank())
@@ -65,11 +80,11 @@ grid <- expand.grid(x1 = x_seq, x2 = x_seq)
 grid$f12 <- with(grid, x1 * x2 - 2 * rho * x1 - rho * x2 - rho * x1^2 - rho * x2^2 + rho)
 
 ## 1 Smooth contour plot ----
-ggplot(grid, aes(x = x1, y = x2, fill = f12)) +
+contour_plot <- ggplot(grid, aes(x = x1, y = x2, fill = f12)) +
   geom_raster(interpolate = TRUE) +  # Interpolates colors for smooth look
   stat_contour(aes(z = f12), color = "white", alpha = 0.5) +
   scale_fill_gradient2(
-    low = "blue", mid = "white", high = "red", midpoint = 0,
+    low = "darkseagreen4", mid = "white", high = "salmon", midpoint = 0,
     name = "f12"
   ) +
   labs(
