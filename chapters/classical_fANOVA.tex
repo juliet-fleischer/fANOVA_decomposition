@@ -217,6 +217,15 @@ Alternatively we can formulate this via the expected value. We write the sum ove
     & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})]
 \end{align*}
 
+We can verify that the variance decomposition holds for our example:
+
+\begin{align*}
+    Var(a + X_1 + 2X_2 + X_1 X_2) &= Var(X_1) + 4Var(X_2) + Var(X_1X_2) + 2Cov(X_1, X_2) \\
+    &= 1 + 4 \cdot 1 + 1 \cdot 1 + 2 \cdot 0 &= 6 \\
+    &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2Cov(X_1, X_2) \\
+    &= \mathbb{E}[y_1^2] + \mathbb{E}[y_2^2] + \mathbb{E}[y_{12}^2] \\
+\end{align*}
+
 
 
 
