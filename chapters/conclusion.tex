@@ -1,0 +1,51 @@
+% Recaps of what I did
+% 1. gave historical context of fANOVA by showing origins of the method and how it evolved over time
+We started by working through the historical context of the fANOVA decomposition. We explored the origins of the fANOVA method rooted in mathematical work by \cite{hoeffding1948} and \cite{sobol1993sensitivity}. We saw how the method was picked up by following researchers in different contexts.
+
+% 2. formal introduction, to classical fANOVA
+% synthesise multiple sources into one clean, general but not 
+% too general formulation of the method
+% looked at key properties that characterize fANOVA + distinguish it from other IML methods
+
+% --->> could work out a bit more (for now mostly conceptually)
+% uniqueness of fANOVA in comparison to other methods
+% e.g. say that it is a global technique, decomposes the function
+% it is model agnostic, global etc.
+
+% 3. generalization of fANOVA
+% we saw how classical fANOVA breaks down under dependent inputs
+% weak independence might not be problem but if features are strongly correlated fANOVA will yield misleading results
+% the generalization is in the end doing nothing other than letting go of the product type probability measure 
+% but constructing components that still satisfy the nice properties and add up to the original function is not trivial 
+% there are multiple ways to generalize the components, we mostly
+% focused on work by Hooker and Rahman
+
+
+% we unified different formulations of the method using the parallel
+% between conditional expected value and orthogonal projections
+% this is the key to bringing different formulations together and also generlizing the idea of fANOVA
+% to different scenarios
+
+% approximation of fANOVA done via sampling, lagrange multiplier etc.
+
+% Limitations:
+non-centred inputs: their effect terms are shifted, so that fANOVA components are centred around zero; other than that,
+shifting does not change nature/ form of the effects
+Generalization to dependent inputs: we were able to write out the problem but not find the solution; solve simultanesouly; 
+analytically possible? Or only numerically?
+% lack of software implementations, hard to implement in practice
+Outdated or unfinished packages, might hide in other packages, but difficult to identify.
+mlr3 function but then has to be part of the entire pipeline, need to train a model, and therefore cannot ensure that independence assumption holds.
+
+Clear contribution of this work: brought clarity and unity to the various different formulations of fANOVA. We see trend in recent ML literature (cite all these ML papers with the fancy models), pick up the methods but the theoretical background and clean formalism often left aside. This work serves as a reference to practitioners who seek a unified and clean formalization of the fANOVA method. 
+
+Outlook, work that could follow from this thesis:
+Examine the different approaches to estimate fANOVA components (how do they scale? what is their accuracy? etc.)
+Write software implementation for fANOVA decomposition; current landscape is sparse but the method has great potential for IML; with current practicability it is however clear that fANOVA will not be accepted, it is not convenient to use the method
+
+What is the final conclusion of my work? What do I even want to say with my thesis?
+fANOVA powerful theory, sound mathematical foundation, but without standardized software implementation application to IML difficult.
+But fANOVA is ``applied'' by researchers, how? For theoretical results?
+
+Parallels to Shapley values, unified under a game theoretic approach; \cite{fumagalli2025} recently established this parallel, would be very interesting to investigate further.
+

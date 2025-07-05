@@ -884,6 +884,10 @@ INPUT ./images/p_contour_ex1_rho06.png
 INPUT images/p_contour_ex1_rho06.png
 INPUT ./images/p_contour_ex1_rho06.png
 INPUT ./images/p_contour_ex1_rho06.png
+INPUT ./chapters/conclusion.tex
+INPUT chapters/conclusion.tex
+INPUT ./chapters/conclusion.tex
+INPUT chapters/conclusion.tex
 INPUT ./chapters/proofs.tex
 INPUT chapters/proofs.tex
 INPUT ./chapters/proofs.tex

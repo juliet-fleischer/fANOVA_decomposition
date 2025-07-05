@@ -1,6 +1,14 @@
 In this chapter we will illustrate two approaches to estimate the fANOVA components on a conceptual level. The first approach can be found in \cite{hooker2007} and is essentially a linear least squares problem. The second approach uses Fourier polynomial expansion and is proposed by \cite{rahman2014}.
 
 \subsection*{Classical fANOVA}
-
+\cite{hooker2004} employs the close connection between partial dependence and fANOVA decomposition via the conditional expected value to estimate the components under independence assumption.
+Monte Carlo samples, averages; need to read more about the mechanism here.
 
 \subsection*{Generalized fANOVA}
+Just as the theoretical formalization is more complex under dependent inputs, so is its estimation.
+Hooker sets up a weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components. 
+
+\cite{rahman2014} approaches the estimation differently and represents each component with a Fourier polynomial expansion. For normally distributed inputs, one can choose Hermite polynomials as basis functions, which simplifies things; in other cases more complicated I think.
+Again need to look up the mechanisms better.
+
+Both no standard implementations available. 

@@ -11,7 +11,7 @@
 \contentsline {subsection}{\numberline {5.2}Formal Introduction to Generalized fANOVA}{19}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Estimation of fANOVA}{24}{section.6}%
 \contentsline {section}{\numberline {7}Examples \& Visualizations}{24}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{26}{section.8}%
-\contentsline {section}{\numberline {9}Mathematical Statements}{26}{section.9}%
+\contentsline {section}{\numberline {8}Conclusion}{28}{section.8}%
+\contentsline {section}{\numberline {9}Mathematical Statements}{29}{section.9}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%

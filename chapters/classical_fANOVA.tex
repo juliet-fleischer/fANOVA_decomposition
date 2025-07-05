@@ -94,8 +94,8 @@ X_2
 \sim \mathcal{N}\left(
 \begin{pmatrix} 0 \\ 0 \end{pmatrix},
 \begin{pmatrix}
-1 & \rho_{12} \\
-\rho_{12} & 1
+1 & 0 \\
+0 & 1
 \end{pmatrix}
 \right).
 \]
@@ -106,8 +106,8 @@ X_i \sim \mathcal{N}(0, 1) \quad \text{for } i = 1, 2
 
 We also know that the conditional distributions are given by:
 \[
-X_1 \mid X_2 = x_2 \sim \mathcal{N}(\rho_{12} x_2, 1 - \rho_{12}^2), \quad
-X_2 \mid X_1 = x_1 \sim \mathcal{N}(\rho_{12} x_1, 1 - \rho_{12}^2)
+X_1 \mid X_2 = x_2 \sim \mathcal{N}(0, 1), \quad
+X_2 \mid X_1 = x_1 \sim \mathcal{N}(0, 1)
 \]
 
 \subsubsection*{Case 1: Independent Inputs}
