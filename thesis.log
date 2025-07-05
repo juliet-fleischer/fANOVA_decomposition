@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  5 JUL 2025 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  5 JUL 2025 21:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -509,7 +509,7 @@ Overfull \hbox (34.76262pt too wide) detected at line 199
  []
 
 [16]
-Overfull \hbox (1.53795pt too wide) detected at line 227
+Overfull \hbox (1.53795pt too wide) detected at line 226
 []
  []
 
@@ -535,12 +535,17 @@ File: images/p_contour_ex1_rho06.png Graphic file (type png)
 <use images/p_contour_ex1_rho06.png>
 Package pdftex.def Info: images/p_contour_ex1_rho06.png  used on input line 90.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
- [26 <./images/p_main_effect_ex1_rho06.png> <./images/p_contour_ex1_rho06.png>]) [27] (./chapters/conclusion.tex) (./chapters/proofs.tex [28]
+ [26 <./images/p_main_effect_ex1_rho06.png> <./images/p_contour_ex1_rho06.png>] [27]
+Overfull \hbox (10.17737pt too wide) detected at line 166
+[]
+ []
+
+) [28] [29] (./chapters/conclusion.tex) (./chapters/proofs.tex [30]
 Overfull \hbox (8.21432pt too wide) detected at line 36
 []
  []
 
-) [29] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
+) [31] (./chapters/appendix.tex) [5] [6] (./thesis.bbl
 Underfull \hbox (badness 5446) in paragraph at lines 15--16
 \OT1/cmr/bx/n/12 URL: \OT1/cmr/m/it/12 https://projecteuclid.org/journals/annals-of-statistics/volume- 
  []
@@ -563,18 +568,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 9BBA8DFD4BF3E7A51D832930B05DF172;2672.
  ) 
 Here is how much of TeX's memory you used:
- 12758 strings out of 476025
- 201704 string characters out of 5790017
+ 12767 strings out of 476025
+ 201795 string characters out of 5790017
  1868388 words of memory out of 5000000
  32823 multiletter control sequences out of 15000+600000
  528063 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,14n,76p,1179b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (38 pages, 1920818 bytes).
+Output written on thesis.pdf (40 pages, 1927116 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 530 compressed objects within 6 object streams
- 132 named destinations out of 1000 (max. 500000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 545 compressed objects within 6 object streams
+ 141 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
