@@ -1,14 +1,20 @@
-In this chapter we will illustrate two approaches to estimate the fANOVA components on a conceptual level. The first approach can be found in \cite{hooker2007} and is essentially a linear least squares problem. The second approach uses Fourier polynomial expansion and is proposed by \cite{rahman2014}.
+The fANOVA decomposition has a strong theoretical foundation but especially in modern work, estimation approaches and computational feasibility is an important aspect to consider.
 
-\subsection{Classical fANOVA}
-\cite{hooker2004} employs the close connection between partial dependence and fANOVA decomposition via the conditional expected value to estimate the components under independence assumption.
-Monte Carlo samples, averages; need to read more about the mechanism here.
+\subsection*{Estimation based on Partial Dependence}
+In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
+More concretely, one first estimates the conditional expected value of the variables in $u$ (keep variables in $u$ fixed an average over all others). This is a simple Monte Carlo estimation, which results in the partial dependence function (PD Function) for the variables in $u$ \citep{hooker2004}.
+The PD Function can then be used to estimate the empirical projection of interest. He states that his method works well for functions that have a nearly additive true structure and purely additive functions are exactly recoverable with this approach. To save computational costs, he proposes to base the Monte Carlo estimates of the PD function on a randomly sampled subset of data points.
+Problem: no true projections (under dependence or always?); extrapolation issues etc.; even if no product type measure assumption, still problems in handling dependent inputs.
 
-\subsection{Generalized fANOVA}
-Just as the theoretical formalization is more complex under dependent inputs, so is its estimation.
-Hooker sets up a weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components. 
+\subsection*{Estimation based on weighted least squares}
+\cite{hooker2007} proposes a new estimation scheme for his generalized fANOVA decomposition. The mathematical problem one faces is more complex: the fANOVA components are defined in dependence of each other and system has to be solved simultaneously as we saw in the previous section.
+Hooker rewrites the estimation problem as a restricted weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components; problem restricted to ensure hierarchical orthogonality.
+The function is again evaluated at a grid of points to reduce the problem to a finite dimensional one. 
+Because of the parallel to weighted least squares, it is also possible to compute a weighted standard ANOVA with existing software, but it is difficult to incorporate the constraints, so the components may not be hierarchical orthogonal.
 
+\subsection*{Estimation based on polynomial expansion}
 \cite{rahman2014} approaches the estimation differently and represents each component with a Fourier polynomial expansion. For normally distributed inputs, one can choose Hermite polynomials as basis functions, which simplifies things; in other cases more complicated I think.
 Again need to look up the mechanisms better.
+Other work, quiet mathematical that also goes in this direction I think.
 
-Both no standard implementations available. 
+No standard implementations available. Use existing software for parts (e.g. Monte Carlo estimates) and workarounds.

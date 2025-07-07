@@ -108,30 +108,33 @@ y_2(x_2) &= \mathbb{E}[g(X_1, x_2)] - y_\emptyset = a + 0 + x_2^2 - \left(a + \t
 y_{1,2}(x_1, x_2) &= g(x_1, x_2) - y_\emptyset - y_1(x_1) - y_2(x_2) = a + x_1 + x_2^2 - \left(a + \tfrac{1}{3} + x_1 + x_2^2 - \tfrac{1}{3}\right) = 0
 \end{align*}
 
+\paragraph{The log fallacy}
+Look again in \cite{lengerich2020}. fANOVA revealing that an interaction might not be an interaction after all, inside the log term is a product which suggests an interaction but it can be rewritten as a sum so maybe fANOVA will yield zero for the interaction?
 
-\subsubsection*{Analytical Example Functions for fANOVA}
 
-We present a selection of analytically tractable functions that highlight different behaviors of the fANOVA decomposition.
 
-\paragraph{Sparse additive + interaction (low effective dimensionality).}
-These functions illustrate cases where only a few variables or low-order interactions dominate the variance, allowing fANOVA to compress the functional complexity:
-\[
-f_1(x) = x_1 + x_2 \cdot x_3
-\]
-
-\paragraph{Pure high order interaction.}
+\paragraph{Non-additive functions}
 These functions demonstrate that fANOVA does not assume additive structure and can identify purely interactive effects. If variables only appear in interaction terms, their main effects vanish:
 \[
 f_2(x) = x_1 \cdot x_2 \cdot x_3 \cdot x_4
 \]
 
-\paragraph{Smooth localized function.}
-This function is smooth but has variance concentrated in a small region of the input space. It can be used to explore how fANOVA captures global variance, not localized effects:
-\[
-f_3(x, y) = \exp\left(-100(x^2 + y^2)\right)
-\]
 
-Each of these functions can be used to stress-test specific characteristics of the fANOVA decomposition: sparsity, interaction order, locality, and smoothness.
+\paragraph{Identifying interaction clusters}
+This example shows that all the cross-terms vanish. So fANOVA correctly identifies that we have interaction pairs and no term is appearing multiple times in two or more interaction groups.
+\begin{align*}
+f(x) &= (x_1 + x_2)^2 + x_3 x_4 + \sin(x_5 x_6) \\[1em]
+y_\emptyset &= \mathbb{E}[f] = \mathbb{E}[(X_1 + X_2)^2] + \mathbb{E}[X_3 X_4] + \mathbb{E}[\sin(X_5 X_6)] = 2 + 0 + 0 = 2 \\[1em]
+y_1(x_1) &= \mathbb{E}_{X_{2,3,4,5,6}}[f(x)] - y_\emptyset = x_1^2 + 1 - 2 = x_1^2 - 1 \\
+y_2(x_2) &= x_2^2 - 1 \\
+y_3(x_3) &= \mathbb{E}[x_3 X_4] - y_\emptyset = 0 \\
+y_{12}(x_1, x_2) &= \mathbb{E}[f(x)] - y_\emptyset - y_1(x_1) - y_2(x_2) = (x_1 + x_2)^2 - 2 - (x_1^2 - 1) - (x_2^2 - 1) = 2x_1 x_2 \\
+y_{13}(x_1, x_3) &= \mathbb{E}_{X_{2,4,5,6}}[f(x)] - y_\emptyset - y_1(x_1) - y_3(x_3) = x_1^2 + 1 - 2 - (x_1^2 - 1) - 0 = 0 \\
+y_5(x_5) &= \mathbb{E}_{X_6}[\sin(x_5 X_6)] - y_\emptyset = 0 \\
+y_6(x_6) &= 0 \\
+y_{56}(x_5, x_6) &= \sin(x_5 x_6)
+\end{align*}
+
 
 \paragraph{Additive structure and necessity of interaction term}
 $f(x_1, x_2, x_3) = x_1 + x_2 + x_3 + \epsilon x_1 x_2 x_3$ is mostly additive and has a minor interaction effect (depending on the value of $\epsilon$), one can for example decide whether to leave in the interaction effect in a surrogate model or if it is negligible.
@@ -150,20 +153,3 @@ y_{123}(x_1, x_2, x_3) &= f(x_1, x_2, x_3) - y_1(x_1) - y_2(x_2) - y_3(x_3) = \e
 \end{align*}
 
 
-\paragraph{Identifying interaction clusters}
-This example shows that all the cross-terms vanish. So fANOVA correctly identifies that we have interaction pairs and no term is appearing multiple times in two or more interaction groups.
-\begin{align*}
-f(x) &= (x_1 + x_2)^2 + x_3 x_4 + \sin(x_5 x_6) \\[1em]
-y_\emptyset &= \mathbb{E}[f] = \mathbb{E}[(X_1 + X_2)^2] + \mathbb{E}[X_3 X_4] + \mathbb{E}[\sin(X_5 X_6)] = 2 + 0 + 0 = 2 \\[1em]
-y_1(x_1) &= \mathbb{E}_{X_{2,3,4,5,6}}[f(x)] - y_\emptyset = x_1^2 + 1 - 2 = x_1^2 - 1 \\
-y_2(x_2) &= x_2^2 - 1 \\
-y_3(x_3) &= \mathbb{E}[x_3 X_4] - y_\emptyset = 0 \\
-y_{12}(x_1, x_2) &= \mathbb{E}[f(x)] - y_\emptyset - y_1(x_1) - y_2(x_2) = (x_1 + x_2)^2 - 2 - (x_1^2 - 1) - (x_2^2 - 1) = 2x_1 x_2 \\
-y_{13}(x_1, x_3) &= \mathbb{E}_{X_{2,4,5,6}}[f(x)] - y_\emptyset - y_1(x_1) - y_3(x_3) = x_1^2 + 1 - 2 - (x_1^2 - 1) - 0 = 0 \\
-y_5(x_5) &= \mathbb{E}_{X_6}[\sin(x_5 X_6)] - y_\emptyset = 0 \\
-y_6(x_6) &= 0 \\
-y_{56}(x_5, x_6) &= \sin(x_5 x_6)
-\end{align*}
-
-\paragraph{The log fallacy}
-fANOVA revealing that an interaction might not be an interaction after all, inside the log term is a product which suggests an interaction but it can be rewritten as a sum so maybe fANOVA will yield zero for the interaction?

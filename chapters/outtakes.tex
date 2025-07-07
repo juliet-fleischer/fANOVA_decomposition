@@ -1,0 +1,18 @@
+
+\subsubsection*{Analytical Example Functions for fANOVA}
+
+We present a selection of analytically tractable functions that highlight different behaviors of the fANOVA decomposition.
+
+\paragraph{Sparse additive + interaction (low effective dimensionality).}
+These functions illustrate cases where only a few variables or low-order interactions dominate the variance, allowing fANOVA to compress the functional complexity:
+\[
+f_1(x) = x_1 + x_2 \cdot x_3
+\]
+
+
+\paragraph{Smooth localized function.}
+This function is smooth but has variance concentrated in a small region of the input space. It can be used to explore how fANOVA captures global variance, not localized effects:
+\[
+f_3(x, y) = \exp\left(-100(x^2 + y^2)\right)
+\]
+Each of these functions can be used to stress-test specific characteristics of the fANOVA decomposition: sparsity, interaction order, locality, and smoothness.

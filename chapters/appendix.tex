@@ -1,0 +1,79 @@
+\section*{Square Integrability of \( f_1(x_1) \)}
+
+For now we want to show that the single fANOVA term \( f_1(x_1) \) is square integrable, given that the original function $f(x) \in \mathcal{L}^2$. We need to show that:
+\[
+\int |f_1(x_1)|^2 \, dx_1 < \infty
+\]
+
+The single fANOVA term is defined as:
+\[
+f_1(x_1) = \int f(x) \, dx_{-1} - f_0
+\]
+
+We take the squared norm, and integrate w.r.t. \( x_1 \) to use the Cauchy-Schwarz inequality:
+\[
+\int |f_1(x_1)|^2 \, dx_1 
+= \int \left| \int f(x) \, dx_{-1} - f_0 \right|^2 dx_1
+\]
+
+\[
+= \int | (\int f(x) \, dx_{-1})^2 
+- 2 \int f(x) \, dx_{-1} f_0 
++ f_0^2 | dx_1
+\]
+
+Break this into three terms:
+\begin{align*}
+(1): &\quad \int \left| \int f(x) \, dx_{-1} \right|^2 dx_1 
+\leq \int \left( \int 1^2 \, dx_{-1} \right) \left( \int |f(x)|^2 \, dx_{-1} \right) dx_1 
+= \int |f(x)|^2 \, dx < \infty \\
+\\
+(2): &\quad 2 \int \left( \int f(x) \, dx_{-1} \right) f_0 \, dx_1 
+= 2 f_0 \int \left( \int f(x) \, dx_{-1} \right) dx_1 
+= 2 f_0^2 < \infty \\
+\\
+(3): &\quad \int f_0^2 \, dx_1 = f_0^2 < \infty
+\end{align*}
+
+Since each term (1)–(3) is finite, and \( \int |f_1(x_1)|^2 dx_1 \) is a linear combination of them: \(\int |f_1(x_1)|^2 dx_1 < \infty\)
+
+
+
+% We want to show that the square integrability of the original function \( f \) implies the square integrability of the fANOVA terms \( f_0, f_1, \ldots, f_k \).
+% For simplicity, we restrict ourselves to a fixed number of dimensions and therefore a fixed set of indices $i = 1, 2, 3, 4$.
+% To start, we define the cumulative fANOVA decomposition as follows:
+% \begin{align}
+%     g_1(x) &= \int f(x) dx_{-1} = \int f(x) dx_2 dx_3 dx_4 \\
+%     g_2(x) &= \int f(x) dx_{-2} = \int f(x) dx_1 dx_3 dx_4 \\
+%     g_{1,2}(x) &= \int f(x) dx_{-1, -2} = \int f(x) dx_3 dx_4 \\
+%     g_{1,2,3}(x) &= \int f(x) dx_{-1, -2, -3} = \int f(x) dx_4 \\
+%     g_{1,2,3,4}(x) &= \int f(x) dx_{-1, -2, -3, -4} = \int f(x)
+% \end{align}
+% Further, recall that the Cauchy-Schwarz inequality for two function $f, g$ is given by:
+% \begin{align}
+%     \left( \int f(x) g(x) dx \right)^2 \leq \left( \int f(x)^2 dx \right) \left( \int g(x)^2 dx \right)
+% \end{align}
+
+% Let $f(x) \in L^2(\mathbb{R}^4)$ with $x = (x_1, x_2, x_3, x_4)$
+% We want to show that the term $g_{1,2}$ is square integrable, i.e. $\int |g_{1,2}(x)|^2 dx < \infty$. The reasoning for other terms will follow the same principle.\par
+% To be able to use Schwarz inequality, we square the norm of $g_{1,2}(x)$:
+% \begin{align}
+%     |g_{1,2}(x_1, x_2)|^2 
+%     &= \left( \int f(x_1, x_2, x_3, x_4) \, dx_3 dx_4 \right)^2 \\
+%     &\leq ( \int 1^2 \, dx_3 dx_4) (\int |f(x_1, x_2, x_3, x_4)|^2 \, dx_3 dx_4) \\
+%     &= \int |f(x_1, x_2, x_3, x_4)|^2 \, dx_3 dx_4
+% \end{align}
+% The statement is true for fixed values of $x_1$ and $x_2$. To show that it holds for all $x_1, x_2$, we integrate over $x_1$ and $x_2$:
+% \begin{align}
+%     \int |g_{1,2}(x_1, x_2)|^2 \, dx_1 dx_2 
+%     &\leq \int \left( \int |f(x_1, x_2, x_3, x_4)|^2 \, dx_3 dx_4 \right) \, dx_1 dx_2 \\
+%     &= \int |f(x_1, x_2, x_3, x_4)|^2 \, dx \leq \infty
+% \end{align}
+% We used Fubini's theorem to write the sequential integration as a single integral over the whole space, which is valid under the assumption that $f$ is square integrable.
+% As a last step, we use the square integrability of the cumulative fANOVA terms to show square integrability of the single fANOVA terms. We give an example for $f_{1,2}$:
+% \begin{align}
+%     f_{1,2}(x) &= g_{1,2}(x) - f_0 - f_1(x_1) - f_2(x_2) \\
+%     &= g_{1,2}(x) - \int f(x) dx - \int f(x)\, dx_{-1} - \int f(x) dx_{-2} \\
+%     &= g_{1,2}(x) - \int f(x) dx - g_1(x) - g_2(x) \leq \infty
+% \end{align}
+% Since all the terms in the last row are square integrable, we deal with a linear combination of square integrable functions, which is also square integrable.
