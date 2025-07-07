@@ -136,7 +136,6 @@ It comes as no surprise that in this simple case the fANOVA decomposition does n
 We show this simple example nevertheless to illustrate at which step which assumption is used.
 This will make clearer what breaks down when we generalize to dependent variables.
 
-
 \subsubsection*{fANOVA as projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
 This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
@@ -148,36 +147,53 @@ When we define the constant term $y_\emptyset$ our goal is to best approximate t
     &= \arg \min_{a_0 \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
     &= \mathbb{E}[y(\boldsymbol{X})] = y_0
 \end{align*}
-The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$ and have an expected value of zero while accounting for the lower-order effects. The subspace we project onto is $\mathcal{G}_i = \{g(x) = g_i(x_i); \int g(x) d\nu (x_i) = 0\}$.
+The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$, i.e. $\mathcal{G}_i = \{g(x) = g_i(x_i)\}$. There is no need for additional constraints since subtracting lower order terms ensures that orthogonality and zero mean are fulfilled.
 The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
 \begin{align*}
-    (\Pi_{\mathcal{G}_i}y) - (y_0)
+    (\Pi_{\mathcal{G}_i}y)(.) - y_0
     &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
-    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i\\
+    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(.))^2] - y_0 \\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i(.)
 \end{align*}
 
-The two-way interaction effect $y_{ij}(x_i,x_j)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$ and have an expected value of zero in each of it's single components, i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j); \int g(x) d\nu (x_i) = 0 \land \int g(x) d\nu (x_j) = 0\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
+The two-way interaction effect $y_{ij}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j)\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    (\Pi_{\mathcal{G}_{ij}}y) - (y_0 + y_i(x_i) + y_j(x_j))
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(x_i) + y_j(x_j))\\
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_i, X_j))^2] - (y_0 + y_i(x_i) + y_j(x_j))\\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(x_i) + y_j(x_j)) = y_{ij}(x_i, x_j)
+    (\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_0 + y_i(.) + y_j(.))
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(.) + y_j(.))\\
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(., .))^2] - (y_0 + y_i(.) + y_j(.))\\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(.) + y_j(.)) = y_{ij}(.;.)
 \end{align*}
 
-In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u); \int g(\boldsymbol{x}) d\nu (\boldsymbol{x}_u) = 0\}$:
+In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u)\}$:
 \begin{align*}
-    (\Pi_{\mathcal{G}_u}y) - \sum_{v \subsetneq u} y_v(x)
-    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - y_0\\
-    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g(X_u))^2] \\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(\boldsymbol{x}_u),
+    (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
+    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - \sum_{v \subsetneq u} y_v(.)\\
+    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(.),
 \end{align*}
 which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.
-\subsubsection*{Notes \& Questions}
+
+\subsubsection*{Projection of the differences or subtracting from the projection}
+Thanks to the equivalence of the conditional expected value and projections we established the mathematical foundation/ mechanism of fANOVA.
+Next we want to highlight that instead of subtracting the lower order terms from the projection, it is just as valid to first subtract lower order terms and project $y$ on what is left.
+We can find both formulations in the literature.
+For example, \cite{muehlenstaedt2012} subtracts from the projection and defines:
+\begin{align*}
+    y_u(\boldsymbol{x}_u) &:=
+    \mathbb{E}[y(\boldsymbol{X}) | \boldsymbol{X}_{u} = \boldsymbol{x}_u] - \sum_{v \subsetneq u} y_v(\boldsymbol{x}) \\
+    & \int_{-u} y(\boldsymbol{x}) d \nu(\boldsymbol{x}_{-u}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x})
+\end{align*}
+\cite{hooker2004} takes the alternative view and defines the fANOVA components via the integral, which can be rewritten as the expected value:
+\begin{align*}
+    y_u(\boldsymbol{x}_u)
+    &:= \int_{-u} (y(\boldsymbol{x}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x})) d \nu(\boldsymbol{x}_{-u}) \\
+    & \mathbb{E}[y(\boldsymbol{X}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x}) | \boldsymbol{X}_{u} = \boldsymbol{x}_u ] 
+\end{align*}
+The first equivalence in each formulation is simply the definition in each original paper, while the second equivalence holds under the assumption of independent inputs.
+\subsubsection*{Notes \& Clarification}
 Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
 \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
-% A lot of theory, running example to illustrate.
 
 % further analysis of the model via fANOVA decomposition --> variance decomposition
 \subsubsection*{Second-moment statistics}
@@ -194,7 +210,8 @@ Therefore, we define the variance of $f$ as follows:
 The variance of the fANOVA components is then defined as
 \begin{align*}
     \sigma^2_{x_{i_1}, \dots, x_{i_n}}
-    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
+    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \\
+    & - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
     &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}] - \mathbb{E}[y_{i_{1}, \dots, i_{n}}]^2
 \end{align*}
 Because of the orthogonality property, the second term vanished and we get:

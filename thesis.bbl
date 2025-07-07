@@ -95,9 +95,4 @@ Stone, C.~J.  \harvardyearleft 1994\harvardyearright .
 Vaart, A. W. v.~d.  \harvardyearleft 1998\harvardyearright .
 \newblock {\em Asymptotic Statistics}, Cambridge Series in Statistical and Probabilistic Mathematics, Cambridge University Press.
 
-\harvarditem[Van~Ravenzwaaij et~al.]{Van~Ravenzwaaij, Cassey \harvardand\ Brown}{2018}{vanravenzwaaij2018}
-Van~Ravenzwaaij, D., Cassey, P. \harvardand\ Brown, S.~D.  \harvardyearleft 2018\harvardyearright .
-\newblock A simple introduction to {Markov} {Chain} {Monte}–{Carlo} sampling, {\em Psychonomic Bulletin \& Review} {\bf 25}(1):~143--154.
-\newline\harvardurl{http://link.springer.com/10.3758/s13423-016-1015-8}
-
 \end{thebibliography}

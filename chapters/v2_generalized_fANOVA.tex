@@ -37,7 +37,7 @@ When we check if the components $\tilde{y}_0, \tilde{y}_1, \tilde{y}_2, \tilde{y
     &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho_{12}^2] \neq 0.
 \end{align*}
 
-When we no longer have independent inputs naively computing the ``fANOVA decomposition'' does not yield the fANOVA components as it turns out. What we performed in this example is not the fANOVA decomposition for dependent variables. It is Hoeffding decomposition and results in zero mean but not mutually orthogonal component functions. This shows the need for a more involved approach for generalizing fANOVA.
+When we no longer have independent inputs naively computing the ``fANOVA decomposition'' does not yield the fANOVA components as it turns out. What we performed in this example is not the fANOVA decomposition for dependent variables. It is Hoeffding decomposition \citep{hoeffding1948} and results in zero mean but not mutually orthogonal component functions. This shows the need for a more involved approach for generalizing fANOVA.
 We basically can see from this example that correlation between features distorts the fANOVA component function, it is not pure anymore but this is the whole point of the fANOVA decomposition and central so that it adds sth. IML.
 
 \subsection{Formal Introduction to Generalized fANOVA}
@@ -94,7 +94,7 @@ If components are constructed in this way, we can ensure that they have zero mea
 % So the constraint we set to the optimization problem is modified, milder.
 To ensure that these statements hold for the generalized fANOVA components, we need to set the weak annihilating conditions.
 They fulfill the same function as the strong annihilating conditions do in the classical case but work with the joint density of the variables of interest, instead of the individual marginal probability density functions.
-This makes sense, since for the general case we cannot ensure to recover the marginal densities from the joint density function. {\color{red}{Is this really the reason? Or is the reason: When there are dependencies between variables then the individual pdfs would not assign the ``correct weight'' as they ignore the dependence between features in $u$.}}
+{\color{red}This makes sense, because when there are dependencies between variables then the individual pdfs would not assign the correct weight to each function value as they ignore the dependence between features in $u$.}
 \begin{proposition}
     \textbf{Weak annihilating conditions.}
     To ensure the two desired properties of the generalized fANOVA components (zero mean, hierarchical orthogonality), we require the weak annihilating conditions:
