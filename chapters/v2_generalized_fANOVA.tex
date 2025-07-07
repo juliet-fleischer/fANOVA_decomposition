@@ -41,7 +41,7 @@ When we no longer have independent inputs naively computing the ``fANOVA decompo
 We basically can see from this example that correlation between features distorts the fANOVA component function, it is not pure anymore but this is the whole point of the fANOVA decomposition and central so that it adds sth. IML.
 
 \subsection{Formal Introduction to Generalized fANOVA}
-We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}.\par
+We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}. (Write this a bit more detailed: \cite{hooker2007} proofed existence of generalized fANOVA components, proposed estimation scheme, \cite{rahman2014} writes this in more general and measure theoretic fashion and proposes different estimation scheme that he argues is more feasible for high dimensions etc. read more in intro of \cite{rahman2014}; \cite{hooker2007} seems to be viewed as the first one who attempted a generalization to dependent inputs of the entire fANOVA decomposition framework, not just the Sobol indices, and he was inspired by \cite{stone1994}).\par
 
 Letting go of the independence assumption means that we no longer work with a product-type probability measure. $f_{\boldsymbol{X}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$ denotes an arbitrary probability density function and $f_{\boldsymbol{X}_u}: \mathbb{R}^u \rightarrow \mathbb{R}_{0}^{+}$ the marginal probability density function of the subset of variables $u \subseteq d$. Classical fANOVA boils down to integration w.r.t. the uniform measure and in generalized fANOVA we integrate w.r.t. the distribution of $(X_1, \dots, X_n)$.\par
 
@@ -108,9 +108,9 @@ To show that zero mean and hierarchical orthogonality follow from the weak annih
 % Alternative definition of components by Hooker
 \cite{hooker2007} offers an alternative definition of the generalized fANOVA components\footnote{We modified the notation from the original work to match the notation of \cite{rahman2014} and the rest of this thesis.}:
 \begin{equation}
-\left\{ y_{u, G}(x_u) \,\middle|\, u \subseteq d \right\}
+\left\{ y_{u, G}(\boldsymbol{x}_u) \,\middle|\, u \subseteq d \right\}
 = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
-\int \left( \sum_{u \subseteq d} g_u(x_u) - y(x) \right)^2 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x})
+\int \left( \sum_{u \subseteq d} g_u(\boldsymbol{x}_u) - y(\boldsymbol{x}) \right)^2 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x})
 \label{eq:generalized_fanova_components_hooker}
 \end{equation}
 In Hookers definition we recognize a projection problem. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under zero mean and hierarchical orthogonality constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$, which we defined generally in section ~\ref{background}.\par
@@ -119,46 +119,51 @@ A crucial difference to the classical case is that both versions of the generali
 
 Let us come back to our example from the beginning. The goal is to write
 \[
-g(x_1, x_2) = y_{\emptyset, G} + y_{\{1\}, G}(x_1) + y_{\{2\}, G}(x_2) + y_{\{1,2\}, G}(x_1, x_2)
+g(x_1, x_2) = y_{\emptyset, G} + y_{1, G}(x_1) + y_{2, G}(x_2) + y_{1,2, G}(x_1, x_2)
 \]
 under dependent inputs. We present two ways in which the problem solution can be stated.\par
 
 \subsubsection*{Rahman method}
 The system to find the generalized fANOVA components for $g$ according to \cite{rahman2014} method looks as follows:
-\begin{align}
-    y_{\emptyset, G} &= \int_{\mathbb{R}^2} g(x_1, x_2)\, f(x_1, x_2)\, dx_1 dx_2 \label{eq:y0} \\
-    y_{\{1\}, G}(x_1) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_2(x_2)\, dx_2
+\begin{align*}
+    y_{\emptyset, G} &= \int_{\mathbb{R}^2} g(x_1, x_2)\, f(x_1, x_2)\, dx_1 dx_2 \\
+    y_{1, G}(x_1) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_2(x_2)\, dx_2
     - y_{\emptyset, G}
-    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_2(x_2)\, dx_2 \label{eq:y1} \\
-    y_{\{2\}, G}(x_2) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_1(x_1)\, dx_1
+    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_2(x_2)\, dx_2\\
+    y_{2, G}(x_2) &= \int_{\mathbb{R}} g(x_1, x_2)\, f_1(x_1)\, dx_1
     - y_{\emptyset, G}
-    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_1(x_1)\, dx_1 \label{eq:y2} \\
-    y_{\{1,2\}, G}(x_1, x_2) &= g(x_1, x_2) - y_{\emptyset, G} - y_{\{1\}, G}(x_1) - y_{\{2\}, G}(x_2) \label{eq:y12}
-\end{align}
+    - \int_{\mathbb{R}} y_{\{1,2\}, G}(x_1, x_2)\, f_1(x_1)\, dx_1\\
+    y_{1,2, G}(x_1, x_2) &= g(x_1, x_2) - y_{\emptyset, G} - y_{\{1\}, G}(x_1) - y_{\{2\}, G}(x_2)
+\end{align*}
 
 Since the components form a coupled system where the components are defined in interdependence of each other, finding the solution is not straight forward, even for simple examples.
 
 \subsubsection*{Hooker method}
 An alternative way to phrase the problem can be found in \cite{hooker2007}.
 To find the generalized fANOVA components, we can formulate a minimization problem for each of them. 
-\begin{align}
-y_{\emptyset} &= \arg\min_{c \in \mathbb{R}} \int_{\mathbb{R}^2} 
+\begin{align*}
+y_{\emptyset} 
+&= \arg\min_{c \in \mathbb{R}} \int_{\mathbb{R}^2} 
 \left( g(x_1, x_2) 
-- \left( c + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
-&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y0_hooker} \\
-y_{\{1\}}(x_1) &= \arg\min_{h_1 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
+- \left( c + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 
+f(x_1, x_2)\, dx_1 dx_2 \\[1em]
+y_{1}(x_1) 
+&= \arg\min_{h_1 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
 \left( g(x_1, x_2) 
-- \left( y_{\emptyset} + h_1(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
-&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y1_hooker} \\
-y_{\{2\}}(x_2) &= \arg\min_{h_2 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
+- \left( y_{\emptyset} + h_1(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 
+f(x_1, x_2)\, dx_1 dx_2 \\[1em]
+y_{2}(x_2) 
+&= \arg\min_{h_2 \in L^2(\mathbb{R})} \int_{\mathbb{R}^2} 
 \left( g(x_1, x_2) 
-- \left( y_{\emptyset} + y_{\{1\}}(x_1) + h_2(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 \nonumber \\
-&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y2_hooker} \\
-y_{\{1,2\}}(x_1, x_2) &= \arg\min_{h_{12} \in L^2(\mathbb{R}^2)} \int_{\mathbb{R}^2} 
+- \left( y_{\emptyset} + y_{\{1\}}(x_1) + h_2(x_2) + y_{\{1,2\}}(x_1, x_2) \right) \right)^2 
+f(x_1, x_2)\, dx_1 dx_2 \\[1em]
+y_{1,2}(x_1, x_2) 
+&= \arg\min_{h_{12} \in L^2(\mathbb{R}^2)} \int_{\mathbb{R}^2} 
 \left( g(x_1, x_2) 
-- \left( y_{\emptyset} + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + h_{12}(x_1, x_2) \right) \right)^2 \nonumber \\
-&\qquad\cdot f(x_1, x_2)\, dx_1 dx_2 \label{eq:y12_hooker}
-\end{align}
+- \left( y_{\emptyset} + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + h_{12}(x_1, x_2) \right) \right)^2 
+f(x_1, x_2)\, dx_1 dx_2
+\end{align*}
+
 
 
 The least-squares problems are solved subject to the following constraints, which ensure that the resulting components are zero centred and hierarchically orthogonal:
@@ -171,7 +176,6 @@ The least-squares problems are solved subject to the following constraints, whic
 
 
 Conceptually \cite{hooker2007} is doing nothing other than a projection. Earlier, we established that a projection is the same as the conditional expected value, and fANOVA can be expressed via the conditional expected value. This means from the initial idea, we do not change anything apart from the fact that we have to integrate via the joint pdf, but this is something one is ``forced'' to under dependence, not something one ``invents''. However, projections onto subspaces become more difficult under dependence; therefore, setting these constraints explicitly is necessary to ensure (hierarchical) orthogonality.\par
-
 Obtaining an analytical solution for either of the methods is tedious even for our simple example. We leave it at the problem formulation, so that we have the comparison between which problem one has to solve the classical case versus the generalized case. In the next section, we sketch ways to estimate the fANOVA components conceptually.
 
 % Now a correction of the example from the beginning would need to follow...
@@ -182,5 +186,7 @@ Obtaining an analytical solution for either of the methods is tedious even for o
 % estimating them is more involved, we need to introduce this in the next section
 % more or less formal intro to Hookers general estimation approach
 
+\subsubsection*{Second-moment statistics}
+Maybe explain conceptually the findings of \cite{rahman2014} on the properties of his generalized fANOVA components.
 
 

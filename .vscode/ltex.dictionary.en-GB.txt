@@ -3,3 +3,4 @@ Hoeffding
 kriging
 fulfill
 asymptotical
+assecible

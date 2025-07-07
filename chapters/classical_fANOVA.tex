@@ -1,5 +1,5 @@
 \subsection{Formal Introduction to fANOVA}
-This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
+(\cite{sobol1993sensitivity} proofs the existence of the classical fANOVA decomposition; other papers give definitions we base our definition on.)This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
 Originally, \cite{sobol1993sensitivity} presented the fANOVA decomposition with independent input variables with support bounded to the unit interval, i.e. he considered the measure space $([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$. Later work shows that this restriction is not necessary, and we can work with the Borel $\sigma$-algebra on the n-dimensional real number line, i.e. $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it (see e.g. \cite{rahman2014}).
 Since we assume independence of the input variables, their joint distribution is given by the product over the marginal distributions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\). \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$.
 
@@ -84,21 +84,8 @@ One can follow the same reasoning for the orthogonality condition:
 
 \subsection{Example: Multivariate Normal Inputs}
 
-Before further investigating the fANOVA decomposition, let us consider the following function as example: \(g = a + X_1 + 2X_2 + X_1 X_2\). We assume that $\boldsymbol{X} = (X_1, X_2)^T$ follows a standard MVN distribution, i.e.:
+Before further investigating the fANOVA decomposition, let us consider the following function as example: \(g = a + X_1 + 2X_2 + X_1 X_2\). We assume that $\boldsymbol{X} = (X_1, X_2)^T$ follows a standard MVN distribution, so the $\boldsymbol{\mu} = (0, 0)^T$ and the covariance matrix $\boldsymbol{\Sigma} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.
 
-\[
-\begin{pmatrix}
-X_1 \\
-X_2
-\end{pmatrix}
-\sim \mathcal{N}\left(
-\begin{pmatrix} 0 \\ 0 \end{pmatrix},
-\begin{pmatrix}
-1 & 0 \\
-0 & 1
-\end{pmatrix}
-\right).
-\]
 From the properties of the MVN, we know that marginal distributions are standard normal:
 \[
 X_i \sim \mathcal{N}(0, 1) \quad \text{for } i = 1, 2
@@ -190,9 +177,9 @@ For example, \cite{muehlenstaedt2012} subtracts from the projection and defines:
     & \mathbb{E}[y(\boldsymbol{X}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x}) | \boldsymbol{X}_{u} = \boldsymbol{x}_u ] 
 \end{align*}
 The first equivalence in each formulation is simply the definition in each original paper, while the second equivalence holds under the assumption of independent inputs.
-\subsubsection*{Notes \& Clarification}
-Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
-\cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
+% \subsubsection*{Notes \& Clarification}
+% Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
+% \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
 
 
 % further analysis of the model via fANOVA decomposition --> variance decomposition
@@ -237,7 +224,7 @@ Alternatively we can formulate this via the expected value. We write the sum ove
 We can verify that the variance decomposition holds for our example:
 \begin{align*}
     Var(a + X_1 + 2X_2 + X_1 X_2) &= Var(X_1) + 4Var(X_2) + Var(X_1X_2) + 2Cov(X_1, X_2) \\
-    &= 1 + 4 \cdot 1 + 1 \cdot 1 + 2 \cdot 0 &= 6 \\
+    &= 1 + 4 \cdot 1 + 1 \cdot 1 + 2 \cdot 0 = 6 \\
     &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2Cov(X_1, X_2) \\
     &= \mathbb{E}[y_1^2] + \mathbb{E}[y_2^2] + \mathbb{E}[y_{12}^2] \\
 \end{align*}

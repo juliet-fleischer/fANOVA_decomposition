@@ -1,1 +1,15 @@
-Something about the broad idea of fANOVA, the mathematical prerequisite and inner working from a conceptual standpoint, pro and cons, research context, structure of this paper, contribution of this paper, maybe also link to interpretable machine learning, quick intro to IML
+% Create a problem
+
+Problem: fANOVA decomposition such a foundational concept, long history, mix of formalizations;
+This starts with the name of the method (decomposition into summands of different order, ANOVA representation, functional ANOVA (fANOVA) decomposition \cite{hooker2004}, ANOVA dimensional decomposition (ADD))
+And continues with how fANOVA is formalized in the literature; each paper uses different notation, deviating settings, set of assumptions, some use formulation via expected value, other via integral,.
+All of this equivalent and comes together under concept of orthogonal projections, but this is hard to see when one start learning about fANOVA.
+At the core fANOVA provides a way in which integrable functions can be decomposed into a sum of orthogonal components. Because of tits foundational nature fANOVA is useful in interpretability of machine learning models (Hooker, Molnar), uncertainty quantification of complex systems (\cite{rahman2014}), non-parametric statistical modelling (stone etc.), sensitivity analysis (Sobold), and many more fields.
+This also means that there exists a need for 1. A comprehensive overview of fANOVA-related work and 2. To clean up various notations and definitions that in the end state the same.
+Brining clarity into the fANOVA landscape is more relevant than ever as fANOVA decomposition has attracted attention in recent IML literature; used to build fancy models, but the theoretical foundation often goes unaddressed.
+Which is understandable when the other end of the spectrum is formed by rigorous, but often inaccessible, theoretical papers, heavy from measure theoretic viewpoint. In between we have work that is mathematically clean in itself but makes underlying assumption that come not across resulting in pracitioners that do not understand what assumptions they are making when using the expression.
+
+% Give a possible solution
+Possible Solution: This paper aims to provide accessible and intuitive introduction to the fANOVA decomposition while remaining mathematically rigorous.
+It can be viewed as a handbook of the fANOVA decomposition that will help practitioners to understand the method, its mathematical background, and also provide an overview for how the method is used in other research context.
+This work is organized as follows: It starts with historical context and how the method has evolved over time; we then give formal introduction to classical fANOVA as well as the generalization to dependent inputs. We will outline possible estimation schemes, particularly relevant for an application of the method. Next we illustrate characteristics of the classical fANOVA based on analytical examples; before concluding with a discussion of the method's limitations and possible future research directions.
