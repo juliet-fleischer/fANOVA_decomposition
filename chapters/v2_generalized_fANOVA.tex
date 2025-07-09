@@ -391,6 +391,21 @@ Obtaining an analytical solution for either of the methods is tedious even for o
 % more or less formal intro to Hookers general estimation approach
 
 \subsubsection*{Second-moment statistics}
-Maybe explain conceptually the findings of \cite{rahman2014} on the properties of his generalized fANOVA components.
+As we saw earlier, the expected value of the generalizes fANOVA decomposition is the constant term:
+\begin{equation}
+\mathbb{E}[y(\mathbf{X})] = y_{\emptyset,G}.
+\end{equation}
 
+The variance of the generalized fANOVA decomposition can be expressed as follows:
+\begin{align}
+\sigma^2 
+&:= \mathbb{E}\left[ \left( y(\mathbf{X}) - \mu \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{\emptyset \ne u \subseteq \{1,\dots,N\}} y_{u,G}(\mathbf{X}_u) - \mu \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( \sum_{\emptyset \ne u \subseteq \{1,\dots,N\}} y_{u,G}(\mathbf{X}_u) \right)^2 \right] \notag \\
+&= \sum_{\emptyset \ne u} \mathbb{E} \left[ y_{u,G}^2(\mathbf{X}_u) \right]
++ \sum_{\substack{\emptyset \ne u,\,v \subseteq \{1,\dots,N\} \\ u \ne v,\, u \not\subset v,\, v \not\subset u}} 
+\mathbb{E} \left[ y_{u,G}(\mathbf{X}_u) y_{v,G}(\mathbf{X}_v) \right].
+\tag{6.2}
+\end{align}
+The first term is the sum of the variances of the components, while the second term is the sum of the covariances between components that are not hierarchically orthogonal. The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. For the classical fANOVA decomposition, the second term is zero for any relationship between $u$ and $v$, and we are left with only the sum of the individual variances.
 

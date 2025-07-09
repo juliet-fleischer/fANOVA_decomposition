@@ -15,12 +15,12 @@
 \contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{21}{section*.14}%
 \contentsline {paragraph}{Case \( u = \emptyset \): computing the constant term.}{21}{section*.19}%
 \contentsline {paragraph}{Case \( \emptyset \ne u \subseteq \{1,\dots ,N\} \): computing nonconstant terms.}{22}{section*.20}%
-\contentsline {section}{\numberline {6}Estimation of fANOVA}{26}{section.6}%
-\contentsline {section}{\numberline {7}Examples \& Visualizations}{28}{section.7}%
-\contentsline {paragraph}{The log fallacy}{30}{section*.30}%
-\contentsline {paragraph}{Non-additive functions}{30}{section*.31}%
-\contentsline {paragraph}{Identifying interaction clusters}{31}{section*.32}%
-\contentsline {paragraph}{Additive structure and necessity of interaction term}{31}{section*.33}%
-\contentsline {section}{\numberline {8}Conclusion}{32}{section.8}%
+\contentsline {section}{\numberline {6}Estimation of fANOVA}{27}{section.6}%
+\contentsline {section}{\numberline {7}Examples \& Visualizations}{29}{section.7}%
+\contentsline {paragraph}{The log fallacy}{31}{section*.32}%
+\contentsline {paragraph}{Non-additive functions}{31}{section*.33}%
+\contentsline {paragraph}{Identifying interaction clusters}{32}{section*.34}%
+\contentsline {paragraph}{Additive structure and necessity of interaction term}{32}{section*.35}%
+\contentsline {section}{\numberline {8}Conclusion}{33}{section.8}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
