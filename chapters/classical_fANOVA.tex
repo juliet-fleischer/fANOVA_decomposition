@@ -139,8 +139,8 @@ The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$
 \begin{align*}
     (\Pi_{\mathcal{G}_i}y)(.) - y_0
     &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
-    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(.))^2] - y_0 \\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i] - y_0 = y_i(.)
+    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = .] - y_0 = y_i(.)
 \end{align*}
 
 The two-way interaction effect $y_{ij}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j)\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:

@@ -57,40 +57,6 @@ The subscript $G$ indicates that we are working with the generalized fANOVA comp
 The main question is, how one can build fANOVA components that still satisfy the desired properties of zero mean and orthogonality under dependent inputs.
 
 % But how do the components look like now? This is a difference
-\subsubsection*{Construction of the Generalized fANOVA Terms}
-While the constant term requires no change in definition, the motivating example in the beginning of this section showed that the non-constant terms need some additional terms to ensure orthogonality. \cite{rahman2014} defines the generalized components as follows:
-\begin{align}
-y_{\emptyset, G} &= \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\boldsymbol{x}, \tag{4.5a} \\
-y_{u,G}(\boldsymbol{X}_u) &= \int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) f_{\boldsymbol{X}_{-u}}(\boldsymbol{x}_{-u}) \, d\boldsymbol{x}_{-u}
-- \sum_{v \subset u} y_{v,G}(\boldsymbol{X}_v) \notag \\
-&\quad - \sum_{\substack{\emptyset \neq v \subseteq \{1, \ldots, N\} \\ v \cap u \neq \emptyset, v \not\subset u}}
-\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{X}_{v \cap u}, \boldsymbol{x}_{v \cap -u}) 
-f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d\boldsymbol{x}_{v \cap -u}. \tag{4.5b}
-\label{eq:generalized_fanova_components_rahman}
-\end{align}
-The first part of the non-constant components looks very similar to the classical formulation, but instead of the product pdf we use the joint pdf of all variables except for the ones of interest. The terms we subtract include not only lower order fANOVA terms but also (not yet computed) higher order fANOVA terms, which depend on the variable of interest.
-This means, we account for all the terms in which the term of interest is somehow involved in. This is necessary to ensure a form of orthogonality under dependent inputs but also means that solving the terms sequentially, as in the classical case and our naive approach, is not working anymore.
-
-% What conditions do they fulfill? Does it differ? Yes, slightly.
-If components are constructed in this way, we can ensure that they have zero mean and satisfy a milder from of orthogonality - hierarchical orthogonality, which means that components of different order are orthogonal to each other while components of the same order are not.
-\begin{proposition}
-    % zero mean condition
-    The generalized fANOVA components $y_{u, G}$, with $\emptyset \neq u \subseteq \{1, \ldots, N\}$, are centred around zero:
-\begin{equation}
-    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
-    \label{eq:zero_mean_g}
-\end{equation}
-\end{proposition}
-
-\begin{proposition}
-    % hierarchical orthogonality
-    The fANOVA components are hierarchically orthogonal. This means that for two components $y_{u, G}$ and $y_{v, G}$ with $u \subset v, \emptyset \neq u \subseteq \{1, \ldots, N\}, \emptyset \neq v \subseteq \{1, \ldots, N\} $ it holds that:
-\begin{equation}
-    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{X}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
-\end{equation}
-\label{eq:orthogonality_g}
-\end{proposition}
-
 % So the constraint we set to the optimization problem is modified, milder.
 To ensure that these statements hold for the generalized fANOVA components, we need to set the weak annihilating conditions.
 They fulfill the same function as the strong annihilating conditions do in the classical case but work with the joint density of the variables of interest, instead of the individual marginal probability density functions.
@@ -103,7 +69,245 @@ They fulfill the same function as the strong annihilating conditions do in the c
 \end{equation}
 \end{proposition}
 
-To show that zero mean and hierarchical orthogonality follow from the weak annihilating conditions, \cite{rahman2014} makes use of Fubini's theorem (see his proof in section 4 of his paper - or should I write the commented proof here?).\par
+% What conditions do they fulfill? Does it differ? Yes, slightly.
+If components are constructed in this way, we can ensure that they have zero mean and satisfy a milder from of orthogonality - hierarchical orthogonality, which means that components of different order are orthogonal to each other while components of the same order are not.
+\begin{proposition}
+    % zero mean condition
+    The generalized fANOVA components $y_{u, G}$, with $\emptyset \neq u \subseteq \{1, \ldots, N\}$, are centred around zero:
+\begin{equation}
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
+    \label{eq:zero_mean_g}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For any subset $\emptyset \ne u \subseteq \{1, \ldots, N\}$, let $i \in u$. We assume that the weak annihilating conditions hold. Then
+\begin{align*}
+\mathbb{E}[y_{u,G}(\mathbf{X}_u)] 
+&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) f_{\mathbf{X}}(\mathbf{x})\, d\mathbf{x} \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}_{-u} \right) d\mathbf{x}_u \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u)\, d\mathbf{x}_u \\
+&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i \right) \prod_{j \in u,\, j \ne i} dx_j \\
+&= 0,
+\end{align*}
+where we make use of Fubini's theorem and the last line follows from using the weak annihilating condition %~(4.2).
+\end{proof}
+
+\begin{proposition}
+    % hierarchical orthogonality
+    The fANOVA components are hierarchically orthogonal. This means that for two components $y_{u, G}$ and $y_{v, G}$ with $u \subsetneq v, \emptyset \neq u \subseteq \{1, \ldots, N\}, \emptyset \neq v \subseteq \{1, \ldots, N\} $ it holds that:
+\begin{equation}
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{X}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0
+\end{equation}
+\label{eq:orthogonality_g}
+\end{proposition}
+
+\begin{proof}
+For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$, where $v \subsetneq u$, the subset $u = v \cup (u \setminus v)$. Let $i \in (u \setminus v) \subseteq u$. Then
+\begin{align*}
+\mathbb{E}[y_{u,G}(\mathbf{X}_u) \, y_{v,G}(\mathbf{X}_v)]
+&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x} \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}_{-u} \right) d\mathbf{x}_u \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_u(\mathbf{x}_u) \, d\mathbf{x}_u \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d\mathbf{x}_{u \setminus v} \, d\mathbf{x}_v \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i \right)
+    \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} dx_j \, d\mathbf{x}_v \\
+&= 0.
+\end{align*}
+Repeatedly using Fubini's theorem and the weak annihilating conditions the equality to zero follows.
+\end{proof}
+
+A key contribution from \cite{hooker2007} and \cite{rahman2014} is that they construct a generalization of the fANOVA decomposition method as a whole, not only parts, such as the Sobol indices.
+This means it is important that Rahman's generalized statements reduce to the classical case under product-type pdf. We can show that the weak annihilating conditions become the strong annihilating conditions under independence assumption.
+
+\begin{proof}
+Assume that the random variables $\{X_j\}_{j \in u}$ are independent. Then we can factorize the marginal density $f_u(\mathbf{x}_u)$ as
+\[
+f_u(\mathbf{x}_u) = \prod_{j \in u} f_{\{j\}}(x_j).
+\]
+Now consider the weak annihilating condition~(4.2) for some $i \in u \neq \emptyset$:
+\[
+\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i = 0.
+\]
+Since we assume independence, we can substitute the joint marginal density with the product of the marginal densities:
+\[
+\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) \left( \prod_{j \in u} f_{\{j\}}(x_j) \right) dx_i.
+\]
+For fixed $x_j$ with $j \ne i$, the terms $f_{\{j\}}(x_j)$ are constant with respect to $x_i$, and can therefore be pulled out of the integral:
+\[
+\left( \prod_{j \in u,\, j \ne i} f_{\{j\}}(x_j) \right) \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_{\{i\}}(x_i) \, dx_i = 0.
+\]
+As product of pdfs the prefactor is strictly positive for all $x_j$ with $j \ne i$. Therefore, the integral must be zero for the equality to hold:
+\[
+\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_{\{i\}}(x_i) \, dx_i = 0,
+\]
+which are the strong annihilating conditions from the previous section.
+\end{proof}
+
+
+\subsubsection*{Construction of the Generalized fANOVA Terms}
+Rahman basically says, that there is no need for a computationally expensive least squares problem proposed by \cite{hooker2007}. In the same fashion as for the classical fANOVA decomposition, one can integrate the desired decomposition w.r.t. to a suitable pdf and use the (weak) annihilating conditions to obtain the fANOVA decomposition. They key is to find this suitable pdf which results in an integral as we want it. \cite{rahman2014} says this suitable pdf is the $f_{-u}(\boldsymbol{x}_{-u})$. In Theorem 4.4. he shows how the generalized fANOVA components constructed by this look like. And Lemma 4.3 is a helping statement, that should cover all the integral cases that appear in Theorem 4.4. and allow us to write the expressions in Theorem 4.4. in the reduced form we see them. So I should be able to find the cases of Lemma 4.3. in the building of Theorem 4.4.
+
+To construct the generalized fANOVA components we first need a lemma that dinstiguishes three cases of integration that we will encounter in the construction of the generalized components.
+
+\begin{lemma}
+Consider the generalized fANOVA components $y_{v,G}$, $\emptyset \ne v \subseteq \{1,\dots,N\}$, of a square-integrable function $y : \mathbb{R}^N \to \mathbb{R}$. When integrated w.r.t. the probability measure $f_{-u}(\boldsymbol{x}_{-u})\, d\boldsymbol{x}_{-u}$, $u \subseteq \{1,\dots,N\}$, one can distinguish three cases:
+\[
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+=
+\begin{cases}
+\displaystyle \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}, & \text{if } v \cap u \ne \emptyset \text{ and } v \not\subset u, \\
+y_{v,G}(\mathbf{x}_v), & \text{if } v \cap u \ne \emptyset \text{ and } v \subseteq u, \\
+0, & \text{if } v \cap u = \emptyset.
+\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+Let $u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$. We distinguish between three types of relationship between $v$ and $u$.
+
+Before analyzing the first case, note that for any such $u$ and $v$, it is possible to write
+\[
+(v \cap -u) \subseteq -u \quad \text{and} \quad -u = (-u \setminus (v \cap -u)) \cup (v \cap -u),
+\]
+which will be used in the integral decomposition below.
+
+\paragraph{Case 1: \( v \cap u \ne \emptyset \) and \( v \not\subset u \).}
+We use the decomposition of $-u$ stated above to decompose the integration over $\mathbf{x}_{-u}$ as:
+\[
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v)
+\left( \int_{\mathbb{R}^{N - |u| - |v \cap -u|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u \setminus (v \cap -u)} \right)
+d\mathbf{x}_{v \cap -u}.
+\]
+The inner integral gives the marginal density $f_{v \cap -u}(\mathbf{x}_{v \cap -u})$, so we obtain:
+\[
+= \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+\]
+
+\paragraph{Case 2: $v \cap u \ne \emptyset \text{ and } v \subseteq u$.}
+Since the sets $v$ and $-u$ are then completely disjoint, $y_{v,G}(\mathbf{x}_v)$ is independent of $\mathbf{x}_{-u}$ and can be pulled out of the integral:
+\[
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= y_{v,G}(\mathbf{x}_v) \int_{\mathbb{R}^{N - |u|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= y_{v,G}(\mathbf{x}_v),
+\]
+which works because $f_{-u}$ is a pdf.
+
+\paragraph{Case 3: \( v \cap u = \emptyset \).}
+In this case, we have \( v \subseteq -u \), so \( v \cap -u = v \). Then we can write:
+\[
+\begin{aligned}
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
+\left( \int_{\mathbb{R}^{N - |u| - |v|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u \setminus v} \right)
+d\mathbf{x}_v \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v) f_v(\mathbf{x}_v) \, d\mathbf{x}_v \\
+&= \int_{\mathbb{R}^{|v|-1}} \left( \int_{\mathbb{R}} y_{v,G}(\mathbf{x}_v) f_v(\mathbf{x}_v) \, dx_i \right)
+\prod_{\substack{j \in v \\ j \ne i}} dx_j \\
+&= 0,
+\end{aligned}
+\]
+while we again split the interval in such a way that we recognize the marginal density $f_v$ and make use of the zero mean property from the strong annihilating conditions.
+
+\end{proof}
+
+
+\begin{theorem}
+The generalized fANOVA component functions \( y_{u,G}(\mathbf{x}_u) \) can be recursively defined via the following set of equations:
+\begin{align}
+y_{\emptyset,G} &= \int_{\mathbb{R}^N} y(\mathbf{x}) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}, \tag{4.5a} \\
+y_{u,G}(\mathbf{X}_u) &= \int_{\mathbb{R}^{N - |u|}} y(\mathbf{X}_u, \mathbf{x}_{-u}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+- \sum_{v \subset u} y_{v,G}(\mathbf{X}_v) \notag \\
+&\quad - \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{X}_{v \cap u}, \mathbf{x}_{v \cap -u}) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}. \tag{4.5b}
+\end{align}
+\end{theorem}
+
+
+\begin{proof}
+We begin by integrating both sides of the generalized fANOVA decomposition
+\[
+y(\mathbf{x}) = \sum_{v \subseteq \{1,\dots,N\}} y_{v,G}(\mathbf{x}_v)
+\]
+w.r.t. $f_{-u}(\mathbf{x}_{-u})\, d\mathbf{x}_{-u}$, replacing $\boldsymbol{X}$ by $\boldsymbol{x}$, and changing the dummy index from $u$ to $v$. This yields:
+\[
+\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}.
+\]
+
+\paragraph{Case \( u = \emptyset \): computing the constant term.}
+We set $u = \emptyset$, so $-u = \{1,\dots,N\}$ and $f_{-u}(\boldsymbol{x}_{-u}) = f_{\boldsymbol{X}}(\boldsymbol{x})$. The above integral can then be written as:
+\[
+\int_{\mathbb{R}^N} y(\mathbf{x}) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
+\]
+\[
+= \int_{\mathbb{R}^N} y_{\emptyset,G} \, f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
++ \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
+\]
+\[
+= y_{\emptyset,G} + \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \mathbb{E}[y_{v,G}(\mathbf{X}_v)] = y_{\emptyset,G},
+\]
+where the last sum vanishes under the weak annihilating condition.
+
+\paragraph{Case \( \emptyset \ne u \subseteq \{1,\dots,N\} \): computing nonconstant terms.}
+We return to the integrated decomposition
+\[
+\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u},
+\]
+and apply Lemma~4.3 to evaluate each term in the sum according to the relationship between $v$ and $u$:
+
+\begin{itemize}
+  \item[\textbf{(A)}] \( v \cap u \ne \emptyset \) and \( v \not\subset u \): \\
+  This is Case 1 of Lemma~4.3. The integral becomes:
+  \[
+  \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
+  \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+  \]
+
+  \item[\textbf{(B)}] \( v \subsetneq u \): \\
+  This is Case 2 of Lemma~4.3. The integrals reduce to the component functions themselves:
+  \[
+  \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v).
+  \]
+
+  \item[\textbf{(C)}] \( v = u \): \\
+  Also part of Case 2 of Lemma~4.3. The integral becomes:
+  \[
+  y_{u,G}(\mathbf{x}_u).
+  \]
+
+  \item[\textbf{(D)}] \( v \cap u = \emptyset \): \\
+  Case 3 of Lemma~4.3. These terms vanish:
+  \[
+  \sum_{\substack{v \subseteq \{1,\dots,N\} \\ v \cap u = \emptyset}} 0 = 0.
+  \]
+\end{itemize}
+
+Putting everything together:
+\[
+\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+= y_{u,G}(\mathbf{x}_u)
++ \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v)
++ \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+\]
+
+Rearranging gives the almost final expression for \( y_{u,G}(\mathbf{x}_u) \):
+\[
+y_{u,G}(\mathbf{x}_u)
+= \int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
+- \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v)
+- \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+\]
+As a last step, we only have to write \( v = (v \cap u) \cup (v \cap -u) \) to obtain the expression of Theorem~5.1.
+
+\end{proof}
 
 % Alternative definition of components by Hooker
 \cite{hooker2007} offers an alternative definition of the generalized fANOVA components\footnote{We modified the notation from the original work to match the notation of \cite{rahman2014} and the rest of this thesis.}:
