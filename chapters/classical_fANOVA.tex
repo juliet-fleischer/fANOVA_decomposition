@@ -1,5 +1,5 @@
 \subsection{Formal Introduction to fANOVA}
-(\cite{sobol1993sensitivity} proofs the existence of the classical fANOVA decomposition; other papers give definitions we base our definition on.)This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
+(\cite{sobol1993sensitivity} proofs the existence of the classical fANOVA decomposition; other papers give definitions we base our definition on). This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
 Originally, \cite{sobol1993sensitivity} presented the fANOVA decomposition with independent input variables with support bounded to the unit interval, i.e. he considered the measure space $([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$. Later work shows that this restriction is not necessary, and we can work with the Borel $\sigma$-algebra on the n-dimensional real number line, i.e. $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it (see e.g. \cite{rahman2014}).
 Since we assume independence of the input variables, their joint distribution is given by the product over the marginal distributions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\). \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$.
 
@@ -25,7 +25,7 @@ If $|u| = 0$ it describes the constant term, if $|u| = 1$ it describes the main 
 
 % How are the basis components defined? Via partial integrals.
 \subsubsection*{Construction of the fANOVA Terms}
-The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
+The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
 Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
 \begin{equation}
     y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
@@ -102,7 +102,7 @@ The classical fANOVA decomposition we covered so far assumes $\rho_{12} = 0$. Co
 \[
 y_0 = \mathbb{E}[g_{1}(X_1, X_2)] = \mathbb{E}[a + X_1 + 2X_2 + X_1X_2] = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2]
 \]
-Making use of the independence assumption of $X_1$ and $X_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish and we obtain:
+Making use of the independence assumption of $X_1$ and $X_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish, and we obtain:
 \[
 y_0 = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1]\mathbb{E}[X_2] = a
 \]
@@ -201,7 +201,7 @@ The variance of the fANOVA components is then defined as
     & - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
     &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}] - \mathbb{E}[y_{i_{1}, \dots, i_{n}}]^2
 \end{align*}
-Because of the orthogonality property, the second term vanished and we get:
+Because of the orthogonality property, the second term vanished, which leaves us with:
 \begin{align*}
     \sigma^2_{x_{i_1}, \dots, x_{i_n})}
     &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n)\\

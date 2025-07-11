@@ -310,14 +310,70 @@ As a last step, we only have to write \( v = (v \cap u) \cup (v \cap -u) \) to o
 \end{proof}
 
 % Alternative definition of components by Hooker
-\cite{hooker2007} offers an alternative definition of the generalized fANOVA components\footnote{We modified the notation from the original work to match the notation of \cite{rahman2014} and the rest of this thesis.}:
+\subsection{Alternative Definition of Generalized fANOVA Components}
+\cite{hooker2007} approaches his generalization of the fANOVA decomposition differently, from the angle of orthogonal projections. Instead of a more recursive definition of the components functions as in \cite{rahman2014}, he defines the fANOVA components as a joint set which simultaneously minimizes the squared difference to the original function $y$ under certain constraints.
+The constraints he sets for the optimization problem should ensure that the generalized components satisfy the desired properties of zero mean and hierarchical orthogonality.
+
+The generalized fANOVA terms $\{y_u(x_u) | u \subseteq d \}$ jointly satisfiy:
 \begin{equation}
 \left\{ y_{u, G}(\boldsymbol{x}_u) \,\middle|\, u \subseteq d \right\}
 = \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
 \int \left( \sum_{u \subseteq d} g_u(\boldsymbol{x}_u) - y(\boldsymbol{x}) \right)^2 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x})
 \label{eq:generalized_fanova_components_hooker}
 \end{equation}
-In Hookers definition we recognize a projection problem. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under zero mean and hierarchical orthogonality constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$, which we defined generally in section ~\ref{background}.\par
+under the hierarchical orthogonality conditions:
+\begin{equation}
+    \forall v \subseteq u,\ \forall g_v : \int y_u(x_u) g_v(x_v) w(x) \, dx = 0. \tag{4.2}
+\label{eq:hooker_hierarchical_orthogonality}
+\end{equation}
+
+In Hookers definition we recognize a projection. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under zero mean and hierarchical orthogonality constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$, which we defined generally in section ~\ref{background}.\par
+
+It is not feasible to enforce the hierarchical orthogonality conditions as written above {\color{blue} because?? or is this even the ``reason'' for Lemma 1}. 
+Lemma 1 provides the foundation for Hookers generalization because it gives a tangible constraint, one can set to ensure that one really obtains fANOVA components (which satisfy hierarchical orthogonality) instead of the components of the Hoeffding decomposition we saw in our example.
+\begin{lemma}
+    The hierarchical orthogonality of the fANOVA components is ensured if and only if the following integral condition holds:
+    \begin{equation}
+\forall u \subseteq N,\ \forall i \in u:\ \int y_u(x_u) w(x)\, dx_i\, dx_{-u} = 0.
+\tag{4.3}
+\end{equation}
+\label{lemma:hooker_hierarchical_orthogonality}
+\end{lemma}
+
+\begin{proof}
+    The proof is organized in two parts. First, Hooker needs to show that, if the integral conditions hold, the hierarchical orthogonality is true, and second, that if the hierarchical orthogonality does not hold, the integral conditions do not hold either.
+    For the first part, assume that (4.3) holds. Let $i \in u \setminus v$, then $y_v(x_v)$ is independent of $x_i$ and $x_{-u}$, so we can write:
+    \begin{equation}
+        \int y_v(x_v)\, y_u(x_u)\, w(x)\, dx_i\, dx_{-u}
+        = y_v(x_v) \int y_u(x_u)\, w(x)\, dx_i\, dx_{-u} = 0.
+    \end{equation}
+    For the second part, assume that there exists a subset $u$ and an index $i$ for which (4.3) does not hold, i.e.
+    \begin{equation}
+        \int y_u(x_u)\, w(x)\, dx_i\, dx_{-u} \ne 0.
+    \end{equation}
+    Further, assume that (4.3) does hold for a subset $v \neq u$ and an index $j \in v$. Hooker then constructs a fANOVA term $y_v$ with lower order than $y_u$, which is not orthogonal to $y_u$. He sets $v = u \setminus \{i\}$, so $y_v$ is one order lower than $y_u$ and defined as:
+    \begin{equation}
+        y_v(x_v) := \int f_u(x_u) \, w(x) \, dx_i \, dx_{-u}.
+    \end{equation}
+    $y_v$ is a valid fANOVA component, which is unequal to zero by assumption of (4.3) being false, while it itself satisfies (4.3):
+    \begin{equation}
+        \forall j \in v, \quad \int y_v(x_v) \, w(x) \, dx_j \, dx_{-v} = 0
+    \end{equation}
+    Lastly, Hooker verifies that $f_v$ is not orthogonal to $f_u$:
+
+    \begin{equation}
+        \begin{aligned}
+            \langle y_u, y_v \rangle_w 
+            &= \int y_u(x_u) \, y_v(x_v) \, f_X(x) \, dx \\
+            &= \int y_u(x_u) \left( \int y_u(x_u) \, f_X(x) \, dx_i \, dx_{-u} \right) w(x) \, dx \\
+            &= \int \left( \int y_u(x_u) \, f_X(x) \, dx_i \, dx_{-u} \right)^2 dx_{u \setminus \{i\}} \\
+            &\neq 0.
+        \end{aligned}
+    \end{equation}
+
+\end{proof}
+
+
 
 A crucial difference to the classical case is that both versions of the generalized components are defined in dependence of each other (\autoref{eq:generalized_fanova_components_rahman}, \autoref{eq:generalized_fanova_components_hooker}).
 
@@ -389,6 +445,8 @@ Obtaining an analytical solution for either of the methods is tedious even for o
 
 % estimating them is more involved, we need to introduce this in the next section
 % more or less formal intro to Hookers general estimation approach
+
+
 
 \subsubsection*{Second-moment statistics}
 As we saw earlier, the expected value of the generalizes fANOVA decomposition is the constant term:
