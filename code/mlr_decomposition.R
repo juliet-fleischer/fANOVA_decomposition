@@ -21,3 +21,4 @@ fa <- generateFunctionalANOVAData(fit, task, c("x1", "x2"), depth = 2L)
 plotPartialDependence(fa)
 
 
+

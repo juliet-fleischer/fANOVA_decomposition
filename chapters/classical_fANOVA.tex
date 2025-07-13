@@ -14,32 +14,15 @@ Let $y$  denote a mathematical model with realizations of independent random var
 
 If $|u| = 0$ it describes the constant term, if $|u| = 1$ it describes the main effects, if $|u| > 1$ it describes the interaction effects of the variables in $u$. The expansion consists of $2^N$ terms.\par
 
-% To ensure identifiability and interpretation, we set what \cite{rahman2014} calls the strong annihilating conditions and which will results in two crucial properties of the fANOVA terms.
-% \begin{proposition}
-%     The strong annihilating conditions require that each fANOVA component integrates to zero with respect to the marginal probability density function of each variable it depends on. In other words, the inner product of each fANOVA component and the marginal density of its own variables is zero. The constant term is the only exception to this rule. We write:
-%     \begin{equation}
-%         \int y_{u}(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
-%         \label{eq:strong_annihilating_conditions}
-%     \end{equation}
-% \end{proposition}
-
-% How are the basis components defined? Via partial integrals.
-\subsubsection*{Construction of the fANOVA Terms}
-The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
-Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
+% To obtain a decomposition of the desired form, we need a well-thought through setup: we set the strong annihilating conditions.
+\cite{rahman2014} derives these two properties (\autoref{eq:zero_mean_c}, \autoref{eq:orthogonality_c})from a more general condition, he calls the ``strong annihilating conditions''.\par
+\textbf{The strong annihilating conditions} require that the fANOVA terms integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal probability density functions:
 \begin{equation}
-    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
-    \label{eq:intercept}
+    \int y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
+    \label{eq:strong_annihilating_conditions}
 \end{equation}
-For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can write:
-\begin{equation}
-    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v),
-    \label{eq:fanova_component}
-\end{equation}
-Notice that this definition relies on a product-type measure rooted in the independence of the variables. We will see what changes when we let got of this assumption in the next section.\par
-The fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
 
-% The terms need to have some nice properties to really fulfill their purpose
+% This setup will allow us to state, that the fANOVA components have 1. zero mean 2. are orthogonal
 The fANOVA terms should be constructed in such a way that they have two specific properties crucial for identifiability and interpretation.
 \begin{proposition}
     The zero-mean property states that all effects, except for the constant terms, are centred around zero.
@@ -58,13 +41,25 @@ Mathematically this means that the effects integrate to zero w.r.t. their own va
 \end{proposition}
 This means that fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are.\par
 
-% To get these properties, we set the strong annihilating conditions.
-\cite{rahman2014} derives these two properties (\autoref{eq:zero_mean_c}, \autoref{eq:orthogonality_c})from a more general condition, he calls the ``strong annihilating conditions''.\par
-\textbf{The strong annihilating conditions} require that the fANOVA terms integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal probability density functions:
+Here could come the proof of existence of Sobol. Now we defined how the decomposition should look like in general and we established the assumptions under which it exists: we set the strong annihilating conditions. Withthese tools we could do the proof of Sobol and arrive at components that have the desired properties.\par
+
+% And this is how the components finally look like
+\subsubsection*{Construction of the fANOVA Terms}
+The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
+Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
 \begin{equation}
-    \int y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
-    \label{eq:strong_annihilating_conditions}
+    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    \label{eq:intercept}
 \end{equation}
+For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can write:
+\begin{equation}
+    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v),
+    \label{eq:fanova_component}
+\end{equation}
+Notice that this definition relies on a product-type measure rooted in the independence of the variables. We will see what changes when we let got of this assumption in the next section.\par
+The fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
+
+
 % Quick check that it works, all round.
 We can reassure ourselves that the properties in fact follow from the strong annihilating conditions. For the zero-mean constraint we can write:
 \begin{align*}
@@ -185,34 +180,9 @@ The first equivalence in each formulation is simply the definition in each origi
 % further analysis of the model via fANOVA decomposition --> variance decomposition
 \subsubsection*{Second-moment statistics}
 We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
-For the variance of $y(\boldsymbol{X})$, we find that the total variance can be decomposed into the sum of the fANOVA term variances. The variance decomposition is a major result in \cite{sobol1993sensitivity} and forms the basis for the Sobol indices in sensitivity analysis. We sketch the variance decomposition here and note that it is only possible under independence assumption.\par
-If $y \in \mathcal{L}^2$, then $y_{i_{1}, \dots, y_{n}} \in \mathcal{L}^2$ {\color{blue}proof? reference?; Sobol 1993 says it is easy to show using Schwarz inequality and the definition of the single fANOVA terms.}
-Therefore, we define the variance of $f$ as follows:
-\begin{align*}
-    \sigma^2 &:= \int y^2(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) - (y_0)^2 \\
-    &= \int y^2(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) - (\int y(\boldsymbol{X}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}))^2 \\
-    &= \mathbb{E}[y^2(\boldsymbol{X})] - \mathbb{E}[y(\boldsymbol{X})]^2
-    \label{variance_whole}
-\end{align*}
-The variance of the fANOVA components is then defined as
-\begin{align*}
-    \sigma^2_{x_{i_1}, \dots, x_{i_n}}
-    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \\
-    & - \left( \int \cdots \int f_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n) \right)^2\\
-    &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}] - \mathbb{E}[y_{i_{1}, \dots, i_{n}}]^2
-\end{align*}
-Because of the orthogonality property, the second term vanished, which leaves us with:
-\begin{align*}
-    \sigma^2_{x_{i_1}, \dots, x_{i_n})}
-    &= \int \cdots \int y^2_{i_{1}, \dots, i_{n}} \, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(x_1) \cdots d\nu(x_n)\\
-    &= \mathbb{E}[y^2_{i_{1}, \dots, i_{n}}]
-\end{align*}
+We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition. The variance is defined as the expected value of the squared difference between the random variable and its expected value:
 
-With the definition of the total variance $\sigma^2$ and the component-wise variance $\sigma^2_{x_{i_1}, \dots, x_{i_n}}$ we can now see that the total variance can be decomposed into the sum of the component-wise variances.
-
-% Second variant of variance decomposition formulated via the expected value
-% I could first show this and then show in a Lemma that if the expected value of y^2(X) exists (is smaller than \infinity) then the expected value of y_u^2(X_u) also exists, this would essentially be the translation from Sobols L^2 statement to the expected value wouldn't it?
-Alternatively we can formulate this via the expected value. We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
+We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
 \begin{align*}
     \sigma^2 := \mathbb{E}[(y(\boldsymbol{X}) - \mu])^2]
     &= \mathbb{E}[(y_{\emptyset} + \sum_{u} y_u({\boldsymbol{X}_u}) - y_{\emptyset})^2] \\
@@ -228,8 +198,10 @@ We can verify that the variance decomposition holds for our example:
     &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2Cov(X_1, X_2) \\
     &= \mathbb{E}[y_1^2] + \mathbb{E}[y_2^2] + \mathbb{E}[y_{12}^2] \\
 \end{align*}
-
-
+Studying the variance of the decomposition was the main focus in early works on this method (see e.g. \cite{sobol1993sensitivity}).
+From the variance decomposition \cite{sobol1993sensitivity} construct the \textit{Sobol indices}, which are well-known in sensitivity analysis. As it is only one application of the fANOVA decomposition, we will not go into depth here, but we should keep in mind that in most works, the presentation of fANOVA is closely linked to the Sobol indices.
+% Second variant of variance decomposition formulated via the expected value
+% I could first show this and then show in a Lemma that if the expected value of y^2(X) exists (is smaller than \infinity) then the expected value of y_u^2(X_u) also exists, this would essentially be the translation from Sobols L^2 statement to the expected value wouldn't it?
 
 
 

@@ -376,12 +376,14 @@ Lemma 1 provides the foundation for Hookers generalization because it gives a ta
 
 
 A crucial difference to the classical case is that both versions of the generalized components are defined in dependence of each other (\autoref{eq:generalized_fanova_components_rahman}, \autoref{eq:generalized_fanova_components_hooker}).
+In the Rahman approach, the components are derived from the original function by integrating out the other variables, while in the Hooker approach, the components are defined through a minimization problem that seeks to best approximate the original function.
 
+\subsection{Example: Dependent Multivariate Normal Inputs}
 Let us come back to our example from the beginning. The goal is to write
 \[
 g(x_1, x_2) = y_{\emptyset, G} + y_{1, G}(x_1) + y_{2, G}(x_2) + y_{1,2, G}(x_1, x_2)
 \]
-under dependent inputs. We present two ways in which the problem solution can be stated.\par
+under dependent inputs. It turns out that finding the generalized fANOVA components analytically is quite challenging. We present two ways in which the problem solution can be stated.\par
 
 \subsubsection*{Rahman method}
 The system to find the generalized fANOVA components for $g$ according to \cite{rahman2014} method looks as follows:
@@ -449,7 +451,7 @@ Obtaining an analytical solution for either of the methods is tedious even for o
 
 
 \subsubsection*{Second-moment statistics}
-As we saw earlier, the expected value of the generalizes fANOVA decomposition is the constant term:
+As we saw earlier, the expected value of the generalizes fANOVA decomposition is the constant term as in the classical case:
 \begin{equation}
 \mathbb{E}[y(\mathbf{X})] = y_{\emptyset,G}.
 \end{equation}

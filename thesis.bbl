@@ -51,12 +51,6 @@ Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0047259X25000399}
 
-\harvarditem[Lengerich et~al.]{Lengerich, Tan, Chang, Hooker \harvardand\ Caruana}{2020}{lengerich2020}
-Lengerich, B., Tan, S., Chang, C.-H., Hooker, G. \harvardand\ Caruana, R.  \harvardyearleft 2020\harvardyearright .
-\newblock Purifying {Interaction} {Effects} with the {Functional} {ANOVA}: {An} {Efficient} {Algorithm} for {Recovering} {Identifiable} {Additive} {Models}, {\em Proceedings of the {Twenty} {Third} {International} {Conference} on {Artificial} {Intelligence} and {Statistics}}, PMLR, pp.~2402--2412.
-\newblock ISSN: 2640-3498.
-\newline\harvardurl{https://proceedings.mlr.press/v108/lengerich20a.html}
-
 \harvarditem{Liu \harvardand\ Owen}{2006}{liu2006}
 Liu, R. \harvardand\ Owen, A.~B.  \harvardyearleft 2006\harvardyearright .
 \newblock Estimating {Mean} {Dimensionality} of {Analysis} of {Variance} {Decompositions}, {\em Journal of the American Statistical Association} {\bf 101}(474):~712--721.
@@ -97,8 +91,8 @@ Stone, C.~J.  \harvardyearleft 1994\harvardyearright .
 \newblock Publisher: Institute of Mathematical Statistics.
 \newline\harvardurl{https://www.jstor.org/stable/2242446}
 
-\harvarditem{Vaart}{1998}{Vaart_1998}
-Vaart, A. W. v.~d.  \harvardyearleft 1998\harvardyearright .
+\harvarditem{Van~der Vaart}{1998}{Vaart_1998}
+Van~der Vaart, A.~W.  \harvardyearleft 1998\harvardyearright .
 \newblock {\em Asymptotic Statistics}, Cambridge Series in Statistical and Probabilistic Mathematics, Cambridge University Press.
 
 \end{thebibliography}

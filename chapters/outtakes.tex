@@ -16,3 +16,40 @@ This function is smooth but has variance concentrated in a small region of the i
 f_3(x, y) = \exp\left(-100(x^2 + y^2)\right)
 \]
 Each of these functions can be used to stress-test specific characteristics of the fANOVA decomposition: sparsity, interaction order, locality, and smoothness.
+
+\section{Further examples}
+
+
+\paragraph{Identifying interaction clusters}
+This example shows that all the cross-terms vanish. So fANOVA correctly identifies that we have interaction pairs and no term is appearing multiple times in two or more interaction groups.
+\begin{align*}
+f(x) &= (x_1 + x_2)^2 + x_3 x_4 + \sin(x_5 x_6) \\[1em]
+y_\emptyset &= \mathbb{E}[f] = \mathbb{E}[(X_1 + X_2)^2] + \mathbb{E}[X_3 X_4] + \mathbb{E}[\sin(X_5 X_6)] = 2 + 0 + 0 = 2 \\[1em]
+y_1(x_1) &= \mathbb{E}_{X_{2,3,4,5,6}}[f(x)] - y_\emptyset = x_1^2 + 1 - 2 = x_1^2 - 1 \\
+y_2(x_2) &= x_2^2 - 1 \\
+y_3(x_3) &= \mathbb{E}[x_3 X_4] - y_\emptyset = 0 \\
+y_{12}(x_1, x_2) &= \mathbb{E}[f(x)] - y_\emptyset - y_1(x_1) - y_2(x_2) = (x_1 + x_2)^2 - 2 - (x_1^2 - 1) - (x_2^2 - 1) = 2x_1 x_2 \\
+y_{13}(x_1, x_3) &= \mathbb{E}_{X_{2,4,5,6}}[f(x)] - y_\emptyset - y_1(x_1) - y_3(x_3) = x_1^2 + 1 - 2 - (x_1^2 - 1) - 0 = 0 \\
+y_5(x_5) &= \mathbb{E}_{X_6}[\sin(x_5 X_6)] - y_\emptyset = 0 \\
+y_6(x_6) &= 0 \\
+y_{56}(x_5, x_6) &= \sin(x_5 x_6)
+\end{align*}
+
+
+\paragraph{Additive structure and necessity of interaction term}
+$f(x_1, x_2, x_3) = x_1 + x_2 + x_3 + \epsilon x_1 x_2 x_3$ is mostly additive and has a minor interaction effect (depending on the value of $\epsilon$), one can for example decide whether to leave in the interaction effect in a surrogate model or if it is negligible.
+We assume zero centred independent inputs, i.e. $X_i \sim \mathcal{N}(0, 1)$ for $i = 1, 2, 3$.
+
+\begin{align*}
+y_\emptyset &= \mathbb{E}[f(X)] = 0 \\
+y_1(x_1) &= \mathbb{E}_{X_2, X_3}[f(x_1, X_2, X_3)] - y_\emptyset = x_1 \\
+y_2(x_2) &= x_2 \\
+y_3(x_3) &= x_3 \\
+y_{12}(x_1, x_2) &= y_{13}(x_1, x_3) = y_{23}(x_2, x_3) = 0 \\
+y_{123}(x_1, x_2, x_3) &= f(x_1, x_2, x_3) - y_1(x_1) - y_2(x_2) - y_3(x_3) = \epsilon x_1 x_2 x_3 \\
+\mathrm{Var}[f] &= \mathrm{Var}[x_1] + \mathrm{Var}[x_2] + \mathrm{Var}[x_3] + \mathrm{Var}[\epsilon x_1 x_2 x_3] = 3 + \epsilon^2 \\
+\mathrm{Var}[y_1] &= \mathrm{Var}[y_2] = \mathrm{Var}[y_3] = 1 \\
+\mathrm{Var}[y_{123}] &= \epsilon^2
+\end{align*}
+
+

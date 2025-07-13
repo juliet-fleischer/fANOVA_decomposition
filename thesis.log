@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  11 JUL 2025 09:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  13 JUL 2025 21:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -595,7 +595,14 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
 \l__pdf_internal_box=\box86
-) (./thesis.aux)
+) (./thesis.aux
+
+LaTeX Warning: Label `fig:main_effects_estimated' multiply defined.
+
+
+LaTeX Warning: Label `fig:contour_estimated' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -682,7 +689,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<sigillum.png, id=79, 2946.00626pt x 2991.175pt>
+<sigillum.png, id=87, 2946.00626pt x 2991.175pt>
 File: sigillum.png Graphic file (type png)
 <use sigillum.png>
 Package pdftex.def Info: sigillum.png  used on input line 88.
@@ -717,11 +724,11 @@ Overfull \hbox (12.25827pt too wide) in paragraph at lines 99--138
  []
 
 [4] (./chapters/history_fANOVA.tex [5]) [6] (./chapters/classical_fANOVA.tex [7] [8] [9] [10]
-Overfull \hbox (12.84029pt too wide) detected at line 152
+Overfull \hbox (12.84029pt too wide) detected at line 147
 []
  []
 
-[11] [12] [13]) [14] (./chapters/v2_generalized_fANOVA.tex [15] [16] [17] [18] [19]
+[11] [12]) [13] (./chapters/v2_generalized_fANOVA.tex [14] [15] [16] [17] [18]
 Overfull \hbox (40.61348pt too wide) detected at line 165
 [][] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[] \OT1/cmr/m/n/12 = []
  []
@@ -731,17 +738,17 @@ Overfull \hbox (23.72888pt too wide) detected at line 184
 [][] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[] \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[]\OML/cmm/m/it/12 :
  []
 
-[20] [21]
+[19] [20]
 Overfull \hbox (56.25458pt too wide) detected at line 298
 [][] \OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) + [] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) + [] [][] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[]\OML/cmm/m/it/12 :
  []
 
-[22]
+[21]
 Overfull \hbox (56.6437pt too wide) detected at line 307
 \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) = [][] \OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[] \OMS/cmsy/m/n/12 ^^@ [] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ [] [][] \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 d\OT1/cmr/bx/n/12 x[]\OML/cmm/m/it/12 :
  []
 
-[23]
+[22]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.5.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -781,48 +788,72 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.5.12}
 <to be read again> 
                    \relax 
 l.346     \begin{equation}
-                           [24]
+                           [23]
 
-LaTeX Warning: Reference `eq:generalized_fanova_components_rahman' on page 25 undefined on input line 378.
+LaTeX Warning: Reference `eq:generalized_fanova_components_rahman' on page 24 undefined on input line 378.
 
-
-Overfull \hbox (53.53459pt too wide) detected at line 425
+[24]
+Overfull \hbox (53.53459pt too wide) detected at line 427
 []
  []
 
-[25] [26]) [27] (./chapters/estimation_fANOVA.tex [28]) [29] (./chapters/example.tex
-<images/p_main_effect_ex1.png, id=463, 578.16pt x 433.62pt>
+[25]) [26] (./chapters/example.tex [27]
+<images/p_main_effect_ex1.png, id=467, 578.16pt x 433.62pt>
 File: images/p_main_effect_ex1.png Graphic file (type png)
 <use images/p_main_effect_ex1.png>
-Package pdftex.def Info: images/p_main_effect_ex1.png  used on input line 16.
+Package pdftex.def Info: images/p_main_effect_ex1.png  used on input line 43.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/p_contour_ex1.png, id=464, 578.16pt x 433.62pt>
+<images/p_contour_ex1.png, id=468, 578.16pt x 433.62pt>
 File: images/p_contour_ex1.png Graphic file (type png)
 <use images/p_contour_ex1.png>
-Package pdftex.def Info: images/p_contour_ex1.png  used on input line 23.
+Package pdftex.def Info: images/p_contour_ex1.png  used on input line 50.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
- [30 <./images/p_main_effect_ex1.png> <./images/p_contour_ex1.png>]
-<images/p_main_effect_ex1_rho06.png, id=474, 578.16pt x 433.62pt>
+<images/p_main_effect_ex1_rho06.png, id=469, 578.16pt x 433.62pt>
 File: images/p_main_effect_ex1_rho06.png Graphic file (type png)
 <use images/p_main_effect_ex1_rho06.png>
-Package pdftex.def Info: images/p_main_effect_ex1_rho06.png  used on input line 83.
+Package pdftex.def Info: images/p_main_effect_ex1_rho06.png  used on input line 62.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/p_contour_ex1_rho06.png, id=475, 578.16pt x 433.62pt>
+
+Underfull \hbox (badness 3354) in paragraph at lines 63--63
+[]\OT1/cmr/m/n/12 Figure 3: []Hoeffding de-com-po-si-tion of
+ []
+
+<images/p_contour_ex1_rho06.png, id=470, 578.16pt x 433.62pt>
 File: images/p_contour_ex1_rho06.png Graphic file (type png)
 <use images/p_contour_ex1_rho06.png>
-Package pdftex.def Info: images/p_contour_ex1_rho06.png  used on input line 90.
+Package pdftex.def Info: images/p_contour_ex1_rho06.png  used on input line 69.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
- [31] [32 <./images/p_main_effect_ex1_rho06.png> <./images/p_contour_ex1_rho06.png>]
-Overfull \hbox (10.17737pt too wide) detected at line 136
+<images/gg1_1.png, id=471, 578.16pt x 433.62pt>
+File: images/gg1_1.png Graphic file (type png)
+<use images/gg1_1.png>
+Package pdftex.def Info: images/gg1_1.png  used on input line 81.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/gg1_2.png, id=472, 578.16pt x 433.62pt>
+File: images/gg1_2.png Graphic file (type png)
+<use images/gg1_2.png>
+Package pdftex.def Info: images/gg1_2.png  used on input line 88.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/gg2_1.png, id=473, 578.16pt x 433.62pt>
+File: images/gg2_1.png Graphic file (type png)
+<use images/gg2_1.png>
+Package pdftex.def Info: images/gg2_1.png  used on input line 99.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+<images/gg2_2.png, id=474, 578.16pt x 433.62pt>
+File: images/gg2_2.png Graphic file (type png)
+<use images/gg2_2.png>
+Package pdftex.def Info: images/gg2_2.png  used on input line 106.
+(pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
+[28] [29 <./images/p_main_effect_ex1.png> <./images/p_contour_ex1.png> <./images/p_main_effect_ex1_rho06.png> <./images/p_contour_ex1_rho06.png> <./images/gg1_1.png> <./images/gg1_2.png>] [30 <./images/gg2_1.png> <./images/gg2_2.png>]) [31] (./chapters/conclusion.tex) [32] (./chapters/appendix.tex [5] [6]
+Overfull \hbox (43.51805pt too wide) detected at line 86
 []
  []
 
-) [33] (./chapters/conclusion.tex) [34] (./chapters/appendix.tex
-Overfull \hbox (8.21432pt too wide) detected at line 36
+[7]
+Overfull \hbox (8.21432pt too wide) detected at line 138
 []
  []
 
-) [5] [6] (./thesis.bbl
+) [8] [9] (./thesis.bbl
 Underfull \hbox (badness 5446) in paragraph at lines 15--16
 \OT1/cmr/bx/n/12 URL: \OT1/cmr/m/it/12 https://projecteuclid.org/journals/annals-of-statistics/volume- 
  []
@@ -832,31 +863,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 \OT1/cmr/m/it/12 29/issue-5/Greedy-function-approximation-A-gradient-boosting- 
  []
 
-[7]
-Underfull \hbox (badness 2326) in paragraph at lines 75--78
+[10]
+Underfull \hbox (badness 2326) in paragraph at lines 69--72
 []\OT1/cmr/m/n/12 Owen, A. B. (2013).  Vari-ance com-po-nents and gen-er-al-ized sobol' in-dices, 
  []
 
-[8]) [9] [10] (./thesis.aux)
+[11]) [12] [13] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B7604D5249BA76D6B1F34F2B682D1C73;3022.
+(rerunfilecheck)             Checksum: C11164FB2B0BC5D809F724223A077047;3631.
  ) 
 Here is how much of TeX's memory you used:
- 24592 strings out of 476025
- 476811 string characters out of 5790017
+ 24647 strings out of 476025
+ 477614 string characters out of 5790017
  1868388 words of memory out of 5000000
- 44402 multiletter control sequences out of 15000+600000
+ 44430 multiletter control sequences out of 15000+600000
  527389 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,14n,80p,1002b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,80p,1002b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on thesis.pdf (43 pages, 1927733 bytes).
+Output written on thesis.pdf (44 pages, 2553620 bytes).
 PDF statistics:
- 669 PDF objects out of 1000 (max. 8388607)
- 564 compressed objects within 6 object streams
- 148 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 723 PDF objects out of 1000 (max. 8388607)
+ 608 compressed objects within 7 object streams
+ 174 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 

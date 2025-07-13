@@ -7,21 +7,20 @@
 \contentsline {subsection}{\numberline {4.1}Formal Introduction to fANOVA}{7}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Example: Multivariate Normal Inputs}{9}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}fANOVA as projection}{10}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Generalized fANOVA}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Motivating Example}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Formal Introduction to Generalized fANOVA}{16}{subsection.5.2}%
-\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subset u \).}{20}{section*.12}%
-\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{20}{section*.13}%
-\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{21}{section*.14}%
-\contentsline {paragraph}{Case \( u = \emptyset \): computing the constant term.}{21}{section*.19}%
-\contentsline {paragraph}{Case \( \emptyset \ne u \subseteq \{1,\dots ,N\} \): computing nonconstant terms.}{22}{section*.20}%
-\contentsline {subsection}{\numberline {5.3}Alternative Definition of Generalized fANOVA Components}{23}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Estimation of fANOVA}{28}{section.6}%
-\contentsline {section}{\numberline {7}Examples \& Visualizations}{30}{section.7}%
-\contentsline {paragraph}{The log fallacy}{32}{section*.34}%
-\contentsline {paragraph}{Non-additive functions}{32}{section*.35}%
-\contentsline {paragraph}{Identifying interaction clusters}{33}{section*.36}%
-\contentsline {paragraph}{Additive structure and necessity of interaction term}{33}{section*.37}%
-\contentsline {section}{\numberline {8}Conclusion}{34}{section.8}%
+\contentsline {section}{\numberline {5}Generalized fANOVA}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Motivating Example}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Formal Introduction to Generalized fANOVA}{15}{subsection.5.2}%
+\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subset u \).}{19}{section*.12}%
+\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{19}{section*.13}%
+\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{20}{section*.14}%
+\contentsline {paragraph}{Case \( u = \emptyset \): computing the constant term.}{20}{section*.19}%
+\contentsline {paragraph}{Case \( \emptyset \ne u \subseteq \{1,\dots ,N\} \): computing nonconstant terms.}{21}{section*.20}%
+\contentsline {subsection}{\numberline {5.3}Alternative Definition of Generalized fANOVA Components}{22}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Example: Dependent Multivariate Normal Inputs}{24}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Examples \& Visualizations}{27}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Estimation of fANOVA decomposition}{27}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Examples of fANOVA decomposition}{28}{subsection.6.2}%
+\contentsline {paragraph}{Non-additive functions}{31}{section*.35}%
+\contentsline {section}{\numberline {7}Conclusion}{32}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
-\contentsline {section}{\numberline {B}Electronic appendix}{VI}{appendix.B}%
+\contentsline {section}{\numberline {B}Electronic appendix}{IX}{appendix.B}%
