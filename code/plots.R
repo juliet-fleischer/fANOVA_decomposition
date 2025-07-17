@@ -22,7 +22,7 @@ theme_set(
 # Standard MVN input (with varying rho) ----
 ## Setup
 x_seq <- seq(-3, 3, length.out = 100)
-rho = 0.6 # only if rho = 0 do we get fANOVA components
+rho = 0.5 # only if rho = 0 do we get fANOVA components
 
 df_wide <- tibble(
   x = x_seq,
@@ -37,13 +37,13 @@ df_long <- df_wide %>%
     values_to = "y"
   )
 
-p_main_effect <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
+dep_hoeffding <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
   geom_line(size = 1) +
   scale_y_continuous(limits = c(-6, 6)) + # make both lines grey
-  scale_color_manual(values = c("y1" = "plum", "y2" = "gray40")) +
+  scale_color_manual(values = c("y1" = "black", "y2" = "black")) +
   labs(x = "", y = "") +
-  theme_minimal() +
-  theme(legend.title = element_blank())
+  theme(legend.title = element_blank())+
+  facet_wrap(~ Effects, scales = "free_x")
 
 # Grid for interaction effect
 grid_seq <- seq(-3, 3, length.out = 100)
