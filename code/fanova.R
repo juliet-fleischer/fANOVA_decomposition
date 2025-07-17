@@ -1,6 +1,6 @@
 #' @importFrom mmpf uniformGrid cartesianExpand
 #' @importFrom data.table data.table as.data.table rbindlist set .SD setDT
-#' @importFrom stats predict as.formula terms
+#' @importFrom stats predict as.formula terms contr.sum
 #' @importFrom glmnet glmnet
 #' @importFrom MatrixModels model.Matrix
 #' @importFrom utils combn
