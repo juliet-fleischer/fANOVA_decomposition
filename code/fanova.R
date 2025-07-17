@@ -14,6 +14,10 @@
 #' @param model the first argument to \code{predict.fun}, presumably a model object which can make predictions.
 #' @param predict.fun a \code{function} whose first two arguments are "object" and "newdata" which returns a numeric vector the same length as the number of rows in newdata. the default value is to call the \code{predict} method on the \code{model}.
 #' @param weight.fun a \code{function} with two arguments, \code{design} and \code{data}, both of which are \code{data.tables} which returns a \code{numeric} of the same length as the number of rows in \code{design}. this is intended for use to use the \code{data} to estimate the distribution of the input features, and then to use that estimate to the probability of points in the \code{design} grid.
+#' @param coding character indicating the coding scheme used for the sparse
+#'   design matrix. The default \code{"treatment"} uses treatment contrasts while
+#'   \code{"effect"} applies sum-to-zero contrasts and centers the resulting
+#'   effect estimates.
 #' @return a \code{data.table} with columns for a grid of points of the \code{vars}, a (set of) column(s) that correspond to the estimated effect of those features/covariates on the prediction function, and a column \code{effect} which indicates which subset of the covariates/features each estimate belongs to.
 #'
 #' @references Giles Hooker. Generalized Functional ANOVA Diagnostics for High Dimensional Functions of Dependent Variables, Journal of Computational and Graphical Statistics, Vol. 16, No. 3 (2007), pp. 709-732.
@@ -21,7 +25,10 @@
 #' @export
 functionalANOVA = function(data, vars, n = c(10, 2), model,
   predict.fun = function(object, newdata) predict(object, newdata = newdata),
-  weight.fun = function(grid, data) rep(1, nrow(grid))) {
+  weight.fun = function(grid, data) rep(1, nrow(grid)),
+  coding = c("treatment", "effect")) {
+
+  coding = match.arg(coding)
 
   setDT(data)
   ## define effects to estimate
@@ -70,8 +77,15 @@ functionalANOVA = function(data, vars, n = c(10, 2), model,
 
   ## create sparse indicator matrix
   formula = as.formula(paste0("~ ", paste0(effects.names, collapse = "+")))
-  design = model.Matrix(formula,
-    grid[, lapply(.SD, as.factor), .SDcols = effects.variables], sparse = TRUE)
+  grid.fac = grid[, lapply(.SD, as.factor), .SDcols = effects.variables]
+  if (coding == "effect") {
+    contr = lapply(grid.fac, function(x) contr.sum(length(levels(x))))
+    names(contr) = names(grid.fac)
+    design = model.Matrix(formula, grid.fac, sparse = TRUE,
+      contrasts.arg = contr)
+  } else {
+    design = model.Matrix(formula, grid.fac, sparse = TRUE)
+  }
   
   ## anova fit
   fit = glmnet(design, preds, "gaussian", weights = w, lambda = 0)
@@ -91,6 +105,13 @@ functionalANOVA = function(data, vars, n = c(10, 2), model,
   names(betas) = c("intercept", terms.to.extract)
   betas[["intercept"]] = data.table("f" = fit$a0)
   betas = rbindlist(betas, fill = TRUE, idcol = "effect")
+
+  if (coding == "effect") {
+    centers = betas[effect != "intercept", .(center = mean(f, na.rm = TRUE)), by = effect]
+    betas = merge(betas, centers, by = "effect", all.x = TRUE, sort = FALSE)
+    betas[effect != "intercept", f := f - center]
+    betas[, center := NULL]
+  }
 
   id = strsplit(attributes(design)$Dimnames[[2]][idx], ":")
   re = paste0("^", vars, collapse = "|")

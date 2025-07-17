@@ -51,6 +51,10 @@ m = randomForest(g.features, g.target)
 fa = functionalANOVA(g.features, c("x1", "x2"), c(100, 2), m, weight.fun = weight_fun)
 print(fa)
 
+fa_effect = functionalANOVA(g.features, c("x1", "x2"), c(100, 2), m,
+                            weight.fun = weight_fun, coding = "effect")
+print(fa_effect)
+
 plt = melt(fa[fa$effect %in% c("x1", "x2"), ],
            id.vars = c("f", "effect"), na.rm = TRUE)
 gg1_1 = ggplot(plt, aes(value, f)) +
@@ -72,6 +76,10 @@ gg1_2 = ggplot(fa[fa$effect == "x1:x2", ], aes(x1, x2, z = f, fill = f)) + geom_
 m1 = lm(y ~ x1 * x2, data = df)
 fa1 = functionalANOVA(g.features, c("x1", "x2"), c(150, 2), m1, weight.fun = weight_fun)
 print(fa1)
+
+fa1_effect = functionalANOVA(g.features, c("x1", "x2"), c(150, 2), m1,
+                              weight.fun = weight_fun, coding = "effect")
+print(fa1_effect)
 
 plt1 = melt(fa1[fa1$effect %in% c("x1", "x2"), ],
             id.vars = c("f", "effect"), na.rm = TRUE)
@@ -111,6 +119,10 @@ g.target1 = df1$y
 m2 = lm(y ~ x1 * x2, data = df1)
 fa2 = functionalANOVA(g.features1, c("x1", "x2"), c(100, 2), m2, weight.fun = weight_fun)
 print(fa2)
+
+fa2_effect = functionalANOVA(g.features1, c("x1", "x2"), c(100, 2), m2,
+                              weight.fun = weight_fun, coding = "effect")
+print(fa2_effect)
 
 plt2 = melt(fa2[fa2$effect %in% c("x1", "x2"), ],
             id.vars = c("f", "effect"), na.rm = TRUE)
