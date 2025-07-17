@@ -61,9 +61,15 @@ df <- data.frame(
 g.features = df[, c("x1", "x2")]
 g.target = df$y
 
+
 m_indp = lm(y ~ x1 * x2, data = df)
+
 fa1 = functionalANOVA(g.features, c("x1", "x2"), c(100, 2), m_indp, weight.fun = weight_fun_ind)
 print(fa1)
+
+fa1_effect = functionalANOVA(g.features, c("x1", "x2"), c(150, 2), m_indp,
+                              weight.fun = weight_fun_ind, coding = "effect")
+print(fa1_effect)
 
 plt1 = melt(fa1[fa1$effect %in% c("x1", "x2"), ],
             id.vars = c("f", "effect"), na.rm = TRUE)
@@ -108,6 +114,10 @@ g.target1 = df1$y
 m_dep = lm(y ~ x1 * x2, data = df1)
 fa2 = functionalANOVA(g.features1, c("x1", "x2"), c(100, 2), m_dep, weight.fun = weight_fun_dep)
 print(fa2)
+
+fa2_effect = functionalANOVA(g.features1, c("x1", "x2"), c(100, 2), m2,
+                              weight.fun = weight_fun, coding = "effect")
+print(fa2_effect)
 
 plt2 = melt(fa2[fa2$effect %in% c("x1", "x2"), ],
             id.vars = c("f", "effect"), na.rm = TRUE)
