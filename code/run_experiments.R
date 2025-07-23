@@ -76,4 +76,20 @@ for (params in mixed_cases) {
 }
 
 # ----- All effects scenario -----
-# Omitted for now to avoid an explosion of plot files
+# Select a small set of representative combinations covering
+# linear, quadratic and interaction terms.
+full_cases <- list(
+  list(a0 = 0, a1 =  2, a2 =  2,  a11 =  1,  a22 =  1,  a12 =  1,  rho =  0),
+  list(a0 = 0, a1 = -2, a2 = -2, a11 = -1, a22 = -1, a12 = -1, rho =  0),
+  list(a0 = 0, a1 =  2, a2 = -2, a11 =  1,  a22 = -1, a12 =  1,  rho =  0.5),
+  list(a0 = 0, a1 = -2, a2 =  2, a11 = -1, a22 =  1, a12 = -1, rho = -0.5),
+  list(a0 = 0, a1 =  2, a2 =  0, a11 =  1,  a22 =  0, a12 =  0.5, rho =  0),
+  list(a0 = 0, a1 =  0, a2 =  2, a11 =  0,  a22 =  1, a12 = -0.5, rho =  0.5),
+  list(a0 = 0, a1 = -2, a2 =  0, a11 = -1, a22 =  0, a12 =  0.5, rho = -0.5),
+  list(a0 = 0, a1 =  0, a2 = -2, a11 =  0,  a22 = -1, a12 = -0.5, rho =  0),
+  list(a0 = 0, a1 =  2, a2 =  2, a11 = -1, a22 = -1, a12 =  0,  rho =  1),
+  list(a0 = 0, a1 = -2, a2 = -2, a11 =  1, a22 = -1, a12 =  1,  rho = -1)
+)
+for (params in full_cases) {
+  save_plots("full", params)
+}
