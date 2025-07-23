@@ -2,38 +2,89 @@
 # and correlation values. Requires plot_effects() from gen_fANOVA_gpt.R.
 
 library(ggplot2)
-library(tidyr)
 
 # load plotting function
-source("gen_fANOVA_gpt.R")
+source(file.path("code", "gen_fANOVA_gpt.R"))
 
-# ----- define scenarios -----
-scenarios <- list(
-  linear = list(a0 = 0, a1 = 1, a2 = 1, a11 = 0, a22 = 0, a12 = 0),
-  quadratic = list(a0 = 0, a1 = 0, a2 = 0, a11 = 1, a22 = 1, a12 = 0),
-  interaction = list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 1),
-  mixed = list(a0 = 0, a1 = 1, a2 = -1, a11 = 0.5, a22 = -0.5, a12 = 0),
-  all = list(a0 = 0, a1 = 1, a2 = 1, a11 = 0.5, a22 = 0.5, a12 = 1)
-)
+# helper to create file-friendly labels for coefficients
+label_val <- function(v) {
+  x <- sprintf("%+0.1f", v)
+  x <- gsub("\\+", "p", x)
+  x <- gsub("-", "m", x)
+  gsub("\\.", "", x)
+}
 
-# correlation values to explore (include negative correlations)
-rhos <- seq(-1, 1, by = 0.2)
+save_plots <- function(prefix, params) {
+  plots <- do.call(plot_effects, params)
+  label_parts <- mapply(function(name, val) paste0(name, label_val(val)),
+                        names(params)[names(params) != "a0"],
+                        params[names(params) != "a0"],
+                        SIMPLIFY = TRUE)
+  suffix <- paste(label_parts, collapse = "_")
+  main_file <- file.path(out_dir, paste0(prefix, "_", suffix, "_main.png"))
+  int_file  <- file.path(out_dir, paste0(prefix, "_", suffix, "_interaction.png"))
+  ggsave(main_file, plot = plots$main, width = 6, height = 4, dpi = 300, bg = "white")
+  ggsave(int_file,  plot = plots$interaction, width = 6, height = 4, dpi = 300, bg = "white")
+}
 
-# ensure output directory exists
-out_dir <- file.path("..", "images")
+# values to explore
+lin_vals  <- c(-2, 2)
+quad_vals <- c(-1, 1)
+int_vals  <- c(-1, 1)
+rhos      <- seq(-1, 1, by = 0.2)
+
+# ensure output directory exists in repository root
+out_dir <- "images"
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
-# ----- generate and save plots -----
-for (sc_name in names(scenarios)) {
-  coeffs <- scenarios[[sc_name]]
-  for (rho in rhos) {
-    plots <- do.call(plot_effects, c(coeffs, rho = rho))
-
-    rho_lab <- sprintf("%0.1f", rho)
-    main_file <- file.path(out_dir, paste0(sc_name, "_rho", rho_lab, "_main.png"))
-    int_file  <- file.path(out_dir, paste0(sc_name, "_rho", rho_lab, "_interaction.png"))
-
-    ggsave(main_file, plot = plots$main, width = 6, height = 4, dpi = 300, bg = "white")
-    ggsave(int_file,  plot = plots$interaction, width = 6, height = 4, dpi = 300, bg = "white")
+# ----- Linear scenario -----
+for (a1 in lin_vals) {
+  for (a2 in lin_vals) {
+    params <- list(a0 = 0, a1 = a1, a2 = a2, a11 = 0, a22 = 0, a12 = 0, rho = 0)
+    save_plots("linear", params)
   }
 }
+
+# ----- Quadratic scenario -----
+for (a11 in quad_vals) {
+  for (a22 in quad_vals) {
+    params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = a11, a22 = a22, a12 = 0, rho = 0)
+    save_plots("quadratic", params)
+  }
+}
+
+# ----- Only interaction scenario -----
+for (rho in rhos) {
+  params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 1, rho = rho)
+  save_plots("interaction", params)
+}
+
+# ----- Mixed (linear + quadratic) scenario -----
+for (a1 in lin_vals) {
+  for (a2 in lin_vals) {
+    for (a11 in quad_vals) {
+      for (a22 in quad_vals) {
+        params <- list(a0 = 0, a1 = a1, a2 = a2, a11 = a11, a22 = a22, a12 = 0, rho = 0)
+        save_plots("mixed", params)
+      }
+    }
+  }
+}
+
+# ----- All effects scenario -----
+for (a1 in lin_vals) {
+  for (a2 in lin_vals) {
+    for (a11 in quad_vals) {
+      for (a22 in quad_vals) {
+        for (a12 in int_vals) {
+          for (rho in rhos) {
+            params <- list(a0 = 0, a1 = a1, a2 = a2, a11 = a11, a22 = a22,
+                           a12 = a12, rho = rho)
+            save_plots("all", params)
+          }
+        }
+      }
+    }
+  }
+}
+
