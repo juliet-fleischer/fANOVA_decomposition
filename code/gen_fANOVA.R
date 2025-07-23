@@ -2,9 +2,16 @@
 # remotes::install_github("zmjones/mmpf/pkg")
 # remotes::install_github("zmjones/fanova")
 library(fanova)
-library(randomForest)
+
+# source("fanova.R") # Load the adjusted fanova function from zmjones' package
+# source('util.R') # Load utility functions for data manipulation
+
+library(mmpf)
+library(glmnet)
 library(ggplot2)
+library(stats)
 library(data.table)
+library(MatrixModels)
 library(MASS)
 library(mvtnorm)
 
@@ -64,12 +71,9 @@ g.target = df$y
 
 m_indp = lm(y ~ x1 * x2, data = df)
 
-fa1 = functionalANOVA(g.features, c("x1", "x2"), c(100, 2), m_indp, weight.fun = weight_fun_ind)
+fa1 = functionalANOVA(g.features, c("x1", "x2"), c(150, 2), m_indp, weight.fun = weight_fun_ind)
 print(fa1)
 
-fa1_effect = functionalANOVA(g.features, c("x1", "x2"), c(150, 2), m_indp,
-                              weight.fun = weight_fun_ind, coding = "effect")
-print(fa1_effect)
 
 plt1 = melt(fa1[fa1$effect %in% c("x1", "x2"), ],
             id.vars = c("f", "effect"), na.rm = TRUE)
@@ -82,6 +86,22 @@ indep_150_interact = ggplot(fa1[fa1$effect == "x1:x2", ], aes(x1, x2, z = f, fil
   geom_raster() +
   stat_contour(aes(z = f), color = "white", alpha = 0.5)
 
+
+# # with experimentally adjusted fANOVA function, from `fanova.R`
+# fa1_effect = functionalANOVA2(g.features, c("x1", "x2"), c(100, 2), m_indp,
+#                               weight.fun = weight_fun_ind, coding = "treatment")
+# print(fa1_effect)
+# plt1_effect = melt(fa1_effect[fa1_effect$effect %in% c("x1", "x2"), ],
+#                    id.vars = c("f", "effect"), na.rm = TRUE)
+# ggplot(plt1_effect, aes(value, f)) +
+#   geom_line() + facet_wrap(~ variable, scales = "free_x") +
+#   geom_abline(data = data.frame(variable = c("x1", "x2"), slope = c(1, 2)),
+#               aes(slope = slope, intercept = 0, color = variable),
+#               show.legend = FALSE)
+# ggplot(fa1_effect[fa1_effect$effect == "x1:x2", ], 
+#                                    aes(x1, x2, z = f, fill = f)) +
+#   geom_raster() +
+#   stat_contour(aes(z = f), color = "white", alpha = 0.5)
 
 ## Dependent Inputs ----
 

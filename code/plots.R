@@ -3,19 +3,19 @@ library(ggplot2)
 library(plotly)
 library(tidyverse)
 
-theme_set(
-  theme_minimal(base_size = 11) +
-    theme(
-      plot.title = element_blank(),         # No title (handled by LaTeX caption)
-      axis.title = element_text(size = 11), # Axis labels
-      axis.text = element_text(size = 10),  # Tick labels
-      panel.grid.major = element_line(color = "grey85", size = 0.3),
-      panel.grid.minor = element_blank(),
-      axis.line = element_line(color = "black", linewidth = 0.3),
-      panel.border = element_blank(),
-      legend.position = "none"              # No legend (unless explicitly needed)
-    )
-)
+# theme_set(
+#   theme_minimal(base_size = 11) +
+#     theme(
+#       plot.title = element_blank(),         # No title (handled by LaTeX caption)
+#       axis.title = element_text(size = 11), # Axis labels
+#       axis.text = element_text(size = 10),  # Tick labels
+#       panel.grid.major = element_line(color = "grey85", size = 0.3),
+#       panel.grid.minor = element_blank(),
+#       axis.line = element_line(color = "black", linewidth = 0.3),
+#       panel.border = element_blank(),
+#       legend.position = "none"              # No legend (unless explicitly needed)
+#     )
+# )
 
 
 
@@ -39,11 +39,16 @@ df_long <- df_wide %>%
 
 dep_hoeffding <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
   geom_line(size = 1) +
-  scale_y_continuous(limits = c(-6, 6)) + # make both lines grey
-  scale_color_manual(values = c("y1" = "black", "y2" = "black")) +
-  labs(x = "", y = "") +
-  theme(legend.title = element_blank())+
-  facet_wrap(~ Effects, scales = "free_x")
+  scale_y_continuous(limits = c(-6, 6)) +
+  labs(x = "", y = "") + # add legend
+  theme_minimal() +
+  theme(
+    legend.position = "right",
+    legend.title = element_blank(),
+    legend.text = element_text(size = 10),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 11)
+  )
 
 # Grid for interaction effect
 grid_seq <- seq(-3, 3, length.out = 100)

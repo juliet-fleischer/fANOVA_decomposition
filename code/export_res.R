@@ -18,6 +18,9 @@ ggsave("../images/p_contour_ex1_rho06.png",
 ggsave("../images/hoeffding_rho05.png",
        plot = dep_hoeffding,
        width = 8, height = 6, dpi = 300, bg = "white")
+ggsave("../images/hoeffding_contour_rho05.png",
+       plot = contour_plot,
+       width = 8, height = 6, dpi = 300, bg = "white")
 
 # plots based on zmjones fANOVA estimations
 ggsave("../images/indep_150_main.png",

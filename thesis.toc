@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {6}Examples \& Visualizations}{27}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Estimation of fANOVA decomposition}{27}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Examples of fANOVA decomposition}{28}{subsection.6.2}%
-\contentsline {paragraph}{Non-additive functions}{31}{section*.35}%
+\contentsline {paragraph}{Non-additive functions}{30}{section*.35}%
 \contentsline {section}{\numberline {7}Conclusion}{32}{section.7}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{IX}{appendix.B}%

@@ -22,12 +22,12 @@ Other work, quiet mathematical that also goes in this direction I think.
 No standard implementations available. Use existing software for parts (e.g. Monte Carlo estimates) and workarounds.
 
 \subsection{Examples of fANOVA decomposition}
-Known function, simulate input, plot fANOVA and PD, comparison
+% Known function, simulate input, plot fANOVA and PD, comparison
 
-PD and fANOVA: If inputs are independent, I think for the main effects fANOVA is simply PD shifted but fANOVA answers a different question than PD. PD usually asks for the effect of one specific variable on the prediction. In contrast, fANOVA decomposes the entire function. It is more about a global representation and clean, isolated effects because in sum they have to recover the original function and may not overlap.
+% PD and fANOVA: If inputs are independent, I think for the main effects fANOVA is simply PD shifted but fANOVA answers a different question than PD. PD usually asks for the effect of one specific variable on the prediction. In contrast, fANOVA decomposes the entire function. It is more about a global representation and clean, isolated effects because in sum they have to recover the original function and may not overlap.
 
 \subsubsection*{Standard MVN, linear function, interaction}
-Let us recall the fANOVA components from our first example under independence:
+Let us recall the fANOVA components from our first example of function $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ under independence:
 \begin{align*}
 y_{\emptyset} &= 0, \\
 y_1(x_1) &= x_1\\
@@ -53,22 +53,39 @@ We can plot the main effects and the contour plot of the interaction term:
     \end{minipage}
 \end{figure}
 
+% \begin{figure}[htpb]
+%     \centering
+%     \begin{minipage}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{images/indep_150_main.png}
+%         \caption{Estimation of Main terms as calculated via classical fANOVA for $g(x) = x_1 + 2 x_2 + x_1 x_2$ via Hooker method.}
+%         \label{fig:indep_150_main}
+%     \end{minipage}%
+%     \hfill
+%     \begin{minipage}[t]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{images/indep_150_interact.png}
+%         \caption{Estimation of Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ via Hooker method.}
+%         \label{fig:indep_150_interact}
+%     \end{minipage}
+% \end{figure}
+
 \subsubsection*{Standard MVN, linear function, interaction, dependent inputs}
 % Zwei Plots für rho = 0.6 nebeneinander, jeweils halbe Breite
 \begin{figure}[htpb]
     \centering
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/p_main_effect_ex1_rho06.png}
-        \caption{Hoeffding decomposition of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.6$.}
-        \label{fig:main_effects_ex1_rho06}
+        \includegraphics[width=\textwidth]{images/hoeffding_rho05.png}
+        \caption{Hoeffding decomposition of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.5$.}
+        \label{fig:hoeffding_rho05}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/p_contour_ex1_rho06.png}
-        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.6$.}
-        \label{fig:contour_ex1_rho06}
+        \includegraphics[width=\textwidth]{images/hoeffding_contour_rho05.png}
+        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.5$.}
+        \label{fig:hoeffding_contour_rho05}
     \end{minipage}
 \end{figure}
 
@@ -78,36 +95,19 @@ We can plot the main effects and the contour plot of the interaction term:
     \centering
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/gg1_1.png}
-        \caption{Estimated main effects for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
-        \label{fig:main_effects_estimated}
+        \includegraphics[width=\textwidth]{images/gpt_func_main.png}
+        \caption{Generalized main effects for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+        \label{fig:dep_150_main}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/gg1_2.png}
-        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
-        \label{fig:contour_estimated}
+        \includegraphics[width=\textwidth]{images/gpt_func_interaction.png}
+        \caption{Contour plot of generalized interaction term for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+        \label{fig:dep_150_interact}
     \end{minipage}
 \end{figure}
 
-\begin{figure}[htpb]
-    % insert g1_1 and g1_2 as minipages
-    \centering
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/gg2_1.png}
-        \caption{Estimated main effects for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs.}
-        \label{fig:main_effects_estimated}
-    \end{minipage}%
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/gg2_2.png}
-        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs.}
-        \label{fig:contour_estimated}
-    \end{minipage}
-\end{figure}
 
 \subsubsection*{Standard MVN, linear function, interaction, non-centred inputs}
 Next, instead of a standard MVN distribution assumption for the inputs, we allow for non-centred inputs. This is to confirm that the fANOVA decomposition manages to yield zero mean components, even when inputs are not centred.

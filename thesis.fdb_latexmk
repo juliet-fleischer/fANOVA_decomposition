@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1752434077 "thesis.aux" "thesis.bbl" "thesis" 1752434089 0
+["bibtex thesis"] 1753188738 "thesis.aux" "thesis.bbl" "thesis" 1753188744 0
   "./bibliography_2.bib" 1749032060 249171 33aaa0a676ebfb06b1d986ed50146f39 ""
   "./bibliography_manual.bib" 1752418339 6170 0540e31392d17963f6c7656af5cca8ce ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/harvard/dcu.bst" 1233413381 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1752434088 11219 1b87b573d61a6d350d9a2e0ab774841f "pdflatex"
+  "thesis.aux" 1753188743 10688 d782ce0b97c193ff415a79cde4358b8c "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1752434078 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1752434089 0
+["pdflatex"] 1753188738 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1753188744 0
   "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1752417478 5831 17ffaacbfef2084dcdd10f5a3025e7fa ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -224,24 +224,22 @@
   "chapters/background.tex" 1752165512 6922 f3038d542bccb138c7f85ca9bfc13d96 ""
   "chapters/classical_fANOVA.tex" 1752433384 18284 ce230e3c0779c971147f3b1a7feb21ea ""
   "chapters/conclusion.tex" 1751712903 3713 baa9a8657be054280e10e90be493d113 ""
-  "chapters/example.tex" 1752434066 10282 c751e221d037a89bb473400d92a93530 ""
+  "chapters/example.tex" 1753188731 10453 b2a0f31dffdd334be734d15777d5cac3 ""
   "chapters/history_fANOVA.tex" 1751886334 4985 04e932f6a2c9e93fb5082f0c42235993 ""
   "chapters/introduction.tex" 1752418339 2878 0fd60b6103f16604f768eb660d51f1b8 ""
   "chapters/v2_generalized_fANOVA.tex" 1752433740 31412 e77fbd83d69263d8f4813324cfce2354 ""
-  "images/gg1_1.png" 1752414869 149429 555735f7c243284fa9191ae58f1b51d1 ""
-  "images/gg1_2.png" 1752414871 54112 4d33d5ad2685d7296fdb6b84783838ce ""
-  "images/gg2_1.png" 1752414872 164495 5558fb6ed95aee99cd96650eae743972 ""
-  "images/gg2_2.png" 1752414873 60959 106ef6ea3197ef5eb5c2574d10aae56a ""
+  "images/gpt_func_interaction.png" 1753188686 103107 fa39e8a70d40c32f4aefd0c243fdbbce ""
+  "images/gpt_func_main.png" 1752952609 71507 55e9fffbfa03d72c29f6e4ec5196d97d ""
+  "images/hoeffding_contour_rho05.png" 1752745947 394122 6fa1fd728c3a40c343b64b6d475f8e14 ""
+  "images/hoeffding_rho05.png" 1752952484 83888 b3931228f3169a9787b9e0e5b58f46e2 ""
   "images/p_contour_ex1.png" 1751638476 492909 e2fbfb22cb985f63a0974b38eb3c273a ""
-  "images/p_contour_ex1_rho06.png" 1751638766 458458 c55722c2040eb88bdf4da8d208490d2d ""
   "images/p_main_effect_ex1.png" 1751638473 98651 0f0e783aa784fbca6a33c3bf8f1071cb ""
-  "images/p_main_effect_ex1_rho06.png" 1751638837 95021 42103bc11d8fbcd10e188dfe1bc35b87 ""
   "sigillum.png" 1745325080 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "thesis.aux" 1752434088 11219 1b87b573d61a6d350d9a2e0ab774841f "pdflatex"
-  "thesis.bbl" 1752434078 6767 811c8be247fa001970d5d5e2f6f825b7 "bibtex thesis"
-  "thesis.out" 1752434088 3631 c11164fb2b0bc5d809f724223a077047 "pdflatex"
+  "thesis.aux" 1753188743 10688 d782ce0b97c193ff415a79cde4358b8c "pdflatex"
+  "thesis.bbl" 1753188738 6767 811c8be247fa001970d5d5e2f6f825b7 "bibtex thesis"
+  "thesis.out" 1753188743 3631 c11164fb2b0bc5d809f724223a077047 "pdflatex"
   "thesis.tex" 1752417478 5831 17ffaacbfef2084dcdd10f5a3025e7fa ""
-  "thesis.toc" 1752434088 2332 cd2ebf104d4ef09992d6b5bcfbd067ae "pdflatex"
+  "thesis.toc" 1753188743 2332 b6015d3e17603e1ab58eb8ce5571bd45 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"
