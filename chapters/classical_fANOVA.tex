@@ -1,83 +1,83 @@
-\subsection{Formal Introduction to fANOVA}
-(\cite{sobol1993sensitivity} proofs the existence of the classical fANOVA decomposition; other papers give definitions we base our definition on). This chapter is based on the formal introductions by \cite{rahman2014, sobol1993sensitivity, sobol2001, hooker2004, owen2013, muehlenstaedt2012}. We show both formulations of the fANOVA, via the integral and via the expected value and in general prefer the expected value formulation as it is more intuitive in a probabilistic setting.
-Originally, \cite{sobol1993sensitivity} presented the fANOVA decomposition with independent input variables with support bounded to the unit interval, i.e. he considered the measure space $([0, 1]^n, \mathcal{B}([0, 1]^n), \nu)$. Later work shows that this restriction is not necessary, and we can work with the Borel $\sigma$-algebra on the n-dimensional real number line, i.e. $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it (see e.g. \cite{rahman2014}).
-Since we assume independence of the input variables, their joint distribution is given by the product over the marginal distributions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\). \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$.
+We start by defining the fANOVA decomposition in a very general form (which is independent of distribution assumptions or anything of the sort).
 
-% How is fANOVA defined? As a sum of basis components.
 \begin{definition}
-Let $y$  denote a mathematical model with realizations of independent random variables $x_1, \dots, x_N$ as input. We can represent such a model $y$ as the hierarchical sum of specific basis functions with increasing dimensionality:
+Let $y$  denote a mathematical model with input denoted by $X_1, \dots, X_N$. The functional ANOVA (fANOVA) decomposition of $y$ takes the form:
 \begin{equation}
     y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u),
     \label{eq:fanova_decomposition}
 \end{equation}
+where $u \subseteq \{1, \dots, N\} = \{ \{1\}, \{2\}, \{1, 2\}, \dots, \{1, \dots, N\} \}$ is the set, which contains all subsets of the indices $1, \dots, N$.
 \end{definition}
 
-If $|u| = 0$ it describes the constant term, if $|u| = 1$ it describes the main effects, if $|u| > 1$ it describes the interaction effects of the variables in $u$. The expansion consists of $2^N$ terms.\par
 
-% To obtain a decomposition of the desired form, we need a well-thought through setup: we set the strong annihilating conditions.
-\cite{rahman2014} derives these two properties (\autoref{eq:zero_mean_c}, \autoref{eq:orthogonality_c})from a more general condition, he calls the ``strong annihilating conditions''.\par
-\textbf{The strong annihilating conditions} require that the fANOVA terms integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal probability density functions:
+The decomposition consists of $2^N$ terms and gives us a very general expression which's specific form is determined by the assumptions about the input variables and integration measure.
+
+\subsection{Classical fANOVA}
+For the classical case, originally proposed by \cite{sobol1993sensitivity}, we make the assumption of independent identically distributed (i.i.d.) input variables. This means we work with the measure space $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \nu)$, and with a general measure $\nu$ defined on it.
+Under independence the joint probability density function (pdf) is given by the product over the marginal pdfs, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\), where \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ (or the previously defined measure space?).
+
+Next, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA terms to be well-defined and interpretable.\par
+\textbf{The strong annihilating conditions} require that the fANOVA terms integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal pdfs:
 \begin{equation}
     \int y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
     \label{eq:strong_annihilating_conditions}
 \end{equation}
 
-% This setup will allow us to state, that the fANOVA components have 1. zero mean 2. are orthogonal
-The fANOVA terms should be constructed in such a way that they have two specific properties crucial for identifiability and interpretation.
 \begin{proposition}
-    The zero-mean property states that all effects, except for the constant terms, are centred around zero.
-Mathematically this means that the effects integrate to zero w.r.t. their own variables:
+    Given the strong annihilating conditions, the fANOVA components are centered around zero. The constant term is the only exception.
 \begin{equation}
     \int y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0
     \label{eq:zero_mean_c}
 \end{equation}
 \end{proposition}
-\begin{proposition}
-    The second property is the orthogonality of the fANOVA terms. If two sets of indices are not completely equivalent, i.e. $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that their fANOVA terms are orthogonal to each other:
-\begin{equation}
-    \int y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0
-    \label{eq:orthogonality_c}
-\end{equation}
-\end{proposition}
-This means that fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are.\par
-
-Here could come the proof of existence of Sobol. Now we defined how the decomposition should look like in general and we established the assumptions under which it exists: we set the strong annihilating conditions. Withthese tools we could do the proof of Sobol and arrive at components that have the desired properties.\par
-
-% And this is how the components finally look like
-\subsubsection*{Construction of the fANOVA Terms}
-The individual fANOVA term for the variables with indices in $u$ are constructed from integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
-Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
-\begin{equation}
-    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
-    \label{eq:intercept}
-\end{equation}
-For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can write:
-\begin{equation}
-    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v),
-    \label{eq:fanova_component}
-\end{equation}
-Notice that this definition relies on a product-type measure rooted in the independence of the variables. We will see what changes when we let got of this assumption in the next section.\par
-The fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global explanation method of black box models.\par
-
-
-% Quick check that it works, all round.
-We can reassure ourselves that the properties in fact follow from the strong annihilating conditions. For the zero-mean constraint we can write:
+\begin{proof}
 \begin{align*}
     \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= = \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{i \in u} f_{X_i}(x_i) \, d\nu (\boldsymbol{x}_u) \\
     &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{X_i}(x_i) \, dx_u \prod_{j \in u, j \neq i} f_{X_j}(x_j) = 0
 \end{align*}
-One can follow the same reasoning for the orthogonality condition:
-\begin{align*}
+\end{proof}
+
+\begin{proposition}
+    Given the strong annihilating conditions, it follows that the fANOVA terms are orthogonal to each other. If two sets of indices are not completely equivalent, i.e. $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that:
+\begin{equation}
+    \int y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0
+    \label{eq:orthogonality_c}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+    \begin{align*}
     \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] &= \int_{\mathbb{R}^{\mathbb{N}}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
     &= \int_{\mathbb{R}^{\mathbb{N}}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) \\
     &= \int_{\mathbb{R}^{\mathbb{N}-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{X_i}(x_i) \, dx_u \prod_{j \in \{1, \dots, N\}, j \neq i} f_{X_j}(x_j) = 0
 \end{align*}
+\end{proof}
+
+This means that fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are. Zero-mean and orthogonality are desirable and important properties because they ensure that the fANOVA terms can be interpretate as isolated effects of the specific variable(s). The term $y_1$, for example, captures the isolated main effects of $X_1$; there is no other effect mixed into it, which $X_1$ might have through interactions with other variables. From the lense of interpretability, this distinguishes the fANOVA decomposition from methods such as partial dependence (PD) or Shapley values.\par
+
+{\color{blue} Proof both propositions?}.
+
+% And this is how the components finally look like
+\subsubsection*{Construction of the fANOVA Terms}
+The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
+Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
+\begin{equation}
+    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    \label{eq:intercept_classical}
+\end{equation}
+For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can calculate:
+\begin{equation}
+    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
+    \label{eq:fanova_components_classical}
+\end{equation}
+Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the next section.\par
+As suggested earlier, the fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global model-agnostic explanation method of black box models.\par
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
 
-\subsection{Example: Multivariate Normal Inputs}
+\subsubsection{Example: Multivariate Normal Inputs}
 
 Before further investigating the fANOVA decomposition, let us consider the following function as example: \(g = a + X_1 + 2X_2 + X_1 X_2\). We assume that $\boldsymbol{X} = (X_1, X_2)^T$ follows a standard MVN distribution, so the $\boldsymbol{\mu} = (0, 0)^T$ and the covariance matrix $\boldsymbol{\Sigma} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.
 
@@ -97,7 +97,7 @@ The classical fANOVA decomposition we covered so far assumes $\rho_{12} = 0$. Co
 \[
 y_0 = \mathbb{E}[g_{1}(X_1, X_2)] = \mathbb{E}[a + X_1 + 2X_2 + X_1X_2] = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1X_2]
 \]
-Making use of the independence assumption of $X_1$ and $X_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean constraint, all terms, except for the constant, vanish, and we obtain:
+Making use of the independence assumption of $X_1$ and $X_2$, the last term can be written as the product of the expected values. Additionally, given the zero-mean property, all terms, except for the constant, vanish, and we obtain:
 \[
 y_0 = \mathbb{E}[a] + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1]\mathbb{E}[X_2] = a
 \]
@@ -118,9 +118,9 @@ It comes as no surprise that in this simple case the fANOVA decomposition does n
 We show this simple example nevertheless to illustrate at which step which assumption is used.
 This will make clearer what breaks down when we generalize to dependent variables.
 
-\subsection{fANOVA as projection}
+\subsubsection{fANOVA as projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections. The section is based on \cite{Vaart_1998}.
-This will also help to understand the generalization of fANOVA in section~\ref{generalization}.\par
+Having this perspective on the fANOVA decomposition is useful helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA in section~\ref{generalization}.\par
 
 When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$. In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write:
 \begin{align*}
@@ -179,7 +179,7 @@ The first equivalence in each formulation is simply the definition in each origi
 
 % further analysis of the model via fANOVA decomposition --> variance decomposition
 \subsubsection*{Second-moment statistics}
-We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
+No handbook on fANOVA is complete without at least mentioning \textit{Sobol indices}. This requires us to observe the second moment statistics of the decomposition. We already established that $\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}$.
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition. The variance is defined as the expected value of the squared difference between the random variable and its expected value:
 
 We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
