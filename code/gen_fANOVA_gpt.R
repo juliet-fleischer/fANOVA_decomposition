@@ -42,8 +42,10 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
          x = expression(x[1]), y = expression(x[2])) +
     theme_minimal()
   
-  print(p1)
-  print(p2)
+  list(
+    main = p1,
+    interaction = p2
+  )
 }
 
 
