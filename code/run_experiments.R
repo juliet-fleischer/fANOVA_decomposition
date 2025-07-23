@@ -30,7 +30,6 @@ save_plots <- function(prefix, params) {
 # values to explore
 lin_vals  <- c(-2, 2)
 quad_vals <- c(-1, 1)
-int_vals  <- c(-1, 1)
 rhos      <- seq(-1, 1, by = 0.5)
 
 

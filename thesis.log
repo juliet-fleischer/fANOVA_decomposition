@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  23 JUL 2025 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  23 JUL 2025 18:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -783,48 +783,48 @@ l.337     \begin{equation}
 
 LaTeX Warning: Reference `eq:generalized_fanova_components_rahman' on page 23 undefined on input line 369.
 
-[23]) [24] [25] (./chapters/example.tex [26]
-<images/p_main_effect_ex1.png, id=431, 578.16pt x 433.62pt>
+[23] [24] [25]) [26] (./chapters/experiment.tex
+<images/p_main_effect_ex1.png, id=428, 578.16pt x 433.62pt>
 File: images/p_main_effect_ex1.png Graphic file (type png)
 <use images/p_main_effect_ex1.png>
-Package pdftex.def Info: images/p_main_effect_ex1.png  used on input line 43.
+Package pdftex.def Info: images/p_main_effect_ex1.png  used on input line 20.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/p_contour_ex1.png, id=432, 578.16pt x 433.62pt>
+<images/p_contour_ex1.png, id=429, 578.16pt x 433.62pt>
 File: images/p_contour_ex1.png Graphic file (type png)
 <use images/p_contour_ex1.png>
-Package pdftex.def Info: images/p_contour_ex1.png  used on input line 50.
+Package pdftex.def Info: images/p_contour_ex1.png  used on input line 27.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/hoeffding_rho05.png, id=433, 578.16pt x 433.62pt>
+<images/hoeffding_rho05.png, id=430, 578.16pt x 433.62pt>
 File: images/hoeffding_rho05.png Graphic file (type png)
 <use images/hoeffding_rho05.png>
-Package pdftex.def Info: images/hoeffding_rho05.png  used on input line 79.
+Package pdftex.def Info: images/hoeffding_rho05.png  used on input line 56.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
 
-Underfull \hbox (badness 3354) in paragraph at lines 80--80
+Underfull \hbox (badness 3354) in paragraph at lines 57--57
 []\OT1/cmr/m/n/12 Figure 3: []Hoeffding de-com-po-si-tion of
  []
 
-<images/hoeffding_contour_rho05.png, id=434, 578.16pt x 433.62pt>
+<images/hoeffding_contour_rho05.png, id=431, 578.16pt x 433.62pt>
 File: images/hoeffding_contour_rho05.png Graphic file (type png)
 <use images/hoeffding_contour_rho05.png>
-Package pdftex.def Info: images/hoeffding_contour_rho05.png  used on input line 86.
+Package pdftex.def Info: images/hoeffding_contour_rho05.png  used on input line 63.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/gpt_func_main.png, id=435, 1126.2075pt x 971.63pt>
+<images/gpt_func_main.png, id=432, 1126.2075pt x 971.63pt>
 File: images/gpt_func_main.png Graphic file (type png)
 <use images/gpt_func_main.png>
-Package pdftex.def Info: images/gpt_func_main.png  used on input line 98.
+Package pdftex.def Info: images/gpt_func_main.png  used on input line 75.
 (pdftex.def)             Requested size: 223.0721pt x 192.4545pt.
 
-Underfull \hbox (badness 1436) in paragraph at lines 99--99
+Underfull \hbox (badness 1436) in paragraph at lines 76--76
 []\OT1/cmr/m/n/12 Figure 5: []Generalized main ef-fects for
  []
 
-<images/gpt_func_interaction.png, id=436, 1126.2075pt x 916.42375pt>
+<images/gpt_func_interaction.png, id=433, 1126.2075pt x 916.42375pt>
 File: images/gpt_func_interaction.png Graphic file (type png)
 <use images/gpt_func_interaction.png>
-Package pdftex.def Info: images/gpt_func_interaction.png  used on input line 105.
+Package pdftex.def Info: images/gpt_func_interaction.png  used on input line 82.
 (pdftex.def)             Requested size: 223.0721pt x 181.51958pt.
-[27 <./images/p_main_effect_ex1.png> <./images/p_contour_ex1.png>] [28 <./images/hoeffding_rho05.png> <./images/hoeffding_contour_rho05.png> <./images/gpt_func_main.png> <./images/gpt_func_interaction.png>] [29]) [30] (./chapters/conclusion.tex) [31] (./chapters/appendix.tex [5] [6]
+) [27 <./images/p_main_effect_ex1.png> <./images/p_contour_ex1.png>] [28 <./images/hoeffding_rho05.png> <./images/hoeffding_contour_rho05.png> <./images/gpt_func_main.png> <./images/gpt_func_interaction.png>] (./chapters/conclusion.tex) [29] (./chapters/appendix.tex [5] [6]
 Overfull \hbox (43.51805pt too wide) detected at line 86
 []
  []
@@ -854,21 +854,21 @@ Underfull \hbox (badness 2326) in paragraph at lines 69--72
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4A3605B4869E5905AB59DC2152774278;3226.
+(rerunfilecheck)             Checksum: F33AFBA1B4362050F2342ED244FAE82C;3403.
  ) 
 Here is how much of TeX's memory you used:
- 24622 strings out of 476025
- 477438 string characters out of 5790017
+ 24613 strings out of 476025
+ 477370 string characters out of 5790017
  1868388 words of memory out of 5000000
  44416 multiletter control sequences out of 15000+600000
  527030 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,80p,924b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on thesis.pdf (43 pages, 1971806 bytes).
+Output written on thesis.pdf (41 pages, 1966299 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 568 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 553 compressed objects within 6 object streams
+ 157 named destinations out of 1000 (max. 500000)
  192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -372,12 +372,8 @@ This makes it in general difficult to compute the generalized fANOVA components 
 
 
 \subsubsection*{Second-moment statistics}
-As we saw earlier, the expected value of the generalizes fANOVA decomposition is the constant term as in the classical case:
-\begin{equation}
-\mathbb{E}[y(\mathbf{X})] = y_{\emptyset,G}.
-\end{equation}
-
-The variance of the generalized fANOVA decomposition can be expressed as follows:
+As mentioned earlier Sobol indices and the variance decomposition of the fANOVA terms is a curcial application of this method.
+While this work does not focus on Sobol indices, we note that they are based on the variance decomposition, which for the generalized case is also possible, but slightly modified compared to the classical case.
 \begin{align}
 \sigma^2 
 &:= \mathbb{E}\left[ \left( y(\mathbf{X}) - \mu \right)^2 \right] \notag \\
@@ -392,15 +388,33 @@ The first term is the sum of the variances of the components, while the second t
 
 
 
-\subsubsection{Example: Dependent Multivariate Normal Inputs}
+\subsubsection{Correction of the Example: Dependent Multivariate Normal Inputs}
 Given the ``naive`` approach of computing the generalized fANOVA components from earlier, which left us with the Hoeffding decomposition instead, it remains to answer how the \textit{fANOVA} decomposition looks like.
-In general it is difficult arrive at an analytical solution because of the interdependence of the components. For the running example, which is a two-degree polynomial, \cite{rahman2014} provides a way to obtain the fANOVA decomposition under dependent inputs.
+In general it is difficult arrive at an analytical solution because of the interdependence of the components. For the running example, which is a two-degree polynomial, \cite{rahman2014} provides a way to obtain the fANOVA decomposition under dependent inputs.\par
 
-It is based on Fourier-Polynomial expansion.
-...
-... Some word about the idea of Rahmans constructive method.
-Write the fANOVA components as weighted sum of basis functions. Problem shifts to finding basis functions. He proposes some which are by construction zero mean and hierarchical orthogonal. Only problem left is finding the weights. For simple two degree polynomial can do this via coefficient matching.
-Write down the calculation (see my handnotes). In the end arrive at general expressions for all the coefficients $c$.
+The idea in \cite{rahman2014} is based on Fourier-Polynomial expansion, which allows to write each generalized fANOVA component as a weighted sum of basis functions. 
+The problem shifts from finding the fANOVA component functions to finding the basis functions which allow us to express the fANOVA terms.
+Rahman chooses Hermite polynomials as basis functions, which are by construction zero mean and hierarchical orthogonal. Satisfying these properties, the Hermite polynomial basis functions ensure fANOVA components that are also zero mean and hierarchical orthogonal.
+The challenge that remains is to find the weights for the basis functions, which can be done via coefficient matching; at least for a polynomial of degree two.
+
+
+\subsubsection{Alternative: Estimation of fANOVA decomposition}
+The fANOVA decomposition has a strong theoretical foundation but especially in modern work, estimation approaches and computational feasibility is an important aspect to consider.
+Also we saw that obtaining the fANOVA components analytically is not always possible, especially under dependent inputs. Therefore, we need to look at estimation approaches that allow us to compute the fANOVA components from data.\par
+
+\textbf{Estimation based on Partial Dependence}
+In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
+More concretely, one first estimates the conditional expected value of the variables in $u$ (keep variables in $u$ fixed an average over all others). This is a simple Monte Carlo estimation, which results in the partial dependence function (PD Function) for the variables in $u$ \citep{hooker2004}.
+The PD Function can then be used to estimate the empirical projection of interest. He states that his method works well for functions that have a nearly additive true structure and purely additive functions are exactly recoverable with this approach. To save computational costs, he proposes to base the Monte Carlo estimates of the PD function on a randomly sampled subset of data points.
+Problem: no true projections (under dependence or always?); extrapolation issues etc.; even if no product type measure assumption, still problems in handling dependent inputs.\par
+
+\textbf{Estimation based on weighted least squares}
+\cite{hooker2007} proposes a new estimation scheme for his generalized fANOVA decomposition. The mathematical problem one faces is more complex: the fANOVA components are defined in dependence of each other and system has to be solved simultaneously as we saw in the previous section.
+Hooker rewrites the estimation problem as a restricted weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components; problem restricted to ensure hierarchical orthogonality.
+The function is again evaluated at a grid of points to reduce the problem to a finite dimensional one. 
+Because of the parallel to weighted least squares, it is also possible to compute a weighted standard ANOVA with existing software, but it is difficult to incorporate the constraints, so the components may not be hierarchical orthogonal.\par
+
+None of these estimation approaches has a standard software implementation or published code. Some existing more or less finished implementations are numerically instable or yield illogical results. For our following experimental setup we therefore move within the range bivariate polynomials of degree two offer us and for which the solution is provided by Rahman.
 
 
 % Let us come back to our example from the beginning. The goal is to write

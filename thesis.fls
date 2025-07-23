@@ -1082,10 +1082,10 @@ INPUT ./chapters/v2_generalized_fANOVA.tex
 INPUT chapters/v2_generalized_fANOVA.tex
 INPUT ./chapters/v2_generalized_fANOVA.tex
 INPUT chapters/v2_generalized_fANOVA.tex
-INPUT ./chapters/example.tex
-INPUT chapters/example.tex
-INPUT ./chapters/example.tex
-INPUT chapters/example.tex
+INPUT ./chapters/experiment.tex
+INPUT chapters/experiment.tex
+INPUT ./chapters/experiment.tex
+INPUT chapters/experiment.tex
 INPUT ./images/p_main_effect_ex1.png
 INPUT ./images/p_main_effect_ex1.png
 INPUT images/p_main_effect_ex1.png

@@ -28,24 +28,12 @@ We started by working through the historical context of the fANOVA decomposition
 
 % approximation of fANOVA done via sampling, lagrange multiplier etc.
 
-% Limitations:
-non-centred inputs: their effect terms are shifted, so that fANOVA components are centred around zero; other than that,
-shifting does not change nature/ form of the effects
-Generalization to dependent inputs: we were able to write out the problem but not find the solution; solve simultanesouly; 
-analytically possible? Or only numerically?
-% lack of software implementations, hard to implement in practice
-Outdated or unfinished packages, might hide in other packages, but difficult to identify.
-mlr3 function but then has to be part of the entire pipeline, need to train a model, and therefore cannot ensure that independence assumption holds.
-
-Clear contribution of this work: brought clarity and unity to the various different formulations of fANOVA. We see trend in recent ML literature (cite all these ML papers with the fancy models), pick up the methods but the theoretical background and clean formalism often left aside. This work serves as a reference to practitioners who seek a unified and clean formalization of the fANOVA method. 
+Clear contribution of this work: brought clarity and unity to the various different formulations of fANOVA. We see trend in recent ML literature (cite all these ML papers with the fancy models), pick up the methods but the theoretical background and clean formalism often left aside. This work serves as a reference to practitioners who seek a unified and clean formalization of the fANOVA method.
+Filled the void of visualizations and intuitions around the method due to the lack of software implementations.
 
 Outlook, work that could follow from this thesis:
 Examine the different approaches to estimate fANOVA components (how do they scale? what is their accuracy? etc.)
 Write software implementation for fANOVA decomposition; current landscape is sparse but the method has great potential for IML; with current practicability it is however clear that fANOVA will not be accepted, it is not convenient to use the method
-
-What is the final conclusion of my work? What do I even want to say with my thesis?
 fANOVA powerful theory, sound mathematical foundation, but without standardized software implementation application to IML difficult.
-But fANOVA is ``applied'' by researchers, how? For theoretical results?
-
 Parallels to Shapley values, unified under a game theoretic approach; \cite{fumagalli2025} recently established this parallel, would be very interesting to investigate further.
 
