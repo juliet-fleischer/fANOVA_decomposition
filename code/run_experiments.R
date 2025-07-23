@@ -45,6 +45,13 @@ for (a1 in lin_vals) {
   }
 }
 
+## From this we get four cases:
+# a1 = -2 and a2 = -2 --> both negative slope
+# a1 = -2 and a2 = 2 --> X1 negative slope, X2 positive slope
+# a1 = 2 and a2 = -2 --> X1 positive slope, X2 negative slope
+# a1 = 2 and a2 = 2 --> both positive slope
+# Ofc the interaction plots are not affected, are always "empty".
+
 # ----- Quadratic scenario -----
 for (a11 in quad_vals) {
   for (a22 in quad_vals) {
@@ -53,11 +60,25 @@ for (a11 in quad_vals) {
   }
 }
 
+## From this we again get four cases which behave the same as the linear
+# ones but with parabolic shapes:
+# a11 = -1 and a22 = -1 --> both negative curvature, downward parabolas
+# a11 = -1 and a22 = 1 --> X1 negative curvature, X2 positive curvature
+# a11 = 1 and a22 = -1 --> X1 positive curvature, X2 negative curvature
+# a11 = 1 and a22 = 1 --> both positive curvature, upward parabolas
+# Ofc the interaction plots are not affected, are always "empty".
+
 # ----- Only interaction scenario -----
 for (rho in rhos) {
   params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 1, rho = rho)
   save_plots("interaction", params)
 }
+
+# Here we get 11 different cases based on the sequence of rho values
+# rho sequence might be a bit fine-grained, would not take so many values.
+# Of course the interaction plots change and what is interesting to see:
+# there are three different cases for the main effect plots: rho < 0; rho = 0, rho >0
+# So varying rho affects the main effects even though all main terms are set to 0.
 
 # ----- Mixed (linear + quadratic) scenario -----
 for (a1 in lin_vals) {
@@ -70,6 +91,10 @@ for (a1 in lin_vals) {
     }
   }
 }
+# Now we get all combinations of 4-D vector (a1, a2, a11, a22), i.e.
+# (-2, -2, -1, -1), (-2, -2, -1, 1), (-2, -2, 1, -1), etc.
+# How many combinations are this? 
+# 2 (a1) * 2 (a2) * 2 (a11) * 2 (a22) = 16 combinations
 
 # ----- All effects scenario -----
 for (a1 in lin_vals) {
