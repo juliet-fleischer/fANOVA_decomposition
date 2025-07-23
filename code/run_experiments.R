@@ -5,7 +5,9 @@ library(ggplot2)
 library(tidyr)
 
 # load plotting function
-source("gen_fANOVA_gpt.R")
+# when invoked from repository root, this script resides in "code".
+# source plotting helper relative to that location
+source(file.path("code", "gen_fANOVA_gpt.R"))
 
 # ----- define scenarios -----
 scenarios <- list(
@@ -20,7 +22,8 @@ scenarios <- list(
 rhos <- seq(-1, 1, by = 0.2)
 
 # ensure output directory exists
-out_dir <- file.path("..", "images")
+# save figures in the repository's images directory
+out_dir <- file.path("images")
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
 # ----- generate and save plots -----
