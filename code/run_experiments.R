@@ -31,8 +31,10 @@ save_plots <- function(prefix, params) {
 lin_vals  <- c(-2, 2)
 quad_vals <- c(-1, 1)
 int_vals  <- c(-1, 1)
+
 # use coarser steps for rho to keep the grid small
-rhos      <- seq(-1, 1, by = 0.5)
+rhos <- seq(-1, 1, by = 0.5)
+
 
 # ensure output directory exists in repository root
 out_dir <- "images"
@@ -53,6 +55,7 @@ for (a11 in quad_vals) {
     save_plots("quadratic", params)
   }
 }
+
 
 # ----- Only interaction scenario -----
 for (rho in rhos) {
@@ -94,5 +97,3 @@ for (lin in lin_vals) {
     }
   }
 }
-
-
