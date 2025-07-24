@@ -9,7 +9,7 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
   c22   <- a22 + (rho / (1 + rho^2)) * a12
   c11   <- a1
   c21   <- a2
-  c0    <- a0 + a11 + a22 + (rho * (3 - rho^2) / (1 + rho^2)) * a12
+  c0    <- a0 + a11 + a22 + rho * a12
   
   # ---- Main effects ----
   x <- seq(xlim[1], xlim[2], length.out = n)
@@ -49,7 +49,18 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
 }
 
 
+plot_effects(0, -1, 5, 0, 0, -4, rho = 0)
+
+# add to mixed scenario
+# within same variable same sign; between variables different signs
+plot_effects(a0 = 0, a1 = -2, a2 = 2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
+plot_effects(a0 = 0, a1 = 5, a2 = -2, a11 = -1, a22 = 1, a12 = 0, rho = 0)
 
 
+plot_effects(a0 = 0, a1 = -5, a2 = -5, a11 = -1, a22 = -1, a12 = 0, rho = 0)
+plot_effects(a0 = 0, a1 = -2, a2 = 2, a11 = 1, a22 = 1, a12 = 0, rho = 0)
+plot_effects(a0 = 0, a1 = 2, a2 = -2, a11 = -1, a22 = -1, a12 = 0, rho = 0)
+plot_effects(a0 = 0, a1 = 2, a2 = 2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
+plot_effects(a0 = 0, a1 = -2, a2 = -2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
 
 

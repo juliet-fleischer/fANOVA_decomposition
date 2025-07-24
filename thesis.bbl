@@ -61,6 +61,11 @@ Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyea
 \newblock Data-driven {Kriging} models based on {FANOVA}-decomposition, {\em Statistics and Computing} {\bf 22}(3):~723--738.
 \newline\harvardurl{http://link.springer.com/10.1007/s11222-011-9259-7}
 
+\harvarditem{Nagler}{2024}{nagler2024linalg}
+Nagler, T.  \harvardyearleft 2024\harvardyearright .
+\newblock {Methoden der Linearen Algebra in der Statistik -- Vorlesungsskript}, \url{https://tnagler.github.io/linalg-2024.pdf}.
+\newblock Version Sommersemester 2024.
+
 \harvarditem{Owen}{2003}{owen2003}
 Owen, A.  \harvardyearleft 2003\harvardyearright .
 \newblock The dimension distribution and quadrature test functions, {\em Statistica Sinica} {\bf 13}:~1--17.

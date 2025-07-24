@@ -397,10 +397,154 @@ The problem shifts from finding the fANOVA component functions to finding the ba
 Rahman chooses Hermite polynomials as basis functions, which are by construction zero mean and hierarchical orthogonal. Satisfying these properties, the Hermite polynomial basis functions ensure fANOVA components that are also zero mean and hierarchical orthogonal.
 The challenge that remains is to find the weights for the basis functions, which can be done via coefficient matching; at least for a polynomial of degree two.
 
+% The idea
+A polynomial of degree two has the general form $y(x_1,x_2) = a_0 + a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2$.
+We know that any such polynomial may be expressed as a sum of weighted basis functions \cite{nagler2024linalg} of the form:
+
+\begin{align*}
+y(x_1,x_2) 
+&= c_0 
+  + c_{1,1}\,\psi_{1,1}(x_1) 
+  + c_{2,1}\,\psi_{2,1}(x_2)
+  + c_{1,2}\,\psi_{1,2}(x_1)
+  + c_{2,2}\,\psi_{2,2}(x_2)
+  + c\,\psi(x_1,x_2)
+\end{align*}
+where the $\psi_{i,j}$ are the basis functions with corresponding weights $c_0, c_{1,1}, c_{2,1}, c_{1,2}, c_{2,2}, c_{12, 11} \in \mathbb{R}$.
+
+The idea is to carefully construct a set of basis functions which fulfill zero mean 
+and hierarchical orthogonality. Then the expansion in these basis functions is already the 
+fANOVA decomposition of a quadratic polynomial, i.e.
+\begin{align*}
+y(x_1,x_2) 
+&= a_0 + a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2 \\[3pt]
+&= c_0 
+  + c_{1,1}\,\psi_{1,1}(x_1) 
+  + c_{2,1}\,\psi_{2,1}(x_2)
+  + c_{1,2}\,\psi_{1,2}(x_1)
+  + c_{2,2}\,\psi_{2,2}(x_2)
+  + c\,\psi(x_1,x_2) \\[3pt]
+&= 
+\underbrace{c_0}_{y_0}
++ \underbrace{\big(c_{1,1}\,\psi_{1,1}(x_1) 
+                + c_{1,2}\,\psi_{1,2}(x_1)\big)}_{y_1(x_1)}
++ \underbrace{\big(c_{2,1}\,\psi_{2,1}(x_2) 
+                + c_{2,2}\,\psi_{2,2}(x_2)\big)}_{y_2(x_2)}
++ \underbrace{c\,\psi(x_1,x_2)}_{y_{12}(x_1,x_2)}.
+\end{align*}
+
+
+Coming from the probability density of a multivariate normal distribution, \cite{rahman2014} chooses multivariate Hermite polynomials. We use a slightly simplified (unscaled) version of the proposed basis functions to find an explicit solution for our running example. The basis functions we work with are:
+
+\begin{align*}
+% --- Basis functions (Rahman) ---
+\psi_{\emptyset}(x_1,x_2) &= 1 \\[3pt]
+\psi_{1,1}(x_1) &= x_1 \\[3pt]
+\psi_{2,1}(x_2) &= x_2 \\[3pt]
+\psi_{1,2}(x_1) &= x_1^2 - 1 \\[3pt]
+\psi_{2,2}(x_2) &= x_2^2 - 1 \\[3pt]
+\psi(x_1,x_2) &= \frac{\rho (x_1^2 + x_2^2)}{1 + \rho^2} - x_1 x_2 
++ \frac{\rho(\rho^2 - 1)}{1 + \rho^2},
+\end{align*}
+where $\rho$ is the correlation coefficient between $x_1$ and $x_2$. So this formula will work for dependent as well independent inputs.\par
+% --- Model decomposition (general coefficients) ---
+What remains it to find the coefficients $c_0, c_{1,1}, c_{2,1}, c_{1,2}, c_{2,2}, c_{12, 11}$ such the weighted sum of the basis really recovers the original polynomial.
+To find the correct weights, we plug in the basis functions and rearrange terms to recognize the groups more easily:
+\begin{align*}
+% --- Original polynomial ---
+y(x_1,x_2) &= c_0 + c_{1,1} x_1 + c_{2,1} x_2 
++ c_{1,2}(x_1^2 - 1) + c_{2,2}(x_2^2 - 1) \notag \\ 
+&\quad + c_{12, 11}\left( \frac{\rho(x_1^2 + x_2^2)}{1 + \rho^2} 
+- x_1 x_2 
++ \frac{\rho(\rho^2 - 1)}{1 + \rho^2} \right) \\[5pt]
+% --- Collecting like terms ---
+&= 
+\big( c_0 - c_{1,2} - c_{2,2} + c_{12, 11}\,\tfrac{\rho(\rho^2 - 1)}{1+\rho^2} \big)
++ c_{1,1}\,x_1 
++ c_{2,1}\,x_2 \notag \\ 
+&\quad + \big( c_{1,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} \big) x_1^2
++ \big( c_{2,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} \big) x_2^2
+- c_{12, 11}\, x_1 x_2
+\end{align*}
+Now we can use monomial matching to find the coefficients. It is best to start with the interaction term and work backwards from there to the constant term, plugging in the current solutions along the way:
+% --- Monomial matching equations ---
+\begin{align*}
+-\,c_{12, 11} &= a_{12} &\Rightarrow\quad c_{12, 11} &= -a_{12} \\[3pt]
+c_{1,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} &= a_{11} 
+&\Rightarrow\quad c_{1,2} &= a_{11} + \tfrac{\rho}{1+\rho^2}a_{12} \\[3pt]
+c_{2,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} &= a_{22} 
+&\Rightarrow\quad c_{2,2} &= a_{22} + \tfrac{\rho}{1+\rho^2}a_{12} \\[3pt]
+c_{1,1} &= a_1 \\[3pt]
+c_{2,1} &= a_2 \\[3pt]
+c_0 - c_{1,2} - c_{2,2} + c_{12, 11}\,\tfrac{\rho(\rho^2 - 1)}{1+\rho^2} &= a_0 
+&\Rightarrow\quad 
+c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
+\end{align*}
+
+So the (generalized) fANOVA decomposition of a two-degree polynomial is given by:
+\begin{align*}
+y(x_1,x_2) 
+&= c_0 
+  + c_{1,1}\,\psi_{1,1}(x_1) 
+  + c_{2,1}\,\psi_{2,1}(x_2)
+  + c_{1,2}\,\psi_{1,2}(x_1)
+  + c_{2,2}\,\psi_{2,2}(x_2)
+  + c\,\psi(x_1,x_2) \\[5pt]
+&= 
+\underbrace{\big(a_0 + a_{11} + a_{22} + \rho\,a_{12}\big)}_{c_0} 
++ \underbrace{a_1}_{c_{1,1}} x_1
++ \underbrace{a_2}_{c_{2,1}} x_2 \\ 
+&\quad 
++ \underbrace{\left(a_{11} + \frac{\rho}{1+\rho^2}a_{12}\right)}_{c_{1,2}} (x_1^2 - 1)
++ \underbrace{\left(a_{22} + \frac{\rho}{1+\rho^2}a_{12}\right)}_{c_{2,2}} (x_2^2 - 1) \notag \\
+&\quad 
++ \underbrace{(-a_{12})}_{c_{12, 11}}\left(
+    \frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 
+    + \frac{\rho(\rho^2-1)}{1+\rho^2}
+  \right) \\[5pt]
+&= 
+(a_0 + a_{11} + a_{22} + \rho a_{12})
++ a_1 x_1
++ a_2 x_2 \notag \\ 
+&\quad 
++ \left(a_{11} + \frac{\rho}{1+\rho^2} a_{12}\right)(x_1^2 - 1)
++ \left(a_{22} + \frac{\rho}{1+\rho^2} a_{12}\right)(x_2^2 - 1) \notag \\
+&\quad 
+- a_{12}\left(
+  \frac{\rho(x_1^2 + x_2^2)}{1+\rho^2}
+  - x_1 x_2
+  + \frac{\rho(\rho^2 - 1)}{1+\rho^2}
+  \right),
+\end{align*}
+with individual components
+
+\begin{align*}
+y_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}, \\[3pt]
+y_1(x_1) &= a_1\,x_1 
+  + \left(a_{11} + \frac{\rho}{1+\rho^2}a_{12}\right)\bigl(x_1^2 - 1\bigr), \\[3pt]
+y_2(x_2) &= a_2\,x_2 
+  + \left(a_{22} + \frac{\rho}{1+\rho^2}a_{12}\right)\bigl(x_2^2 - 1\bigr), \\[3pt]
+y_{12}(x_1,x_2) 
+&= -a_{12}\!\left(
+    \frac{\rho(x_1^2+x_2^2)}{1+\rho^2} 
+    - x_1 x_2 
+    + \frac{\rho(\rho^2-1)}{1+\rho^2}
+   \right).
+\end{align*}
+
+
+We are finally able to give the correct fANOVA terms for our running example in a generalized from, which allows for dependent inputs variables. For $g(x_1,x_2) = x_1 + 2x_2 + x_1 x_2$  we have $a_0 = 0, a_1 = 1, a_2 = 2, a_{11} = 0, a_{22} = 0, a_{12} = 1$ and therefore obtain:
+\begin{align*}
+y_0 &= \rho, \\[3pt]
+y_1(x_1) &= x_1 + \frac{\rho}{1+\rho^2}(x_1^2 - 1), \\[3pt]
+y_2(x_2) &= 2\,x_2 + \frac{\rho}{1+\rho^2}(x_2^2 - 1), \\[3pt]
+y_{12}(x_1,x_2) 
+&= -\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right).
+\end{align*}
 
 \subsubsection{Alternative: Estimation of fANOVA decomposition}
 The fANOVA decomposition has a strong theoretical foundation but especially in modern work, estimation approaches and computational feasibility is an important aspect to consider.
-Also we saw that obtaining the fANOVA components analytically is not always possible, especially under dependent inputs. Therefore, we need to look at estimation approaches that allow us to compute the fANOVA components from data.\par
+Also, we saw that obtaining the fANOVA components analytically is not always possible, especially under dependent inputs. Therefore, we need to look at estimation approaches that allow us to compute the fANOVA components from data.\par
 
 \textbf{Estimation based on Partial Dependence}
 In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
