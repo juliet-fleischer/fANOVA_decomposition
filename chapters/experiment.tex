@@ -108,19 +108,11 @@ Since an interaction effect is absent in $g_1$, the fANOVA interaction term is a
         \centering
         \includegraphics[width=\textwidth]{images/linear_a1m20_a2p20_a11p00_a22p00_a12p00_rhop00_main.png}
     \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/linear_a1p20_a2m20_a11p00_a22p00_a12p00_rhop00_main.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/linear_a1p20_a2p20_a11p00_a22p00_a12p00_rhop00_main.png}
-    \end{minipage}
-    \caption{Main effects for linear terms with different coefficients.}
+    \caption{Main fANOVA components for linear terms with different coefficients.\textbf{ Left:} $y_1(x_1) = -2x_1$, $y_2(x_2) = -2x_2$.\textbf{ Right:} $y_1(x_1) = -2x_1$, $y_2(x_2) = 2x_2$.}
     \label{fig:linear_main_effects}
 \end{figure}
+
+
 
 \subsubsection*{Scenario: Quadratic}
 Next we consider two-degree polynomials, which contain only quadratic terms; they take the form: $$g_2(x_1, x_2) = a_{11} x_1^2 + a_{22} x_2^2.$$
@@ -136,19 +128,15 @@ As for the linear scenario, we vary the coefficients $a_{11}$ and $a_{22}$, whil
         \centering
         \includegraphics[width=\textwidth]{images/quadratic_a1p00_a2p00_a11m10_a22p10_a12p00_rhop00_main.png}
     \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/quadratic_a1p00_a2p00_a11p10_a22m10_a12p00_rhop00_main.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/quadratic_a1p00_a2p00_a11p10_a22p10_a12p00_rhop00_main.png}
-    \end{minipage}
-    \caption{Main effects for quadratic terms with different coefficients.}
+    \caption{
+        Main effects for quadratic terms with different coefficients. 
+        \textbf{Left:} $y_0 = -2$, $y_1(x_1) = -1(x_1^2 - 1)$, $y_2(x_2) = -1(x_2^2 - 1)$. 
+        \textbf{Right:} $y_1(x_1) = -1(x_1^2 - 1)$, $y_2(x_2) = 1(x_2^2 - 1)$.
+    }
     \label{fig:quadratic_main_effects}
 \end{figure}
+
+
 
 \subsubsection*{Scenario: Interaction only}
 Next, we consider a model, which solely consists of an interaction term: $$g_3(x_1, x_2) = a_{12} x_1 x_2.$$
@@ -168,6 +156,11 @@ In \autoref{fig:interaction_rho_neg05} we set $\rho = -0.5$, while in \autoref{f
     \caption{Main effects and contour plot of interaction effects for $\rho = -0.5$}
     \label{fig:interaction_rho_neg05}
 \end{figure}
+\begin{align*}
+y_0 &= -0.5 \\[3pt]
+y_{12}(x_1,x_2) &= 0.4x_1^2 + 0.4x_2^2 + x_1x_2 - 0.3
+\end{align*}
+
 
 \begin{figure}[htpb]
     \centering
@@ -183,6 +176,10 @@ In \autoref{fig:interaction_rho_neg05} we set $\rho = -0.5$, while in \autoref{f
     \caption{Main effects and contour plot of interaction effects for $\rho = 0$}
     \label{fig:interaction_rho_0}
 \end{figure}
+\begin{align*}
+y_{12}(x_1,x_2) &= x_1x_2
+\end{align*}
+
 
 \begin{figure}[htpb]
     \centering
@@ -198,6 +195,11 @@ In \autoref{fig:interaction_rho_neg05} we set $\rho = -0.5$, while in \autoref{f
     \caption{Main effects and contour plot of interaction effects for $\rho = 1$}
     \label{fig:interaction_rho_1}
 \end{figure}
+\begin{align*}
+y_0 &= 1 \\[3pt]
+y_{12}(x_1,x_2) &= -0.5x_1^2 - 0.5x_2^2 + x_1x_2
+\end{align*}
+
 
 \subsubsection*{Scenario: Mixed, only main}
 Following, we study the main effects of two-degree polynomials, which allow for effects of linear and quadratic nature:
@@ -239,6 +241,22 @@ Lastly, in the lower right we have cases where we have again within variable sig
     \caption{Main effects and contour plot of different coefficients for mixed main effects.}
     \label{fig:mixed_rho_0}
 \end{figure}
+\begin{align*}
+y_0 &= -2 \\[3pt]
+y_1(x_1) &= -2x_1 - (x_1^2 - 1) \\[3pt]
+y_2(x_2) &= -2x_2 - (x_2^2 - 1)
+\end{align*}
+
+\begin{align*}
+y_1(x_1) &= -2x_1 + (x_1^2 - 1) \\[3pt]
+y_2(x_2) &= 2x_2 - (x_2^2 - 1)
+\end{align*}
+
+\begin{align*}
+y_1(x_1) &= 2x_1 - (x_1^2 - 1) \\[3pt]
+y_2(x_2) &= 2x_2 + (x_2^2 - 1)
+\end{align*}
+
 
 \subsubsection*{Scenario: All}
 Finally full example, including all main and interaction effects: $$g_5(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2,$$ where we can very the coefficients as well as $\rho$.\par
