@@ -1,8 +1,20 @@
 library(ggplot2)
 library(tidyr)
 
+theme_pub <- theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_blank(),
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 10),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10),
+    panel.grid.major = element_line(color = "grey90", size = 0.3),
+    panel.grid.minor = element_blank()
+  )
+
+
 plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
-                         xlim = c(-3, 3), n = 200) {
+                         xlim = c(-2, 2), n = 200) {
   # ---- Corrected coefficients ----
   c_int <- -a12
   c12   <- a11 + (rho / (1 + rho^2)) * a12
@@ -21,12 +33,25 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
     pivot_longer(cols = c(Effect1, Effect2),
                  names_to = "Variable",
                  values_to = "Effect")
-  
+
+  # main_colors <- c("Effect1" = "#FDBFBF",  # soft coral-peach
+  #                  "Effect2" = "#A6CEE3")  # pastel blue
+  # main_colors <- c(
+  #   "Effect1" = "#F4A582",  # soft coral-rose
+  #   "Effect2" = "#92C5DE"   # soft sky blue
+  # )
+  main_colors <- c(
+    "Effect1" = "#FDD9A0",  # light peach
+    "Effect2" = "#C2A5CF"   # dusty lavender
+  )
+
   p1 <- ggplot(df_main, aes(x = x, y = Effect, color = Variable)) +
-    geom_line(size = 1) +
-    labs(title = "Main Effects of X₁ and X₂",
-         x = "x", y = "Effect") +
-    theme_minimal()
+    geom_line(size = 2) +
+    labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
+    scale_color_manual(values = main_colors,
+                       labels = c(expression(y[1]),
+                                  expression(y[2]))) +
+    theme_pub
   
   # ---- Interaction effect ----
   grid <- expand.grid(x1 = x, x2 = x)
@@ -38,9 +63,9 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
   
   p2 <- ggplot(grid, aes(x = x1, y = x2, z = Interaction)) +
     geom_contour_filled() +
-    labs(title = "Interaction Effect",
-         x = expression(x[1]), y = expression(x[2])) +
-    theme_minimal()
+    scale_fill_brewer(palette = "YlGn") +
+    labs(x = expression(X[1]), y = expression(X[2]), fill = "Interaction") +
+    theme_pub
   
   list(
     main = p1,
@@ -49,6 +74,6 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
 }
 
 
-plot_effects(0, -1, 5, 0, 0, -4, rho = 0)
+# plot_effects(0, -1, 5, 0, 0, -4, rho = 0)
 
 

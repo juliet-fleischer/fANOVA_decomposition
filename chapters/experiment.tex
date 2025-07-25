@@ -9,23 +9,21 @@ y_1(x_1) &= x_1\\
 y_2(x_2) &= 2x_2\\
 y_{12}(x_1, x_2) &= x_1x_2,
 \end{align*}
-visualized in \autoref{fig:main_effects_ex1} and \autoref{fig:contour_ex1}. One could vary the magnitude of the coefficients and obtain steeper, flatter, twisted (?) slopes for the main effects and also a steeper of flatter or twisted surface for the interaction term.
+visualized in \autoref{fig:running_ex_independent}. One could vary the magnitude of the coefficients and obtain steeper, flatter, twisted (?) slopes for the main effects and also a steeper of flatter or twisted surface for the interaction term.
 % Input: MVN, centred, independent
 \begin{figure}[htpb]
     \centering
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/p_main_effect_ex1.png}
-        \caption{Main terms as calculated via classical fANOVA for $g(x) = x_1 + 2 x_2 + x_1 x_2$.}
-        \label{fig:main_effects_ex1}
-    \end{minipage}%
+        \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png}
+    \end{subfigure}%
     \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/p_contour_ex1.png}
-        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$.}
-        \label{fig:contour_ex1}
-    \end{minipage}
+        \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png}
+    \end{subfigure}
+    \caption{Main effects (left) and interaction effect (right) of the fANOVA decomposition for $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
+    \label{fig:running_ex_independent}
 \end{figure}
 
 Running example: $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$, with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$ and $\rho = 0.5$.
@@ -42,24 +40,22 @@ In attempt to compute the fANOVA terms under dependent inputs, we calculated the
 \tilde{y}_{12}(x_1,x_2) &= x_1x_2 - 2(0.5)x_1 - (0.5)x_2 - (0.5)x_1^2 - (0.5)x_2^2 + 0.5 \\[3pt]
 &= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5,
 \end{align*}
-which are visualized in \autoref{fig:hoeffding_rho05} and \autoref{fig:hoeffding_contour_rho05}.
+which are visualized in \autoref{fig:hoeffding_rho05}.
 \begin{figure}[htpb]
     \centering
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/hoeffding_rho05.png}
-        \caption{Hoeffding decomposition of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.5$.}
-        \label{fig:hoeffding_rho05}
-    \end{minipage}%
+        \includegraphics[width=\textwidth]{images/experiment_section/hoeffding_rho05_main.png}
+    \end{subfigure}%
     \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/hoeffding_contour_rho05.png}
-        \caption{Contour plot of $g(x) = x_1 + 2 x_2 + x_1 x_2$ with $\rho = 0.5$.}
-        \label{fig:hoeffding_contour_rho05}
-    \end{minipage}
+        \includegraphics[width=\textwidth]{images/experiment_section/hoeffding_rho05_interaction.png}
+    \end{subfigure}
+    \caption{Main effects (left) and interaction effect (right) of the Hoeffding decomposition for $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \label{fig:hoeffding_rho05}
 \end{figure}
-But the actualy fANOVA components are given by:
+The true fANOVA components are given by:
 \begin{align*}
 y_0 &= 0.5 \\[3pt]
 y_1(x_1) &= x_1 + 0.4\,(x_1^2 - 1)
@@ -70,23 +66,21 @@ y_{12}(x_1,x_2)
 &= -\Big( 0.4(x_1^2 + x_2^2) - x_1 x_2 - 0.3 \Big) \\[3pt]
 &= -0.4x_1^2 - 0.4x_2^2 + x_1 x_2 + 0.3.
 \end{align*}
-These are visualized in \autoref{fig:dep_150_main} and \autoref{fig:dep_150_interact}.
+These are visualized in \autoref{fig:running_ex_dependent}.
 % Input: MVN, dependent, rho = 0.5
 \begin{figure}[htpb]
     \centering
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/running_ex_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png}
-        \caption{Generalized main effects for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
-        \label{fig:dep_150_main}
-    \end{minipage}%
+        \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png}
+    \end{subfigure}%
     \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/running_ex_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png}
-        \caption{Contour plot of generalized interaction term for $g(x) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
-        \label{fig:dep_150_interact}
-    \end{minipage}
+        \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png}
+    \end{subfigure}
+    \caption{Main effects (left) and interaction effect (right) of the generalized fANOVA decomposition for $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \label{fig:running_ex_dependent}
 \end{figure}
 Interestingly, the parabolic form of the main effects is similar between Hoeffding and fANOVA, but the interaction effects diverge notably.\par
 Our running example included linear effects of both input variables and the interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two degree polynomial.
@@ -108,13 +102,13 @@ Since an interaction effect is absent in $g_1$, the fANOVA interaction term is z
     \centering
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png}
         \caption{$a_1 = 1.5$, $a_2 = 3.5$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png}
         \caption{$a_1 = -2$, $a_2 = 4$}
     \end{subfigure}
     \caption{Main fANOVA components for linear terms with different coefficients. The components are given by: $y_1(x_1) = a_1 x_1$, $y_2(x_2) = a_2 x_2$.}
@@ -136,13 +130,13 @@ In \autoref{fig:quadratic_main_effects}, we vary the coefficients $a_{11}$ and $
 \begin{figure}[htpb]
     \centering
     \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/quadratic_a1p00_a2p00_a11m10_a22m04_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/quadratic_a1p00_a2p00_a11m10_a22m04_a12p00_rhop00_main.png}
         \caption{$a_{11} = -1$, $a_{22} = -0.4$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/quadratic_a1p00_a2p00_a11p03_a22p20_a12p00_rhop00_main.png}
-        \caption{$a_{11} = 0.3$, $a_{22} = 2$}
+        \includegraphics[width=\textwidth]{images/experiment_section/quadratic_a1p00_a2p00_a11p20_a22m05_a12p00_rhop00_main.png}
+        \caption{$a_{11} = 2$, $a_{22} = -0.5$}
     \end{subfigure}
     \caption{Main effects for quadratic terms with different coefficients. The fANOVA components are given by: $y_1(x_1) = a_{11}(x_1^2 - 1)$, $y_2(x_2) = a_{22}(x_2^2 - 1)$.}
     \label{fig:quadratic_main_effects}
@@ -168,20 +162,20 @@ The fANOVA components for $g_3$ are given by:
    \right).
 \end{align*}
 What is interesting to see is that the main effects are present, due to the dependence between variable, even though there are no isolated main effects in $g_3$.
-The interaction effect is plotted as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.
-In the top row, we set $\rho = -0.5$, while in the middle row we set $\rho = 0$, and in the bottom row we set $\rho = 1$. From this we can conclude, that the main effects for $g_3$ are only influenced by the sign of $\rho$, not its magnitude. So for the main effects, it suffices to distinguish between $\rho < 0$, $\rho = 0$, and $\rho > 0$. The interaction term is influenced by sign and magnitude of $\rho$.
+The main effects $y_1$ and $y_2$, as well as the interaction term $y_{12}$, are influenced by $\rho$ and $a_{12}$.
+In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.For every case of $\rho$ and $a_{12}$, the main effects have the same form, therefore they overlap.
 \begin{figure}[htpb]
     \centering
     % ----- Row 1 -----
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhom05_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png}
         \caption{Main effects for $\rho = -0.5$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhom05_interaction.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png}
         \caption{Interaction contour for $\rho = -0.5$}
     \end{subfigure}
 
@@ -189,13 +183,13 @@ In the top row, we set $\rho = -0.5$, while in the middle row we set $\rho = 0$,
     % ----- Row 2 -----
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png}
         \caption{Main effects for $\rho = 0$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhop00_interaction.png}
+        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png}
         \caption{Interaction contour for $\rho = 0$}
     \end{subfigure}
 
@@ -203,17 +197,19 @@ In the top row, we set $\rho = -0.5$, while in the middle row we set $\rho = 0$,
     % ----- Row 3 -----
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhop10_main.png}
+        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png}
         \caption{Main effects for $\rho = 1$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p10_rhop10_interaction.png}
+        \includegraphics[width=\textwidth]{images/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png}
         \caption{Interaction contour for $\rho = 1$}
     \end{subfigure}
 
-    \caption{Main effects (left column) and interaction contour plots (right column) for different values of $\rho$.}
+    \caption{Main effects (left column) and interaction contour plots (right column) for different values of $\rho$. The effects are given by $y_{1}(x_1) = a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1)$,
+    $y_{2}(x_2) = a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1)$,
+    $y_{12}(x_1,x_2) = -a_{12}\!\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right)$.}
     \label{fig:interaction_combined}
 \end{figure}
 
@@ -231,12 +227,13 @@ The fANOVA components for $g_4$ are given by:
     y_2(x_2) &= a_2 x_2 + a_{22}(x_2^2 - 1).
 \end{align*}
 In \autoref{fig:mixed_main_effects}, we vary the coefficients $a_1$, $a_2$, $a_{11}$, and $a_{22}$, while the interaction term is again absent.
-The shape of the parabolas in the upper left panel is representative of cases, where the coefficients of the linear terms $a1$ and $a2$ have the same sign and the ones of the quadratic terms $a11$ and $a22$ have the same sign.
-The coefficients of the quadratic terms $a11$ and $a22$ determine whether the parapbola is facing downwards or upwards/ open upwards or downwards; when they are both negative the parabola is open downwards and when they are both positive the parabola is upwards open. Alongside the quadratic coefficients, the linear ones $a_1$ and $a_2$ influence how stretched or compressed the parabola is.\par
-The upper right plot and the lower left plot show typical behviour for cases where the quadratic coefficients have different signs. In such cases we get parabolas that are open in opposite directions. The only systematic difference between the upper right and lower left is that within variable sign-difference is only true for one variable, either $X_1$ or $X_2$ in the lower left plot.\par
-Lastly, in the lower right we have cases where we have again within variable sign difference, but the signs of the quadratic coefficients are the same. Here we have a symmetric pattern, where the parabolas are open in the same direction.
+The shape of the parabolas in the upper left panel is representative of cases, where the coefficients of the linear terms $a_1$ and $a_2$ have the same sign and the ones of the quadratic terms $a_{11}$ and $a_{22}$ have the same sign.
+The coefficients of the quadratic terms $a_{11}$ and $a_{22}$ determine whether the parabola is facing downwards or upwards; when they are both negative the parabola is open downwards and when they are both positive the parabola is upwards open. Alongside the quadratic coefficients, the linear ones $a_1$ and $a_2$ influence how stretched or compressed the parabola is.\par
+The upper right plot and the lower left plot show typical behaviour for cases where the quadratic coefficients have different signs. In such cases we get parabolas that are open in opposite directions.
+% The only systematic difference between the upper right and lower left is that within variable sign-difference is only true for one variable, either $X_1$ or $X_2$ in the lower left plot.\par
+Lastly, in the lower right we have cases where the signs of the linear coefficient $a_i$ is different than of the quadratic coefficient $a_{ii}$ within the same Variable $X_i$, but the signs of the quadratic coefficients are the same between variables (so $a_{ii}$ and $a_{jj}$ have the same sign). Here we have a symmetric pattern, where the parabolas are open in the same direction and otherwise may look different.
 
-% The upper right plot is representative of cases where we have within-variable sign difference and a symmetric between variable sign-difference, for example we look at cases such as $a1 = -2, a11 = 1, a2 = 2, a22 = -1$ or $a1 = 2, a11 = -1, a2 = -2, a22 = 1$. Here again, whether the parabola for a variable is facing upwards or downwards is determined by the sign of the quadratic coefficient.
+% The upper right plot is representative of cases where we have within-variable sign difference and a symmetric between variable sign-difference, for example we look at cases such as $a_1 = -2, a_{11} = 1, a_2 = 2, a_{22} = -1$ or $a_1 = 2, a_{11} = -1, a_2 = -2, a_{22} = 1$. Here again, whether the parabola for a variable is facing upwards or downwards is determined by the sign of the quadratic coefficient.
 % In the lower left we represent cases in which within-variable sign difference is only true for one variable, either $X_1$ or $X_2$, and the quadratic coefficients are sign-different. Then we get parabolas that are open in opposite directions.\par
 % where we have 1. the same sign \textit{within} a variable and where we have 2. different signs \textit{within} a variable, but they are different in the same way for both variables. 1. includes sets of coefficients like
 % $a1 = -2, a11 = -1, a2 = -2, a22 = -1$. 2. includes sets of coefficients like $a1 = 2, a11 = -1, a2 = 2, a22 = -1$ or $a1 = -2, a11 = -1, a2 = -2, a22 = 1$.
@@ -245,14 +242,14 @@ Lastly, in the lower right we have cases where we have again within variable sig
     % --- Row 1 ---
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png}
         \caption{$a_1=-2,\, a_2=-2,\, a_{11}=-1,\, a_{22}=-1$}
         \label{fig:mixed_rho_0_panel1}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
         \caption{$a_1=-2,\, a_2=2,\, a_{11}=1,\, a_{22}=-1$}
         \label{fig:mixed_rho_0_panel2}
     \end{subfigure}
@@ -260,14 +257,14 @@ Lastly, in the lower right we have cases where we have again within variable sig
     % --- Row 2 ---
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png}
         \caption{$a_1=2,\, a_2=2,\, a_{11}=-1,\, a_{22}=1$}
         \label{fig:mixed_rho_0_panel3}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png}
+        \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png}
         \caption{$a_1=2,\, a_2=-2,\, a_{11}=1,\, a_{22}=1$}
         \label{fig:mixed_rho_0_panel4}
     \end{subfigure}
@@ -284,52 +281,74 @@ Finally full example, including all main and interaction effects:
 $$g_5(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
 We can vary the coefficients as well as $\rho$.\par
-We recognize the patterns from previous examples which had less parameters to vary. If the parabolas are facing upwards or downwards is determined by the sign of the quadratic coefficients; if they are facing in the same direction is determined by between variable sign-difference of the quadratic coefficients. Under presence of an interaction term, how strongly the variables correlate with each other also affects the direction in which the main effects are facing. How stretched or compressed the parabolas are is determined by the linear coefficients. The interaction term is determined by the sign and magnitude of $\rho$ as well as the sign and magnitude of the interaction coefficient $a_{12}$.\par
-
+We recognize the patterns from previous examples which had less parameters to vary.
+Whether the parabolas are facing upwards or downwards is determined by the sign of the quadratic coefficients.
+Whether they are facing in the same direction is determined by between variable sign-difference of the quadratic coefficients.
+Under presence of an interaction term,
+the direction in which the main effects are facing is also influenced by $\rho$.
+The linear coefficients only have an influence on how stretched or compressed the parabolas are.
+The interaction term is influenced by $\rho$ and $a_{12}$.\par
 \begin{figure}[htpb]
     \centering
-    % Row 1
-    \begin{subfigure}[t]{0.49\textwidth}
+
+    % -------- Pair 1 --------
+    \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png}
-        \caption{Main effect for case 1}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
+        \begin{minipage}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png}
+        \end{minipage}
+        \caption{Main and interaction effects for (1) $a_1 = 2$, $a_2 = 0$, 
+                 $a_{11} = 1$, $a_{22} = 0$, $a_{12} = 0.5$, $\rho = 0$.}
+    \end{subfigure}
+
+    % -------- Pair 2 --------
+    \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png}
-        \caption{Interaction for case 1}
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1p00_a2p20_a11p00_a22p10_a12m05_rhop05_main.png}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1p00_a2p20_a11p00_a22p10_a12m05_rhop05_interaction.png}
+        \end{minipage}
+        \caption{Main and interaction effects for (2) $a_1 = 0$, $a_2 = 2$, 
+                 $a_{11} = 0$, $a_{22} = 1$, $a_{12} = -0.5$, $\rho = 0.5$.}
     \end{subfigure}
-    % Row 2
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1p00_a2p20_a11p00_a22p10_a12m05_rhop05_main.png}
-        \caption{Main effect for case 2}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1p00_a2p20_a11p00_a22p10_a12m05_rhop05_interaction.png}
-        \caption{Interaction for case 2}
+
+    % -------- Pair 3 --------
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_main.png}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_interaction.png}
+        \end{minipage}
+        \caption{Main and interaction effects for (3) $a_1 = -2$, $a_2 = -2$, 
+                 $a_{11} = 1$, $a_{22} = -1$, $a_{12} = 1$, $\rho = -1$.}
     \end{subfigure}
-    % (rows 3 & 4 similar)
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_main.png}
-        \caption{Main effect for case 3}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_interaction.png}
-        \caption{Interaction for case 3}
+
+    % -------- Pair 4 --------
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2p20_a11m10_a22p10_a12m10_rhom05_main.png}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}[t]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2p20_a11m10_a22p10_a12m10_rhom05_interaction.png}
+        \end{minipage}
+        \caption{Main and interaction effects for (4) $a_1 = -2$, $a_2 = 2$, 
+                 $a_{11} = -1$, $a_{22} = 1$, $a_{12} = -1$, $\rho = -0.5$.}
     \end{subfigure}
-    % Row 4
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1m20_a2p20_a11m10_a22p10_a12m10_rhom05_main.png}
-        \caption{Main effect for case 4}
-    \end{subfigure}%
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{images/full_a1m20_a2p20_a11m10_a22p10_a12m10_rhom05_interaction.png}
-        \caption{Interaction for case 4}
-    \end{subfigure}
-    \caption{Main effects (left) and interaction contours (right) for four coefficient sets.}
-    \label{fig:all_pairs}
+
+    \caption{Main effects (left) and interaction contours (right) for four different \\ coefficient sets.}
+    \label{fig:all_pairs_grouped}
 \end{figure}

@@ -3,19 +3,17 @@ library(ggplot2)
 library(plotly)
 library(tidyverse)
 
-# theme_set(
-#   theme_minimal(base_size = 11) +
-#     theme(
-#       plot.title = element_blank(),         # No title (handled by LaTeX caption)
-#       axis.title = element_text(size = 11), # Axis labels
-#       axis.text = element_text(size = 10),  # Tick labels
-#       panel.grid.major = element_line(color = "grey85", size = 0.3),
-#       panel.grid.minor = element_blank(),
-#       axis.line = element_line(color = "black", linewidth = 0.3),
-#       panel.border = element_blank(),
-#       legend.position = "none"              # No legend (unless explicitly needed)
-#     )
-# )
+
+theme_pub <- theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_blank(),
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 10),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10),
+    panel.grid.major = element_line(color = "grey90", size = 0.3),
+    panel.grid.minor = element_blank()
+  )
 
 
 
@@ -37,18 +35,32 @@ df_long <- df_wide %>%
     values_to = "y"
   )
 
-dep_hoeffding <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
-  geom_line(size = 1) +
-  scale_y_continuous(limits = c(-6, 6)) +
-  labs(x = "", y = "") + # add legend
-  theme_minimal() +
-  theme(
-    legend.position = "right",
-    legend.title = element_blank(),
-    legend.text = element_text(size = 10),
-    axis.text = element_text(size = 10),
-    axis.title = element_text(size = 11)
-  )
+main_colors <- c(
+  "y1" = "#FDD9A0",  # light peach
+  "y2" = "#C2A5CF"   # dusty lavender
+)
+
+dep_hoeffding_main <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
+  geom_line(size = 2) +
+  labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
+  scale_color_manual(values = main_colors,
+                     labels = c(expression(y[1]),
+                                expression(y[2]))) +
+  theme_pub
+
+# Filled contour plot ----
+
+x_seq <- seq(-1.5, 1.5, length.out = 200)
+grid <- expand.grid(x1 = x_seq, x2 = x_seq)
+grid$f12 <- with(grid, x1 * x2 - 2 * rho * x1 - rho * x2 - rho * x1^2 - rho * x2^2 + rho)
+
+
+dep_hoeffding_interaction <- ggplot(grid, aes(x = x1, y = x2, z = f12)) +
+  geom_contour_filled() +
+  scale_fill_brewer(palette = "YlGn") +
+  labs(x = expression(X[1]), y = expression(X[2]), fill = "Interaction") +
+  theme_pub
+
 
 # Grid for interaction effect
 grid_seq <- seq(-3, 3, length.out = 100)
@@ -77,43 +89,4 @@ p_interaction <- plot_ly(
 # Show the 3D plot
 p_interaction
 
-
-# Contour plots ----
-
-x_seq <- seq(-3, 3, length.out = 200)
-grid <- expand.grid(x1 = x_seq, x2 = x_seq)
-grid$f12 <- with(grid, x1 * x2 - 2 * rho * x1 - rho * x2 - rho * x1^2 - rho * x2^2 + rho)
-
-## 1 Smooth contour plot ----
-contour_plot <- ggplot(grid, aes(x = x1, y = x2, fill = f12)) +
-  geom_raster(interpolate = TRUE) +  # Interpolates colors for smooth look
-  stat_contour(aes(z = f12), color = "white", alpha = 0.5) +
-  scale_fill_gradient2(
-    low = "darkseagreen4", mid = "white", high = "salmon", midpoint = 0,
-    name = "f12"
-  ) +
-  labs(
-    x = "", y = ""
-  ) +
-  theme_minimal()
-
-## 2 Line contour plot ----
-ggplot(grid, aes(x = x1, y = x2, z = f12)) +
-  geom_contour() + # alternative: geom_contour_filled() 
-  scale_fill_brewer() +
-  labs(
-    x = "x1", y = "x2"
-  ) +
-  theme_minimal()
-
-
-## 3 plotly contour plot ----
-fig <- plot_ly(
-  x = x_seq,
-  y = x_seq,
-  z = ~outer(x_seq, x_seq, FUN = "*"),  # x1 * x2
-  type = "contour" 
-)
-
-fig
 
