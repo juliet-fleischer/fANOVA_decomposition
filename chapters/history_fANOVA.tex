@@ -2,15 +2,16 @@
 
 \subsection{Early Work on fANOVA}
 % Hoeffding decomposition as foundation
-The main idea of the fANOVA decomposition is to decompose a statistical model into the sum of the main effects and interaction effects of its input variables. The underlying principle of fANOVA decomposition dates back to \cite{hoeffding1948}. In his seminal work(?) on estimators with asymptotical normal distribution, he introduced U-statistics, along with the ``Hoeffding decomposition'', which allows to write a symmetric function of the data as a sum of orthogonal components.
+The main idea of the fANOVA decomposition is to decompose a function into a hierarchical sum of mutually orthogonal components.
+The underlying principle of fANOVA decomposition dates back to \cite{hoeffding1948}. In his seminal work on estimators with asymptotical normal distribution, he introduced U-statistics, along with the ``Hoeffding decomposition'', which allows to write a symmetric function of the data as a sum of orthogonal components.\par
 % Sobol: first explicity fANOVA decomposition + Sobol indices - Both methods involve the sum of orthogonal components and independent input variables.
-\cite{sobol1993sensitivity} used the same principle and applied it to deterministic mathematical models. proofed existance of fANOVA decomposition for square integrable functions.
-He built on the originally called ``decomposition into summands of different dimension'' in \cite{sobol2001}, where he introduces Sobol indices and renames the method to the ``ANOVA-representation''. For Sobol decomposing the function into the sum of fANOVA terms is actually not central, but what he is mostly interested is the variance decomposition which he shows follows from the fANOVA decomposition of a function.
-This variance decomposition allows quantifying how much the variance of a single input variable contributes to the overall variance of the function. Thus, Sobol indices are commonly used in sensitivity analysis.
-Sobol builds his main contributions around fANOVA on the 1) variance decomposition, but also proposes to use fANOVA for 2) variable selection/ dimensionality reduction (terms that contribute a lot to overall variance should be in the model).\par
+The mathematician Sobol used the same principle and proved that any square integrable function on the unit hypercube can be decomposed into a sum of orthogonal components \citep{sobol1993sensitivity}.
+He originally called it ``decomposition into summands of different dimension'' and later renamed it to the ``ANOVA-representation'' \citep{sobol2001}. For him the decomposition of the \textit{function} itself is actually just the means to the more interesting decomposition of the \textit{variance} of the function, which follows from the fANOVA decomposition of a function.
+The Sobol indices, commonly used in sensitivity analysis, use this variance decomposition to quantify how much the variance of a single input variable contributes to the overall variance of the function.
+Apart from the variance decomposition, Sobol already addresses the potential of using the fANOVA decomposition in further contexts, such as model interpretability, variable selection, and dimensionality reduction \cite{sobol2001}.\par
 
 % Other
-\cite{efron1981} use the idea of the decomposition to proof their famous lemma on jackknife variances.
+% \cite{efron1981} use the idea of the decomposition to proof their famous lemma on jackknife variances.
 
 % Stone: GAM models based on fANOVA
 % Stone builds on TAKEMURA, A. (1983). Tensor analysis of ANOVA decomposition. J. Amer. Statist. Assoc. 78 894900.
@@ -20,7 +21,7 @@ A true wave of fANOVA literature around the 1990s, where authors investigate fAN
 Go deeper into some of the works? And a wrap up? Wrap up: fANOVA received a lot of attention in statistics literature, its mathematical properties were studied and was also used as intermediate step to proof or build other theories.
 
 \subsection{Modern Work on fANOVA}
-The fANOVA decomposition has a long history with roots in mathematical statistics and non-parametric estimation theory.
+More recent work related to fANOVA decomposition can roughly be divided into three main categories: (1) the generalization of fANOVA to dependent inputs, (2) the use of fANOVA in interpretable machine learning, and (3) the application of fANOVA in specific domains.
 
 % Owens work on fANOVA decomposition (reinterpretation/ moderinization of classical fANOVA studies)
 \cite{owen2013} formal intro to fANOVA decomposition and generalization of Sobol indices.
@@ -40,4 +41,8 @@ GA2ML etc.
 There are specific domains of statistics, such as geostatistics, that explicitly build models on fANOVA framework (see \cite{muehlenstaedt2012} for fANOVA Kriging models).
 \cite{liu2006} use of fANOVA and sensitivity analysis for functions arising in computational finance.
 
-fANOVA/ variance decomposition to reduce dimensionality, fANOVA to find additive structures (explanability and surrogate modelling), fANOVA for identifying interaction terms and variable dependencies.
+The applications of fANOVA decomposition are diverse, 
+
+% maybe also mention the work that uses fANOVA to make bridges between different theories, e.g. munir, 
+% should mention the "Purifying interaction..." paper related to interpretability.
+% Lengerich an König

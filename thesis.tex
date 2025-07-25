@@ -106,11 +106,10 @@ Supervised by \mysupervisor
 
 \begin{abstract}
 
-fANOVA decomposition
-functional decomposition method
-Hoeffding decomposition related
-rediscovered in the IML community
-in this BA we revisit method; clean formal definition into classical and generalized; unify across notations and also conceptual differences; test existing estimation methods from two packages and compare results to theoretical solution, discover parallel to Hoeffding decomposition.
+This article studies the functional ANOVA decomposition (fANOVA) in the context of model interpretability.
+We start with the historical background and providing context to how the method has evolved over time and is used in different domains.
+This is followed by the formal definition of the method, where we distinguish between the classical fANOVA, which assumes independent inputs, and the generalized fANOVA, which allows for dependency between variables.
+For both cases, we unite different notations and approaches to the formalization of fANOVA. When generalizing fANOVA to dependent inputs, we encounter the Hoeffding decomposition, which is closely related to fANOVA. Illustrated by examples we clearly distinguish between both methods and experiment with visualizing the decomposition of different functions. We conclude with some words on current estimation approaches and suggestions for future work.
 \end{abstract}
 
 \newpage
@@ -127,35 +126,30 @@ in this BA we revisit method; clean formal definition into classical and general
 % CHAPTERS ---------------------------------------------------------------------
 
 \pagenumbering{arabic}
-    
-\section{Introduction}
-\label{intro}
+
+\section{Introduction}\label{sec:intro}
 \input{chapters/introduction.tex}
 \newpage
 
-\section{Background Knowledge}
-\label{background}
+\section{Prerequisites}\label{sec:prerequisites}
 \input{chapters/background.tex}
 \newpage
-\section{History of fANOVA}
+\section{History of fANOVA}\label{sec:history_fANOVA}
 \input{chapters/history_fANOVA.tex}
-\label{history_fANOVA}
+
 \newpage
-\section{Formalization of fANOVA}
+\section{Formalization of fANOVA}\label{sec:formalization_fANOVA}
 \input{chapters/classical_fANOVA.tex}
 
 \newpage
 \input{chapters/v2_generalized_fANOVA.tex}
 
-\label{formalization_fANOVA}
-
 \newpage
-\section{Examples \& Visualizations}
-\label{example}\input{chapters/experiment.tex}
+\section{Visualization and Estimation}\label{sec:examples}
+\input{chapters/experiment.tex}
 \newpage
 
-\section{Conclusion}
-\label{conclusion}
+\section{Conclusion}\label{sec:conclusion}
 \input{chapters/conclusion.tex}
 
 
@@ -189,8 +183,8 @@ Data, code and figures are provided in electronic form.
 % ------------------------------------------------------------------------------
 
 \RaggedRight
-\bibliography{bibliography_2, bibliography_manual}
 \bibliographystyle{dcu}
+\bibliography{bibliography_2,bibliography_manual}
 \newpage
 
 % ------------------------------------------------------------------------------

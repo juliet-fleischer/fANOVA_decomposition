@@ -4,47 +4,42 @@
 % orthogonal projections
 % expected value, conditional expected value
 \subsection*{Basic Setup}
-Let $(\Omega, \mathcal{F}, \nu)$ be a measure space, where $\Omega$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra on $\Omega$ and $\nu: \mathcal{F} \rightarrow [0, 1]$ is a probability measure. $\mathcal{B}^N$ is the Borel $\sigma$-algebra on $\mathbb{R}^N, N \in \mathbb{N}$.
+The formal setup is based on \cite{chastaing2012} and \cite{rahman2014}. Let $(\Omega, \mathcal{F}, \nu)$ be a measure space, where $\Omega$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra on $\Omega$ and $\nu: \mathcal{F} \rightarrow [0, 1]$ is a probability measure. $\mathcal{B}^N$ is the Borel $\sigma$-algebra on $\mathbb{R}^N, N \in \mathbb{N}$.
 $\boldsymbol{X} = (X_1, \dots, X_N): (\Omega, \mathcal{F}) \rightarrow (\mathbb{R}^N, \mathcal{B}^N)$ denotes a $\mathbb{R}^N$-valued random vector.\par
 We assume that the probability distribution of $\boldsymbol{X}$ is continuous and completely defined by the joint probability density function (pdf) $f_{\boldsymbol{X}}: \mathbb{R}^N \rightarrow \mathbb{R}_{0}^+$. $f_{\boldsymbol{X}}$ is the pdf w.r.t. measure $\nu$. \par
 
-Let $u$ denote a subset of indices $\{1, \dots, N\}$, and $-u := \{1, \dots, N\} \backslash{} u$ its compliment.
+Let $u$ denote a subset of indices $\{1, \dots, N\}$, and $-u := \{1, \dots, N\} \backslash{} u$ its compliment. We denote strict inclusion by $\subsetneq$ and $\subset$ allows for equality.
 $\boldsymbol{X_u} = (X_1, \dots, X_{|u|}), u \neq \emptyset, 1 \leq i_1 < \dots < i_{|u|} \leq N$ is a sub-vector of $\boldsymbol{X}$ and $\boldsymbol{X}_{-u} = \boldsymbol{X}_{\{1, \dots, N\} \backslash{} u}$ is the complement of $\boldsymbol{X}_u$.\par
 
 The marginal density function is $f_u(\boldsymbol{x_u}) := \int f_{\boldsymbol{X}}(\boldsymbol{x})d\boldsymbol{x_{-u}}$ for a given set $\emptyset \neq u \subseteq \{1, \dots N\}$.
-$f(\boldsymbol{X}) := f(X_1, \dots, X_N)$ is a mathematical model with random variables as inputs.
+$y(\boldsymbol{X}) := y(X_1, \dots, X_N)$ is a mathematical model with random variables as inputs.
 We write a vector space of square-integrable functions as
-\[\mathcal{L}^2(\Omega, \mathcal{F}, \nu) = \left\{ f: \Omega \rightarrow \mathbb{R} \; \textit{s.t.} \; \mathbb{E}[f^2(\boldsymbol{X})] < \infty \right\}\].
+\[\mathcal{L}^2(\Omega, \mathcal{F}, \nu) = \left\{ y: \Omega \rightarrow \mathbb{R} \; \textit{s.t.} \; \mathbb{E}[y^2(\boldsymbol{X})] < \infty \right\}\].
 % = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
 
 $\mathcal{L}^2(\Omega, \mathcal{F}, \nu)$ is a Hilbert space with the inner product defined as:
 \[
-\langle f, g \rangle = \int f(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}d\nu(\boldsymbol{x}) = \mathbb{E}[f(\boldsymbol{X})g(\boldsymbol{X})].
+\langle y, g \rangle = \int y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})].
 \]
 The norm is denoted as $\|.\| $ and defined by:
 \[
-\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int f^2(x) \, d\nu(x)} = \mathbb{E}[f^2], \quad \forall f \in \mathcal{L}^2.
+\|y\| = \sqrt{\langle y, y \rangle} = \sqrt{\int y^2(x) \, d\nu(x)} = \mathbb{E}[y^2], \quad \forall y \in \mathcal{L}^2.
 \]
-
-We denote strict inclusion by $\subsetneq$ and $\subset$ allows for equality.
-% We write captial letters for random variables, lower case letters for realizations of random variables, bold for multidimensional random variables, and noraml for sclar values. 
-Formal setup now based on \cite{chastaing2012,rahman2014}.
-{\color{blue} Maybe also cite: \href{https://apachepersonal.miun.se/~andrli/Bok.pdf}{https://apachepersonal.miun.se/~andrli/Bok.pdf}; also look again at pdf and measure setup.}
 
 \subsection*{Orthogonal projection}
-Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $f$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}f$ which minimizes the distance to $f$ in $\mathcal{L}^2$:
+Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $y$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}y$ which minimizes the distance to $y$ in $\mathcal{L}^2$:
 \[
-\Pi_{\mathcal{G}}f = \arg\min_{g \in \mathcal{G}} \|f - g\|^2
-= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(f - g)^2].
+\Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y - g)^2].
 \]
 
-Definition of $\mathcal{L}^2$ space and projection modified from \href{https://tnagler.github.io/mathstat-lmu-2024.pdf}{https://tnagler.github.io/mathstat-lmu-2024.pdf}.
+Definition of $\mathcal{L}^2$ space and projection modified from \cite{nagler2024linalg}.
 
 % conditional expectation defined via integral conditioned on certain value/ partial integral
 
 
 \subsection*{Unconditional and Conditional expectation}
-$\mathbb{E}[.]$ denotes the expectation operator, $Var[.] := \mathbb{E}[(. - \mathbb{E}[.])^2]$ denotes the variance and $Cov[.,*] := \mathbb{E}[(. - \mathbb{E}[.]) (* - \mathbb{E}[*])]$ denotes the covariance operator.\par
+$\mathbb{E}[.]$ denotes the expectation operator, $V[.] := \mathbb{E}[(. - \mathbb{E}[.])^2]$ denotes the variance and $Cov[.,*] := \mathbb{E}[(. - \mathbb{E}[.]) (* - \mathbb{E}[*])]$ denotes the covariance operator.\par
 In general, we define the conditional expectation of a vector of random variables $\boldsymbol{X} = (X_1, X_2)$ as follows:
 \[
 \mathbb{E}[g(X_1, X_2) \mid X_1 = x_1] = \int g(x_1, s_2) \, p_{X_2 \mid X_1}(s_2 \mid x_1) \, ds_2.

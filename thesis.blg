@@ -4,44 +4,46 @@ The top-level auxiliary file: thesis.aux
 The style file: dcu.bst
 Database file #1: bibliography_2.bib
 Database file #2: bibliography_manual.bib
-You've used 20 entries,
+Warning--empty publisher in molnar2025
+You've used 22 entries,
             2921 wiz_defined-function locations,
-            781 strings with 8950 characters,
-and the built_in function-call counts, 62081 in all, are:
-= -- 9895
-> -- 815
+            792 strings with 9485 characters,
+and the built_in function-call counts, 74664 in all, are:
+= -- 11954
+> -- 1016
 < -- 0
-+ -- 4535
-- -- 245
-* -- 5195
-:= -- 12866
-add.period$ -- 46
-call.type$ -- 20
-change.case$ -- 279
-chr.to.int$ -- 19
-cite$ -- 20
-duplicate$ -- 279
-empty$ -- 643
-format.name$ -- 297
-if$ -- 11067
++ -- 5563
+- -- 308
+* -- 6329
+:= -- 15342
+add.period$ -- 51
+call.type$ -- 22
+change.case$ -- 307
+chr.to.int$ -- 21
+cite$ -- 23
+duplicate$ -- 308
+empty$ -- 701
+format.name$ -- 362
+if$ -- 13321
 int.to.chr$ -- 6
 int.to.str$ -- 0
-missing$ -- 19
-newline$ -- 103
-num.names$ -- 204
-pop$ -- 52
+missing$ -- 22
+newline$ -- 115
+num.names$ -- 226
+pop$ -- 58
 preamble$ -- 1
-purify$ -- 300
+purify$ -- 330
 quote$ -- 0
-skip$ -- 255
+skip$ -- 276
 stack$ -- 0
-substring$ -- 13775
-swap$ -- 41
-text.length$ -- 280
+substring$ -- 16740
+swap$ -- 45
+text.length$ -- 308
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 78
-warning$ -- 0
-while$ -- 447
+type$ -- 84
+warning$ -- 1
+while$ -- 490
 width$ -- 0
-write$ -- 299
+write$ -- 334
+(There was 1 warning)

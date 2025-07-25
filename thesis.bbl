@@ -4,10 +4,6 @@
 Chastaing, G., Gamboa, F. \harvardand\ Prieur, C.  \harvardyearleft 2012\harvardyearright .
 \newblock Generalized {{Hoeffding-Sobol}} decomposition for dependent variables - application to sensitivity analysis, {\em Electronic Journal of Statistics} {\bf 6}(none).
 
-\harvarditem{Efron \harvardand\ Stein}{1981}{efron1981}
-Efron, B. \harvardand\ Stein, C.  \harvardyearleft 1981\harvardyearright .
-\newblock The {Jackknife} {Estimate} of {Variance},  {\bf The Annals of Statistic}(Vol. 9, No. 3):~pp. 586--596.
-
 \harvarditem{Friedman}{2001}{friedman2001}
 Friedman, J.~H.  \harvardyearleft 2001\harvardyearright .
 \newblock Greedy function approximation: {A} gradient boosting machine., {\em The Annals of Statistics} {\bf 29}(5):~1189--1232.
@@ -36,6 +32,11 @@ Hooker, G.  \harvardyearleft 2007\harvardyearright .
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}, {\em Journal of Computational and Graphical Statistics} {\bf 16}(3):~709--732.
 \newline\harvardurl{http://www.tandfonline.com/doi/abs/10.1198/106186007X237892}
 
+\harvarditem[Hu et~al.]{Hu, Nair, Sudjianto, Zhang, Chen \harvardand\ Yang}{2025}{hu2025}
+Hu, L., Nair, V.~N., Sudjianto, A., Zhang, A., Chen, J. \harvardand\ Yang, Z.  \harvardyearleft 2025\harvardyearright .
+\newblock Interpretable {Machine} {Learning} {Based} on {Functional} {ANOVA} {Framework}: {Algorithms} and {Comparisons}, {\em Applied Stochastic Models in Business and Industry} {\bf 41}(1):~e2916.
+\newline\harvardurl{https://onlinelibrary.wiley.com/doi/10.1002/asmb.2916}
+
 \harvarditem{Huang}{1998a}{Huang1996}
 Huang, J.~Z.  \harvardyearleft 1998a\harvardyearright .
 \newblock {Functional ANOVA Models for Generalized Regression}, {\em Journal of Multivariate Analysis} {\bf 67}(1):~49--71.
@@ -55,6 +56,11 @@ Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  
 Liu, R. \harvardand\ Owen, A.~B.  \harvardyearleft 2006\harvardyearright .
 \newblock Estimating {Mean} {Dimensionality} of {Analysis} of {Variance} {Decompositions}, {\em Journal of the American Statistical Association} {\bf 101}(474):~712--721.
 \newline\harvardurl{https://www.tandfonline.com/doi/full/10.1198/016214505000001410}
+
+\harvarditem{Molnar}{2025}{molnar2025}
+Molnar, C.  \harvardyearleft 2025\harvardyearright .
+\newblock {\em Interpretable Machine Learning}, 3 edn.
+\newline\harvardurl{https://christophm.github.io/interpretable-ml-book}
 
 \harvarditem[Muehlenstaedt et~al.]{Muehlenstaedt, Roustant, Carraro \harvardand\ Kuhnt}{2012}{muehlenstaedt2012}
 Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyearleft 2012\harvardyearright .
@@ -95,6 +101,12 @@ Stone, C.~J.  \harvardyearleft 1994\harvardyearright .
 \newblock The {Use} of {Polynomial} {Splines} and {Their} {Tensor} {Products} in {Multivariate} {Function} {Estimation}, {\em The Annals of Statistics} {\bf 22}(1):~118--171.
 \newblock Publisher: Institute of Mathematical Statistics.
 \newline\harvardurl{https://www.jstor.org/stable/2242446}
+
+\harvarditem[Stone et~al.]{Stone, Hansen, Kooperberg \harvardand\ Truong}{1997}{stone1997}
+Stone, C.~J., Hansen, M.~H., Kooperberg, C. \harvardand\ Truong, Y.~K.  \harvardyearleft 1997\harvardyearright .
+\newblock Polynomial {Splines} and their {Tensor} {Products} in {Extended} {Linear} {Modeling}, {\em The Annals of Statistics} {\bf 25}(4):~1371--1425.
+\newblock Publisher: Institute of Mathematical Statistics.
+\newline\harvardurl{https://www.jstor.org/stable/2959054}
 
 \harvarditem{Van~der Vaart}{1998}{Vaart_1998}
 Van~der Vaart, A.~W.  \harvardyearleft 1998\harvardyearright .
