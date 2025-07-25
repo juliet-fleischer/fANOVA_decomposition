@@ -51,16 +51,4 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
 
 plot_effects(0, -1, 5, 0, 0, -4, rho = 0)
 
-# add to mixed scenario
-# within same variable same sign; between variables different signs
-plot_effects(a0 = 0, a1 = -2, a2 = 2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
-plot_effects(a0 = 0, a1 = 5, a2 = -2, a11 = -1, a22 = 1, a12 = 0, rho = 0)
-
-
-plot_effects(a0 = 0, a1 = -5, a2 = -5, a11 = -1, a22 = -1, a12 = 0, rho = 0)
-plot_effects(a0 = 0, a1 = -2, a2 = 2, a11 = 1, a22 = 1, a12 = 0, rho = 0)
-plot_effects(a0 = 0, a1 = 2, a2 = -2, a11 = -1, a22 = -1, a12 = 0, rho = 0)
-plot_effects(a0 = 0, a1 = 2, a2 = 2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
-plot_effects(a0 = 0, a1 = -2, a2 = -2, a11 = 1, a22 = -1, a12 = 0, rho = 0)
-
 

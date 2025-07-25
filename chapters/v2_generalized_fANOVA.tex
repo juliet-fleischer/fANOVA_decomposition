@@ -518,7 +518,8 @@ y(x_1,x_2)
 \end{align*}
 with individual components
 
-\begin{align*}
+\begin{align}
+\begin{split}
 y_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}, \\[3pt]
 y_1(x_1) &= a_1\,x_1 
   + \left(a_{11} + \frac{\rho}{1+\rho^2}a_{12}\right)\bigl(x_1^2 - 1\bigr), \\[3pt]
@@ -529,8 +530,11 @@ y_{12}(x_1,x_2)
     \frac{\rho(x_1^2+x_2^2)}{1+\rho^2} 
     - x_1 x_2 
     + \frac{\rho(\rho^2-1)}{1+\rho^2}
-   \right).
-\end{align*}
+   \right)
+\end{split}
+\label{eq:fanova_components_2D_polynomial}
+\end{align}
+
 
 
 We are finally able to give the correct fANOVA terms for our running example in a generalized from, which allows for dependent inputs variables. For $g(x_1,x_2) = x_1 + 2x_2 + x_1 x_2$  we have $a_0 = 0, a_1 = 1, a_2 = 2, a_{11} = 0, a_{22} = 0, a_{12} = 1$ and therefore obtain:

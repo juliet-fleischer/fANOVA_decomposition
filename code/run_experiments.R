@@ -28,8 +28,8 @@ save_plots <- function(prefix, params) {
 }
 
 # values to explore
-lin_vals  <- c(-2, 3)
-quad_vals <- c(-1, 1)
+lin_vals  <- c(1.5, 3.5)
+quad_vals <- c(0.3, 2)
 rhos      <- seq(-1, 1, by = 0.5)
 
 
@@ -59,10 +59,10 @@ for (a11 in quad_vals) {
   }
 }
 
-
+# here we should vary rho and a12
 # ----- Only interaction scenario -----
 for (rho in rhos) {
-  params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 1, rho = rho)
+  params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 0.5, rho = rho)
   save_plots("interaction", params)
 }
 
