@@ -6,3 +6,4 @@ asymptotical
 assecible
 IML
 Hermite
+analyzing

@@ -1,15 +1,16 @@
-
+In the final section of this thesis, we will explore the fANOVA decomposition visually. This will provide better understanding for how fANOVA components behave in different scenarios; also if fANOVA should enhance interpretability, it is important to have visualizations of it. We will first revisit our running example and then explore some other functions.
 \subsection{Comparison of Decompositions}
-Time for some plots!
-Running example: $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$, with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$ and $\rho = 0$.
-Under independent inputs, the fANOVA components are given by:
+Recall our running example:
+$$h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2,$$
+with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$.
+Under independent inputs ($\rho = 0$), the fANOVA components are given by:
 \begin{align*}
 y_{\emptyset} &= 0, \\
 y_1(x_1) &= x_1\\
 y_2(x_2) &= 2x_2\\
 y_{12}(x_1, x_2) &= x_1x_2,
 \end{align*}
-visualized in \autoref{fig:running_ex_independent}. One could vary the magnitude of the coefficients and obtain steeper, flatter, twisted (?) slopes for the main effects and also a steeper of flatter or twisted surface for the interaction term.
+visualized in \autoref{fig:running_ex_independent}. As expected, we observe simple linear functions and a regular symmetric contour plot.
 % Input: MVN, centred, independent
 \begin{figure}[htpb]
     \centering
@@ -22,25 +23,19 @@ visualized in \autoref{fig:running_ex_independent}. One could vary the magnitude
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png}
     \end{subfigure}
-    \caption{Main effects (left) and interaction effect (right) of the fANOVA decomposition for $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
+    \caption{Main effects (left) and interaction effect (right) of the fANOVA decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
     \label{fig:running_ex_independent}
 \end{figure}
 
-Running example: $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$, with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$ and $\rho = 0.5$.
-In attempt to compute the fANOVA terms under dependent inputs, we calculated the following effects, which are in reality the components of the Hoeffding decomposition:
+Now we assume $\rho = 0.5$. In attempt to compute the fANOVA terms under dependent inputs, we calculated the following effects, which are in reality the components of the Hoeffding decomposition:
 
 \begin{align*}
 \tilde{y}_0 &= a + 0.5 \\[3pt]
-\tilde{y}_1(x_1) &= x_1 + 0.5\,(2x_1 + x_1^2 - 1)
-= x_1 + x_1 + 0.5x_1^2 - 0.5
-= 2x_1 + 0.5x_1^2 - 0.5 \\[3pt]
-\tilde{y}_2(x_2) &= 2x_2 + 0.5\,(x_2 + x_2^2 - 1)
-= 2x_2 + 0.5x_2 + 0.5x_2^2 - 0.5
-= 2.5x_2 + 0.5x_2^2 - 0.5 \\[3pt]
-\tilde{y}_{12}(x_1,x_2) &= x_1x_2 - 2(0.5)x_1 - (0.5)x_2 - (0.5)x_1^2 - (0.5)x_2^2 + 0.5 \\[3pt]
-&= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5,
+\tilde{y}_1(x_1) &= 2x_1 + 0.5x_1^2 - 0.5 \\[3pt]
+\tilde{y}_2(x_2) &= 2.5x_2 + 0.5x_2^2 - 0.5 \\[3pt]
+\tilde{y}_{12}(x_1,x_2) &= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5,
 \end{align*}
-which are visualized in \autoref{fig:hoeffding_rho05}.
+which are visualized in \autoref{fig:hoeffding_rho05}. The main effects are parabolic, and the interaction term seems to be non-symmetric.
 \begin{figure}[htpb]
     \centering
     \begin{subfigure}[t]{0.49\textwidth}
@@ -55,7 +50,7 @@ which are visualized in \autoref{fig:hoeffding_rho05}.
     \caption{Main effects (left) and interaction effect (right) of the Hoeffding decomposition for $g(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:hoeffding_rho05}
 \end{figure}
-The true fANOVA components are given by:
+The true fANOVA components under $\rho = 0.5$ are given by:
 \begin{align*}
 y_0 &= 0.5 \\[3pt]
 y_1(x_1) &= x_1 + 0.4\,(x_1^2 - 1)
@@ -89,14 +84,12 @@ Our running example included linear effects of both input variables and the inte
 \subsubsection*{Scenario: Linear}
 First, we consider two-degree polynomials of the form:
 $$g_1(x_1, x_2) = a_1 x_1 + a_2 x_2.$$
-We can immediately read of the fANOVA components or see, that the general set of fANOVA components for a two degree polynomial in \autoref{eq:fanova_components_2D_polynomial} simplify for $g_1$ to:
+We can immediately read of the fANOVA components or use the general set of fANOVA components for a two degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $g_1$ to:
 \begin{align*}
     y_1(x_1) &= a_1 x_1 \\
     y_2(x_2) &= a_2 x_2.
 \end{align*}
-
-The sign of the coefficients $a_1$ and $a_2$ determines the direction of each slope respectively, while their magnitudes influence the steepness (\autoref{fig:linear_main_effects}). 
-Since an interaction effect is absent in $g_1$, the fANOVA interaction term is zero and omitted here; varying $\rho$ or visualizing an interaction term is of no interest.
+This is an even simpler case than our running example. The function can solely be described by linear main effects, while no interaction effects is present (\autoref{fig:linear_main_effects}).
 
 \begin{figure}[htpb]
     \centering
@@ -125,7 +118,8 @@ From \autoref{eq:fanova_components_2D_polynomial} we can derive the fANOVA compo
     y_1(x_1) &= a_{11}(x_1^2 - 1), \\
     y_2(x_2) &= a_{22}(x_2^2 - 1).
 \end{align*}
-In \autoref{fig:quadratic_main_effects}, we vary the coefficients $a_{11}$ and $a_{22}$, while the interaction term is again absent. Intuitively, the sign of the coefficients determines the direction of the parabolas, while the magnitudes influence how stretched or compressed they are. The constant fANOVA component $y_{\emptyset}$ is present here, but as it only shifts the decomposition along the y-axis, it does not affect the form of the effect functions, therefore we do not visualize it.
+In \autoref{fig:quadratic_main_effects}, we vary the coefficients $a_{11}$ and $a_{22}$, while the interaction term is again absent.
+Here we deal with two parabolas for the main effect and know that the sign of the coefficients determines their direction, while the magnitudes influence how stretched or compressed they are. The constant fANOVA component $y_{\emptyset}$ is present here, but as it only shifts the decomposition along the y-axis, it does not affect the form of the effect functions, therefore we do not visualize it.
 
 \begin{figure}[htpb]
     \centering
@@ -163,7 +157,7 @@ The fANOVA components for $g_3$ are given by:
 \end{align*}
 What is interesting to see is that the main effects are present, due to the dependence between variable, even though there are no isolated main effects in $g_3$.
 The main effects $y_1$ and $y_2$, as well as the interaction term $y_{12}$, are influenced by $\rho$ and $a_{12}$.
-In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.For every case of $\rho$ and $a_{12}$, the main effects have the same form, therefore they overlap.
+In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}. For every case of $\rho$ and $a_{12}$, the main effects have the same form, therefore they overlap.
 \begin{figure}[htpb]
     \centering
     % ----- Row 1 -----
@@ -353,20 +347,17 @@ The interaction term is influenced by $\rho$ and $a_{12}$.\par
     \label{fig:all_pairs_grouped}
 \end{figure}
 
-The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function $g$; however, the component function would not be hierarchically orthogonal.
 \subsubsection{Estimation of fANOVA components}
-Current landscape of estimation approaches, We need more stable estimation approaches: Especially with real world blackbox models the individual components can be very complicated, probably no analytical closed form themselves
+We want to end this thesis with a few words on estimation. This was all pretty theoretical and the examples we used foster understanding but they are toy examples and in reality the true function is unknown and more complex. So to become a more widely used, established interpretability method, an estimation scheme is inevitable.Current landscape of estimation approaches, We need more stable estimation approaches: Especially with real world blackbox models the individual components can be very complicated, probably no analytical closed form themselves
 The fANOVA decomposition has a strong theoretical foundation but especially in modern work, estimation approaches and computational feasibility is an important aspect to consider.
 Also, we saw that obtaining the fANOVA components analytically is not always possible, especially under dependent inputs. Therefore, we need to look at estimation approaches that allow us to compute the fANOVA components from data.\par
 
-\textbf{Estimation based on Partial Dependence}\par
-In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
+\textbf{Estimation based on Partial Dependence}. In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
 More concretely, one first estimates the conditional expected value of the variables in $u$ (keep variables in $u$ fixed an average over all others). This is a simple Monte Carlo estimation, which results in the partial dependence function (PD Function) for the variables in $u$ \citep{hooker2004}.
 The PD Function can then be used to estimate the empirical projection of interest. He states that his method works well for functions that have a nearly additive true structure and purely additive functions are exactly recoverable with this approach. To save computational costs, he proposes to base the Monte Carlo estimates of the PD function on a randomly sampled subset of data points.
 Problem: no true projections (under dependence or always?); extrapolation issues etc.; even if no product type measure assumption, still problems in handling dependent inputs.\par
 
-\textbf{Estimation based on weighted least squares}\par
-\cite{hooker2007} proposes a new estimation scheme for his generalized fANOVA decomposition. The mathematical problem one faces is more complex: the fANOVA components are defined in dependence of each other and system has to be solved simultaneously as we saw in the previous section.
+\textbf{Estimation based on weighted least squares}. \cite{hooker2007} proposes a new estimation scheme for his generalized fANOVA decomposition. The mathematical problem one faces is more complex: the fANOVA components are defined in dependence of each other and system has to be solved simultaneously as we saw in the previous section.
 Hooker rewrites the estimation problem as a restricted weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components; problem restricted to ensure hierarchical orthogonality.
 The function is again evaluated at a grid of points to reduce the problem to a finite dimensional one. 
 Because of the parallel to weighted least squares, it is also possible to compute a weighted standard ANOVA with existing software, but it is difficult to incorporate the constraints, so the components may not be hierarchical orthogonal.\par
