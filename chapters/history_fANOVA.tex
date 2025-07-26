@@ -1,6 +1,6 @@
 % Good historical overview of fANOVA decomposition found in: Owen (2003), Takemura (1983)
 
-\subsection{Early Work on fANOVA}
+\subsection*{Foundations of fANOVA}
 % Hoeffding decomposition as foundation
 The main idea of the fANOVA decomposition is to decompose a function into a hierarchical sum of mutually orthogonal components.
 The underlying principle of fANOVA decomposition dates back to \cite{hoeffding1948}. In his seminal work on estimators with asymptotical normal distribution, he introduced U-statistics, along with the ``Hoeffding decomposition'', which allows to write a symmetric function of the data as a sum of orthogonal components.\par
@@ -10,39 +10,36 @@ He originally called it ``decomposition into summands of different dimension'' a
 The Sobol indices, commonly used in sensitivity analysis, use this variance decomposition to quantify how much the variance of a single input variable contributes to the overall variance of the function.
 Apart from the variance decomposition, Sobol already addresses the potential of using the fANOVA decomposition in further contexts, such as model interpretability, variable selection, and dimensionality reduction \cite{sobol2001}.\par
 
-% Other
-% \cite{efron1981} use the idea of the decomposition to proof their famous lemma on jackknife variances.
+% fANOVA for sensitivity analysis and UQ
+% Borgonovo, Owen, Liu and Owen
+% Owens work on fANOVA decomposition (reinterpretation/ moderinization of classical fANOVA studies)
+\cite{owen2013} formal intro to fANOVA decomposition and generalization of Sobol indices.
+Owen has generally a lot of work related to fANOVA decomposition, either lecture notes explaining the decomposition, methods based on it \cite{owen2003}, or deeper into sensitivity analysis and fANOVA \cite{owen2013}.
 
-% Stone: GAM models based on fANOVA
+
+% Nonparametric regression, Tensor products, GAM models based on fANOVA
 % Stone builds on TAKEMURA, A. (1983). Tensor analysis of ANOVA decomposition. J. Amer. Statist. Assoc. 78 894900.
+% Gu (Smoothing Spline ANOVA Models), Huang (Projection estimation in multiple regression with application to functional ANOVA models)
 A true wave of fANOVA literature around the 1990s, where authors investigate fANOVA-based models, establish parallels to splines, study their theoretical properties (convergence, consistency, etc.), and prectical use cases (dimensionality reduction, etc.). All cited in \cite{huang1998a}.
 \cite{stone1994} mainly uses fANOVA  decomposition to base smooth regression models with interactions on it and his paper is the building block for a broader body of work of fANOVA-based models (see for example \cite{Huang1996, huang1998a})
 % so his work has to do with tensor product (which are basically interactions??), splines, additive models
 Go deeper into some of the works? And a wrap up? Wrap up: fANOVA received a lot of attention in statistics literature, its mathematical properties were studied and was also used as intermediate step to proof or build other theories.
 
-\subsection{Modern Work on fANOVA}
-More recent work related to fANOVA decomposition can roughly be divided into three main categories: (1) the generalization of fANOVA to dependent inputs, (2) the use of fANOVA in interpretable machine learning, and (3) the application of fANOVA in specific domains.
 
-% Owens work on fANOVA decomposition (reinterpretation/ moderinization of classical fANOVA studies)
-\cite{owen2013} formal intro to fANOVA decomposition and generalization of Sobol indices.
-Owen has generally a lot of work related to fANOVA decomposition, either lecture notes explaining the decomposition, methods based on it \cite{owen2003}, or deeper into sensitivity analysis and fANOVA \cite{owen2013}.
-
-% fANOVA and dependent input variables
+% Generalized fANOVA for dependent input variables
+% Hooker, Rahman, Chastaing, Il Idrissi
 Since the assumptions of independent variables in classical fANOVA is often too restrictive in practice, \cite{hooker2007} generalizes the method to dependent variables. A recent paper by \cite{ilidrissi2025} can be seen as another approach to generalize the principle of fANOVA decomposition to dependent inputs.\par
 
-% fANOVA and IML
+% fANOVA and Interpretability
+% Interpretable Machine Learning models
+% Hooker, Hu, Fumagalli, Hiabu, Herren
 In more recent years, the method has been rediscovered by the machine-learning community, especially in the context of interpretable machine learning (IML) and explainable AI (XAI). \cite{hooker2004} introduces the fANOVA decomposition with the goal of providing a global explanation method for black-box models.
 And recent work discovered interesting mathematical parallels between fANOVA and other IML methods, such as PDP \cite{friedman2001}, or Shapley values (\cite{fumagalli2025}, Herren, Owen preprint).
+% Interpreting and Identifying interacitons
+% König, Lengerich, Choi et al.
 
-% fANOVA based ML models
-GA2ML etc.
 
 % fANOVA and specific domains
 There are specific domains of statistics, such as geostatistics, that explicitly build models on fANOVA framework (see \cite{muehlenstaedt2012} for fANOVA Kriging models).
 \cite{liu2006} use of fANOVA and sensitivity analysis for functions arising in computational finance.
 
-The applications of fANOVA decomposition are diverse, 
-
-% maybe also mention the work that uses fANOVA to make bridges between different theories, e.g. munir, 
-% should mention the "Purifying interaction..." paper related to interpretability.
-% Lengerich an König

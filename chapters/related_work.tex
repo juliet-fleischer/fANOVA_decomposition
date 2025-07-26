@@ -1,0 +1,27 @@
+The related literature on fANOVA can be grouped into several thematic clusters. Each highlights a different angle on why fANOVA has proven useful and points to why a unified presentation is needed.\par
+
+The underlying principle of the hierarchical, additive decomposition of a function dates back to \cite{hoeffding1948}. In his seminal work on U-statistics, he introduced the Hoeffding decomposition.
+Though originally framed around estimators, this decomposition laid the groundwork for fANOVA by showing how a symmetric function can be written as a sum of orthogonal components of increasing dimensionality.
+Independently, \cite{sobol1993sensitivity} proved that any square integrable function on the unit hypercube can be decomposed into a sum of orthogonal components. He originally called it ``decomposition into summands of different dimension'' and later renames it ``ANOVA-representation'' \citep{sobol2001} now referred to as the fANOVA decomposition.
+The foundational work on fANOVA shows, that it is rooted in rigorous mathematical theory, and provides a principled way to break down complex multivariate functions into interpretable, orthogonal parts.\par
+
+A second strand of work explores how fANOVA underlies non‑parametric modeling approaches.
+\cite{takemura1983} introduced tensor‑analysis of ANOVA decompositions, laying the theoretical foundation. \cite{stone1994} applied fANOVA ideas to polynomial splines and generalized additive models. \cite{gu2013} extended this into smoothing‑spline ANOVA frameworks for flexible regression estimation. fANOVA not only provides a theoretical decomposition—but also serves as a basis for widely-used non‑parametric statistical models featuring additive structure and controlled interactions.\par
+
+Perhaps the most well-known application of fANOVA is in variance‑based sensitivity analysis. Sobol’s original decomposition led directly to variance partitioning and interpretation via Sobol indices. 
+Work from \cite{owen2013, owen2014} modernized this framework, introducing efficient estimation strategies and generalized indices suited to quasi‑Monte Carlo methods. \cite{borgonovo2022} further advanced the field with mixture‑based generalizations of fANOVA for uncertainty quantification.\par
+
+Classical fANOVA requires independent input variables, which is a strong assumption in many real‑world applications. Therefore, a stream of literature is concerned with the generalization of fANOVA to dependent variables. WWhile \cite{hooker2007} was the first to present a generalized fANOVA framework, many other researchers were inspired by his work to create modifications of this \cite{rahman2014,chastaing2012,ilidrissi2025}.
+We see the generalization as central part of the basis of the fANOVA decomposition and therefore will also present it in this thesis.\par
+
+A vibrant recent cluster of literature studies fANOVA for model interpretability. There is work of \cite{lengerich2020, konig2024, choi2025} that all enhance interpretability by using fANOVA to identify and disentangle variable interactions.
+Then there is work done in the explicit context of interpretable ML. Here fANOVA can be used as a model-agnostic tool \cite{hooker2004,fumagalli2025} are relevant or as foundational principle to build inherently interpretable models \cite{hu2025}. TThis is probably the most recent field of fANOVA in which research is actively ongoing.\par
+
+Finally, there are specific domains of statistics, such as geostatistics, that explicitly build models on fANOVA framework (see \cite{muehlenstaedt2012} for fANOVA Kriging models) or use it to study functions arising in computational finance \cite{liu2006}.\par
+
+
+
+
+
+
+

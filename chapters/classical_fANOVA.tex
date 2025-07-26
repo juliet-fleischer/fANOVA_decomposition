@@ -57,8 +57,6 @@ Next, we formulate a condition, proposed by \cite{rahman2014}, which we would li
 
 This means that fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are. Zero-mean and orthogonality are desirable and important properties because they ensure that the fANOVA terms can be interpretate as isolated effects of the specific variable(s). The term $y_1$, for example, captures the isolated main effects of $X_1$; there is no other effect mixed into it, which $X_1$ might have through interactions with other variables. From the lense of interpretability, this distinguishes the fANOVA decomposition from methods such as partial dependence (PD) or Shapley values.\par
 
-{\color{blue} Proof both propositions?}.
-
 % And this is how the components finally look like
 \subsubsection*{Construction of the fANOVA Terms}
 The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to account for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par

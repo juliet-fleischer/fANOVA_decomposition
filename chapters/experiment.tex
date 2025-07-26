@@ -353,20 +353,19 @@ The interaction term is influenced by $\rho$ and $a_{12}$.\par
     \label{fig:all_pairs_grouped}
 \end{figure}
 
-
-\subsection{Estimation of fANOVA components}
 The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function $g$; however, the component function would not be hierarchically orthogonal.
-\subsubsection{Alternative: Estimation of fANOVA decomposition}
+\subsubsection{Estimation of fANOVA components}
+Current landscape of estimation approaches, We need more stable estimation approaches: Especially with real world blackbox models the individual components can be very complicated, probably no analytical closed form themselves
 The fANOVA decomposition has a strong theoretical foundation but especially in modern work, estimation approaches and computational feasibility is an important aspect to consider.
 Also, we saw that obtaining the fANOVA components analytically is not always possible, especially under dependent inputs. Therefore, we need to look at estimation approaches that allow us to compute the fANOVA components from data.\par
 
-\textbf{Estimation based on Partial Dependence}
+\textbf{Estimation based on Partial Dependence}\par
 In his estimation framework \cite{hooker2004} picks up the role of projections in fANOVA. To obtain the component estimate for $y_u$, he proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
 More concretely, one first estimates the conditional expected value of the variables in $u$ (keep variables in $u$ fixed an average over all others). This is a simple Monte Carlo estimation, which results in the partial dependence function (PD Function) for the variables in $u$ \citep{hooker2004}.
 The PD Function can then be used to estimate the empirical projection of interest. He states that his method works well for functions that have a nearly additive true structure and purely additive functions are exactly recoverable with this approach. To save computational costs, he proposes to base the Monte Carlo estimates of the PD function on a randomly sampled subset of data points.
 Problem: no true projections (under dependence or always?); extrapolation issues etc.; even if no product type measure assumption, still problems in handling dependent inputs.\par
 
-\textbf{Estimation based on weighted least squares}
+\textbf{Estimation based on weighted least squares}\par
 \cite{hooker2007} proposes a new estimation scheme for his generalized fANOVA decomposition. The mathematical problem one faces is more complex: the fANOVA components are defined in dependence of each other and system has to be solved simultaneously as we saw in the previous section.
 Hooker rewrites the estimation problem as a restricted weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components; problem restricted to ensure hierarchical orthogonality.
 The function is again evaluated at a grid of points to reduce the problem to a finite dimensional one. 

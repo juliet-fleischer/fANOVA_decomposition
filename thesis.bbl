@@ -1,20 +1,29 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Borgonovo et~al.]{Borgonovo, Li, Barr, Plischke \harvardand\ Rabitz}{2022}{borgonovo2022}
+Borgonovo, E., Li, G., Barr, J., Plischke, E. \harvardand\ Rabitz, H.  \harvardyearleft 2022\harvardyearright .
+\newblock Global {Sensitivity} {Analysis} with {Mixtures}: {A} {Generalized} {Functional} {ANOVA} {Approach}, {\em Risk Analysis} {\bf 42}(2):~304--333.
+\newline\harvardurl{https://onlinelibrary.wiley.com/doi/10.1111/risa.13763}
+
 \harvarditem[Chastaing et~al.]{Chastaing, Gamboa \harvardand\ Prieur}{2012}{chastaing2012}
 Chastaing, G., Gamboa, F. \harvardand\ Prieur, C.  \harvardyearleft 2012\harvardyearright .
 \newblock Generalized {{Hoeffding-Sobol}} decomposition for dependent variables - application to sensitivity analysis, {\em Electronic Journal of Statistics} {\bf 6}(none).
 
-\harvarditem{Friedman}{2001}{friedman2001}
-Friedman, J.~H.  \harvardyearleft 2001\harvardyearright .
-\newblock Greedy function approximation: {A} gradient boosting machine., {\em The Annals of Statistics} {\bf 29}(5):~1189--1232.
-\newblock Publisher: Institute of Mathematical Statistics.
-\newline\harvardurl{https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-5/Greedy-function-approximation-A-gradient-boosting-machine/10.1214/aos/1013203451.full}
+\harvarditem[Choi et~al.]{Choi, Park, Park, Kim \harvardand\ Kim}{2025}{choi2025}
+Choi, Y., Park, S., Park, C., Kim, D. \harvardand\ Kim, Y.  \harvardyearleft 2025\harvardyearright .
+\newblock Meta-anova: screening interactions for interpretable machine learning, {\em Journal of the Korean Statistical Society} .
+\newline\harvardurl{https://link.springer.com/10.1007/s42952-024-00302-2}
 
 \harvarditem[Fumagalli et~al.]{Fumagalli, Muschalik, Hüllermeier, Hammer \harvardand\ Herbinger}{2025}{fumagalli2025}
 Fumagalli, F., Muschalik, M., Hüllermeier, E., Hammer, B. \harvardand\ Herbinger, J.  \harvardyearleft 2025\harvardyearright .
 \newblock Unifying {Feature}-{Based} {Explanations} with {Functional} {ANOVA} and {Cooperative} {Game} {Theory}.
 \newblock arXiv:2412.17152 [cs].
 \newline\harvardurl{http://arxiv.org/abs/2412.17152}
+
+\harvarditem{Gu}{2013}{gu2013}
+Gu, C.  \harvardyearleft 2013\harvardyearright .
+\newblock {\em Smoothing {Spline} {ANOVA} {Models}}, Vol. 297 of {\em Springer {Series} in {Statistics}}, Springer New York, New York, NY.
+\newline\harvardurl{https://link.springer.com/10.1007/978-1-4614-5369-7}
 
 \harvarditem{Hoeffding}{1948}{hoeffding1948}
 Hoeffding, W.  \harvardyearleft 1948\harvardyearright .
@@ -37,20 +46,22 @@ Hu, L., Nair, V.~N., Sudjianto, A., Zhang, A., Chen, J. \harvardand\ Yang, Z.  \
 \newblock Interpretable {Machine} {Learning} {Based} on {Functional} {ANOVA} {Framework}: {Algorithms} and {Comparisons}, {\em Applied Stochastic Models in Business and Industry} {\bf 41}(1):~e2916.
 \newline\harvardurl{https://onlinelibrary.wiley.com/doi/10.1002/asmb.2916}
 
-\harvarditem{Huang}{1998a}{Huang1996}
-Huang, J.~Z.  \harvardyearleft 1998a\harvardyearright .
-\newblock {Functional ANOVA Models for Generalized Regression}, {\em Journal of Multivariate Analysis} {\bf 67}(1):~49--71.
-\newline\harvardurl{https://ideas.repec.org/a/eee/jmvana/v67y1998i1p49-71.html}
-
-\harvarditem{Huang}{1998b}{huang1998a}
-Huang, J.~Z.  \harvardyearleft 1998b\harvardyearright .
-\newblock Projection estimation in multiple regression with application to functional {ANOVA} models, {\em The Annals of Statistics} {\bf 26}(1).
-\newline\harvardurl{https://projecteuclid.org/journals/annals-of-statistics/volume-26/issue-1/Projection-estimation-in-multiple-regression-with-application-to-functional-ANOVA/10.1214/aos/1030563984.full}
-
 \harvarditem[Il~Idrissi et~al.]{Il~Idrissi, Bousquet, Gamboa, Iooss \harvardand\ Loubes}{2025}{ilidrissi2025}
 Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  \harvardyearleft 2025\harvardyearright .
 \newblock Hoeffding decomposition of functions of random dependent variables, {\em Journal of Multivariate Analysis} {\bf 208}:~105444.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0047259X25000399}
+
+\harvarditem[König et~al.]{König, Günther \harvardand\ Luxburg}{2024}{konig2024}
+König, G., Günther, E. \harvardand\ Luxburg, U.~v.  \harvardyearleft 2024\harvardyearright .
+\newblock Disentangling {Interactions} and {Dependencies} in {Feature} {Attribution}.
+\newblock arXiv:2410.23772 [cs].
+\newline\harvardurl{http://arxiv.org/abs/2410.23772}
+
+\harvarditem[Lengerich et~al.]{Lengerich, Tan, Chang, Hooker \harvardand\ Caruana}{2020}{lengerich2020}
+Lengerich, B., Tan, S., Chang, C.-H., Hooker, G. \harvardand\ Caruana, R.  \harvardyearleft 2020\harvardyearright .
+\newblock Purifying {Interaction} {Effects} with the {Functional} {ANOVA}: {An} {Efficient} {Algorithm} for {Recovering} {Identifiable} {Additive} {Models}, {\em Proceedings of the {Twenty} {Third} {International} {Conference} on {Artificial} {Intelligence} and {Statistics}}, PMLR, pp.~2402--2412.
+\newblock ISSN: 2640-3498.
+\newline\harvardurl{https://proceedings.mlr.press/v108/lengerich20a.html}
 
 \harvarditem{Liu \harvardand\ Owen}{2006}{liu2006}
 Liu, R. \harvardand\ Owen, A.~B.  \harvardyearleft 2006\harvardyearright .
@@ -72,15 +83,15 @@ Nagler, T.  \harvardyearleft 2024\harvardyearright .
 \newblock {Methoden der Linearen Algebra in der Statistik -- Vorlesungsskript}, \url{https://tnagler.github.io/linalg-2024.pdf}.
 \newblock Version Sommersemester 2024.
 
-\harvarditem{Owen}{2003}{owen2003}
-Owen, A.  \harvardyearleft 2003\harvardyearright .
-\newblock The dimension distribution and quadrature test functions, {\em Statistica Sinica} {\bf 13}:~1--17.
-
 \harvarditem{Owen}{2013}{owen2013}
 Owen, A.~B.  \harvardyearleft 2013\harvardyearright .
 \newblock Variance components and generalized sobol' indices, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 1}(1):~19--41.
 \newblock tex.eprint: https://doi.org/10.1137/120876782.
 \newline\harvardurl{https://doi.org/10.1137/120876782}
+
+\harvarditem{Owen}{2014}{owen2014}
+Owen, A.~B.  \harvardyearleft 2014\harvardyearright .
+\newblock Sobol' {{Indices}} and {{Shapley Value}}, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2}(1):~245--251.
 
 \harvarditem{Rahman}{2014}{rahman2014}
 Rahman, S.  \harvardyearleft 2014\harvardyearright .
@@ -107,6 +118,12 @@ Stone, C.~J., Hansen, M.~H., Kooperberg, C. \harvardand\ Truong, Y.~K.  \harvard
 \newblock Polynomial {Splines} and their {Tensor} {Products} in {Extended} {Linear} {Modeling}, {\em The Annals of Statistics} {\bf 25}(4):~1371--1425.
 \newblock Publisher: Institute of Mathematical Statistics.
 \newline\harvardurl{https://www.jstor.org/stable/2959054}
+
+\harvarditem{Takemura}{1983}{takemura1983}
+Takemura, A.  \harvardyearleft 1983\harvardyearright .
+\newblock Tensor {Analysis} of {ANOVA} {Decomposition}, {\em Journal of the American Statistical Association} {\bf 78}(384):~894--900.
+\newblock Publisher: [American Statistical Association, Taylor \& Francis, Ltd.].
+\newline\harvardurl{https://www.jstor.org/stable/2288201}
 
 \harvarditem{Van~der Vaart}{1998}{Vaart_1998}
 Van~der Vaart, A.~W.  \harvardyearleft 1998\harvardyearright .

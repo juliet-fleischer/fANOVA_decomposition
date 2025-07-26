@@ -1104,10 +1104,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
-INPUT ./chapters/history_fANOVA.tex
-INPUT chapters/history_fANOVA.tex
-INPUT ./chapters/history_fANOVA.tex
-INPUT chapters/history_fANOVA.tex
+INPUT ./chapters/related_work.tex
+INPUT chapters/related_work.tex
+INPUT ./chapters/related_work.tex
+INPUT chapters/related_work.tex
 INPUT ./chapters/classical_fANOVA.tex
 INPUT chapters/classical_fANOVA.tex
 INPUT ./chapters/classical_fANOVA.tex

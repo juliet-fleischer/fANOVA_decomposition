@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex thesis"] 1753472257 "thesis.aux" "thesis.bbl" "thesis" 1753472269 0
+["bibtex thesis"] 1753520910 "thesis.aux" "thesis.bbl" "thesis" 1753520932 0
   "./bibliography_2.bib" 1753466699 249171 33aaa0a676ebfb06b1d986ed50146f39 ""
-  "./bibliography_manual.bib" 1753464808 6733 e915d102caa2949d0cd97ddcf1ab4a04 ""
+  "./bibliography_manual.bib" 1753519366 8218 0cdb917b6326a3f944e712abdbd27d05 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/harvard/dcu.bst" 1233413381 25669 0768d98a028900c057124e4d82e12771 ""
-  "thesis.aux" 1753472268 14674 5501ed6b450879c70d7755909f1a6cfd "pdflatex"
+  "thesis.aux" 1753520930 14609 71ffc4b74bac0165013fd16f45710e19 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1753472257 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1753472269 0
-  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1753470407 6332 a6e0512e50724a953ad2930b88f7a1a0 ""
+["pdflatex"] 1753520910 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" "thesis.pdf" "thesis" 1753520932 0
+  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/thesis.tex" 1753519366 6338 75a2faa35e743d80b9a93906b64d3ae6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -226,12 +226,12 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "chapters/appendix.tex" 1752415442 10489 cdc1f1ea1a2cf0a70a0e76bfe95be8f0 ""
-  "chapters/background.tex" 1753467804 6496 52880381e175cf53ec8dffd9b7cb4d41 ""
-  "chapters/classical_fANOVA.tex" 1753263875 17665 3d8382afca4fc3093bc1bfcc2a7a74b6 ""
+  "chapters/background.tex" 1753509571 6498 3b202cf5de8e0a7670e21e12a4d5170e ""
+  "chapters/classical_fANOVA.tex" 1753509571 17623 c2352c236d30b5a38208e4ef49728687 ""
   "chapters/conclusion.tex" 1753287523 3004 a756ff01d151e5889b1e78ce05f8ab5d ""
-  "chapters/experiment.tex" 1753470407 22668 8edc1cf8acb5cb5b9cb8048254489433 ""
-  "chapters/history_fANOVA.tex" 1753472232 5124 1abf5825f79358af1d5509807c1a2fef ""
-  "chapters/introduction.tex" 1753472232 2875 8afd78477680e837939cef5ad9094a44 ""
+  "chapters/experiment.tex" 1753509571 22841 a5e71627265a887de0620f21ff4ba070 ""
+  "chapters/introduction.tex" 1753511874 3447 4e69fca7ef11f5a2c1f730a84a75386c ""
+  "chapters/related_work.tex" 1753520886 3699 1361a9c09cd19822f928efb57b432f3e ""
   "chapters/v2_generalized_fANOVA.tex" 1753470407 38632 c3790db72c5f032126496ad2c96e0627 ""
   "images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_interaction.png" 1753442300 89272 3934054eca44e4c4a8883bfc912f8218 ""
   "images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom10_main.png" 1753442299 65375 51f0c8f638abd31012252e8e45058ef5 ""
@@ -262,11 +262,11 @@
   "images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png" 1753441385 109047 21a3ced80e339127cfabed1ef38bf408 ""
   "images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png" 1753441384 62132 d83b082434040d135028ba2512955648 ""
   "sigillum.png" 1745325080 320585 57131ef3bcfba901e575bf6769aac43e ""
-  "thesis.aux" 1753472268 14674 5501ed6b450879c70d7755909f1a6cfd "pdflatex"
-  "thesis.bbl" 1753472257 7968 84be47b094e2f1eccf59a49a4c580159 "bibtex thesis"
-  "thesis.out" 1753472268 3755 566ccf8cd5290595e27de20d3fe0851c "pdflatex"
-  "thesis.tex" 1753470407 6332 a6e0512e50724a953ad2930b88f7a1a0 ""
-  "thesis.toc" 1753472268 2335 b03eb33a2eef0231714d280cc6ca19a5 "pdflatex"
+  "thesis.aux" 1753520930 14609 71ffc4b74bac0165013fd16f45710e19 "pdflatex"
+  "thesis.bbl" 1753520910 9246 4123e1daeaffc474adac1f37eb558a7e "bibtex thesis"
+  "thesis.out" 1753520930 3164 ac6cc4c2c59952d6f46a6bfaa0447003 "pdflatex"
+  "thesis.tex" 1753519366 6338 75a2faa35e743d80b9a93906b64d3ae6 ""
+  "thesis.toc" 1753520930 2059 e86e7e9ad931d8d0eb36a7a3668e6e1a "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"
