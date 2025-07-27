@@ -1,102 +1,113 @@
 The formal setup is based on \cite{chastaing2012} and \cite{rahman2014}.\par
+Let $\mathbb{N}, \mathbb{N}_0, \mathbb{R}, \text{ and } \mathbb{R}_0^{+}$ denote the sets of positive integer (natural), nonnegative integer, real, and nonnegative real numbers, respectively. Throughout this thesis, we represent the $k$-dimensional Euclidean space by $\mathbb{R}^k$ and the set of all $k \times k$ real-valued matrices by $\mathbb{R}^{k \times k}$.\par
 Let $(\Omega, \mathcal{F}, \nu)$ be a measure space, where $\Omega$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra on $\Omega$ and $\nu: \mathcal{F} \rightarrow [0, 1]$ is a probability measure. $\mathcal{B}^N$ is the Borel $\sigma$-algebra on $\mathbb{R}^N, N \in \mathbb{N}$.
 $\boldsymbol{X} = (X_1, \dots, X_N): (\Omega, \mathcal{F}) \rightarrow (\mathbb{R}^N, \mathcal{B}^N)$ denotes a $\mathbb{R}^N$-valued random vector.\par
-We assume that the probability distribution of $\boldsymbol{X}$ is continuous and completely defined by the joint probability density function $f_{\boldsymbol{X}}: \mathbb{R}^N \rightarrow \mathbb{R}_{0}^+$. $f_{\boldsymbol{X}}$ is the probability density function with respect to (w.r.t.) the measure $\nu$. \par
+We assume that the probability distribution of $\boldsymbol{X}$ is continuous and completely defined by the joint probability density function $f_{\boldsymbol{X}}: \mathbb{R}^N \rightarrow \mathbb{R}_{0}^+$. % $f_{\boldsymbol{X}}$ is the probability density function with respect to (w.r.t.) the measure $\nu$. \par
 
-Let $u$ denote a subset of indices $\{1, \dots, N\}$ and $-u := \{1, \dots, N\} \backslash{} u$ its complement. We denote strict inclusion of a subset by $\subsetneq$ and $\subseteq$ allows for equality.
-$\boldsymbol{X_u} = (X_1, \dots, X_{|u|}), u \neq \emptyset, 1 \leq i_1 < \dots < i_{|u|} \leq N$ is a sub-vector of $\boldsymbol{X}$ and $\boldsymbol{X}_{-u} = \boldsymbol{X}_{\{1, \dots, N\} \backslash{} u}$ is the complement of $\boldsymbol{X}_u$.
+Let $u$ denote a subset of $\{1, \dots, N\}$ with the complementary set  $-u := \{1, \dots, N\} \backslash{} u$ and cardinality $0 \leq |u| \leq N$. We denote strict inclusion of a subset by $\subsetneq$ and $\subseteq$ allows for equality.
+$\boldsymbol{X_u} = (X_{i_1}, \dots, X_{i_{|u|}}), u \neq \emptyset, 1 \leq i_1 < \dots < i_{|u|} \leq N$ is a sub-vector of $\boldsymbol{X}$ and $\boldsymbol{X}_{-u} = \boldsymbol{X}_{\{1, \dots, N\} \backslash{} u}$ is the complementary subvector.
 
-The marginal density function is $f_u(\boldsymbol{x_u}) := \int f_{\boldsymbol{X}}(\boldsymbol{x})d\boldsymbol{x_{-u}}$ for a given set $\emptyset \neq u \subseteq \{1, \dots N\}$.
-$y(\boldsymbol{X}) := y(X_1, \dots, X_N)$ is a mathematical model with random variables as inputs.
-We write a vector space of square-integrable functions as:
+The marginal density function of $\boldsymbol{X_u}$ is $f_u(\boldsymbol{x_u}) := \int_{\mathbb{R}^{N-|u|}} f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x}_{-u})$ for a given set $\emptyset \neq u \subseteq \{1, \dots N\}$.\par
+Let $y(\boldsymbol{X}) := y(X_1, \dots, X_N)$ be a real-valued, measurable transformation on $(\Omega, \mathcal{F})$, which represents a probabilistic model with random variables as inputs. The Hilbert space of square-integrable functions $y$ with respect to the induced generic measure $f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x})$ supported on $\mathbb{R}^N$ is given by:
 \[
 \mathcal{L}^2(\Omega, \mathcal{F}, \nu) = \left\{ y: \Omega \rightarrow \mathbb{R} \; \textit{s.t.} \; \mathbb{E}[y^2(\boldsymbol{X})] < \infty \right\}.
 \]
 % = \left\{ f(x) : \mathbb{R}^{n} \to \mathbb{R}, \; \textit{s.t.} \; \int f^2(x)\, d\nu(x) < \infty \right\}
 
-$\mathcal{L}^2(\Omega, \mathcal{F}, \nu)$ is a Hilbert space with the inner product defined as:
+The inner product defined as:
 \[
-\langle y, g \rangle = \int y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})].
+\langle y, g \rangle = \int_{\mathbb{R}^N} y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})],
 \]
-The norm is denoted as $\|.\| $ and defined by:
+and the norm, denoted as $\|.\|$, is defined by:
 \[
-\|y\| = \sqrt{\langle y, y \rangle} = \sqrt{\int y^2(x) \, d\nu(x)} = \mathbb{E}[y^2], \quad \forall y \in \mathcal{L}^2.
+\|y\| = \sqrt{\langle y, y \rangle} = \sqrt{\int_{\mathbb{R}^N} y^2(\boldsymbol{x}) \, d\nu(\boldsymbol{x})} = \mathbb{E}[y(\boldsymbol{X})^2], \quad \forall y \in \mathcal{L}^2.
 \]
 
-We start by defining the fANOVA decomposition in a very general form, which is independent of distribution assumptions about the input variables or anything of the sort.
+We start by defining the fANOVA decomposition in a general form, which is independent of distribution assumptions about the input variables or anything of the sort. The decomposition consists of $2^N$ terms and its specific form is determined by the assumptions about the input variables and integration measure.
 
 \begin{definition}
-Let $y$  denote a mathematical model with input denoted by $X_1, \dots, X_N$. The functional ANOVA (fANOVA) decomposition of $y$ takes the form:
+Let $y$  denote a mathematical model with input given by $X_1, \dots, X_N$. The functional ANOVA (fANOVA) decomposition of $y$ takes the form:
 \begin{equation}
-    y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u),
+    y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u).
     \label{eq:fanova_decomposition}
 \end{equation}
-where $u \subseteq \{1, \dots, N\} = \{ \{1\}, \{2\}, \{1, 2\}, \dots, \{1, \dots, N\} \}$ is the set, which contains all subsets of the indices $1, \dots, N$.
 \end{definition}
 
 
-The decomposition consists of $2^N$ terms and its specific form is determined by the assumptions about the input variables and integration measure.
-
 \subsection{Classical fANOVA}
-For the classical case, originally proposed by \cite{sobol1993sensitivity}, we make the assumption of independent identically distributed (i.i.d.) input variables.
-While Sobol originally only considered function defined on the unit hypercube, later work shows that it is no problem to work within the measure space $(\mathbb{R}^n, \mathcal{B}^N, \nu)$.
-Under independence the joint probability density function is given by the product over the marginal probability density functions, i.e. \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\), where \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ (or the previously defined measure space?).
+For his original fANOVA decomposition, Sobol only considered function defined on the unit hypercube, but later work shows that it is no problem to work within the measure space $(\mathbb{R}^N, \mathcal{B}^N, \nu)$.
+In any case, we assume that the coordinates $X_1, \dots , X_N$ are independent of each other.
+Under independence, we work with a product-type probability measure of $\boldsymbol{X}$ given by \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu(x_i)\), where \(f_{X_i}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ with a bounded or an unbounded support on $\mathbb{R}$.
 
 Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA terms to be well-defined and interpretable.
-\begin{condition}[Strong annihilating conditions]
-    For the classical fANOVA decomposition we require, that all the terms (except for the constant) integrate to zero w.r.t the individual variables contained in $u$ and weighted by the individual marginal probability density functions:
+\begin{condition}[Strong annihilating conditions, \citep{rahman2014}]
+    For the classical fANOVA decomposition we require, that all the nonconstant component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, i.e.
 \begin{equation}
-    \int y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0, \quad \text{for} \ i \in u \neq \emptyset.
+    \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{X_i}(x_i) \, d\nu(x_i) = 0 \quad \text{for} \ i \in u \neq \emptyset.
     \label{eq:strong_annihilating_conditions}
 \end{equation}
 \label{cond:strong_annihilating_conditions}
 \end{condition}
 
 \begin{proposition}
-    Given the strong annihilating conditions, the non-constant fANOVA components are centered around zero. This means for all $\emptyset \neq u \subseteq \{1, \dots, N\}$ it holds that:
+    Given the strong annihilating conditions, the nonconstant fANOVA components are centred around zero. This means for all $\emptyset \neq u \subseteq \{1, \dots, N\}$ it holds that:
 \begin{equation}
-    \int y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0.
+    \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0.
     \label{eq:zero_mean_c}
 \end{equation}
 \end{proposition}
 \begin{proof}
 \begin{align*}
-    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= = \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
+    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\
-    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{i \in u} f_{X_i}(x_i) \, d\nu (\boldsymbol{x}_u) \\
-    &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{X_i}(x_i) \, dx_u \prod_{j \in u, j \neq i} f_{X_j}(x_j) = 0
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{j \in u} f_{X_j}(x_j) \, d\nu (\boldsymbol{x}_u) \\
+    &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{X_i}(x_i) \, d\nu(x_i) \prod_{j \in u, j \neq i} f_{X_j}(x_j) \, d\nu (x_{u \setminus \{i\}}) = 0
 \end{align*}
 \end{proof}
 
 \begin{proposition}
-    Given the strong annihilating conditions, it follows that the fANOVA terms are orthogonal to each other. If two sets of indices are not completely equivalent, i.e. $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that:
+    Given the strong annihilating conditions, the fANOVA terms are orthogonal to each other. If two sets of indices are not completely equivalent, i.e.
+    $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that:
 \begin{equation}
-    \int y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0.
+    \int_{\mathbb{R}^N} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0.
     \label{eq:orthogonality_c}
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-    \begin{align*}
-    \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] &= \int_{\mathbb{R}^{\mathbb{N}}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
-    &= \int_{\mathbb{R}^{\mathbb{N}}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) \\
-    &= \int_{\mathbb{R}^{\mathbb{N}-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{X_i}(x_i) \, dx_u \prod_{j \in \{1, \dots, N\}, j \neq i} f_{X_j}(x_j) = 0
+Since $u \neq v$, there exists at least one index contained in exactly one of the sets. 
+Without loss of generality, we pick $i \in u \setminus v$. 
+Then $y_v(\boldsymbol{x}_v)$ is independent of $x_i$, and by the strong annihilating conditions
+\[
+    \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{X_i}(x_i)\,d\nu(x_i) = 0
+    \quad \text{for all fixed } \boldsymbol{x}_{u\setminus \{i\}}.
+\]
+Hence,
+\begin{align*}
+    \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] &= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
+    &= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x}_u) y_v(\boldsymbol{x}_v)
+       \prod_{j=1}^N f_{X_j}(x_j)\, d\nu(\boldsymbol{x}) \\
+    &= \int_{\mathbb{R}^{N-1}}
+        \left(\int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{X_i}(x_i)\,d\nu(x_i)\right)
+        y_v(\boldsymbol{x}_v)\prod_{j \neq i} f_{X_j}(x_j)\,d\nu(\boldsymbol{x}_{-i})\\
+    &= 0.
 \end{align*}
 \end{proof}
+
 
 As we have seen, the fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are. Zero-mean and orthogonality are desirable and important properties because they ensure that a fANOVA term can be interpretate as isolated effect of the specific variable or isolated effect of an interaction. The term $y_1$, for example, captures the isolated main effects of $X_1$; there is no other effect mixed into it, which $X_1$ might have through interactions with other variables. The term $y_{12}$ on the other hand captures the interaction effect of $X_1$ and $X_2$, while the solo effect of $X_1$ is already captured by $y_1$ and does not merge into $y_{12}$. From the lense of interpretability, this distinguishes the fANOVA decomposition from methods such as partial dependence (PD) or Shapley values.\par
 
 % And this is how the components finally look like
 \subsubsection{Construction of the fANOVA Terms}
 The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
-Since $u = \emptyset$ for the constant term, we integrate w.r.t all variables:
+Since $u = \emptyset$ for the constant term, we integrate w.r.t. all variables:
 \begin{equation}
-    y_{\emptyset} = \int y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
     \label{eq:intercept_classical}
 \end{equation}
 For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can calculate:
 \begin{equation}
-    y_u(\boldsymbol{X}_u) = \int y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
+    y_u(\boldsymbol{X}_u) = \int_{\mathbb{R}^{N- |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{X_i}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
     \label{eq:fanova_components_classical}
 \end{equation}
 Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the second part of this section.\par
@@ -149,13 +160,13 @@ Computing the constant component via expectation gives:
 \end{align*}
 Under zero-mean constraint and independence, the main effects and the interaction effect can be computed as follows:
 \begin{align*}
-y_1(x_1) &= \mathbb{E}_{X_2}[h(x_1, X_2)] - y_0 \\
+y_1(x_1) &= \mathbb{E}_{X_2}[h(x_1, X_2)] - y_{\emptyset} \\
 &= \mathbb{E}_{X_2}[a + x_1 + 2X_2 + x_1X_2] - a \\
-&= x_1 + 2\mathbb{E}[X_2] + x_1\mathbb{E}[X_2] = x_1,\\
-y_2(x_2) &= \mathbb{E}_{X_1}[h(X_1, x_2)] - y_0 \\
+&= x_1 + 2\mathbb{E}_{X_2}[X_2] + x_1\mathbb{E}_{X_2}[X_2] = x_1,\\
+y_2(x_2) &= \mathbb{E}_{X_1}[h(X_1, x_2)] - y_{\emptyset} \\
 &= \mathbb{E}_{X_1}[a + X_1 + 2x_2 + X_1x_2] - a \\
 &= \mathbb{E}_{X_1}[X_1] + 2x_2 + x_2\mathbb{E}_{X_1}[X_1] = 2x_2,\\
-y_{12}(x_1, x_2) &= \mathbb{E}[h(x_1, x_2)] - y_0 - y_1(x_1) - y_2(x_2) \\
+y_{12}(x_1, x_2) &= \mathbb{E}[h(x_1, x_2)] - y_{\emptyset} - y_1(x_1) - y_2(x_2) \\
 &= a + x_1 + 2x_2 + x_1x_2 - a - x_1 - 2x_2 = x_1x_2.
 \end{align*}
 

@@ -46,7 +46,7 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
   )
 
   p1 <- ggplot(df_main, aes(x = x, y = Effect, color = Variable)) +
-    geom_line(size = 2) +
+    geom_line(linewidth = 2) +
     labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
     scale_color_manual(values = main_colors,
                        labels = c(expression(y[1]),
@@ -73,7 +73,10 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
   )
 }
 
+plot_effects(0, 2, 0, 1, 0, 0.5, rho = 0.3)
+plot_effects(0, 2, 0, 1, 0, 0.5, rho = 0)
 
-# plot_effects(0, -1, 5, 0, 0, -4, rho = 0)
+plot_effects(0, -2, -2, 1, -1, 1, rho = -0.8)
+plot_effects(0, -2, -2, 1, -1, 1, rho = 0)
 
 

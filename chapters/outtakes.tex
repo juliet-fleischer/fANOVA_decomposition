@@ -1,4 +1,31 @@
 
+
+\subsubsection*{Scenario: Quadratic}
+Next we consider two-degree polynomials, which contain only quadratic terms. They take the form: $$g_2(x_1, x_2) = a_{11} x_1^2 + a_{22} x_2^2.$$
+From \autoref{eq:fanova_components_2D_polynomial} we can derive the fANOVA components for $g_2$:
+\begin{align*}
+    y_{\emptyset} &= a_{11} + a_{22}, \\
+    y_1(x_1) &= a_{11}(x_1^2 - 1), \\
+    y_2(x_2) &= a_{22}(x_2^2 - 1).
+\end{align*}
+In \autoref{fig:quadratic_main_effects}, we vary the coefficients $a_{11}$ and $a_{22}$, while the interaction term is again absent.
+Here we deal with two parabolas for the main effect and know that the sign of the coefficients determines their direction, while the magnitudes influence how stretched or compressed they are. The constant fANOVA component $y_{\emptyset}$ is present here, but as it only shifts the decomposition along the y-axis, it does not affect the form of the effect functions, therefore we do not visualize it.
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/experiment_section/quadratic_a1p00_a2p00_a11m10_a22m04_a12p00_rhop00_main.png}
+        \caption{$a_{11} = -1$, $a_{22} = -0.4$}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/experiment_section/quadratic_a1p00_a2p00_a11p20_a22m05_a12p00_rhop00_main.png}
+        \caption{$a_{11} = 2$, $a_{22} = -0.5$}
+    \end{subfigure}
+    \caption{Main effects for quadratic terms with different coefficients. The fANOVA components are given by: $y_1(x_1) = a_{11}(x_1^2 - 1)$, $y_2(x_2) = a_{22}(x_2^2 - 1)$.}
+    \label{fig:quadratic_main_effects}
+\end{figure}
+
 \subsubsection*{Analytical Example Functions for fANOVA}
 
 We present a selection of analytically tractable functions that highlight different behaviors of the fANOVA decomposition.
