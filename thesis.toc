@@ -11,14 +11,14 @@
 \contentsline {subsubsection}{\numberline {3.1.7}Case 2: Dependent Inputs}{14}{subsubsection.3.1.7}%
 \contentsline {subsection}{\numberline {3.2}Generalized fANOVA}{15}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Construction of the Generalized fANOVA Terms}{18}{subsubsection.3.2.1}%
-\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subset u \).}{19}{section*.2}%
+\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subseteq u \)}{19}{section*.2}%
 \contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{19}{section*.3}%
 \contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{19}{section*.4}%
-\contentsline {paragraph}{Case \( u = \emptyset \): computing the constant term.}{20}{section*.9}%
-\contentsline {paragraph}{Case \( \emptyset \ne u \subseteq \{1,\dots ,N\} \): computing nonconstant terms.}{20}{section*.10}%
+\contentsline {paragraph}{Case: \( u = \emptyset \).}{20}{section*.5}%
+\contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{21}{section*.6}%
 \contentsline {subsubsection}{\numberline {3.2.2}Alternative Definition of Generalized fANOVA Components}{22}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Second-moment statistics}{23}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Correction of the Example: Dependent Multivariate Normal Inputs}{24}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.3}Second-moment statistics}{24}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Correction of the Example: Dependent Multivariate Normal Inputs}{25}{subsubsection.3.2.4}%
 \contentsline {section}{\numberline {4}Visualization and Estimation}{29}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Comparison of Decompositions}{29}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Comparison of Functions}{31}{subsection.4.2}%

@@ -30,9 +30,9 @@ visualized in \autoref{fig:running_ex_independent}. As expected, we observe simp
 Now we assume $\rho = 0.5$. In attempt to compute the fANOVA terms under dependent inputs, we calculated the following effects, which are in reality the components of the Hoeffding decomposition:
 
 \begin{align*}
-\tilde{y}_0 &= a + 0.5 \\[3pt]
-\tilde{y}_1(x_1) &= 2x_1 + 0.5x_1^2 - 0.5 \\[3pt]
-\tilde{y}_2(x_2) &= 2.5x_2 + 0.5x_2^2 - 0.5 \\[3pt]
+\tilde{y}_0 &= a + 0.5, \\[3pt]
+\tilde{y}_1(x_1) &= 2x_1 + 0.5x_1^2 - 0.5, \\[3pt]
+\tilde{y}_2(x_2) &= 2.5x_2 + 0.5x_2^2 - 0.5, \\[3pt]
 \tilde{y}_{12}(x_1,x_2) &= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5,
 \end{align*}
 which are visualized in \autoref{fig:hoeffding_rho05}. The main effects are parabolic, and the interaction term seems to be non-symmetric.
@@ -52,11 +52,11 @@ which are visualized in \autoref{fig:hoeffding_rho05}. The main effects are para
 \end{figure}
 The true fANOVA components under $\rho = 0.5$ are given by:
 \begin{align*}
-y_0 &= 0.5 \\[3pt]
+y_0 &= 0.5, \\[3pt]
 y_1(x_1) &= x_1 + 0.4\,(x_1^2 - 1)
-        = x_1 + 0.4x_1^2 - 0.4 \\[3pt]
+        = x_1 + 0.4x_1^2 - 0.4, \\[3pt]
 y_2(x_2) &= 2x_2 + 0.4\,(x_2^2 - 1)
-        = 2x_2 + 0.4x_2^2 - 0.4 \\[3pt]
+        = 2x_2 + 0.4x_2^2 - 0.4, \\[3pt]
 y_{12}(x_1,x_2) 
 &= -\Big( 0.4(x_1^2 + x_2^2) - x_1 x_2 - 0.3 \Big) \\[3pt]
 &= -0.4x_1^2 - 0.4x_2^2 + x_1 x_2 + 0.3.
@@ -86,7 +86,7 @@ First, we consider two-degree polynomials of the form:
 $$g_1(x_1, x_2) = a_1 x_1 + a_2 x_2.$$
 We can immediately read of the fANOVA components or use the general set of fANOVA components for a two degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $g_1$ to:
 \begin{align*}
-    y_1(x_1) &= a_1 x_1 \\
+    y_1(x_1) &= a_1 x_1, \\
     y_2(x_2) &= a_2 x_2.
 \end{align*}
 The function $g_1$ can solely be described by linear main effects (\autoref{fig:linear_main_effects}). Since no interaction effect is present varying $\rho$ has no impact on the main effects.
@@ -112,7 +112,7 @@ The function $g_1$ can solely be described by linear main effects (\autoref{fig:
 \subsubsection{Scenario: Mixed, only main}
 Slightly more complex is a two-degree polynomials, which allow for effects of linear and quadratic nature:
 \[
-g_4(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2.
+g_2(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2.
 \]
 The fANOVA components for $g_4$ are given by:
 \begin{align*}
@@ -231,7 +231,7 @@ The main effects have the same form for every case of $\rho$ and $a_{12}$ and th
 
 \subsubsection{Scenario: All}
 Finally, a full example, including all main and interaction effects:
-$$g_5(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
+$$g_4(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
 We can vary the coefficients as well as $\rho$.\par
 When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction effect is present and variables exhibit dependency (or is this nonsense because we essentially did this with our running example?).

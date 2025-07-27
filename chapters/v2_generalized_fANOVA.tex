@@ -77,11 +77,11 @@ If components are defined under the weak annihilating conditions, we can ensure 
 \begin{proof}
 For any subset $\emptyset \ne u \subseteq \{1, \ldots, N\}$, let $i \in u$. We assume that the weak annihilating conditions hold. Then
 \begin{align*}
-\mathbb{E}[y_{u,G}(\mathbf{X}_u)] 
-&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) f_{\mathbf{X}}(\mathbf{x})\, d \nu (\mathbf{x}) \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}_{-u}) \right) d \nu(\mathbf{x}_u) \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u)\, d \nu(\mathbf{x}_u) \\
-&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\mathbf{x}_j) \\
+\mathbb{E}[y_{u,G}(\boldsymbol{X}_u)] 
+&:= \int_{\mathbb{R}^N} y_{u,G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (\boldsymbol{x}) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}_{-u}) \right) d \nu(\boldsymbol{x}_u) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u)\, d \nu(\boldsymbol{x}_u) \\
+&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\boldsymbol{x}_j) \\
 &= 0,
 \end{align*}
 where we make use of Fubini's theorem and the last line follows from using the weak annihilating condition %~(4.2).
@@ -99,15 +99,15 @@ where we make use of Fubini's theorem and the last line follows from using the w
 \begin{proof}
 For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$, where $v \subsetneq u$, the subset $u = v \cup (u \setminus v)$. Let $i \in (u \setminus v) \subseteq u$. Then
 \begin{align*}
-\mathbb{E}[y_{u,G}(\mathbf{X}_u) \, y_{v,G}(\mathbf{X}_v)]
-&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}) \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}_{-u}) \right) d \nu(\mathbf{x}_u) \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_u) \\
-&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
-    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_{u \setminus v}) \, d \nu(\mathbf{x}_v) \\
-&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
-    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_i) \right)
-    \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(\mathbf{x}_j) \, d \nu(\mathbf{x}_v) \\
+\mathbb{E}[y_{u,G}(\boldsymbol{X}_u) \, y_{v,G}(\boldsymbol{X}_v)]
+&:= \int_{\mathbb{R}^N} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}_{-u}) \right) d \nu(\boldsymbol{x}_u) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_u) \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_{u \setminus v}) \, d \nu(\boldsymbol{x}_v) \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) \right)
+    \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(\boldsymbol{x}_j) \, d \nu(\boldsymbol{x}_v) \\
 &= 0.
 \end{align*}
 Repeatedly using Fubini's theorem and the weak annihilating conditions the equality to zero follows.
@@ -153,20 +153,31 @@ To understand this, we first need to distinguish three cases of integration that
 % Following a similar logic as for the classical fANOVA decomposition, one can integrate the desired decomposition w.r.t. to a suitable pdf and set the (weak) annihilating conditions to obtain the fANOVA decomposition. They key is to find this suitable pdf which results in the desired integral. \cite{rahman2014} proposes $f_{-u}(\boldsymbol{x}_{-u})$. In Theorem 4.4. he shows how the generalized fANOVA components constructed by this look like. And Lemma 4.3 is a helping statement, that should cover all the integral cases that appear in Theorem 4.4. and allow us to write the expressions in Theorem 4.4. in the reduced form we see them.
 
 \begin{proposition}\label{prop:integration_cases}
-Consider the generalized fANOVA components $y_{v,G}$, $\emptyset \ne v \subseteq \{1,\dots,N\}$, of a square-integrable function $y : \mathbb{R}^N \to \mathbb{R}$. When integrated w.r.t. the probability measure $f_{-u}(\boldsymbol{x}_{-u})\, d\boldsymbol{x}_{-u}$, $u \subseteq \{1,\dots,N\}$, one can distinguish three cases:
-\[
-\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-=
+Consider the generalized fANOVA components $y_{v,G}$, $\emptyset \ne v \subseteq \{1,\dots,N\}$, of a square-integrable function $y : \mathbb{R}^N \to \mathbb{R}$. When integrated w.r.t. the probability measure $f_{-u}(\boldsymbol{x}_{-u})\, d \nu(\boldsymbol{x}_{-u})$, $u \subseteq \{1,\dots,N\}$, one can distinguish three cases:
+\begin{equation}
+\begin{aligned}
+& \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\boldsymbol{x}_v) 
+    f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u}) \\[0.5em]
+&= 
 \begin{cases}
-\displaystyle \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}, & \text{if } v \cap u \ne \emptyset \text{ and } v \not\subset u, \\
-y_{v,G}(\mathbf{x}_v), & \text{if } v \cap u \ne \emptyset \text{ and } v \subseteq u, \\
-0, & \text{if } v \cap u = \emptyset.
+    \displaystyle 
+    \int_{\mathbb{R}^{|v \cap -u|}} 
+        y_{v,G}(\boldsymbol{x}_v)\,
+        f_{v \cap -u}(\boldsymbol{x}_{v \cap -u})\,
+        d \nu(\boldsymbol{x}_{v \cap -u}) 
+        & \text{if } v \cap u \ne \emptyset \text{ and } v \not\subset u, \\[1ex]
+    y_{v,G}(\boldsymbol{x}_v) 
+        & \text{if } v \cap u \ne \emptyset \text{ and } v \subseteq u, \\[1ex]
+    0 
+        & \text{if } v \cap u = \emptyset.
 \end{cases}
-\]
+\end{aligned}
+\end{equation}
+\label{prop:integration_cases}
 \end{proposition}
 
 \begin{proof}
-Let $u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$. We distinguish between three types of relationship between $v$ and $u$.
+Let $u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$. We distinguish between three types of relationships between $v$ and $u$.
 
 Before analysing the first case, note that for any such $u$ and $v$, it is possible to write
 \[
@@ -174,39 +185,51 @@ Before analysing the first case, note that for any such $u$ and $v$, it is possi
 \]
 which will be used in the integral decomposition below.
 
-\paragraph{Case 1: \( v \cap u \ne \emptyset \) and \( v \not\subset u \).}
-We use the decomposition of $-u$ stated above to decompose the integration over $\mathbf{x}_{-u}$ as:
-\[
-\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v)
-\left( \int_{\mathbb{R}^{N - |u| - |v \cap -u|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u \setminus (v \cap -u)} \right)
-d\mathbf{x}_{v \cap -u}.
-\]
-The inner integral gives the marginal density $f_{v \cap -u}(\mathbf{x}_{v \cap -u})$, so we obtain:
-\[
-= \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
-\]
+\paragraph{Case 1: \( v \cap u \ne \emptyset \) and \( v \not\subseteq u \)}
+We use the decomposition of $-u$ stated above to decompose the integration over $\boldsymbol{x}_{-u}$ as:
+
+\begin{equation}
+\begin{aligned}
+&\int_{\mathbb{R}^{N - |u|}} 
+    y_{v,G}(\boldsymbol{x}_v)\,
+    f_{-u}(\boldsymbol{x}_{-u}) 
+    \, d \nu(\boldsymbol{x}_{-u}) \\[0.5em]
+&= \int_{\mathbb{R}^{|v \cap -u|}} 
+    y_{v,G}(\boldsymbol{x}_v)
+    \left(
+        \int_{\mathbb{R}^{N - |u| - |v \cap -u|}}
+            f_{-u}(\boldsymbol{x}_{-u \setminus (v \cap -u)}, \boldsymbol{x}_{v \cap -u})
+            \, d \nu(\boldsymbol{x}_{-u \setminus (v \cap -u)})
+    \right) 
+    d \nu(\boldsymbol{x}_{v \cap -u}) \\
+    &= \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{x}_v) f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d\boldsymbol{x}_{v \cap -u},
+\end{aligned}
+\end{equation}
+where the inner integral integrates out all variables in 
+$-u \setminus (v \cap -u)$, 
+resulting in the marginal density 
+$f_{v \cap -u}(\boldsymbol{x}_{v \cap -u})$.
 
 \paragraph{Case 2: $v \cap u \ne \emptyset \text{ and } v \subseteq u$.}
-Since the sets $v$ and $-u$ are then completely disjoint, $y_{v,G}(\mathbf{x}_v)$ is independent of $\mathbf{x}_{-u}$ and can be pulled out of the integral:
+Since the sets $v$ and $-u$ are then completely disjoint, $y_{v,G}(\boldsymbol{x}_v)$ is independent of $\boldsymbol{x}_{-u}$ and can be pulled out of the integral:
 \[
-\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= y_{v,G}(\mathbf{x}_v) \int_{\mathbb{R}^{N - |u|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= y_{v,G}(\mathbf{x}_v),
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\boldsymbol{x}_v) f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
+= y_{v,G}(\boldsymbol{x}_v) \int_{\mathbb{R}^{N - |u|}} f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
+= y_{v,G}(\boldsymbol{x}_v),
 \]
-which works because $f_{-u}$ is a probability density function.
+which works because $f_{-u}$ integrates to one.
 
 \paragraph{Case 3: \( v \cap u = \emptyset \).}
 In this case, we have \( v \subseteq -u \), so \( v \cap -u = v \). Then we can write:
 \[
 \begin{aligned}
-\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
-\left( \int_{\mathbb{R}^{N - |u| - |v|}} f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u \setminus v} \right)
-d\mathbf{x}_v \\
-&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v) f_v(\mathbf{x}_v) \, d\mathbf{x}_v \\
-&= \int_{\mathbb{R}^{|v|-1}} \left( \int_{\mathbb{R}} y_{v,G}(\mathbf{x}_v) f_v(\mathbf{x}_v) \, dx_i \right)
-\prod_{\substack{j \in v \\ j \ne i}} dx_j \\
+\int_{\mathbb{R}^{N - |u|}} y_{v,G}(\boldsymbol{x}_v) f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
+\left( \int_{\mathbb{R}^{N - |u| - |v|}} f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u \setminus v}) \right)
+d \nu(\boldsymbol{x}_v) \\
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v) f_v(\boldsymbol{x}_v) \, d \nu(\boldsymbol{x}_v) \\
+&= \int_{\mathbb{R}^{|v|-1}} \left( \int_{\mathbb{R}} y_{v,G}(\boldsymbol{x}_v) f_v(\boldsymbol{x}_v) \, d \nu(x_i) \right)
+\prod_{\substack{j \in v \\ j \ne i}} d \nu (x_j) \\
 &= 0,
 \end{aligned}
 \]
@@ -214,78 +237,79 @@ while we again split the interval in such a way that we recognize the marginal d
 
 \end{proof}
 
-As we will see in the following, we will encounter all of these three integration cases in the definition of the generalized fANOVA components via \cite{rahman2014} principle.
+As we will see in the following, we will encounter all of these three integration cases in the definition of the generalized fANOVA components à la \cite{rahman2014}.
 In \autoref{prop:integration_cases} we also already see that the smartly chosen probability density function is $f_{-u}(\boldsymbol{x}_{-u})$.
 
 
-\begin{theorem}
-The generalized fANOVA component functions \( y_{u,G}(\mathbf{x}_u) \) can be recursively defined via the following set of equations:
+\begin{proposition}
+The generalized fANOVA component functions \( y_{u,G}(\boldsymbol{x}_u), u \subseteq \{1,\dots,N\} \) of a square-integrable function $y:\mathbb{R}^N \to \mathbb{R}$ for a given probability measure $f_{\boldsymbol{X}} d\nu(\boldsymbol{x})$ of $\boldsymbol{X} \in \mathbb{R}^N$ can be recursively defined via the following set of equations:
 \begin{align}
-y_{\emptyset,G} &= \int_{\mathbb{R}^N} y(\mathbf{x}) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}, \tag{4.5a} \\
-y_{u,G}(\mathbf{X}_u) &= \int_{\mathbb{R}^{N - |u|}} y(\mathbf{X}_u, \mathbf{x}_{-u}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-- \sum_{v \subset u} y_{v,G}(\mathbf{X}_v) \notag \\
+y_{\emptyset,G} &= \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
+y_{u,G}(\boldsymbol{X}_u) &= \int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
+- \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{X}_v) \notag \\
 &\quad - \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
-\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{X}_{v \cap u}, \mathbf{x}_{v \cap -u}) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}. \tag{4.5b}
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{X}_{v \cap u}, \boldsymbol{x}_{v \cap -u}) f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d \nu(\boldsymbol{x}_{v \cap -u}).
 \end{align}
-\end{theorem}
+\label{prop:generalized_fanova_components_rahman}
+\end{proposition}
 
 
 \begin{proof}
 We begin by integrating both sides of the generalized fANOVA decomposition
 \[
-y(\mathbf{x}) = \sum_{v \subseteq \{1,\dots,N\}} y_{v,G}(\mathbf{x}_v)
+y(\boldsymbol{x}) = \sum_{v \subseteq \{1,\dots,N\}} y_{v,G}(\boldsymbol{x}_v)
 \]
-w.r.t. $f_{-u}(\mathbf{x}_{-u})\, d\mathbf{x}_{-u}$, replacing $\boldsymbol{X}$ by $\boldsymbol{x}$, and changing the dummy index from $u$ to $v$. This yields:
+w.r.t. $f_{-u}(\boldsymbol{x}_{-u})\, d \nu(\boldsymbol{x}_{-u})$, replacing $\boldsymbol{X}$ by $\boldsymbol{x}$, and changing the dummy index from $u$ to $v$. This yields:
 \[
-\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}.
+\int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{x}) f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\boldsymbol{x}_v) f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u}).
 \]
 
-\paragraph{Case \( u = \emptyset \): computing the constant term.}
-We set $u = \emptyset$, so $-u = \{1,\dots,N\}$ and $f_{-u}(\boldsymbol{x}_{-u}) = f_{\boldsymbol{X}}(\boldsymbol{x})$. The above integral can then be written as:
+\paragraph{Case: \( u = \emptyset \).}
+We set $u = \emptyset$, so $-u = \{1,\dots,N\}$ and $f_{-u}(\boldsymbol{x}_{-u}) d \nu(\boldsymbol{x}_{-u}) = f_{\boldsymbol{X}}(\boldsymbol{x}) d \nu(\boldsymbol{x})$. The above integral can then be written as:
 \[
-\int_{\mathbb{R}^N} y(\mathbf{x}) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
-= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
+\int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x})
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x})
 \]
 \[
-= \int_{\mathbb{R}^N} y_{\emptyset,G} \, f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
-+ \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}
+= y_{\emptyset,G}
++ \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^N} y_{v,G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x})
 \]
 \[
-= y_{\emptyset,G} + \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \mathbb{E}[y_{v,G}(\mathbf{X}_v)] = y_{\emptyset,G},
+= y_{\emptyset,G} + \sum_{\emptyset \ne v \subseteq \{1,\dots,N\}} \mathbb{E}[y_{v,G}(\boldsymbol{X}_v)] = y_{\emptyset,G},
 \]
 where the last sum vanishes under the weak annihilating condition.
 
-\paragraph{Case \( \emptyset \ne u \subseteq \{1,\dots,N\} \): computing nonconstant terms.}
+\paragraph{Case: \( \emptyset \ne u \subseteq \{1,\dots,N\} \).}
 We return to the integrated decomposition
 \[
-\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\mathbf{x}_v) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u},
+\int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{x}) f_{-u}(\boldsymbol{x}_{-u}) \, d\boldsymbol{x}_{-u}
+= \sum_{v \subseteq \{1,\dots,N\}} \int_{\mathbb{R}^{N - |u|}} y_{v,G}(\boldsymbol{x}_v) f_{-u}(\boldsymbol{x}_{-u}) \, d\boldsymbol{x}_{-u},
 \]
-and apply Lemma~4.3 to evaluate each term in the sum according to the relationship between $v$ and $u$:
+and apply \autoref{prop:integration_cases} to evaluate each term in the sum according to the relationship between $v$ and $u$:
 
 \begin{itemize}
   \item[\textbf{(A)}] \( v \cap u \ne \emptyset \) and \( v \not\subset u \): \\
-  This is Case 1 of Lemma~4.3. The integral becomes:
+  This is case 1 of \autoref{prop:integration_cases}. The integral becomes:
   \[
   \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
-  \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+  \int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{x}_v) f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d\boldsymbol{x}_{v \cap -u}.
   \]
 
   \item[\textbf{(B)}] \( v \subsetneq u \): \\
-  This is Case 2 of Lemma~4.3. The integrals reduce to the component functions themselves:
+  This is contained in case 2 of \autoref{prop:integration_cases}. The integrals reduce to the component functions themselves:
   \[
-  \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v).
+  \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{x}_v).
   \]
 
   \item[\textbf{(C)}] \( v = u \): \\
-  Also part of Case 2 of Lemma~4.3. The integral becomes:
+  This is also contained in case 2 of \autoref{prop:integration_cases}. The integral becomes:
   \[
-  y_{u,G}(\mathbf{x}_u).
+  y_{u,G}(\boldsymbol{x}_u).
   \]
 
   \item[\textbf{(D)}] \( v \cap u = \emptyset \): \\
-  Case 3 of Lemma~4.3. These terms vanish:
+  This is case 3 of \autoref{prop:integration_cases}. These terms vanish:
   \[
   \sum_{\substack{v \subseteq \{1,\dots,N\} \\ v \cap u = \emptyset}} 0 = 0.
   \]
@@ -293,22 +317,32 @@ and apply Lemma~4.3 to evaluate each term in the sum according to the relationsh
 
 Putting everything together:
 \[
-\int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-= y_{u,G}(\mathbf{x}_u)
-+ \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v)
-+ \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
-\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+\begin{aligned}
+&\int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{x}) f_{-u}(\boldsymbol{x}_{-u}) 
+    \, d\boldsymbol{x}_{-u} \\
+&= y_{u,G}(\boldsymbol{x}_u)
+   + \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{x}_v) + 
+   \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\
+                   v \cap u \ne \emptyset,\ v \not\subset u}} 
+   \int_{\mathbb{R}^{|v \cap -u|}} 
+        y_{v,G}(\boldsymbol{x}_v) 
+        f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) 
+        \, d\boldsymbol{x}_{v \cap -u}.
+\end{aligned}
 \]
 
-Rearranging gives the almost final expression for \( y_{u,G}(\mathbf{x}_u) \):
+
+Rearranging gives the almost final expression for \( y_{u,G}(\boldsymbol{x}_u) \):
 \[
-y_{u,G}(\mathbf{x}_u)
-= \int_{\mathbb{R}^{N - |u|}} y(\mathbf{x}) f_{-u}(\mathbf{x}_{-u}) \, d\mathbf{x}_{-u}
-- \sum_{v \subsetneq u} y_{v,G}(\mathbf{x}_v)
+\begin{aligned}
+&y_{u,G}(\boldsymbol{x}_u) \\
+&= \int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{x}) f_{-u}(\boldsymbol{x}_{-u}) \, d\boldsymbol{x}_{-u}
+- \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{x}_v)
 - \sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ v \cap u \ne \emptyset,\ v \not\subset u}} 
-\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\mathbf{x}_v) f_{v \cap -u}(\mathbf{x}_{v \cap -u}) \, d\mathbf{x}_{v \cap -u}.
+\int_{\mathbb{R}^{|v \cap -u|}} y_{v,G}(\boldsymbol{x}_v) f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, d\boldsymbol{x}_{v \cap -u}.
+\end{aligned}
 \]
-As a last step, we only have to write \( v = (v \cap u) \cup (v \cap -u) \) to obtain the expression of Theorem~5.1.
+As a final step, we only have to write \( v = (v \cap u) \cup (v \cap -u) \) to obtain the expression of \autoref{prop:generalized_fanova_components_rahman}.
 
 \end{proof}
 
@@ -320,83 +354,94 @@ The constraints he sets for the optimization problem should ensure that the gene
 The generalized fANOVA terms $\{y_u(x_u) | u \subseteq d \}$ jointly satisfiy:
 \begin{equation}
 \left\{ y_{u, G}(\boldsymbol{x}_u) \,\middle|\, u \subseteq d \right\}
-= \arg\min_{\{g_u \in L^2(\mathbb{R}^u)\}_{u \subseteq d}} 
-\int \left( \sum_{u \subseteq d} g_u(\boldsymbol{x}_u) - y(\boldsymbol{x}) \right)^2 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x})
-\label{eq:generalized_fanova_components_hooker}
+= \arg\min_{\{g_u \in \mathcal{L}^2(\mathbb{R}^{|u|})\}} 
+\int_{\mathbb{R}^N} \left( \sum_{u \subseteq d} g_u(\boldsymbol{x}_u) - y(\boldsymbol{x}) \right)^2 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x})
+\label{prop:generalized_fanova_components_hooker}
 \end{equation}
 under the hierarchical orthogonality conditions:
 \begin{equation}
-    \forall v \subseteq u,\ \forall g_v : \int y_u(x_u) g_v(x_v) w(x) \, dx = 0. \tag{4.2}
+    \forall v \subseteq u,\ \forall g_v : \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) g_v(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x}) = 0.
 \label{eq:hooker_hierarchical_orthogonality}
 \end{equation}
 
-In Hookers definition we recognize a projection. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under zero mean and hierarchical orthogonality constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$.\par
+In Hookers definition we recognize a projection. We are simultaneously finding the set of components functions $g_u$ that minimize the weighted squared difference to the original function $y$ (under the given integral constraint), which is exactly the definition of a projection of $y$ onto a specific subspace $\mathcal{G}$.\par
 
 However, the constraint in \autoref{eq:hooker_hierarchical_orthogonality} is infeasible to enforce in practice. 
 Therefore, Hooker formulated the following proposition, which ensures hierarchical orthogonality of the fANOVA components and thus forms the building block of his approach. It can be compared to the weak annihilating conditions in \cite{rahman2014}.
 \begin{proposition}
     The hierarchical orthogonality of the fANOVA components is ensured if and only if the following integral condition holds:
     \begin{equation}
-\forall u \subseteq N,\ \forall i \in u:\ \int y_u(x_u) w(x)\, dx_i\, dx_{-u} = 0.
-\tag{4.3}
+\forall u \subseteq N,\ \forall i \in u:\ \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (\boldsymbol{x}_{-u}) = 0.
 \end{equation}
-\label{proposition:hooker_hierarchical_orthogonality}
+\label{prop:hooker_hierarchical_orthogonality}
 \end{proposition}
 
 \begin{proof}
-    The proof is organized in two parts. First, Hooker needs to show that, if the integral conditions hold, the hierarchical orthogonality is true, and second, that if the hierarchical orthogonality does not hold, the integral conditions do not hold either.
-    For the first part, assume that (4.3) holds. Let $i \in u \setminus v$, then $y_v(x_v)$ is independent of $x_i$ and $x_{-u}$, so we can write:
-    \begin{equation}
-        \int y_v(x_v)\, y_u(x_u)\, w(x)\, dx_i\, dx_{-u}
-        = y_v(x_v) \int y_u(x_u)\, w(x)\, dx_i\, dx_{-u} = 0.
-    \end{equation}
-    For the second part, assume that there exists a subset $u$ and an index $i$ for which (4.3) does not hold, i.e.
-    \begin{equation}
-        \int y_u(x_u)\, w(x)\, dx_i\, dx_{-u} \ne 0.
-    \end{equation}
-    Further, assume that (4.3) does hold for a subset $v \neq u$ and an index $j \in v$. Hooker then constructs a fANOVA term $y_v$ with lower order than $y_u$, which is not orthogonal to $y_u$. He sets $v = u \setminus \{i\}$, so $y_v$ is one order lower than $y_u$ and defined as:
-    \begin{equation}
-        y_v(x_v) := \int f_u(x_u) \, w(x) \, dx_i \, dx_{-u}.
-    \end{equation}
-    $y_v$ is a valid fANOVA component, which is unequal to zero by assumption of (4.3) being false, while it itself satisfies (4.3):
-    \begin{equation}
-        \forall j \in v, \quad \int y_v(x_v) \, w(x) \, dx_j \, dx_{-v} = 0
-    \end{equation}
-    Lastly, Hooker verifies that $f_v$ is not orthogonal to $f_u$:
+    The proof is organized in two parts. First, Hooker showed that, the hierarchical orthogonality is true, if the integral conditions hold. Second he shows that hierarchical orthogonality breaks down if the integral conditions are not true.\par
+    For the first part, assume that \autoref{prop:hooker_hierarchical_orthogonality} holds. Let $i \in u \setminus v$, then $y_v(\boldsymbol{x}_v)$ is independent of $x_i$ and $\boldsymbol{x}_{-u}$, so we can write:
+\begin{equation}
+\begin{aligned}
+\langle y_u, y_v \rangle 
+&:= \int_{\mathbb{R}^N} 
+        y_v(\boldsymbol{x}_v)\, y_u(\boldsymbol{x}_u)\, 
+        f_{\boldsymbol{X}}(\boldsymbol{x})\, 
+        d \nu(\boldsymbol{x}) \\[0.3em]
+&= y_v(\boldsymbol{x}_v) 
+   \int_{\mathbb{R}^N} 
+        y_u(\boldsymbol{x}_u)\, 
+        f_{\boldsymbol{X}}(\boldsymbol{x})\, 
+        d \nu(\boldsymbol{x}) \\[0.3em]
+&= 0.
+\end{aligned}
+\end{equation}
 
+For the second part, assume that there exists a subset $u$ and an index $i$ for which \autoref{prop:hooker_hierarchical_orthogonality} does not hold, i.e.
     \begin{equation}
-        \begin{aligned}
-            \langle y_u, y_v \rangle_w 
-            &= \int y_u(x_u) \, y_v(x_v) \, f_X(x) \, dx \\
-            &= \int y_u(x_u) \left( \int y_u(x_u) \, f_X(x) \, dx_i \, dx_{-u} \right) w(x) \, dx \\
-            &= \int \left( \int y_u(x_u) \, f_X(x) \, dx_i \, dx_{-u} \right)^2 dx_{u \setminus \{i\}} \\
-            &\neq 0.
-        \end{aligned}
+        \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u)\, f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (x_{-u}) \ne 0 \quad \text{for some} \quad i, u.
     \end{equation}
+    Further, assume that \autoref{prop:hooker_hierarchical_orthogonality} holds for all subsets $v \neq u$ and indices $j \neq i$. Hooker then constructs a fANOVA term $y_v$ with lower order than $y_u$, which is not orthogonal to $y_u$. He sets $v = u \setminus \{i\}$, so $y_v$ is one order lower than $y_u$ and defined as:
+    \begin{equation}
+        y_v(\boldsymbol{x}_v) := \int_{\mathbb{R}^N} f_u(\boldsymbol{x}_u) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_i) \, d \nu (\boldsymbol{x}_{-u}).
+    \end{equation}
+    $y_v$ is a valid fANOVA component, which is unequal to zero by assumption of \autoref{prop:hooker_hierarchical_orthogonality} being false, while it itself satisfies \autoref{prop:hooker_hierarchical_orthogonality} by assumption:
+    \begin{equation}
+        \forall j \in v, \quad \int_{\mathbb{R}^N} y_v(\boldsymbol{x}_v) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_j) \, d \nu (\boldsymbol{x}_{-v}) = 0.
+    \end{equation}
+ Hooker then shows that $y_v$ is not orthogonal to $y_u$:
+\begin{equation}
+    \begin{aligned}
+        \langle y_u, y_v \rangle
+        &= \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, y_v(\boldsymbol{x}_v) \, f_X(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
+        &= \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \left( \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
+        &= \int_{\mathbb{R}^N} \left( \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right)^2 d \nu(\boldsymbol{x}_{u \setminus \{i\}}) \\
+        &\neq 0.
+    \end{aligned}
+\end{equation}
 
 \end{proof}
 
 
-
-A crucial difference to the classical case is that both versions of the generalized components are defined in dependence of each other (\autoref{eq:generalized_fanova_components_rahman}, \autoref{eq:generalized_fanova_components_hooker}).
+Hooker approaches his generalization through the lense of projections while Rahman gives a form that tries to imitate the classical fANOVA terms. A crucial paralel of both versions which dinstiguishes them from the classical case is that their components are defined in dependence of each other (\autoref{prop:generalized_fanova_components_rahman}, \autoref{prop:generalized_fanova_components_hooker}).
 % In the Rahman approach, the components are derived from the original function by integrating out the other variables, while in the Hooker approach, the components are defined through a minimization problem that seeks to best approximate the original function.
 This makes it in general difficult to compute the generalized fANOVA components analytically, even for simple functions.
 
 
 \subsubsection{Second-moment statistics}
 Given that the fANOVA decomposition changes under dependent inputs, it is interesting to examine what happens to the variance decomposition in this case.
-The mean of $y$ remains unchanged and is still given by the constant term \( y_{\emptyset,G} \). The variance decomposition looks different, as cross-terms do not cancel out anymore:
+The mean of $y$ remains unchanged and is still given by the constant term \( y_{\emptyset,G} \). In contrast, the variance decomposition looks different, as cross-terms do not cancel out anymore.
+Given $ \emptyset \neq u \subseteq \{1,\dots,N\}$ and $\emptyset \neq v \subseteq \{1,\dots,N\}$, we have:
 \begin{align}
 \sigma^2 
-&:= \mathbb{E}\left[ \left( y(\mathbf{X}) - \mu \right)^2 \right] \notag \\
-&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{\emptyset \ne u \subseteq \{1,\dots,N\}} y_{u,G}(\mathbf{X}_u) - \mu \right)^2 \right] \notag \\
-&= \mathbb{E} \left[ \left( \sum_{\emptyset \ne u \subseteq \{1,\dots,N\}} y_{u,G}(\mathbf{X}_u) \right)^2 \right] \notag \\
-&= \sum_{\emptyset \ne u} \mathbb{E} \left[ y_{u,G}^2(\mathbf{X}_u) \right]
-+ \sum_{\substack{\emptyset \ne u,\,v \subseteq \{1,\dots,N\} \\ u \ne v,\, u \not\subset v,\, v \not\subset u}} 
-\mathbb{E} \left[ y_{u,G}(\mathbf{X}_u) y_{v,G}(\mathbf{X}_v) \right].
-\tag{6.2}
+&:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - \mu \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( \sum_{u} y_{u,G}(\boldsymbol{X}_u) \right)^2 \right] \notag \\
+&= \sum_{u} \mathbb{E} \left[ y_{u,G}^2(\boldsymbol{X}_u) \right]
++ \sum_{\substack{u \not\subseteq v,\, v \not\subseteq u}} 
+\mathbb{E} \left[ y_{u,G}(\boldsymbol{X}_u) y_{v,G}(\boldsymbol{X}_v) \right],
 \end{align}
-The first term is the sum of the variances of the components, while the second term is the sum of the covariances between components that are not hierarchically orthogonal. The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. For the classical fANOVA decomposition, the second term is zero for any relationship between $u$ and $v$, and we are left with only the sum of the individual variances.
+while the first sum in the final line goes over all nonempty subsets $u$ and the second sum goes over all pairs of subsets $(u, v)$ where neither is a subset of the other one.
+Conceptually this means that the first term is the sum of the variances of the components, while the second term is the sum of the covariances between components that are not hierarchically orthogonal.
+The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. For the classical fANOVA decomposition, the second term is zero for any relationship between $u$ and $v$, and we are left with only the sum of the individual variances.
 
 
 
@@ -421,7 +466,7 @@ y(x_1,x_2)
   + c_{2,1}\,\psi_{2,1}(x_2)
   + c_{1,2}\,\psi_{1,2}(x_1)
   + c_{2,2}\,\psi_{2,2}(x_2)
-  + c\,\psi(x_1,x_2)
+  + c_{12, 11}\,\psi_{12, 11}(x_1,x_2),
 \end{align*}
 where the $\psi_{i,j}$ are the basis functions with corresponding weights $c_0, \dots , c_{12, 11} \in \mathbb{R}$.
 
@@ -436,30 +481,31 @@ y(x_1,x_2)
   + c_{2,1}\,\psi_{2,1}(x_2)
   + c_{1,2}\,\psi_{1,2}(x_1)
   + c_{2,2}\,\psi_{2,2}(x_2)
-  + c\,\psi(x_1,x_2) \\[3pt]
+  + c_{12, 11}\,\psi_{12, 11}(x_1,x_2) \\[3pt]
 &= 
 \underbrace{c_0}_{y_0}
 + \underbrace{\big(c_{1,1}\,\psi_{1,1}(x_1) 
                 + c_{1,2}\,\psi_{1,2}(x_1)\big)}_{y_1(x_1)}
 + \underbrace{\big(c_{2,1}\,\psi_{2,1}(x_2) 
                 + c_{2,2}\,\psi_{2,2}(x_2)\big)}_{y_2(x_2)}
-+ \underbrace{c\,\psi(x_1,x_2)}_{y_{12}(x_1,x_2)}.
++ \underbrace{c_{12, 11}\,\psi_{12, 11}(x_1,x_2)}_{y_{12}(x_1,x_2)}.
 \end{align*}
 
 
-Coming from the probability density of a multivariate normal distribution, \cite{rahman2014} chooses multivariate Hermite polynomials. We use a slightly simplified (unscaled) version of the proposed basis functions to find an explicit solution for our running example. The basis functions we work with are:
-
-\begin{align*}
-% --- Basis functions (Rahman) ---
-\psi_{\emptyset}(x_1,x_2) &= 1, \\[3pt]
-\psi_{1,1}(x_1) &= x_1, \\[3pt]
-\psi_{2,1}(x_2) &= x_2, \\[3pt]
-\psi_{1,2}(x_1) &= x_1^2 - 1, \\[3pt]
-\psi_{2,2}(x_2) &= x_2^2 - 1, \\[3pt]
-\psi(x_1,x_2) &= \frac{\rho (x_1^2 + x_2^2)}{1 + \rho^2} - x_1 x_2 
-+ \frac{\rho(\rho^2 - 1)}{1 + \rho^2},
-\end{align*}
-where $\rho$ is the correlation coefficient between $x_1$ and $x_2$. So this formula will work for dependent as well independent inputs.\par
+Derived from the probability density of a multivariate normal distribution, \cite{rahman2014} chooses multivariate Hermite polynomials. We use a slightly simplified version of the proposed basis functions to find an explicit solution for our running example\footnote{We omit the scaling factor, which means the basis functions are not orthonormal anymore but still orthogonal.}. The basis functions we work with are:
+\[
+\begin{aligned}
+\psi_{\emptyset}(x_1,x_2) &= 1, \\
+\psi_{1,1}(x_1) &= x_1, \\
+\psi_{2,1}(x_2) &= x_2, \\
+\psi_{1,2}(x_1) &= x_1^2 - 1, \\
+\psi_{2,2}(x_2) &= x_2^2 - 1, \\
+\psi_{12,11}(x_1,x_2) &= \frac{\rho (x_1^2 + x_2^2)}{1 + \rho^2} 
+                         - x_1 x_2 
+                         + \frac{\rho(\rho^2 - 1)}{1 + \rho^2}
+\end{aligned}
+\]
+where $\rho$ is the correlation coefficient between $X_1$ and $X_2$. So this formula will work for dependent as well independent inputs.\par
 % --- Model decomposition (general coefficients) ---
 What remains it to find the coefficients $c_0, c_{1,1}, \dots, c_{12, 11}$ such the weighted sum of the basis really recovers the original polynomial.
 To find the correct weights, we plug in the basis functions and rearrange terms to recognize the groups more easily:
@@ -477,7 +523,7 @@ y(x_1,x_2) &= c_0 + c_{1,1} x_1 + c_{2,1} x_2
 + c_{2,1}\,x_2 \notag \\ 
 &\quad + \big( c_{1,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} \big) x_1^2
 + \big( c_{2,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} \big) x_2^2
-- c_{12, 11}\, x_1 x_2
+- c_{12, 11}\, x_1 x_2.
 \end{align*}
 Now we can use monomial matching to find the coefficients. It is best to start with the interaction term and work backwards from there to the constant term, plugging in the current solutions along the way:
 % --- Monomial matching equations ---
@@ -502,7 +548,7 @@ y(x_1,x_2)
   + c_{2,1}\,\psi_{2,1}(x_2)
   + c_{1,2}\,\psi_{1,2}(x_1)
   + c_{2,2}\,\psi_{2,2}(x_2)
-  + c\,\psi(x_1,x_2) \\[5pt]
+  + c_{12,11}\,\psi_{12,11}(x_1,x_2) \\[5pt]
 &= 
 \underbrace{\big(a_0 + a_{11} + a_{22} + \rho\,a_{12}\big)}_{c_0} 
 + \underbrace{a_1}_{c_{1,1}} x_1
@@ -550,8 +596,8 @@ y_{12}(x_1,x_2)
 
 
 
-This set of component functions is true under the assumption of Gaussian inputs. The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function $g$; however, the component function would not be hierarchically orthogonal.\par
-With this we are able to give the fANOVA terms for our running example in a generalized from, which allows for dependent inputs variables, assumed to be Gaussian. For $g(x_1,x_2) = x_1 + 2x_2 + x_1 x_2$  we have $a_0 = 0, a_1 = 1, a_2 = 2, a_{11} = 0, a_{22} = 0, a_{12} = 1$ and therefore obtain:
+This set of component functions is true under the assumption of Gaussian inputs. The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function; however, the component function would not be hierarchically orthogonal anymore.\par
+With this we are able to give the fANOVA terms for our running example in a generalized from, which allows for dependent inputs variables, assumed to be Gaussian. For $h(x_1,x_2) = x_1 + 2x_2 + x_1 x_2$  we have $a_0 = 0, a_1 = 1, a_2 = 2, a_{11} = 0, a_{22} = 0, a_{12} = 1$ and therefore obtain:
 \begin{align*}
 y_0 &= \rho, \\[3pt]
 y_1(x_1) &= x_1 + \frac{\rho}{1+\rho^2}(x_1^2 - 1), \\[3pt]
