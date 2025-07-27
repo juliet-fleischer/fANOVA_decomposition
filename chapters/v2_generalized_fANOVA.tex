@@ -5,38 +5,37 @@ h(x_1, x_2) = a + X_1 + 2X_2 + X_1 X_2,
 \]
 
 \subsubsection{Case 2: Dependent Inputs}
-Now $\rho_{12} \neq 0$, while keeping everything else the same. When we follow the exact same logic as above we obtain the following terms:
+Now $\rho\neq 0$, while keeping everything else the same. When we follow the exact same logic as above we obtain the following terms:
 \begin{align*}
-\tilde{y}_0 &= \mathbb{E}[g(X_1, X_2)] 
+\tilde{y}_{\emptyset} &= \mathbb{E}[g(X_1, X_2)] 
 = a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
 &= a + \mathbb{E}[X_1 X_2] 
-= a + \left( \text{Cov}(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
-&= a + \rho_{12} \\
+= a + \left( Cov(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
+&= a + \rho \\
 \tilde{y}_1(x_1) 
-&= \mathbb{E}[g(X_1, X_2) | X_1 = x_1] - \tilde{y}_0 \\
-&= \mathbb{E}[a + x_1 + 2X_2 + x_1 X_2 | X_1 = x_1] - (a + \rho_{12}) \\
-&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho_{12} \\
-&= x_1 + \rho_{12}(2x_1 + x_1^2 - 1) \\
+&= \mathbb{E}[g(X_1, X_2) | X_1 = x_1] - \tilde{y}_{\emptyset} \\
+&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 | X_1 = x_1] - (a + \rho) \\
+&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho \\
+&= x_1 + \rho(2x_1 + x_1^2 - 1) \\
 \tilde{y}_2(x_2) 
-&= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - \tilde{y}_0 \\
-&= \mathbb{E}[a + X_1 + 2x_2 + X_1 x_2 \mid X_2 = x_2] - (a + \rho_{12}) \\
-&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho_{12} \\
-&= 2x_2 + \rho_{12}(x_2 + x_2^2 - 1) \\
+&= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - \tilde{y}_{\emptyset} \\
+&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 \mid X_2 = x_2] - (a + \rho) \\
+&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho \\
+&= 2x_2 + \rho(x_2 + x_2^2 - 1) \\
 \tilde{y}_{12}(x_1, x_2) 
-&= g(x_1, x_2) - \tilde{y}_0 - \tilde{y}_1(x_1) - \tilde{y}_2(x_2) \\
-&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho_{12}) \\
-&- (x_1 + \rho_{12}(2x_1 + x_1^2 - 1)) - (2x_2 + \rho_{12}(x_2 + x_2^2 - 1)) \\
-% &= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho_{12}) - (x_1 + 2\rho_{12} x_1 + \rho_{12} x_1^2 - \rho_{12}) - (2x_2 + \rho_{12} x_2 + \rho_{12} x_2^2 - \rho_{12}) \\
-&= x_1 x_2 - 2\rho_{12} x_1 - \rho_{12} x_2  - \rho_{12} x_1^2  - \rho_{12} x_2^2 + \rho_{12}
+&= g(x_1, x_2) - \tilde{y}_{\emptyset} - \tilde{y}_1(x_1) - \tilde{y}_2(x_2) \\
+&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 + \rho(2x_1 + x_1^2 - 1)) - (2x_2 + \rho(x_2 + x_2^2 - 1))\\
+% &= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 + 2\rho x_1 + \rho x_1^2 - \rho) - (2x_2 + \rho x_2 + \rho x_2^2 - \rho) \\
+&= x_1 x_2 - 2\rho x_1 - \rho x_2  - \rho x_1^2  - \rho x_2^2 + \rho
 \end{align*}
 
 The fANOVA components are characterized by two central properties zero mean and orthogonality which follow from \autoref{eq:strong_annihilating_conditions}.
-When we check if the components $\tilde{y}_0, \tilde{y}_1, \tilde{y}_2, \tilde{y}_{12}$ satisfy these properties, we find out that all components are zero-centred, but not all are orthogonal to each other. We can, for example, immediately see that checking orthogonality between $\tilde{y}_{1}, \tilde{y}_{1,2}$ will yield the expectation over the constant term $\rho_{1,2}$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero:
+When we check if the components $\tilde{y}_0, \tilde{y}_1, \tilde{y}_2, \tilde{y}_{12}$ satisfy these properties, we find out that all components are zero-centred, but not all are orthogonal to each other. We can, for example, immediately see that checking orthogonality between $\tilde{y}_{1}, \tilde{y}_{1,2}$ will yield the expectation over the constant term $\rho$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero:
 \begin{align*}
     \mathbb{E}(\tilde{y}_1(X_1)\tilde{y}_{1,2}(X_1, X_2)) 
-    &= \mathbb{E}[(X_1 + 2\rho_{12}X_1 + \rho_{12}X_1^2 - \rho_{12}) \\
-    &\quad \cdot (X_1 X_2 - 2\rho_{12} X_1 - \rho_{12} X_2 - \rho_{12} X_1^2 - \rho_{12} X_2^2 + \rho_{12})] \\
-    &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho_{12}^2] \neq 0.
+    &= \mathbb{E}[(X_1 + 2\rho X_1 + \rho X_1^2 - \rho) \\
+    &\quad \cdot (X_1 X_2 - 2\rho X_1 - \rho X_2 - \rho X_1^2 - \rho X_2^2 + \rho)] \\
+    &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho^2] \neq 0.
 \end{align*}
 
 It turns out that naively computing the ``fANOVA decomposition'' under dependent inputs, results in components that lack orthogonality, which is a crucial property for interpretability.
@@ -46,8 +45,9 @@ This shows the need for a more involved approach for a generalization of this me
 \subsection{Generalized fANOVA}
 % We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}. (Write this a bit more detailed: \cite{hooker2007} proofed existence of generalized fANOVA components, proposed estimation scheme, \cite{rahman2014} writes this in more general and measure theoretic fashion and proposes different estimation scheme that he argues is more feasible for high dimensions etc. read more in intro of \cite{rahman2014}; \cite{hooker2007} seems to be viewed as the first one who attempted a generalization to dependent inputs of the entire fANOVA decomposition framework, not just the Sobol indices, and he was inspired by \cite{stone1994}).\par
 
-As our example illustrated, the classical definition of fANOVA breaks down under dependent inputs.
-Consequently, the terms under dependence have to be defined differently. \cite{stone1994} inspired the pioneering work of \cite{hooker2007} who offers a first solution to the problem of dependent inputs. Work by \cite{chastaing2012} and \cite{rahman2014} build on his framework with modifications and extensions.\par
+% As our example illustrated, the classical definition of fANOVA breaks down under dependent inputs.
+% Consequently, the terms under dependence have to be defined differently.
+\cite{stone1994} inspired the pioneering work of \cite{hooker2007} who offers a first solution to the problem of dependent inputs. Work by \cite{chastaing2012} and \cite{rahman2014} build on his framework with modifications and extensions.\par
 % Classical fANOVA boils down to integration w.r.t. the uniform measure and in generalized fANOVA we integrate w.r.t. the distribution of $(X_1, \dots, X_n)$.\par
 The generalized fANOVA decomposition still follows the overarching form in \autoref{eq:fanova_decomposition}.
 However, we no longer work with a product-type probability measure but now $f_{\boldsymbol{X}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$ denotes an arbitrary probability density function and $f_{\boldsymbol{X}_u}: \mathbb{R}^u \rightarrow \mathbb{R}_{0}^{+}$ the marginal probability density function of the variables with indices in $u \subseteq d$.\par
@@ -69,7 +69,7 @@ If components are defined under the weak annihilating conditions, we can ensure 
     % zero mean condition
     Given the weak annihilating conditions, the generalized fANOVA components $y_{u, G}$, with $\emptyset \neq u \subseteq \{1, \ldots, N\}$, are centred around zero:
 \begin{equation}
-    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
     \label{eq:zero_mean_g}
 \end{equation}
 \end{proposition}
@@ -78,10 +78,10 @@ If components are defined under the weak annihilating conditions, we can ensure 
 For any subset $\emptyset \ne u \subseteq \{1, \ldots, N\}$, let $i \in u$. We assume that the weak annihilating conditions hold. Then
 \begin{align*}
 \mathbb{E}[y_{u,G}(\mathbf{X}_u)] 
-&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) f_{\mathbf{X}}(\mathbf{x})\, d\mathbf{x} \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}_{-u} \right) d\mathbf{x}_u \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u)\, d\mathbf{x}_u \\
-&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i \right) \prod_{j \in u,\, j \ne i} dx_j \\
+&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) f_{\mathbf{X}}(\mathbf{x})\, d \nu (\mathbf{x}) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}_{-u}) \right) d \nu(\mathbf{x}_u) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u)\, d \nu(\mathbf{x}_u) \\
+&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\mathbf{x}_j) \\
 &= 0,
 \end{align*}
 where we make use of Fubini's theorem and the last line follows from using the weak annihilating condition %~(4.2).
@@ -91,7 +91,7 @@ where we make use of Fubini's theorem and the last line follows from using the w
     % hierarchical orthogonality
     Given the weak annihilating conditions, the fANOVA components are hierarchically orthogonal. This means that for two components $y_{u, G}$ and $y_{v, G}$ with $u \subsetneq v, \emptyset \neq u \subseteq \{1, \ldots, N\}, \emptyset \neq v \subseteq \{1, \ldots, N\} $ it holds that:
 \begin{equation}
-    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{X}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
+    \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
 \end{equation}
 \label{eq:orthogonality_g}
 \end{proposition}
@@ -100,14 +100,14 @@ where we make use of Fubini's theorem and the last line follows from using the w
 For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$, where $v \subsetneq u$, the subset $u = v \cup (u \setminus v)$. Let $i \in (u \setminus v) \subseteq u$. Then
 \begin{align*}
 \mathbb{E}[y_{u,G}(\mathbf{X}_u) \, y_{v,G}(\mathbf{X}_v)]
-&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x} \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d\mathbf{x}_{-u} \right) d\mathbf{x}_u \\
-&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_u(\mathbf{x}_u) \, d\mathbf{x}_u \\
+&:= \int_{\mathbb{R}^N} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\mathbf{X}}(\mathbf{x}) \, d \nu(\mathbf{x}_{-u}) \right) d \nu(\mathbf{x}_u) \\
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\mathbf{x}_u) y_{v,G}(\mathbf{x}_v) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_u) \\
 &= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
-    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d\mathbf{x}_{u \setminus v} \, d\mathbf{x}_v \\
+    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_{u \setminus v}) \, d \nu(\mathbf{x}_v) \\
 &= \int_{\mathbb{R}^{|v|}} y_{v,G}(\mathbf{x}_v)
-    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i \right)
-    \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} dx_j \, d\mathbf{x}_v \\
+    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, d \nu(\mathbf{x}_i) \right)
+    \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(\mathbf{x}_j) \, d \nu(\mathbf{x}_v) \\
 &= 0.
 \end{align*}
 Repeatedly using Fubini's theorem and the weak annihilating conditions the equality to zero follows.
@@ -121,25 +121,25 @@ This means it is important that Rahman's generalized statements are coherent wit
 \end{proposition}
 
 \begin{proof}
-Assume that the random variables $\{X_j\}_{j \in u}$ are independent. Then we can factorize the marginal density $f_u(\mathbf{x}_u)$ as
+Assume that the random variables $\{X_j\}_{j \in u}$ are independent. Then we can factorize the marginal density $f_u(\boldsymbol{x}_u)$ as
 \[
-f_u(\mathbf{x}_u) = \prod_{j \in u} f_{\{j\}}(x_j).
+f_u(\boldsymbol{x}_u) = \prod_{j \in u} f_{X_j}(x_j).
 \]
 Now consider the weak annihilating condition~(4.2) for some $i \in u \neq \emptyset$:
 \[
-\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_u(\mathbf{x}_u) \, dx_i = 0.
+\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) = 0.
 \]
 Since we assume independence, we can substitute the joint marginal density with the product of the marginal densities:
 \[
-\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) \left( \prod_{j \in u} f_{\{j\}}(x_j) \right) dx_i.
+\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) \left( \prod_{j \in u} f_{X_j}(x_j) \right) d \nu(\boldsymbol{x}_i) = 0.
 \]
-For fixed $x_j$ with $j \ne i$, the terms $f_{\{j\}}(x_j)$ are constant with respect to $x_i$, and can therefore be pulled out of the integral:
+For fixed $x_j$ with $j \ne i$, the terms $f_{X_j}(x_j)$ are constant with respect to $x_i$, and can therefore be pulled out of the integral:
 \[
-\left( \prod_{j \in u,\, j \ne i} f_{\{j\}}(x_j) \right) \int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_{\{i\}}(x_i) \, dx_i = 0.
+\left( \prod_{j \in u,\, j \ne i} f_{X_j}(x_j) \right) \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_{X_i}(x_i) \, d \nu(x_i) = 0.
 \]
-As product of pdfs the prefactor is strictly positive for all $x_j$ with $j \ne i$. Therefore, the integral must be zero for the equality to hold:
+As product of probability density functions the prefactor is strictly positive for all $x_j$ with $j \ne i$. Therefore, the integral must be zero for the equality to hold:
 \[
-\int_{\mathbb{R}} y_{u,G}(\mathbf{x}_u) f_{\{i\}}(x_i) \, dx_i = 0,
+\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_{X_i}(x_i) \, d \nu(x_i) = 0,
 \]
 which are the strong annihilating conditions \autoref{eq:strong_annihilating_conditions}.
 \end{proof}

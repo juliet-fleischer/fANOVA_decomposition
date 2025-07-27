@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 JUL 2025 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  27 JUL 2025 14:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -738,7 +738,17 @@ Overfull \hbox (12.84029pt too wide) detected at line 212
 []
  []
 
-[11] [12]) [13] (./chapters/v2_generalized_fANOVA.tex [14] [15] [16] [17]
+[11] [12]) [13] (./chapters/v2_generalized_fANOVA.tex
+Overfull \hbox (21.51338pt too wide) detected at line 30
+[]
+ []
+
+[14] [15]
+Overfull \hbox (18.95543pt too wide) detected at line 112
+[]
+ []
+
+[16] [17]
 Overfull \hbox (6.5346pt too wide) in paragraph at lines 156--157
 [][]\OT1/cmr/bx/n/12 Proposition 3.6. []\OT1/cmr/m/it/12 Con-sider the gen-er-al-ized fANOVA com-po-nents $\OML/cmm/m/it/12 y[]$\OT1/cmr/m/it/12 , $\OMS/cmsy/m/n/12 ; 6\OT1/cmr/m/n/12 = \OML/cmm/m/it/12 v \OMS/cmsy/m/n/12 ^^R f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; [] ; N\OMS/cmsy/m/n/12 g$\OT1/cmr/m/it/12 ,
  []
@@ -952,7 +962,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,19n,131p,1056b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (51 pages, 2359785 bytes).
+Output written on thesis.pdf (51 pages, 2360051 bytes).
 PDF statistics:
  798 PDF objects out of 1000 (max. 8388607)
  666 compressed objects within 7 object streams

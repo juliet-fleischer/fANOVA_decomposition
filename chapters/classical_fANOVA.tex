@@ -197,18 +197,18 @@ When we define the constant term $y_\emptyset$ our goal is to best approximate t
 The main effect $y_i(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$, i.e. $\mathcal{G}_i = \{g(x) = g_i(x_i)\}$. There is no need for additional constraints since subtracting lower order terms ensures that orthogonality and zero mean are fulfilled.
 The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
 \begin{align*}
-    (\Pi_{\mathcal{G}_i}y)(.) - y_0
-    &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_0\\
-    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_0 \\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = .] - y_0 = y_i(.)
+    (\Pi_{\mathcal{G}_i}y)(.) - y_{\emptyset}
+    &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_i\|^2 - y_{\emptyset}\\
+    &= \arg \min_{g_i \in \mathcal{G}_i} \mathbb{E}[(y(\boldsymbol{X}) - g_i(X_i))^2] - y_{\emptyset} \\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = .] - y_{\emptyset} = y_i(.)
 \end{align*}
 
 The two-way interaction effect $y_{ij}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{ij}(x_i, x_j)\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    (\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_0 + y_i(.) + y_j(.))
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_0 + y_i(.) + y_j(.))\\
-    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(., .))^2] - (y_0 + y_i(.) + y_j(.))\\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_0 + y_i(.) + y_j(.)) = y_{ij}(.;.)
+    (\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_{\emptyset} + y_i(.) + y_j(.))
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \|y - g_{i, j}\|^2 - (y_{\emptyset} + y_i(.) + y_j(.))\\
+    &= \arg \min_{g_{ij} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g(., .))^2] - (y_{\emptyset} + y_i(.) + y_j(.))\\
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_{\emptyset} + y_i(.) + y_j(.)) = y_{ij}(.;.)
 \end{align*}
 
 In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u)\}$:
@@ -257,11 +257,11 @@ The variance of $y$ is then given by:
 
 We can verify that the variance decomposition holds for our example:
 \begin{align*}
-    Var(a + X_1 + 2X_2 + X_1 X_2) &= Var(X_1) + 4Var(X_2) + Var(X_1X_2) + 2Cov(X_1, X_2) \\
+    Var(a + X_1 + 2X_2 + X_1 X_2) &= Var(X_1) + 4Var(X_2) + Var(X_1X_2) + 2\mathcal{Cov}(X_1, X_2) \\
     &= 1 + 4 \cdot 1 + 1 \cdot 1 + 2 \cdot 0 = 6 \\
-    &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2Cov(X_1, X_2) \\
+    &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2\mathcal{Cov}(X_1, X_2) \\
     &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2X_2^2] \\
-    &= \mathbb{E}[y_1^2] + \mathbb{E}[y_2^2] + \mathbb{E}[y_{12}^2] \\
+    &= \mathbb{E}[y_1^2(X_1)] + \mathbb{E}[y_2^2(X_2)] + \mathbb{E}[y_{12}^2(X_1, X_2)] \\
 \end{align*}
 Studying the variance of the decomposition was the main focus in early works on this method (see e.g. \cite{sobol1993sensitivity}).
 From the variance decomposition \cite{sobol1993sensitivity} construct the \textit{Sobol indices}, which are well-known in sensitivity analysis. As it is only one application of the fANOVA decomposition, we will not go into depth here, but we should keep in mind that the presentation of fANOVA is closely linked to the Sobol indices in many works.
