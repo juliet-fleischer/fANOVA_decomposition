@@ -109,9 +109,7 @@ Supervised by \mysupervisor
 \begin{abstract}
 
 This article studies the functional ANOVA decomposition (fANOVA) in the context of model interpretability.
-We start by providing context to fANOVA-related literature.
-This is followed by the formal definition of the method, where we distinguish between the classical fANOVA, which assumes independent inputs, and the generalized fANOVA, which allows for dependency between variables.
-For both cases, we unite different notations and approaches to the formalization of the method. In the final section, we approach fANOVA from a more applied perspective and visualize the decomposition of different functions and provide a conceptual overview of current estimation approaches.
+We begin by introducing the classical fANOVA, which assumes independent inputs, and illustrate its equivalence to the Hoeffding decomposition under zero-centered variables with an example. We then unify different notations under the concept of orthogonal projections and briefly present the variance decomposition. Next, we extend fANOVA to settings with dependent inputs, discussing two different formalizations and highlighting why one is more suitable for deriving an explicit solution in an exemplary decomposition, while the other remains primarily theoretical. Finally, we adopt an applied perspective, visualizing the decomposition of various functions and providing a conceptual overview of current estimation approaches.
 \end{abstract}
 
 \newpage
@@ -176,7 +174,9 @@ For both cases, we unite different notations and approaches to the formalization
 \section{Electronic appendix}
 \label{el_app}
 
-Data, code and figures are provided in electronic form.
+Data, code and figures are provided in electronic form at:
+\url{https://github.com/juliet-fleischer/fANOVA_decomposition}
+
 
 \newpage
     

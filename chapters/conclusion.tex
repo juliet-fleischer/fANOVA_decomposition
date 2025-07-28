@@ -28,21 +28,21 @@
 
 % approximation of fANOVA done via sampling, lagrange multiplier etc.
 
-The fANOVA decomposition is a foundation method that has been studied from many perspectives, with recent interest driven by its potential in model interpretability. Its key strength lies in producing terms that represent the unique contribution of each variable or interaction, cleanly separated from one another without mixing effects.\par
+The fANOVA decomposition is a foundational method that has been studied from many perspectives, with recent interest driven by its potential in model interpretability. Its key strength lies in producing terms that represent the unique contribution of each variable or interaction, cleanly separated from one another without mixing effects.\par
 
-Despite being established in the literature, we found a lack of unified formalization and notational clarity in the literature, which we aimed to address in this work.\par
+Despite being established in the literature, we found a lack of unified formalization and notational clarity, which we aimed to address in this work.\par
 
-We began by revisiting the classical fANOVA decomposition, bridging Sobols initial formulation with more recent developments. We filled small gaps in mathematical proofs and established a direct connection to conditional expectations and orthogonal projections, which we argue is key to unifying different existing notations and formal approaches. Alongside the functional decomposition, we presented the variance decomposition, which underpins Sobol indices and links the fANOVA structure to sensitivity analysis.\par
+We began by revisiting the classical fANOVA decomposition, bridging Sobol's initial formulation with more recent developments. We filled small gaps in mathematical proofs and illustrated the parallel to the Hoeffding decomposition under independent and zero-centered inputs. Further, we established a direct connection to conditional expectations and orthogonal projections, which we argue is key to unifying different existing notations and formal approaches. Alongside the functional decomposition, we presented the variance decomposition, which underpins Sobol indices.\par
 
 Next, we extended the decomposition to dependent input variables. Here, multiple approaches exist; we focused on the frameworks of \cite{hooker2007} and \cite{rahman2014}.
 Using an illustrative example, we demonstrated that obtaining interpretable fANOVA components under dependence requires the careful construction of specific constraints. We also noted that closed-form solutions for the generalized components are difficult to obtain in practice and remain an open problem. Nevertheless, the associated variance decomposition still holds, allowing for the construction of generalized Sobol indices.\par
 
 To complement the theoretical work, we visualized fANOVA components for simple polynomial functions with Gaussian inputs. These visualizations illustrated how fANOVA separates effects, but were limited to simple functions and Gaussian inputs.\par
 
-This work did not present a full numerical treatment of Sobol indices, only touching on variance decomposition as their foundation. Our empirical demonstrations were restricted to toy problems; applying fANOVA in practice will require estimation methods suitable for trained models on real data. We also briefly mentioned the ability of fANOVA to purify interaction effects \citep{lengerich2020} and its relation to other interpretability techniques (e.g., PD, Shapley values \citep{fumagalli2025}) but did not explore these connections in depth.\par
+This work did not present a full treatment of Sobol indices, and only touched on variance decomposition as their foundation. Our empirical demonstrations were restricted to toy examples; applying fANOVA in practice will require estimation methods for trained models on real data. We also briefly mentioned the ability of fANOVA to purify interaction effects \citep{lengerich2020} and its relation to other interpretability techniques (e.g., PD, Shapley \citep{fumagalli2025}), but did not explore these connections in depth.\par
 
-Future work could extend Rahman’s polynomial expansion approach to more complex polynomials and non-Gaussian input distributions, and further investigate mathematical connections to other interpretability frameworks.
-Additionally, a lack of publicly available software for performing fANOVA remains a barrier to its widespread adoption, so developing robust, open-source implementations would be an important step toward enabling its use in practical model interpretability.
+Future work could extend Rahman’s polynomial expansion approach to more complex polynomials and non-Gaussian distributions, and further investigate mathematical connections to other interpretability frameworks.
+Additionally, a lack of standard software for performing fANOVA remains a barrier to its widespread adoption, so developing robust, open-source implementations would be an important step toward enabling its use in practical model interpretability.
 
 % Recap: fANOVA is a foundation method studied from many perspectives; most recently researchers caught interest in fANOVA for its potential in model interpretability - what makes it special is that the fANOVA terms represent the unique contribution of each variable or interaction - they are cleanly separated from each other and do not mix up.
 % Though so widely used we found a lack of unified formalization and notational clarity, which we hope to have provided with this work.\par

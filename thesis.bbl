@@ -7,7 +7,7 @@ Borgonovo, E., Li, G., Barr, J., Plischke, E. \harvardand\ Rabitz, H.  \harvardy
 
 \harvarditem[Chastaing et~al.]{Chastaing, Gamboa \harvardand\ Prieur}{2012}{chastaing2012}
 Chastaing, G., Gamboa, F. \harvardand\ Prieur, C.  \harvardyearleft 2012\harvardyearright .
-\newblock Generalized {{Hoeffding-Sobol}} decomposition for dependent variables - application to sensitivity analysis, {\em Electronic Journal of Statistics} {\bf 6}(none).
+\newblock Generalized {{Hoeffding-Sobol}} decomposition for dependent variables - application to sensitivity analysis, {\em Electronic Journal of Statistics} {\bf 6}:~2420--2448.
 
 \harvarditem[Choi et~al.]{Choi, Park, Park, Kim \harvardand\ Kim}{2025}{choi2025}
 Choi, Y., Park, S., Park, C., Kim, D. \harvardand\ Kim, Y.  \harvardyearleft 2025\harvardyearright .
@@ -54,7 +54,7 @@ Il~Idrissi, M., Bousquet, N., Gamboa, F., Iooss, B. \harvardand\ Loubes, J.-M.  
 \harvarditem[König et~al.]{König, Günther \harvardand\ Luxburg}{2024}{konig2024}
 König, G., Günther, E. \harvardand\ Luxburg, U.~v.  \harvardyearleft 2024\harvardyearright .
 \newblock Disentangling {Interactions} and {Dependencies} in {Feature} {Attribution}.
-\newblock arXiv:2410.23772 [cs].
+\newblock arXiv:2410.23772.
 \newline\harvardurl{http://arxiv.org/abs/2410.23772}
 
 \harvarditem[Lengerich et~al.]{Lengerich, Tan, Chang, Hooker \harvardand\ Caruana}{2020}{lengerich2020}
@@ -78,14 +78,20 @@ Muehlenstaedt, T., Roustant, O., Carraro, L. \harvardand\ Kuhnt, S.  \harvardyea
 \newblock Data-driven {Kriging} models based on {FANOVA}-decomposition, {\em Statistics and Computing} {\bf 22}(3):~723--738.
 \newline\harvardurl{http://link.springer.com/10.1007/s11222-011-9259-7}
 
-\harvarditem{Nagler}{2024}{nagler2024linalg}
-Nagler, T.  \harvardyearleft 2024\harvardyearright .
+\harvarditem{Nagler}{2024a}{nagler2024mathstat}
+Nagler, T.  \harvardyearleft 2024a\harvardyearright .
+\newblock {Mathematical statistics}, Lecture Script.
+\newblock \url{https://tnagler.github.io/mathstat-lmu-2024.pdf}.
+\newline\harvardurl{https://tnagler.github.io/mathstat-lmu-2024.pdf}
+
+\harvarditem{Nagler}{2024b}{nagler2024linalg}
+Nagler, T.  \harvardyearleft 2024b\harvardyearright .
 \newblock {Methoden der Linearen Algebra in der Statistik -- Vorlesungsskript}, \url{https://tnagler.github.io/linalg-2024.pdf}.
 \newblock Version Sommersemester 2024.
 
 \harvarditem{Owen}{2013}{owen2013}
 Owen, A.~B.  \harvardyearleft 2013\harvardyearright .
-\newblock Variance components and generalized sobol' indices, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 1}(1):~19--41.
+\newblock {Variance Components and Generalized Sobol' Indices}, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 1}(1):~19--41.
 \newblock tex.eprint: https://doi.org/10.1137/120876782.
 \newline\harvardurl{https://doi.org/10.1137/120876782}
 
@@ -95,7 +101,7 @@ Owen, A.~B.  \harvardyearleft 2014\harvardyearright .
 
 \harvarditem{Rahman}{2014}{rahman2014}
 Rahman, S.  \harvardyearleft 2014\harvardyearright .
-\newblock A generalized anova dimensional decomposition for dependent probability measures, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2}(1):~670--697.
+\newblock {A Generalized ANOVA Dimensional Decomposition for Dependent Probability Measures}, {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2}(1):~670--697.
 \newline\harvardurl{https://doi.org/10.1137/120904378}
 
 \harvarditem{Sobol}{2001}{sobol2001}
@@ -105,7 +111,7 @@ Sobol, I.  \harvardyearleft 2001\harvardyearright .
 
 \harvarditem{Sobol}{1993}{sobol1993sensitivity}
 Sobol, I.~M.  \harvardyearleft 1993\harvardyearright .
-\newblock Sensitivity estimates for nonlinear mathematical models, {\em Mathematical Modelling and Computational Experiments} {\bf 1}:~407--414.
+\newblock {Sensitivity Estimates for Nonlinear Mathematical Models}, {\em Mathematical Modelling and Computational Experiments} {\bf 1}:~407--414.
 
 \harvarditem{Stone}{1994}{stone1994}
 Stone, C.~J.  \harvardyearleft 1994\harvardyearright .

@@ -5,45 +5,45 @@ The style file: dcu.bst
 Database file #1: bibliography_2.bib
 Database file #2: bibliography_manual.bib
 Warning--empty publisher in molnar2025
-You've used 25 entries,
+You've used 26 entries,
             2921 wiz_defined-function locations,
-            814 strings with 10322 characters,
-and the built_in function-call counts, 96763 in all, are:
-= -- 15578
-> -- 1398
+            819 strings with 10487 characters,
+and the built_in function-call counts, 98644 in all, are:
+= -- 15867
+> -- 1422
 < -- 1
-+ -- 7370
-- -- 427
-* -- 8319
-:= -- 19636
-add.period$ -- 59
-call.type$ -- 25
-change.case$ -- 348
++ -- 7483
+- -- 434
+* -- 8457
+:= -- 20048
+add.period$ -- 62
+call.type$ -- 26
+change.case$ -- 362
 chr.to.int$ -- 25
-cite$ -- 26
-duplicate$ -- 359
-empty$ -- 805
-format.name$ -- 491
-if$ -- 17315
-int.to.chr$ -- 5
+cite$ -- 27
+duplicate$ -- 369
+empty$ -- 839
+format.name$ -- 500
+if$ -- 17653
+int.to.chr$ -- 6
 int.to.str$ -- 0
 missing$ -- 25
-newline$ -- 132
-num.names$ -- 260
-pop$ -- 75
+newline$ -- 138
+num.names$ -- 270
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 375
+purify$ -- 390
 quote$ -- 0
-skip$ -- 320
+skip$ -- 329
 stack$ -- 0
-substring$ -- 21935
+substring$ -- 22318
 swap$ -- 58
-text.length$ -- 351
+text.length$ -- 365
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 94
+type$ -- 98
 warning$ -- 1
-while$ -- 558
+while$ -- 581
 width$ -- 0
-write$ -- 391
+write$ -- 407
 (There was 1 warning)

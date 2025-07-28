@@ -1,0 +1,32 @@
+# Fdb version 4
+["bibtex citation_test"] 1753705040 "citation_test.aux" "citation_test.bbl" "citation_test" 1753705040 0
+  "/usr/local/texlive/2023/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
+  "bibliography_2.bib" 0 -1 0 ""
+  "bibliography_manual.bib" 0 -1 0 ""
+  "citation_test.aux" 1753705039 141 b3870a03860584ce705da9c03978e365 "pdflatex"
+  (generated)
+  "citation_test.bbl"
+  "citation_test.blg"
+  (rewritten before read)
+["pdflatex"] 1753705037 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/chapters/citation_test.tex" "citation_test.pdf" "citation_test" 1753705040 0
+  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/chapters/citation_test.tex" 1753705029 251 4d0609e58ca98b1cd0b141ef75ee5630 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls" 1667332637 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo" 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1673989714 30429 213676d4c7327a21d91ddaed900e7b81 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/natbib/natbib.sty" 1291685959 45456 1c8843383c0bd05870c45fa0ebea6cc2 ""
+  "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1677365944 40745 87bb86a62d462f93a1efc6b0c65c872e ""
+  "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
+  "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
+  "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "citation_test.aux" 1753705039 141 b3870a03860584ce705da9c03978e365 "pdflatex"
+  "citation_test.bbl" 0 -1 0 "bibtex citation_test"
+  "citation_test.tex" 1753705029 251 4d0609e58ca98b1cd0b141ef75ee5630 ""
+  (generated)
+  "citation_test.aux"
+  "citation_test.log"
+  "citation_test.pdf"
+  (rewritten before read)
