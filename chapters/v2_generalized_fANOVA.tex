@@ -4,26 +4,25 @@ For the classical fANOVA we make the assumption of independent inputs, which is 
 h(X_1, X_2) = a + X_1 + 2X_2 + X_1 X_2,
 \]
 
-% \subsubsection{fANOVA and the Hoeffding Decomposition}
 Now $\rho\neq 0$, while keeping everything else the same. When we follow the exact same logic as above we obtain the following terms:
 \begin{align*}
-\tilde{y}_{\emptyset} &= \mathbb{E}[g(X_1, X_2)] 
+\tilde{y}_{\emptyset} &= \mathbb{E}[h(X_1, X_2)] 
 = a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
 &= a + \mathbb{E}[X_1 X_2] 
 = a + \left( Cov(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
 &= a + \rho \\
 \tilde{y}_1(x_1) 
-&= \mathbb{E}[g(X_1, X_2) | X_1 = x_1] - \tilde{y}_{\emptyset} \\
+&= \mathbb{E}[h(X_1, X_2) | X_1 = x_1] - \tilde{y}_{\emptyset} \\
 &= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 | X_1 = x_1] - (a + \rho) \\
 &= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho \\
 &= x_1 + \rho(2x_1 + x_1^2 - 1) \\
 \tilde{y}_2(x_2) 
-&= \mathbb{E}[g(X_1, X_2) \mid X_2 = x_2] - \tilde{y}_{\emptyset} \\
+&= \mathbb{E}[h(X_1, X_2) \mid X_2 = x_2] - \tilde{y}_{\emptyset} \\
 &= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 \mid X_2 = x_2] - (a + \rho) \\
 &= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho \\
 &= 2x_2 + \rho(x_2 + x_2^2 - 1) \\
 \tilde{y}_{12}(x_1, x_2) 
-&= g(x_1, x_2) - \tilde{y}_{\emptyset} - \tilde{y}_1(x_1) - \tilde{y}_2(x_2) \\
+&= h(x_1, x_2) - \tilde{y}_{\emptyset} - \tilde{y}_1(x_1) - \tilde{y}_2(x_2) \\
 &= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 + \rho(2x_1 + x_1^2 - 1)) - (2x_2 + \rho(x_2 + x_2^2 - 1))\\
 % &= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 + 2\rho x_1 + \rho x_1^2 - \rho) - (2x_2 + \rho x_2 + \rho x_2^2 - \rho) \\
 &= x_1 x_2 - 2\rho x_1 - \rho x_2  - \rho x_1^2  - \rho x_2^2 + \rho
@@ -39,7 +38,7 @@ When we check if the components $\tilde{y}_0, \tilde{y}_1, \tilde{y}_2, \tilde{y
 \end{align*}
 
 It turns out that naively computing the ``fANOVA decomposition'' under dependent inputs, results in components that lack orthogonality, which is a crucial property for interpretability.
-What we performed in this example is not the fANOVA decomposition for dependent variables but the Hoeffding decomposition \citep{hoeffding1948}.
+What we performed in this example is only a fANOVA-type decomposition, but not the true fANOVA decomposition for dependent inputs
 This shows the need for a more involved approach for a generalization of this method.
 
 \subsubsection{Conditions for Generalized fANOVA}

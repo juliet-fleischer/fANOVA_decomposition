@@ -173,6 +173,161 @@ It comes as no surprise that in this simple case the fANOVA decomposition does n
 We show this simple example nevertheless to illustrate at which step which assumption is used.
 This will make clearer what breaks down when we generalize to dependent variables.
 
+\subsubsection{Equality to Hoeffding Decomposition}
+As we mentioned in \autoref{sec:related_work} the Hoeffding decomposition \citep{hoeffding1948} laid the groundwork for the fANOVA decomposition. Though in the literature, it is now mostly referred to as the fANOVA decomposition, we want to point out that both decompositions yield the same component functions under the independence and zero-mean assumption. Though we provide no formal proof, we want to illustrate this with our running example.
+
+\begin{definition}[Hoeffding decomposition]
+Let $y$ denote a real-valued function on $\mathbb{R}^N$ with independent inputs $X_1, \dots, X_N$. The Hoeffding decomposition of $y$ takes the form \citep{ilidrissi2025}:
+\[
+y(\boldsymbol{X})
+=
+\sum_{A \subseteq D} 
+y_A(\boldsymbol{X}_A),
+\qquad
+D := \{1,\dots,N\},
+\]
+where, for each $A \subseteq D$, the component function $y_A$ is defined by
+\[
+y_A(\boldsymbol{X}_A)
+=
+\sum_{B \subseteq A}
+(-1)^{|A|-|B|}
+\,\mathbb{E}\!\left[
+  y(\boldsymbol{X}) 
+  \,\middle|\, 
+  \boldsymbol{X}_B
+\right].
+\]
+\end{definition}
+
+We can now apply the Hoeffding decomposition to our running example.\par
+
+For $A=\emptyset$ there is only one subset $B=\emptyset$. 
+Plugging into the Hoeffding formula:
+\[
+h_{\emptyset}
+=
+(-1)^{0-0}\,
+\mathbb{E}[h(\boldsymbol{X})]
+=
+\mathbb{E}[h(X_1,X_2)].
+\]
+We compute
+\[
+\mathbb{E}[h(X_1,X_2)]
+= a + \mathbb{E}[X_1] + 2 \mathbb{E}[X_2] 
+  + \mathbb{E}[X_1]\mathbb{E}[X_2]
+= a + \mu_1 + 2\mu_2 + \mu_1\mu_2.
+\]
+
+Next, the subsets of $A=\{1\}$ are $B=\emptyset$ and $B=\{1\}$, so
+\[
+h_{\{1\}}(X_1)
+=
+(-1)^{1-0}\,\mathbb{E}[h(\boldsymbol{X})]
++
+(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_1]
+=
+-\mathbb{E}[h] + \mathbb{E}[h(\boldsymbol{X})|X_1].
+\]
+Since $X_1$ is independent of $X_2$, the conditional expectation is:
+\[
+\mathbb{E}[h(\boldsymbol{X})|X_1]
+= a + X_1 + 2\mu_2 + X_1 \mu_2,
+\]
+so the final expression is given by:
+\[
+h_{\{1\}}(X_1)
+= - (a+\mu_1+2\mu_2+\mu_1\mu_2) + (a+X_1+2\mu_2+X_1\mu_2)
+= (1+\mu_2)(X_1 - \mu_1).
+\]
+
+The subsets of $A=\{2\}$ are $B=\emptyset$ and $B=\{2\}$, so
+\[
+h_{\{2\}}(X_2)
+=
+(-1)^{1-0}\,\mathbb{E}[h(\boldsymbol{X})]
++
+(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_2]
+=
+-\mathbb{E}[h(\boldsymbol{X})] + \mathbb{E}[h(\boldsymbol{X})|X_2].
+\]
+Under independence the conditional expectation is:
+\[
+\mathbb{E}[h(\boldsymbol{X})|X_2]
+= a + \mu_1 + 2X_2 + \mu_1 X_2,
+\]
+which yields the final expression:
+\[
+h_{\{2\}}(X_2)
+= - (a+\mu_1+2\mu_2+\mu_1\mu_2) + (a+\mu_1+2X_2+\mu_1 X_2)
+= (2+\mu_1)(X_2 - \mu_2).
+\]
+
+Finally, the subsets of $A=\{1,2\}$ are 
+$B=\emptyset$, $B=\{1\}$, $B=\{2\}$, $B=\{1,2\}$. 
+We obtain:
+\[
+\begin{aligned}
+&h_{\{1,2\}}(X_1,X_2) \\
+&=
+(-1)^{2-0}\mathbb{E}[h(\boldsymbol{X})]
++(-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_1]
++(-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_2]
++(-1)^{2-2}\mathbb{E}[h(\boldsymbol{X})|X_1,X_2]
+\\
+&=
+\mathbb{E}[h(\boldsymbol{X})]
+-\mathbb{E}[h(\boldsymbol{X})|X_1]
+-\mathbb{E}[h(\boldsymbol{X})|X_2]
++\mathbb{E}[h(\boldsymbol{X})|X_1,X_2].
+\end{aligned}
+\]
+We already know:
+\[
+\mathbb{E}[h(\boldsymbol{X})|X_1,X_2] = h(X_1,X_2) = a + X_1 + 2X_2 + X_1 X_2.
+\]
+Thus:
+\[
+\begin{aligned}
+h_{\{1,2\}}(X_1,X_2)
+&=(a+\mu_1+2\mu_2+\mu_1\mu_2)
+ - (a+X_1+2\mu_2+\mu_2 X_1)
+ - (a+\mu_1+2X_2+\mu_1 X_2) \\
+&\qquad + (a+X_1+2X_2+X_1 X_2) \\
+&= X_1 X_2 - \mu_2 X_1 - \mu_1 X_2 + \mu_1 \mu_2 \\
+&= (X_1 - \mu_1)(X_2 - \mu_2).
+\end{aligned}
+\]
+
+Bringing everything together, the Hoeffding decomposition of $h(X_1,X_2)$ with general means 
+$\mu_1=\mathbb{E}[X_1]$ and $\mu_2=\mathbb{E}[X_2]$ is:
+\[
+h(X_1,X_2)
+=
+h_{\emptyset} + h_1(X_1) + h_2(X_2) + h_{12}(X_1,X_2),
+\]
+with
+\[
+\begin{aligned}
+h_{\emptyset} &= a + \mu_1 + 2\mu_2 + \mu_1\mu_2, \\[0.3em]
+h_1(X_1) &= (1+\mu_2)(X_1 - \mu_1), \\[0.3em]
+h_2(X_2) &= (2+\mu_1)(X_2 - \mu_2), \\[0.3em]
+h_{\{1,2\}}(X_1,X_2) &= (X_1 - \mu_1)(X_2 - \mu_2).
+\end{aligned}
+\]
+
+Under the special case of centred input variables, so $\mathbb{E}[X_1] = \mathbb{E}[X_2] = 0$, the decomposition simplifies to:
+\[
+h_{\emptyset}=a,\quad
+h_{\{1\}}(X_1)=X_1,\quad
+h_{\{2\}}(X_2)=2X_2,\quad
+h_{\{1,2\}}(X_1,X_2)=X_1 X_2,
+\]
+which coincides with the fANOVA terms calculated earlier. The principle of the Hoeffding decomposition is therefore the same as for the fANOVA decomposition, but the fANOVA decomposition is stated in a recursive form, which makes it clear that each effect accounts for the contribution of lower order terms.
+
+
+
 \subsubsection{fANOVA via Projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections.
 For this section the parallel between the (conditional) expected value and orthogonal projections formulated in \cite{Vaart_1998} is crucial.

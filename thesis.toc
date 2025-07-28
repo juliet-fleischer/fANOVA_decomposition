@@ -4,27 +4,28 @@
 \contentsline {subsection}{\numberline {3.1}Classical fANOVA}{6}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Construction of the fANOVA Terms}{8}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Example: Independent Multivariate Normal Inputs}{9}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}fANOVA via Projection}{10}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Variance Decomposition}{12}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}Generalized fANOVA}{15}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Conditions for Generalized fANOVA}{16}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Construction of the Generalized fANOVA Terms}{19}{subsubsection.3.2.2}%
-\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subseteq u \)}{20}{section*.2}%
-\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{20}{section*.3}%
-\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{21}{section*.4}%
-\contentsline {paragraph}{Case: \( u = \emptyset \).}{22}{section*.5}%
-\contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{22}{section*.6}%
-\contentsline {subsubsection}{\numberline {3.2.3}Generalization via Projection}{23}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Generalized Variance Decomposition}{25}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Inputs}{26}{subsubsection.3.2.5}%
-\contentsline {section}{\numberline {4}Visualization and Estimation}{31}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Comparison of Decompositions}{31}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Comparison of Functions}{33}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Scenario: Linear}{33}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Scenario: Linear and Quadratic}{33}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Scenario: Interaction}{34}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Scenario: Full}{36}{subsubsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.3}Estimation of fANOVA components}{38}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion}{41}{section.5}%
+\contentsline {subsubsection}{\numberline {3.1.3}Equality to Hoeffding Decomposition}{10}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}fANOVA via Projection}{12}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Variance Decomposition}{15}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}Generalized fANOVA}{17}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Conditions for Generalized fANOVA}{18}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Construction of the Generalized fANOVA Terms}{21}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subseteq u \)}{22}{section*.2}%
+\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{22}{section*.3}%
+\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{23}{section*.4}%
+\contentsline {paragraph}{Case: \( u = \emptyset \).}{24}{section*.5}%
+\contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{24}{section*.6}%
+\contentsline {subsubsection}{\numberline {3.2.3}Generalization via Projection}{25}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Generalized Variance Decomposition}{27}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Inputs}{28}{subsubsection.3.2.5}%
+\contentsline {section}{\numberline {4}Visualization and Estimation}{33}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Comparison of Decompositions}{33}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Comparison of Functions}{35}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Scenario: Linear}{35}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Scenario: Linear and Quadratic}{35}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Scenario: Interaction}{36}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Scenario: Full}{38}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Estimation of fANOVA components}{40}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{43}{section.5}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{IX}{appendix.B}%
