@@ -5,51 +5,54 @@
 
 \begin{document}
 
-
 \begin{tikzpicture}
-  % Rectangle representing N
-  \draw[thick] (-1.5,-1.5) rectangle (4,2) node[anchor=north east] {$\mathbb{N}$};
+  % Rectangle representing N (lighter, not focus)
+  \draw[gray, thin, opacity=1] (-1.5,-1.5) rectangle (4,2) 
+        node[anchor=north east] {$\mathbb{N}$};
 
-  % Set u
-  \fill[blue!30, opacity=0.6] (0.5,0.2) circle (1.0cm);
-  \node at (0.2,0.2) {$u$};
+  % Set u (ellipse)
+  \draw[thick] (0.5,0.2) ellipse (1.7cm and 1.2cm);
+  \node at (-0.2,0.2) {$u$};
 
-  % Set v with small intersection
-  \fill[red!30, opacity=0.6] (2.0,0.2) circle (1.0cm);
-  \node at (2.5,0.2) {$v$};
+  % Set v (ellipse)
+  \draw[thick] (2.0,0.2) ellipse (1.7cm and 1.2cm);
+  \node at (2.7,0.2) {$v$};
 
-  % Optional: label the intersection
+  % Intersection label
   \node at (1.2,0.2) {$u \cap v$};
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  % Rectangle for N
-  \draw[thick] (-1.5,-1.5) rectangle (4,2) node[anchor=north east] {$\mathbb{N}$};
+  % Rectangle for N (light, not focus)
+  \draw[gray, thin, opacity=1] (-1.5,-1.5) rectangle (4,2) 
+        node[anchor=north east] {$\mathbb{N}$};
 
-  % Set u (outer)
-  \fill[blue!30, opacity=0.6] (1.2, 0.2) circle (1.5cm);
-  \node at (0.2,0.8) {$u$};
+  % Set u (outer ellipse)
+  \draw[thick] (1.2,0.2) ellipse (2.0cm and 1.2cm);
+  \node at (-0.1,0.8) {$u$};
 
   % Set v (nested inside)
-  \fill[red!40, opacity=0.6] (1.2,0.2) circle (0.9cm);
-  \node at (1.3,0) {$v$};
+  \draw[thick] (1.2,0.2) ellipse (1.0cm and 0.6cm);
+  \node at (0.8,0.2) {$v$};
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  % Rectangle for N
-  \draw[thick] (-1.5,-1.5) rectangle (4,2) node[anchor=north east] {$\mathbb{N}$};
+  % Rectangle for N (lighter, not focus)
+  \draw[gray, thin, opacity=1] (-1.5,-1.5) rectangle (4,2)
+        node[anchor=north east] {$\mathbb{N}$};
 
-  % Set u (left)
-  \fill[blue!30, opacity=0.6] (-0.2,0.2) circle (1.0cm);
-  \node at (-0.7,0.2) {$u$};
+  % Set u (left, ellipse)
+  \draw[thick] (-0.2,0.2) ellipse (1cm and 0.8cm);
+  \node at (-0.8,0.2) {$u$};
 
-  % Set v (right), disjoint from u
-  \fill[red!40, opacity=0.6] (2.6,0.2) circle (1.0cm);
-  \node at (3.0,0.2) {$v$};
+  % Set v (right, ellipse, disjoint from u)
+  \draw[thick] (2.7,0.2) ellipse (1cm and 0.8cm);
+  \node at (3.2,0.2) {$v$};
 
-  % Index i inside v
-  \node at (2.5,-0.2) {$i$};
+  % Example index i inside v (optional)
+  % \node at (2.5,-0.2) {$i$};
 \end{tikzpicture}
+
 
 
 

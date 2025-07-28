@@ -1,10 +1,10 @@
-\subsubsection{Motivating Example}
+\subsection{Generalized fANOVA}
 For the classical fANOVA we make the assumption of independent inputs, which is often violated in practice. In the remainder of this section, we therefore investigate what happens, when we allow for dependency between variables. First, let us test with our running example:
 \[
-h(x_1, x_2) = a + X_1 + 2X_2 + X_1 X_2,
+h(X_1, X_2) = a + X_1 + 2X_2 + X_1 X_2,
 \]
 
-\subsubsection{Case 2: Dependent Inputs}
+% \subsubsection{fANOVA and the Hoeffding Decomposition}
 Now $\rho\neq 0$, while keeping everything else the same. When we follow the exact same logic as above we obtain the following terms:
 \begin{align*}
 \tilde{y}_{\emptyset} &= \mathbb{E}[g(X_1, X_2)] 
@@ -42,7 +42,8 @@ It turns out that naively computing the ``fANOVA decomposition'' under dependent
 What we performed in this example is not the fANOVA decomposition for dependent variables but the Hoeffding decomposition \citep{hoeffding1948}.
 This shows the need for a more involved approach for a generalization of this method.
 
-\subsection{Generalized fANOVA}
+\subsubsection{Conditions for Generalized fANOVA}
+% \subsection{Generalized fANOVA}
 % We base this chapter mainly on the generalization of \cite{rahman2014}, while there exists other work from \cite{hooker2007} or \cite{chastaing2012}. (Write this a bit more detailed: \cite{hooker2007} proofed existence of generalized fANOVA components, proposed estimation scheme, \cite{rahman2014} writes this in more general and measure theoretic fashion and proposes different estimation scheme that he argues is more feasible for high dimensions etc. read more in intro of \cite{rahman2014}; \cite{hooker2007} seems to be viewed as the first one who attempted a generalization to dependent inputs of the entire fANOVA decomposition framework, not just the Sobol indices, and he was inspired by \cite{stone1994}).\par
 
 % As our example illustrated, the classical definition of fANOVA breaks down under dependent inputs.
@@ -210,6 +211,25 @@ $-u \setminus (v \cap -u)$,
 resulting in the marginal density 
 $f_{v \cap -u}(\boldsymbol{x}_{v \cap -u})$.
 
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+  % Rectangle representing N (lighter, not focus)
+  \draw[black, thin, opacity=1] (-1.5,-1.5) rectangle (4,2) 
+        node[anchor=north east] {$\mathbb{N}$};
+
+  % Set u (ellipse)
+  \draw[thick] (0.5,0.2) ellipse (1.7cm and 1.2cm);
+  \node at (-0.2,0.2) {$u$};
+
+  % Set v (ellipse)
+  \draw[thick] (2.0,0.2) ellipse (1.7cm and 1.2cm);
+  \node at (2.7,0.2) {$v$};
+
+  % Intersection label
+  \node at (1.2,0.2) {$u \cap v$};
+\end{tikzpicture}
+\end{center}
+
 \paragraph{Case 2: $v \cap u \ne \emptyset \text{ and } v \subseteq u$.}
 Since the sets $v$ and $-u$ are then completely disjoint, $y_{v,G}(\boldsymbol{x}_v)$ is independent of $\boldsymbol{x}_{-u}$ and can be pulled out of the integral:
 \[
@@ -218,6 +238,22 @@ Since the sets $v$ and $-u$ are then completely disjoint, $y_{v,G}(\boldsymbol{x
 = y_{v,G}(\boldsymbol{x}_v),
 \]
 which works because $f_{-u}$ integrates to one.
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+  % Rectangle for N (light, not focus)
+  \draw[black, thin, opacity=1] (-1.5,-1.5) rectangle (4,2) 
+        node[anchor=north east] {$\mathbb{N}$};
+
+  % Set u (outer ellipse)
+  \draw[thick] (1.2,0.2) ellipse (2.0cm and 1.2cm);
+  \node at (-0.1,0.8) {$u$};
+
+  % Set v (nested inside)
+  \draw[thick] (1.2,0.2) ellipse (1.0cm and 0.6cm);
+  \node at (0.8,0.2) {$v$};
+\end{tikzpicture}
+\end{center}
 
 \paragraph{Case 3: \( v \cap u = \emptyset \).}
 In this case, we have \( v \subseteq -u \), so \( v \cap -u = v \). Then we can write:
@@ -234,6 +270,24 @@ d \nu(\boldsymbol{x}_v) \\
 \end{aligned}
 \]
 while we again split the interval in such a way that we recognize the marginal density $f_v$ and make use of the zero mean property from the strong annihilating conditions.
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+  % Rectangle for N (lighter, not focus)
+  \draw[black, thin, opacity=1] (-1.5,-1.5) rectangle (4,2)
+        node[anchor=north east] {$\mathbb{N}$};
+
+  % Set u (left, ellipse)
+  \draw[thick] (-0.2,0.2) ellipse (1cm and 0.8cm);
+  \node at (-0.8,0.2) {$u$};
+
+  % Set v (right, ellipse, disjoint from u)
+  \draw[thick] (2.7,0.2) ellipse (1cm and 0.8cm);
+  \node at (3.2,0.2) {$v$};
+
+  % Example index i inside v (optional)
+  % \node at (2.5,-0.2) {$i$};
+\end{tikzpicture}
+\end{center}
 
 \end{proof}
 
@@ -347,7 +401,7 @@ As a final step, we only have to write \( v = (v \cap u) \cup (v \cap -u) \) to 
 \end{proof}
 
 % Alternative definition of components by Hooker
-\subsubsection{Alternative Definition of Generalized fANOVA Components}
+\subsubsection{Generalization via Projection}
 \cite{hooker2007} approaches his generalization of the fANOVA decomposition from the angle of orthogonal projections. Instead of the more recursive definition of the components functions as in \cite{rahman2014}, he defines the fANOVA components as a joint set which simultaneously minimizes the squared difference to the original function $y$ under certain constraints.
 The constraints he sets for the optimization problem should ensure that the generalized components satisfy the desired properties of zero mean and hierarchical orthogonality.
 
@@ -426,14 +480,19 @@ Hooker approaches his generalization through the lense of projections while Rahm
 This makes it in general difficult to compute the generalized fANOVA components analytically, even for simple functions.
 
 
-\subsubsection{Second-moment statistics}
-Given that the fANOVA decomposition changes under dependent inputs, it is interesting to examine what happens to the variance decomposition in this case.
-The mean of $y$ remains unchanged and is still given by the constant term \( y_{\emptyset,G} \). In contrast, the variance decomposition looks different, as cross-terms do not cancel out anymore.
-Given $ \emptyset \neq u \subseteq \{1,\dots,N\}$ and $\emptyset \neq v \subseteq \{1,\dots,N\}$, we have:
+\subsubsection{Generalized Variance Decomposition}
+Given that the fANOVA decomposition changes under dependent inputs, we briefly make an adjustment to the second-moment statistics of the generalized fANOVA decomposition.
+The mean of $y$ remains unchanged and is still given by the constant term \( y_{\emptyset,G} \), i.e.
+\[
+\mu_G := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset,G}.
+\]
+
+In contrast, the variance decomposition looks different, as cross-terms of the same order do not vanish under hierarchical orthogonality.
+For $ \emptyset \neq u \subseteq \{1,\dots,N\}$, $\emptyset \neq v \subseteq \{1,\dots,N\}$, $u \neq v$ we restate from above:
 \begin{align}
 \sigma^2 
-&:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu \right)^2 \right] \notag \\
-&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - \mu \right)^2 \right] \notag \\
+&:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu_G \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - y_{\emptyset,G} \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( \sum_{u} y_{u,G}(\boldsymbol{X}_u) \right)^2 \right] \notag \\
 &= \sum_{u} \mathbb{E} \left[ y_{u,G}^2(\boldsymbol{X}_u) \right]
 + \sum_{\substack{u \not\subseteq v,\, v \not\subseteq u}} 
@@ -441,11 +500,11 @@ Given $ \emptyset \neq u \subseteq \{1,\dots,N\}$ and $\emptyset \neq v \subsete
 \end{align}
 while the first sum in the final line goes over all nonempty subsets $u$ and the second sum goes over all pairs of subsets $(u, v)$ where neither is a subset of the other one.
 Conceptually this means that the first term is the sum of the variances of the components, while the second term is the sum of the covariances between components that are not hierarchically orthogonal.
-The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. For the classical fANOVA decomposition, the second term is zero for any relationship between $u$ and $v$, and we are left with only the sum of the individual variances.
+The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. As we saw earlier, cross-terms of the same hierarchy also cancel out under the orthogonality assumption of the classical fANOVA.
 
 
 
-\subsubsection{Correction of the Example: Dependent Multivariate Normal Inputs}
+\subsubsection{Example: Dependent Multivariate Normal Inputs}
 For the end of this section, it remains to answer how the true generalized fANOVA decomposition looks like for our running example.
 While the interdependence of the generalized components makes it difficult to arrive at an analytical solution, \cite{rahman2014} provides a way to obtain the closed-from solution for any polynomial of maximum two degree under normally distributed input variables.\par
 

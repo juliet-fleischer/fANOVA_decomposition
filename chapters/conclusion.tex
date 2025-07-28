@@ -1,6 +1,6 @@
 % Recaps of what I did
 % 1. gave historical context of fANOVA by showing origins of the method and how it evolved over time
-We started by working through the historical context of the fANOVA decomposition. We explored the origins of the fANOVA method rooted in mathematical work by \cite{hoeffding1948} and \cite{sobol1993sensitivity}. We saw how the method was picked up by following researchers in different contexts.
+% We started by working through the historical context of the fANOVA decomposition. We explored the origins of the fANOVA method rooted in mathematical work by \cite{hoeffding1948} and \cite{sobol1993sensitivity}. We saw how the method was picked up by following researchers in different contexts.
 
 % 2. formal introduction, to classical fANOVA
 % synthesise multiple sources into one clean, general but not 
@@ -28,12 +28,37 @@ We started by working through the historical context of the fANOVA decomposition
 
 % approximation of fANOVA done via sampling, lagrange multiplier etc.
 
-Clear contribution of this work: brought clarity and unity to the various different formulations of fANOVA. We see trend in recent ML literature (cite all these ML papers with the fancy models), pick up the methods but the theoretical background and clean formalism often left aside. This work serves as a reference to practitioners who seek a unified and clean formalization of the fANOVA method.
-Filled the void of visualizations and intuitions around the method due to the lack of software implementations.
+The fANOVA decomposition is a foundation method that has been studied from many perspectives, with recent interest driven by its potential in model interpretability. Its key strength lies in producing terms that represent the unique contribution of each variable or interaction, cleanly separated from one another without mixing effects.\par
 
-Outlook, work that could follow from this thesis:
-Examine the different approaches to estimate fANOVA components (how do they scale? what is their accuracy? etc.)
-Write software implementation for fANOVA decomposition; current landscape is sparse but the method has great potential for IML; with current practicability it is however clear that fANOVA will not be accepted, it is not convenient to use the method
-fANOVA powerful theory, sound mathematical foundation, but without standardized software implementation application to IML difficult.
-Parallels to Shapley values, unified under a game theoretic approach; \cite{fumagalli2025} recently established this parallel, would be very interesting to investigate further.
+Despite being established in the literature, we found a lack of unified formalization and notational clarity in the literature, which we aimed to address in this work.\par
+
+We began by revisiting the classical fANOVA decomposition, bridging Sobols initial formulation with more recent developments. We filled small gaps in mathematical proofs and established a direct connection to conditional expectations and orthogonal projections, which we argue is key to unifying different existing notations and formal approaches. Alongside the functional decomposition, we presented the variance decomposition, which underpins Sobol indices and links the fANOVA structure to sensitivity analysis.\par
+
+Next, we extended the decomposition to dependent input variables. Here, multiple approaches exist; we focused on the frameworks of \cite{hooker2007} and \cite{rahman2014}. Using an illustrative example, we encountered the close relation between the fANOVA and Hoeffding decompositions and demonstrated that obtaining interpretable fANOVA components under dependence requires careful constraint selection. We also noted that closed-form solutions for the generalized components are difficult to obtain in practice and remain an open problem. Nevertheless, the associated variance decomposition still holds, allowing for the construction of generalized Sobol indices.\par
+
+To complement the theoretical work, we visualized fANOVA components for simple polynomial functions with Gaussian inputs. These visualizations illustrated how fANOVA separates effects, but were limited to simple functions and Gaussian inputs.\par
+
+This work did not present a full numerical treatment of Sobol indices, only touching on variance decomposition as their foundation. Our empirical demonstrations were restricted to toy problems; applying fANOVA in practice will require estimation methods suitable for trained models on real data. We also briefly mentioned the ability of fANOVA to purify interaction effects \citep{lengerich2020} and its relation to other interpretability techniques (e.g., PD, Shapley values \citep{fumagalli2025}) but did not explore these connections in depth.\par
+
+Future work could extend Rahman’s polynomial expansion approach to more complex polynomials and non-Gaussian input distributions, and further investigate mathematical connections to other interpretability frameworks.
+Additionally, a lack of publicly available software for performing fANOVA remains a barrier to its widespread adoption, so developing robust, open-source implementations would be an important step toward enabling its use in practical model interpretability.
+
+% Recap: fANOVA is a foundation method studied from many perspectives; most recently researchers caught interest in fANOVA for its potential in model interpretability - what makes it special is that the fANOVA terms represent the unique contribution of each variable or interaction - they are cleanly separated from each other and do not mix up.
+% Though so widely used we found a lack of unified formalization and notational clarity, which we hope to have provided with this work.\par
+% We started with the classical fANOVA decomposition; well-known in literature \cite{rahman2014} but we filled some small gaps in mathematical proofs, and wrote out the paralel to conditional expected value and orthogonal projections, which is the key to unifying different notations and approaches to the formalization of fANOVA.
+% We briefly adressed the variance decomposition, which goes hand in hand with the functional decomposition and is the foundation of Sobol indices.\par
+% We then generalized the fANOVA decomposition to dependent inputs. Here different approaches exist, and we focused on the work by \cite{hooker2007} and \cite{rahman2014}. Based on an example we saw that the fANOVA decomposition is closely related to Hoeffding decomposition and to obtain the real fANOVA components under independence with their clear interpretation it is necessary to construct a careful set of constraints.
+% Obtaining a closed form solution for the generalized components is challenging in most cases and remains an open problem. Though more complex the variance decomposition still works in principle and allows for the construction of generalized Sobol indices.\par
+% Lastly, we experimented with visualizing the fANOVA components of different functions, while we stayed within the realm of two degree polynomials with Gaussian inputs.\par
+% % Limitations of this work:
+% % did not really present Sobol indices, only mentioned the variance decomposition
+% % Illustrated fANOVA with toy example in really limited setting; would be intersting to train a model on real data and really apply fANOVA decomposition; for this however we need an estimation approach
+% % In the final section it was elluded briefly: fANOVA and how it can purify interactions, did not go into depth but this is an interesting topic highly relevant to fANOVA and interpretability
+% % Briefly contrasted fANOVA to other IML methods here and there but did not formally compare to other methods; would be very interesting to examine this from a mathematical pespective: direct connection to partial dependence and recent work also shows mathematical connection to Shapley values \cite{fumagalli2025}.
+% For future work it would be interesting to study the extension of Rahman's polynomial expansion approach for other distribution assumptions and more complex polynomials. Moreover, as we argued in the end, there is a lack of software implementations for fANOVA decomposition, which is a barrier to its application in model interpretability.
+
+
+% fANOVA powerful theory, sound mathematical foundation, but without standardized software implementation application to IML difficult.
+% Parallels to Shapley values, unified under a game theoretic approach; \cite{fumagalli2025} recently established this parallel, would be very interesting to investigate further.
+% Use Rahmans methods and extend it to different distribution assumptions.
 

@@ -4,7 +4,7 @@
 \usepackage[]{color}
 \usepackage{alltt}
 
-\newcommand{\mytitle}{fANOVA for Interpretable Machine Learning}
+\newcommand{\mytitle}{Functional ANOVA Decomposition for Model Interpretability}
 \newcommand{\myname}{Juliet Fleischer}
 \newcommand{\mysupervisor}{Prof. Dr. Thomas Nagler}
 
@@ -22,6 +22,7 @@ bindingoffset = 0mm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{textcmds}
 \usepackage{subcaption}
+\usepackage{wrapfig}
 \usepackage{tikz}
 \usetikzlibrary{shapes, positioning}
 \newcommand{\changefont}{%
@@ -83,7 +84,7 @@ Ludwig-Maximilians-Universität München
 \vfill
 
 \large
-Munich, Month Day\textsuperscript{th}, Year
+Munich, July 31\textsuperscript{th}, 2025
       
 \vfill
 
@@ -108,7 +109,7 @@ Supervised by \mysupervisor
 \begin{abstract}
 
 This article studies the functional ANOVA decomposition (fANOVA) in the context of model interpretability.
-We start with the historical background and providing context to how the method has evolved over time and is used in different domains.
+We start by providing context to fANOVA-related literature.
 This is followed by the formal definition of the method, where we distinguish between the classical fANOVA, which assumes independent inputs, and the generalized fANOVA, which allows for dependency between variables.
 For both cases, we unite different notations and approaches to the formalization of fANOVA. When generalizing fANOVA to dependent inputs, we encounter the Hoeffding decomposition, which is closely related to fANOVA. Illustrated by examples we clearly distinguish between both methods and experiment with visualizing the decomposition of different functions. We conclude with some words on current estimation approaches and suggestions for future work.
 \end{abstract}

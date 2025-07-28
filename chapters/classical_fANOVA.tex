@@ -99,7 +99,7 @@ As we have seen, the fANOVA terms are ``fully orthogonal'' to each other, meanin
 
 % And this is how the components finally look like
 \subsubsection{Construction of the fANOVA Terms}
-The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
+The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t. all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which makes sense as we are then left with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
 Since $u = \emptyset$ for the constant term, we integrate w.r.t. all variables:
 \begin{equation}
     y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{X_i}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
@@ -114,7 +114,7 @@ Notice that this definition relies on a product-type measure rooted in the indep
 As suggested earlier, the fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML and XAI literature, holding the potential for a global model-agnostic explanation method of black box models.\par
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
-\subsubsection{Running Example: Multivariate Normal Inputs}
+\subsubsection{Example: Independent Multivariate Normal Inputs}
 
 Throughout this thesis, we will use the following simple function as a running example:
 \[
@@ -147,9 +147,8 @@ and the conditional distributions are given by
 X_1 \mid X_2=x_2 \sim \mathcal{N}(\rho x_2, 1-\rho^2), \quad
 X_2 \mid X_1=x_1 \sim \mathcal{N}(\rho x_1, 1-\rho^2).
 \]
-This example will allow us to compute and compare the classical and generalized fANOVA decompositions for different correlation structures.
+This example will allow us to compute and compare the classical and generalized fANOVA decompositions for different correlation structures.\par
 
-\subsubsection{Case 1: Independent Inputs}
 The classical fANOVA decomposition we covered so far assumes independence, i.e., $\rho = 0$. 
 Here, $X_1$ and $X_2$ are independent and standard normal, so the conditional means vanish, and the classical fANOVA decomposition simplifies considerably. 
 Computing the constant component via expectation gives:
@@ -174,7 +173,7 @@ It comes as no surprise that in this simple case the fANOVA decomposition does n
 We show this simple example nevertheless to illustrate at which step which assumption is used.
 This will make clearer what breaks down when we generalize to dependent variables.
 
-\subsubsection{fANOVA as projection}
+\subsubsection{fANOVA via Projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections.
 For this section the parallel between the (conditional) expected value and orthogonal projections formulated in \cite{Vaart_1998} is crucial.
 Having this perspective on the fANOVA decomposition is useful helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA later in this section. First we define generally what an orthogonal projection is, and then we will use the idea in the context of fANOVA.\par
@@ -240,33 +239,69 @@ The first equivalence in each formulation is simply the definition in each origi
 
 
 % further analysis of the model via fANOVA decomposition --> variance decomposition
-\subsubsection{Second-moment statistics}
-No handbook on fANOVA is complete without at least mentioning \textit{Sobol indices}. This requires us to observe the second moment statistics of the decomposition. We already established that:
-$$\mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
+\subsubsection{Variance Decomposition}
+Studying the second moments of  a function through the lens of the fANOVA decomposition can be useful, especially with regard to the construction of Sobol indices. This requires us to observe the second moment statistics of the decomposition. We already established that:
+$$ \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
 
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition.
 We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
 The variance of $y$ is then given by:
 \begin{align*}
-    \sigma^2 := \mathbb{E}[(y(\boldsymbol{X}) - \mu])^2]
-    &= \mathbb{E}[(y_{\emptyset} + \sum_{u} y_u({\boldsymbol{X}_u}) - y_{\emptyset})^2] \\
-    &= \mathbb{E}[(\sum_{u} y_u({\boldsymbol{X}_u}))^2] \\
-    &= \mathbb{E}[\sum_{u} y_u^2({\boldsymbol{X}_u})] + 2 \mathbb{E}[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] \\
-    & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})]
+\sigma^2 
+&:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu_G \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - y_{\emptyset,G} \right)^2 \right] \notag \\
+&= \mathbb{E} \left[ \left( \sum_{u} y_{u,G}(\boldsymbol{X}_u) \right)^2 \right] \notag \\
+&= \sum_{u} \mathbb{E} \left[ y_{u,G}^2(\boldsymbol{X}_u) \right]
++ 2 \mathbb{E}[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] \\
+    & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})],
 \end{align*}
+where all the cross-terms vanish due to the orthogonality of the fANOVA terms, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
+This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA terms.\par
 
-We can verify that the variance decomposition holds for our example:
+We can verify that the variance decomposition holds for our example. This means, we verify that the following expression is true:
+\[
+  \operatorname{Var}\big(h(X_1,X_2)\big)
+  = \mathbb{E}\big[y_1^2(X_1)\big]
+  + \mathbb{E}\big[y_2^2(X_2)\big]
+  + \mathbb{E}\big[y_{12}^2(X_1,X_2)\big]
+\]
+for the function
+\[
+  h(X_1,X_2) = a + X_1 + 2X_2 + X_1 X_2 ,
+\]
+where $X_1,X_2$ are independent with zero mean and unit variance.
+
+We start with the left-hand side and compute the variance of $h(X_1,X_2)$.
 \begin{align*}
-    Var(a + X_1 + 2X_2 + X_1 X_2) &= Var(X_1) + 4Var(X_2) + Var(X_1X_2) + 2\mathcal{Cov}(X_1, X_2) \\
-    &= 1 + 4 \cdot 1 + 1 \cdot 1 + 2 \cdot 0 = 6 \\
-    &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2]\mathbb{E}[X_2^2] + 2\mathcal{Cov}(X_1, X_2) \\
-    &= \mathbb{E}[X_1^2] + 4\mathbb{E}[X_2^2] + \mathbb{E}[X_1^2X_2^2] \\
-    &= \mathbb{E}[y_1^2(X_1)] + \mathbb{E}[y_2^2(X_2)] + \mathbb{E}[y_{12}^2(X_1, X_2)] \\
+\operatorname{Var}\big(h(X_1,X_2)\big)
+&= \operatorname{Var}(a + X_1 + 2X_2 + X_1X_2) \\
+&= \operatorname{Var}(a) + \operatorname{Var}(X_1) + 4\operatorname{Var}(X_2)
+   + \underbrace{\operatorname{Var}(X_1X_2)}_{(\star)}
+   + 2\,\operatorname{Cov}(X_1,2X_2) \\
+&= 0 + 1 + 4 \cdot 1 + 1 \cdot 1 + 2\cdot 0 = 6, \\[0.3em]
+(\star)\;\operatorname{Var}(X_1X_2)
+&= \mathbb{E}[X_1^2 X_2^2] - \big(\mathbb{E}[X_1 X_2]\big)^2 \\
+&=\mathbb{E}[X_1^2]\,\mathbb{E}[X_2^2]
+   - \big(\mathbb{E}[X_1]\,\mathbb{E}[X_2]\big)^2 \\
+&= (\operatorname{Var}(X_1)+\mathbb{E}[X_1]^2)\,
+   (\operatorname{Var}(X_2)+\mathbb{E}[X_2]^2) - 0 \\
+&= 1\cdot 1 = 1.
 \end{align*}
-Studying the variance of the decomposition was the main focus in early works on this method (see e.g. \cite{sobol1993sensitivity}).
-From the variance decomposition \cite{sobol1993sensitivity} construct the \textit{Sobol indices}, which are well-known in sensitivity analysis. As it is only one application of the fANOVA decomposition, we will not go into depth here, but we should keep in mind that the presentation of fANOVA is closely linked to the Sobol indices in many works.
-% Second variant of variance decomposition formulated via the expected value
-% I could first show this and then show in a Lemma that if the expected value of y^2(X) exists (is smaller than \infinity) then the expected value of y_u^2(X_u) also exists, this would essentially be the translation from Sobols L^2 statement to the expected value wouldn't it?
+For $(\star)$ we used the fact that independence of any measurable map of $X_1$ and $X_2$ follows from independence of $X_1$ and $X_2$ for the second line, and the definition of the variance for the third line.
+
+Next, we go in the other direction and start from the sum of the variances of the fANOVA terms.
+Their variances are given by:
+\[
+\mathbb{E}[y_1^2(X_1)] = \mathbb{E}[X_1^2] = 1,\quad
+\mathbb{E}[y_2^2(X_2)] = \mathbb{E}[(2X_2)^2] = 4,\quad
+\mathbb{E}[y_{12}^2(X_1,X_2)] = \mathbb{E}[(X_1 X_2)^2] = 1.
+\]
+Therefore, summing everything up we obtain:
+\[
+ \mathbb{E}[y_1^2(X_1)] + \mathbb{E}[y_2^2(X_2)] + \mathbb{E}[y_{12}^2(X_1,X_2)] 
+ = 1 + 4 + 1 = 6
+ = \operatorname{Var}\big(h(X_1,X_2)\big).
+\]
 
 
 

@@ -109,7 +109,7 @@ The function $g_1$ can solely be described by linear main effects (\autoref{fig:
 \end{figure}
 
 
-\subsubsection{Scenario: Mixed, only main}
+\subsubsection{Scenario: Linear and Quadratic}
 Slightly more complex is a two-degree polynomials, which allow for effects of linear and quadratic nature:
 \[
 g_2(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2.
@@ -160,7 +160,7 @@ The coefficients of the quadratic terms determine whether the parabola is facing
     \label{fig:mixed_main_effects}
 \end{figure}
 
-\subsubsection{Scenario: Interaction only}
+\subsubsection{Scenario: Interaction}
 Next, we consider a model, which solely consists of an interaction term:
 $$g_3(x_1, x_2) = a_{12} x_1 x_2.$$
 The fANOVA components for $g_3$ are given by:
@@ -229,7 +229,7 @@ The main effects have the same form for every case of $\rho$ and $a_{12}$ and th
     \label{fig:interaction_combined}
 \end{figure}
 
-\subsubsection{Scenario: All}
+\subsubsection{Scenario: Full}
 Finally, a full example, including all main and interaction effects:
 $$g_4(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
@@ -307,7 +307,7 @@ In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlati
     \label{fig:all_pair_02}
 \end{figure}
 
-\subsubsection{Estimation of fANOVA components}
+\subsection{Estimation of fANOVA components}
 This was all pretty theoretical and the examples we used foster understanding, but they are toy examples and in reality the true function is unknown and more complex. So to become a more widely used, established interpretability method, an estimation scheme is inevitable.
 % Here we briefly present two estimation approaches by \cite{hooker2004, hooker2007},
 We already encountered one estimation scheme proposed by \cite{rahman2014} when computing the generalized fANOVA components for our running example; we refer to \autoref{sec:formalization_fANOVA} the conceptual idea behind it.
