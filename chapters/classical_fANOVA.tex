@@ -40,13 +40,11 @@ In any case, we assume that the coordinates $X_1, \dots , X_N$ are independent o
 Under independence, we work with a product-type probability measure of $\boldsymbol{X}$ given by \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu(x_i)\), where \(f_{\{i\}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ with a bounded or an unbounded support on $\mathbb{R}$.
 
 Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA terms to be well-defined and interpretable.
-\begin{condition}[Strong annihilating conditions, \citep{rahman2014}]
+\begin{condition}[Strong annihilating conditions, \citep{rahman2014}]\label{cond:strong_annihilating_conditions}
     For the classical fANOVA decomposition we require, that all the nonconstant component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, i.e.
 \begin{equation}
     \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i) \, d\nu(x_i) = 0 \quad \text{for} \ i \in u \neq \emptyset.
-    \label{eq:strong_annihilating_conditions}
 \end{equation}
-\label{cond:strong_annihilating_conditions}
 \end{condition}
 
 \begin{proposition}
@@ -119,9 +117,9 @@ As suggested earlier, the fANOVA components offer a clear interpretation of the 
 \subsubsection{Example: Independent Multivariate Normal Inputs}
 
 Throughout this thesis, we will use the following simple function as a running example:
-\[
-h(x_1, x_2) = a + X_1 + 2X_2 + X_1 X_2,
-\]
+\begin{align}\label{eq:running_example}
+    h(x_1, x_2) = a + x_1 + 2x_2 + x_1 x_2,
+\end{align}
 which contains both main effects and an interaction term. 
 
 We assume the input vector 
@@ -177,21 +175,21 @@ This will make clearer what breaks down when we generalize to dependent variable
 
 \subsubsection{Equality to Hoeffding Decomposition}
 As we mentioned in \autoref{sec:related_work} the Hoeffding decomposition \citep{hoeffding1948} laid the groundwork for the fANOVA decomposition.
-Here, we want to point out that both decompositions yield the same component functions under the assumption of independent and zero-centered inputs. Though we provide no formal proof, we want to illustrate this with our running example.
+Here, we want to point out that both decompositions yield the same component functions under the assumption of independent and zero-centered inputs. Though we provide no formal proof, we want to illustrate this with our running example from \autoref{eq:running_example}.
 
-\begin{definition}[Hoeffding decomposition]
+\begin{definition}[Hoeffding decomposition]\label{def:hoeffding_decomposition}
 Let $y$ denote a real-valued function on $\mathbb{R}^N$ with independent inputs $X_1, \dots, X_N$. The Hoeffding decomposition of $y$ takes the form \citep{ilidrissi2025}:
-\[
-y(\boldsymbol{X})
+\begin{align}
+    y(\boldsymbol{X})
 =
 \sum_{A \subseteq D} 
 y_A(\boldsymbol{X}_A),
 \qquad
 D := \{1,\dots,N\},
-\]
+\end{align}
 where, for each $A \subseteq D$, the component function $y_A$ is defined by
-\[
-y_A(\boldsymbol{X}_A)
+\begin{align}
+    y_A(\boldsymbol{X}_A)
 =
 \sum_{B \subseteq A}
 (-1)^{|A|-|B|}
@@ -200,13 +198,13 @@ y_A(\boldsymbol{X}_A)
   \,\middle|\, 
   \boldsymbol{X}_B
 \right].
-\]
+\end{align}
 \end{definition}
 
-We can now apply the Hoeffding decomposition to our running example.\par
+We can now apply the Hoeffding decomposition to our running example from \autoref{eq:running_example}.\par
 
 For $A=\emptyset$ there is only one subset $B=\emptyset$. 
-Plugging into the Hoeffding formula:
+Substituting this into \autoref{def:hoeffding_decomposition} we obtain:
 \[
 h_{\emptyset}
 =
@@ -335,16 +333,16 @@ In the following we revisit the fANOVA decomposition from the view of orthogonal
 For this section the parallel between the (conditional) expected value and orthogonal projections formulated in \cite{Vaart_1998} is crucial.
 Having this perspective on the fANOVA decomposition helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA later in this section. First we define generally what an orthogonal projection is, and then we will use the idea in the context of fANOVA.\par
 
-\begin{definition}
+\begin{definition}[Orthogonal Projection]\label{def:orthogonal_projection}
     Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $y$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}y$ which minimizes the distance to $y$ in $\mathcal{L}^2$ \citep{nagler2024mathstat}:
-\[
-\Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
-= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y - g)^2].
-\]
+\begin{align}
+    \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
+\end{align}
 \end{definition}
 
 When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g_0(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$.\par
-In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write:
+In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write for the constant term $y_{\emptyset}$:
 \begin{align*}
     \Pi_{\mathcal{G}_0}y
     &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ % here we still focus on the functions (function space view)
@@ -352,7 +350,7 @@ In a probabilistic context, we want to minimize the expected squared different b
     &= \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}
 \end{align*}
 The main effect $y_{\{i\}}(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$, i.e. $\mathcal{G}_i = \{g(x) = g_{\{i\}}(x_i)\}$. There is no need for additional constraints since subtracting lower order terms ensures that orthogonality and zero-mean are fulfilled.
-The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}:
+The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}. Thus, for the main effect $y_{\{i\}}(x_i)$  we can write:
 \begin{align*}
     (\Pi_{\mathcal{G}_i}y)(.) - y_{\emptyset}
     &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_{\{i\}}\|^2 - y_{\emptyset}\\
@@ -362,10 +360,10 @@ The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$
 
 The two-way interaction effect $y_{\{i,j\}}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{\{i,j\}}(x_i, x_j)\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
 \begin{align*}
-    (\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.))
+    &(\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.)) \\
     &= \arg \min_{g_{\{i,j\}} \in \mathcal{G}_{ij}} \|y - g_{\{i,j\}}\|^2 - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.))\\
     &= \arg \min_{g_{\{i,j\}} \in \mathcal{G}_{ij}} \mathbb{E}[(y(\boldsymbol{X}) - g_{\{i,j\}}(., .))^2] - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.))\\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = x_j, X_i = x_i] - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.)) = y_{\{i,j\}}(.;.)
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_j = ., X_i = .] - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.)) = y_{\{i,j\}}(.;.)
 \end{align*}
 
 In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ and the subspace $\mathcal{G}_u = \{g(\boldsymbol{x}) = g_u(\boldsymbol{x}_u)\}$:
@@ -373,7 +371,7 @@ In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ a
     (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
     &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - \sum_{v \subsetneq u} y_v(.)\\
     &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
-    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = x_u] - \sum_{v \subsetneq u} y_v(x) = y_u(.),
+    &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.),
 \end{align*}
 which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.\par
 On this note, we want to highlight that instead of subtracting the lower order terms from the projection, it is just as valid to first subtract lower order terms and project $y$ on what is left.
@@ -404,15 +402,17 @@ $$ \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition.
 We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
 The variance of $y$ is then given by:
-\begin{align*}
+\begin{align}
 \sigma^2 
 &:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu_G \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - y_{\emptyset,G} \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( \sum_{u} y_{u,G}(\boldsymbol{X}_u) \right)^2 \right] \notag \\
 &= \sum_{u} \mathbb{E} \left[ y_{u,G}^2(\boldsymbol{X}_u) \right]
-+ 2 \mathbb{E}[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] \\
-    & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})],
-\end{align*}
++ 2 \mathbb{E}\!\left[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})\right]
+\label{eq:variance_expansion} \\ 
+& = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})], \notag
+\end{align}
+
 where all the cross-terms vanish due to the orthogonality of the fANOVA terms, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
 This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA terms.\par
 

@@ -1,6 +1,6 @@
 In the final section of this thesis, we will explore the fANOVA decomposition visually. This will provide a better understanding for how fANOVA components behave in different scenarios. We will first revisit our running example and then explore some other functions.
 \subsection{Comparison of Decompositions}
-Recall our running example:
+Recall our running example (\autoref{eq:running_example}):
 $$h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2,$$
 with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$.
 Under independent inputs ($\rho = 0$), the fANOVA components are given by:
@@ -79,7 +79,7 @@ These are visualized in \autoref{fig:running_ex_dependent}.
     \label{fig:running_ex_dependent}
 \end{figure}
 Interestingly, the parabolic form of the main effects is similar between both decompositions, but the interaction effects diverge notably.\par
-Our running example included linear effects of both input variables and the interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
+Our running example (\autoref{eq:running_example}) included linear effects of both input variables and the interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
 
 \subsection{Comparison of Functions}
 \subsubsection{Scenario: Linear}
@@ -166,9 +166,9 @@ Next, we consider a model, which solely consists of an interaction term:
 $$w(x_1, x_2) = a_{12} x_1 x_2.$$
 The fANOVA components for $w$ are given by:
 \begin{align*}
-    w_{\emptyset} &= a_{12} \rho, \\
-    w_{\{1\}}(x_1) &= a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1), \\
-    w_{\{2\}}(x_2) &= a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1), \\
+    w_{\emptyset} &= a_{12} \rho, \\[3pt]
+    w_{\{1\}}(x_1) &= a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1), \\[3pt]
+    w_{\{2\}}(x_2) &= a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1), \\[3pt]
     w_{\{1,2\}}(x_1,x_2) 
 &= -a_{12}\!\left(
     \frac{\rho(x_1^2+x_2^2)}{1+\rho^2} 
@@ -235,8 +235,8 @@ Finally, a full example, including all main and interaction effects:
 $$z(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
 We can vary the coefficients as well as $\rho$.\par
-When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction effect is present and variables exhibit dependency (or is this nonsense because we essentially did this with our running example?).
-In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlation between variables and in \autoref{fig:all_pair_02} we show the same for a strong linear correlation between variables. Similar to our running example at the beginning of this section, we see that main effects are distorted slightly, while interaction effects look substantially different under dependent inputs.
+When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction effect is present and variables exhibit dependency.
+In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlation between variables and in \autoref{fig:all_pair_02} we show the same for a strong linear correlation between variables. Similar to the visualization of our running example in \autoref{fig:running_ex_dependent}, we see that main effects are distorted slightly, while interaction effects look substantially different under dependent inputs.
 
 \begin{figure}[htpb]
     \centering
