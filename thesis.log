@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  29 JUL 2025 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  29 JUL 2025 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -742,172 +742,148 @@ Overfull \hbox (13.50319pt too wide) in paragraph at lines 47--48
 [][]\OT1/cmr/bx/n/12 Condition 3.1 \OT1/cmr/m/n/12 (Strong an-ni-hi-lat-ing con-di-tions, ([][]Rah-man[][], [][]2014[][]))\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 For the clas-si-cal fANOVA
  []
 
-[6] [7] [8] [9] [10]
-Overfull \hbox (8.00287pt too wide) detected at line 307
-[][]
- []
-
-[11]
-Overfull \hbox (6.2817pt too wide) detected at line 323
-[][]
- []
-
-[12] [13] [14] [15] [16]) [17] (./chapters/v2_generalized_fANOVA.tex
-Overfull \hbox (33.40938pt too wide) detected at line 26
-[]
- []
-
-[18] [19]
-Overfull \hbox (27.86635pt too wide) detected at line 108
-[]
- []
-
-[20] [21] [22]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]) [17] (./chapters/v2_generalized_fANOVA.tex [18] [19] [20] [21] [22] [23]
 Overfull \hbox (1.63959pt too wide) detected at line 257
 [][]
  []
 
-[23]
-Overfull \hbox (3.8432pt too wide) in paragraph at lines 281--282
-[][]\OT1/cmr/bx/n/12 Proposition 3.7. []\OT1/cmr/m/it/12 The gen-er-al-ized fANOVA com-po-nent func-tions $\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 ([][])\OML/cmm/m/it/12 ; u \OMS/cmsy/m/n/12 ^^R f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; [] ; N\OMS/cmsy/m/n/12 g$
+
+Overfull \hbox (7.44324pt too wide) in paragraph at lines 281--282
+[][]\OT1/cmr/bx/n/12 Proposition 3.7. []\OT1/cmr/m/it/12 The gen-er-al-ized fANOVA com-po-nent func-tions $\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 ([][])\OML/cmm/m/it/12 ; u \OMS/cmsy/m/n/12 ^^R f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; [] ; N\OMS/cmsy/m/n/12 g$\OT1/cmr/m/it/12 ,
  []
 
-[24] [25] [26] [27]
-
-LaTeX Warning: Reference `prop:generalized_fanova_components_hooker' on page 28 undefined on input line 462.
-
-[28] [29] [30] [31] [32]) [33] (./chapters/experiment.tex
-<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png, id=548, 433.62pt x 289.08pt>
+[24] [25] [26] [27] [28] [29] [30] [31] [32]) [33] (./chapters/experiment.tex
+<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png, id=547, 433.62pt x 289.08pt>
 File: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png  used on input line 21.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png, id=549, 433.62pt x 289.08pt>
+<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png, id=548, 433.62pt x 289.08pt>
 File: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png Graphic file (type png)
 <use images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png>
 Package pdftex.def Info: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png  used on input line 26.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
  [34 <./images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png> <./images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png>]
-<images/experiment_section/hoeffding_rho05_main.png, id=560, 578.16pt x 433.62pt>
+<images/experiment_section/hoeffding_rho05_main.png, id=559, 578.16pt x 433.62pt>
 File: images/experiment_section/hoeffding_rho05_main.png Graphic file (type png)
 <use images/experiment_section/hoeffding_rho05_main.png>
 Package pdftex.def Info: images/experiment_section/hoeffding_rho05_main.png  used on input line 46.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/experiment_section/hoeffding_rho05_interaction.png, id=561, 578.16pt x 433.62pt>
+<images/experiment_section/hoeffding_rho05_interaction.png, id=560, 578.16pt x 433.62pt>
 File: images/experiment_section/hoeffding_rho05_interaction.png Graphic file (type png)
 <use images/experiment_section/hoeffding_rho05_interaction.png>
 Package pdftex.def Info: images/experiment_section/hoeffding_rho05_interaction.png  used on input line 51.
 (pdftex.def)             Requested size: 223.0721pt x 167.29819pt.
-<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png, id=563, 433.62pt x 289.08pt>
+<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png, id=562, 433.62pt x 289.08pt>
 File: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png Graphic file (type png)
 <use images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png>
 Package pdftex.def Info: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png  used on input line 73.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png, id=564, 433.62pt x 289.08pt>
+<images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png, id=563, 433.62pt x 289.08pt>
 File: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png Graphic file (type png)
 <use images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png>
 Package pdftex.def Info: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png  used on input line 78.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
  [35 <./images/experiment_section/hoeffding_rho05_main.png> <./images/experiment_section/hoeffding_rho05_interaction.png>]
-<images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png, id=571, 433.62pt x 289.08pt>
+<images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png, id=570, 433.62pt x 289.08pt>
 File: images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 101.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png, id=572, 433.62pt x 289.08pt>
+<images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png, id=571, 433.62pt x 289.08pt>
 File: images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 107.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
  [36 <./images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png> <./images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png>]
-<images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png, id=579, 433.62pt x 289.08pt>
+<images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png, id=578, 433.62pt x 289.08pt>
 File: images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png  used on input line 134.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png, id=580, 433.62pt x 289.08pt>
+<images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png, id=579, 433.62pt x 289.08pt>
 File: images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png  used on input line 141.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png, id=581, 433.62pt x 289.08pt>
+<images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png, id=580, 433.62pt x 289.08pt>
 File: images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png  used on input line 149.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png, id=582, 433.62pt x 289.08pt>
+<images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png, id=581, 433.62pt x 289.08pt>
 File: images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png  used on input line 156.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
  [37 <./images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png> <./images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png>] [38 <./images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png> <./images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png> <./images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png> <./images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png>]
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png, id=597, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png, id=596, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png  used on input line 190.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png, id=598, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png, id=597, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png  used on input line 196.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png, id=599, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png, id=598, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png  used on input line 204.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png, id=600, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png, id=599, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png  used on input line 210.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png, id=601, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png, id=600, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png  used on input line 218.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png, id=602, 433.62pt x 289.08pt>
+<images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png, id=601, 433.62pt x 289.08pt>
 File: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png Graphic file (type png)
 <use images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png>
 Package pdftex.def Info: images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png  used on input line 224.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
  [39] [40 <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png> <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png> <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png> <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png> <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_main.png> <./images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png>]
-<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png, id=621, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png, id=620, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png Graphic file (type png)
 <use images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png>
 Package pdftex.def Info: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png  used on input line 250.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png, id=622, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png, id=621, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png Graphic file (type png)
 <use images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png>
 Package pdftex.def Info: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png  used on input line 255.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png, id=623, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png, id=622, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png  used on input line 265.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png, id=624, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png, id=623, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png Graphic file (type png)
 <use images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png>
 Package pdftex.def Info: images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png  used on input line 269.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png, id=625, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png, id=624, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png Graphic file (type png)
 <use images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png>
 Package pdftex.def Info: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png  used on input line 287.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png, id=626, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png, id=625, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png Graphic file (type png)
 <use images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png>
 Package pdftex.def Info: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png  used on input line 291.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png, id=627, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png, id=626, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png>
 Package pdftex.def Info: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png  used on input line 301.
 (pdftex.def)             Requested size: 223.0721pt x 148.71686pt.
-<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png, id=628, 433.62pt x 289.08pt>
+<images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png, id=627, 433.62pt x 289.08pt>
 File: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png Graphic file (type png)
 <use images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png>
 Package pdftex.def Info: images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png  used on input line 305.
@@ -939,18 +915,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: BB473A09995D2DE851D077359DF47246;5105.
  ) 
 Here is how much of TeX's memory you used:
- 26382 strings out of 476025
- 523256 string characters out of 5790017
+ 26381 strings out of 476025
+ 523232 string characters out of 5790017
  1876388 words of memory out of 5000000
- 46145 multiletter control sequences out of 15000+600000
+ 46143 multiletter control sequences out of 15000+600000
  529654 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,131p,894b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (55 pages, 2366437 bytes).
+Output written on thesis.pdf (55 pages, 2366368 bytes).
 PDF statistics:
  840 PDF objects out of 1000 (max. 8388607)
  703 compressed objects within 8 object streams
- 162 named destinations out of 1000 (max. 500000)
+ 163 named destinations out of 1000 (max. 500000)
  356 words of extra memory for PDF output out of 10000 (max. 10000000)
 

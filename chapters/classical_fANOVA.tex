@@ -44,14 +44,14 @@ Under independence, we work with a product-type probability measure of $\boldsym
 
 Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA component functions to be well-defined and interpretable.
 \begin{condition}[Strong annihilating conditions, \citep{rahman2014}]\label{cond:strong_annihilating_conditions}
-    For the classical fANOVA decomposition we require, that all the nonconstant component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, i.e.
+    For the classical fANOVA decomposition we require, that all the nonconstant fANOVA component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, that is,
 \begin{equation}
     \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i) \, d\nu(x_i) = 0 \quad \text{for} \ i \in u \neq \emptyset.
 \end{equation}
 \end{condition}
 
 \begin{proposition}\label{prop:zero_mean_classical}
-    Given the strong annihilating conditions are satisfied, the nonconstant fANOVA component functions are centered around zero. This means for all $\, \emptyset \neq u \subseteq \{1, \dots, N\}$ it holds that:
+    Given the strong annihilating conditions are satisfied, the fANOVA component functions $y_u$, where $\, \emptyset \neq u \subseteq \{1, \dots, N\}$, are centered around zero, i.e.,
 \begin{equation}
     \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0.
 \end{equation}
@@ -67,8 +67,7 @@ Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which
 \end{proof}
 
 \begin{proposition}\label{prop:orthogonality_classical}
-    Given the strong annihilating conditions are satisfied, the fANOVA components functions are orthogonal to each other. If two sets of indices are not completely equivalent, i.e.
-    $\emptyset \neq u \subseteq \{1, \dots, N\}, \, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that:
+    Given the strong annihilating conditions are satisfied, two distinct fANOVA component functions $y_u$ and $y_v$, where $\emptyset \neq u \subseteq \{1,\ldots,N\}$, $\emptyset \neq v \subseteq \{1,\ldots,N\}$, and $u \neq v$, are orthogonal; i.e., they satisfy
 \begin{equation}
     \int_{\mathbb{R}^N} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0.
 \end{equation}
@@ -289,38 +288,33 @@ h_{\{2\}}(X_2)
 Finally, the subsets of $A=\{1,2\}$ are 
 $B=\emptyset$, $B=\{1\}$, $B=\{2\}$, $B=\{1,2\}$. 
 We obtain:
-\[
-\begin{aligned}
-&h_{\{1,2\}}(X_1,X_2) \\
-&=
-(-1)^{2-0}\mathbb{E}[h(\boldsymbol{X})]
-+(-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_1]
-+(-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_2]
-+(-1)^{2-2}\mathbb{E}[h(\boldsymbol{X})|X_1,X_2]
-\\
-&=
-\mathbb{E}[h(\boldsymbol{X})]
--\mathbb{E}[h(\boldsymbol{X})|X_1]
--\mathbb{E}[h(\boldsymbol{X})|X_2]
-+\mathbb{E}[h(\boldsymbol{X})|X_1,X_2].
-\end{aligned}
-\]
+\begin{align*}
+h_{\{1,2\}}(X_1,X_2)
+&= (-1)^{2-0}\mathbb{E}[h(\boldsymbol{X})]
+   + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_1] \notag\\
+&\quad + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_2]
+   + (-1)^{2-2}\mathbb{E}[h(\boldsymbol{X})|X_1,X_2] \notag\\[0.3em]
+&= \mathbb{E}[h(\boldsymbol{X})]
+   - \mathbb{E}[h(\boldsymbol{X})|X_1]
+   - \mathbb{E}[h(\boldsymbol{X})|X_2]
+   + \mathbb{E}[h(\boldsymbol{X})|X_1,X_2].
+\end{align*}
+
 We already know:
 \[
 \mathbb{E}[h(\boldsymbol{X})|X_1,X_2] = h(X_1,X_2) = a + X_1 + 2X_2 + X_1 X_2.
 \]
 Thus:
-\[
-\begin{aligned}
+\begin{align}
 h_{\{1,2\}}(X_1,X_2)
-&=(a+\mu_1+2\mu_2+\mu_1\mu_2)
- - (a+X_1+2\mu_2+\mu_2 X_1)
- - (a+\mu_1+2X_2+\mu_1 X_2) \\
-&\qquad + (a+X_1+2X_2+X_1 X_2) \\
-&= X_1 X_2 - \mu_2 X_1 - \mu_1 X_2 + \mu_1 \mu_2 \\
+&= (a+\mu_1+2\mu_2+\mu_1\mu_2)
+   - (a+X_1+2\mu_2+\mu_2 X_1) \notag\\
+&\quad - (a+\mu_1+2X_2+\mu_1 X_2)
+   + (a+X_1+2X_2+X_1 X_2) \notag\\[0.3em]
+&= X_1 X_2 - \mu_2 X_1 - \mu_1 X_2 + \mu_1 \mu_2 \notag\\
 &= (X_1 - \mu_1)(X_2 - \mu_2).
-\end{aligned}
-\]
+\end{align}
+
 
 Bringing everything together, the Hoeffding decomposition of $h(X_1,X_2)$ with general means 
 $\mu_1=\mathbb{E}[X_1]$ and $\mu_2=\mathbb{E}[X_2]$ is:
@@ -364,7 +358,7 @@ Having this perspective on the fANOVA decomposition helps in bridging different 
 \end{align}
 \end{definition}
 
-When we define the constant component $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g_0(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$.\par
+When we define the constant component $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g_0(x) = a$ over all possible constant functions. The solution is the orthogonal projection as given by \autoref{def:orthogonal_projection} of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$.\par
 In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write for the constant component $y_{\emptyset}$:
 \begin{align*}
     \Pi_{\mathcal{G}_0}y
@@ -426,16 +420,16 @@ $$ \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition.
 We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
 The variance of $y$ is then given by:
-\begin{align}
+\begin{align}\label{eq:variance_decomposition_classical}
 \sigma^2 
 &:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu_G \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - y_{\emptyset,G} \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( \sum_{u} y_{u,G}(\boldsymbol{X}_u) \right)^2 \right] \notag \\
 &= \sum_{u} \mathbb{E} \left[ y_{u,G}^2(\boldsymbol{X}_u) \right]
-+ 2 \mathbb{E}\!\left[\sum_{u \neq v} y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})\right]
-\label{eq:variance_expansion} \\ 
-& = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})], \notag
+ + 2 \mathbb{E}\!\left[\sum_{u \neq v} y_u({\boldsymbol{X}_u}) y_v({\boldsymbol{X}_v})\right] \notag \\ 
+& = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})].
 \end{align}
+
 
 where all the cross-terms vanish due to the orthogonality of the fANOVA component functions, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
 This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA component functions.\par
