@@ -1,5 +1,5 @@
 \section*{Proof of classical fANOVA decomposition}
-Here we show the proof of Theorem 1 in \cite{sobol1993sensitivity}.
+Here we show the adjusted proof of Theorem 1 in \cite{sobol1993sensitivity}.
 \begin{theorem}
     Any function $y$, which is integrable over the unit hypercube $[0, 1]^k$, has a unique fANOVA expansion of the form:
     \begin{align*}
@@ -25,7 +25,7 @@ The very first term in the decomposition is the integral of \( y \) with respect
 
 This integral exists because \( y \in \mathcal{L}^2(\mathbb{R}^N, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu) \), and the product measure is finite on the domain.
 
-Next, Sobol derives the one-dimensional fANOVA terms. For this, he takes the integral of \autoref{eq:fanova_decomposition} w.r.t. all variables except for the one with index \( i \), so $v_1 = \{i\}$:
+Next, Sobol derives the one-dimensional fANOVA terms. For this, he takes the integral of \autoref{def:fanova_decomposition} w.r.t. all variables except for the one with index \( i \), so $v_1 = \{i\}$:
 \begin{align*}
     \int_{\mathbb{R}^{N-1}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) 
     &= \int_{\mathbb{R}^{N-1}} \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) \\

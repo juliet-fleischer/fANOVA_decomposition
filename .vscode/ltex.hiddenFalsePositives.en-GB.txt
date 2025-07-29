@@ -1,0 +1,2 @@
+{"rule":"ANYMORE","sentence":"^\\QWe omit the scaling factor, which means the basis functions are not orthonormal anymore but still orthogonal.\\E$"}
+{"rule":"ANYMORE","sentence":"^\\QThe basis representation is still correct for other distribution assumptions in the sense that it recovers the original function; however, the component function would not be hierarchically orthogonal anymore.\\E$"}

@@ -43,30 +43,36 @@ In any case, we assume that the coordinates $X_1, \dots , X_N$ are independent o
 Under independence, we work with a product-type probability measure of $\boldsymbol{X}$ given by \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu(x_i)\), where \(f_{\{i\}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ with a bounded or an unbounded support on $\mathbb{R}$.
 
 Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA component functions to be well-defined and interpretable.
-\begin{condition}[Strong annihilating conditions, \citep{rahman2014}]\label{cond:strong_annihilating_conditions}
+\begin{condition}[Strong annihilating conditions, \cite{rahman2014}]\label{cond:strong_annihilating_conditions}
     For the classical fANOVA decomposition we require, that all the nonconstant fANOVA component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, that is,
 \begin{equation}
     \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i) \, d\nu(x_i) = 0 \quad \text{for} \ i \in u \neq \emptyset.
 \end{equation}
 \end{condition}
 
-\begin{proposition}\label{prop:zero_mean_classical}
-    Given the strong annihilating conditions are satisfied, the fANOVA component functions $y_u$, where $\, \emptyset \neq u \subseteq \{1, \dots, N\}$, are centered around zero, i.e.,
+\begin{proposition}[\cite{rahman2014}]\label{prop:zero_mean_classical}
+Given that the strong annihilating conditions are satisfied, 
+the fANOVA component functions $y_u$, where 
+$\emptyset \neq u \subseteq \{1,\dots,N\}$, are centered around zero:
 \begin{equation}
-    \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0.
+    \int_{\mathbb{R}^N} 
+        y_u(\boldsymbol{x}_u)\, f_{\boldsymbol{X}}(\boldsymbol{x}) 
+        \, d\nu (\boldsymbol{x})
+    = \mathbb{E}[y_u(\boldsymbol{X}_u)] 
+    = 0.
 \end{equation}
 \end{proposition}
 
 \begin{proof}
 \begin{align*}
-    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
-    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\
-    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{j \in u} f_{\{j\}}(x_j) \, d\nu (\boldsymbol{x}_u) \\
+    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\[0.5em]
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{j \in u} f_{\{j\}}(x_j) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
     &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{\{i\}}(x_i) \, d\nu(x_i) \prod_{j \in u, j \neq i} f_{\{j\}}(x_j) \, d\nu (x_{u \setminus \{i\}}) = 0
 \end{align*}
 \end{proof}
 
-\begin{proposition}\label{prop:orthogonality_classical}
+\begin{proposition}[\cite{rahman2014}]\label{prop:orthogonality_classical}
     Given the strong annihilating conditions are satisfied, two distinct fANOVA component functions $y_u$ and $y_v$, where $\emptyset \neq u \subseteq \{1,\ldots,N\}$, $\emptyset \neq v \subseteq \{1,\ldots,N\}$, and $u \neq v$, are orthogonal; i.e., they satisfy
 \begin{equation}
     \int_{\mathbb{R}^N} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0.
@@ -111,18 +117,39 @@ partial dependence (PD) or Shapley values.
 
 % And this is how the components finally look like
 \subsubsection{Construction of the fANOVA Component Functions}
-The individual fANOVA component functions for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t. all variables expect for the ones in $u$, and subtracting the lower order components. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which leaves us with a function of the variables of interest only.
-Subtracting lower-order components removes effects already explained by other variables or interactions, yielding the isolated effects.\par
-Since $u = \emptyset$ for the constant component, we integrate w.r.t. all variables and obtain:
+The individual fANOVA component functions associated with the variables 
+indexed by $u$ are obtained by integrating the original function 
+$y(\boldsymbol{X})$ with respect to all variables except those in $u$ and 
+subtracting the corresponding lower-order components. 
+Intuitively, the integration averages out the influence of all other variables, 
+leaving a function of the variables of interest only. 
+Subtracting the lower-order components removes effects already explained by 
+other variables or interactions, yielding the isolated effects of the variables in $u$. 
+
+For the classical fANOVA decomposition, these components can be computed as 
+follows (see \cite{rahman2014}).
+For the constant component, where $u = \emptyset$, we integrate with respect 
+to all variables:
 \begin{equation}
-    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    y_{\emptyset} 
+    = \int_{\mathbb{R}^N} 
+        y(\boldsymbol{x}) 
+        \prod_{i=1}^{N} f_{\{i\}}(x_i) 
+        \, d\nu (x_i) 
+    = \mathbb{E}[y(\boldsymbol{X})].
     \label{eq:intercept_classical}
 \end{equation}
-For all other components $\emptyset \neq u \in \{1, \dots, N\}$ we can calculate:
+For all other components, $\emptyset \neq u \subseteq \{1, \dots, N\}$, we obtain:
 \begin{equation}
-    y_u(\boldsymbol{X}_u) = \int_{\mathbb{R}^{N- |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
+    y_u(\boldsymbol{X}_u) 
+    = \int_{\mathbb{R}^{N- |u|}} 
+        y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) 
+        \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) 
+        \, d\nu (x_i) 
+      - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
     \label{eq:fanova_components_classical}
 \end{equation}
+
 Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the second part of this section.\par
 As suggested earlier, the fANOVA component functions offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.\par
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
@@ -194,11 +221,11 @@ We show this simple example nevertheless to illustrate at which step which assum
 This will make clearer what breaks down when we generalize to dependent variables.
 
 \subsubsection{Equality to Hoeffding Decomposition}
-As we mentioned in \autoref{sec:related_work} the Hoeffding decomposition \citep{hoeffding1948} laid the groundwork for the fANOVA decomposition.
+As we mentioned in \autoref{sec:related_work} the Hoeffding decomposition laid the groundwork for the fANOVA decomposition.
 Here, we want to point out that both decompositions yield the same component functions under the assumption of independent and zero-centered inputs. Though we provide no formal proof, we want to illustrate this with our running example (\autoref{ex:running_example}).
 
-\begin{definition}[Hoeffding decomposition]\label{def:hoeffding_decomposition}
-Let $y$ denote a real-valued function on $\mathbb{R}^N$ with independent inputs $X_1, \dots, X_N$. The Hoeffding decomposition of $y$ takes the form \citep{ilidrissi2025}:
+\begin{definition}[Hoeffding decomposition, \cite{ilidrissi2025}]\label{def:hoeffding_decomposition}
+Let $y$ denote a real-valued function on $\mathbb{R}^N$ with independent inputs $X_1, \dots, X_N$. The Hoeffding decomposition of $y$ takes the form:
 \begin{align}
     y(\boldsymbol{X})
 =
@@ -350,8 +377,8 @@ In the following we revisit the fANOVA decomposition from the view of orthogonal
 For this section the parallel between the (conditional) expected value and orthogonal projections formulated in \cite{Vaart_1998} is crucial.
 Having this perspective on the fANOVA decomposition helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA later in this section. First we define generally what an orthogonal projection is, and then we will use the idea in the context of fANOVA.\par
 
-\begin{definition}[Orthogonal Projection]\label{def:orthogonal_projection}
-    Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $y$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}y$ which minimizes the distance to $y$ in $\mathcal{L}^2$ \citep{nagler2024mathstat}:
+\begin{definition}[Orthogonal Projection, {adapted from \cite{nagler2024mathstat}}]\label{def:orthogonal_projection}
+    Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $y$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}y$ which minimizes the distance to $y$ in $\mathcal{L}^2$:
 \begin{align}
     \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
 = \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
@@ -419,7 +446,7 @@ $$ \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
 
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition.
 We write the sum over $u$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ for the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \emptyset \neq v \subseteq \{1, \dots, N\}, u \neq v$.
-The variance of $y$ is then given by:
+Following the calculations in \cite{rahman2014}, the variance of $y$ is then given by:
 \begin{align}\label{eq:variance_decomposition_classical}
 \sigma^2 
 &:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu_G \right)^2 \right] \notag \\
