@@ -20,18 +20,21 @@ The inner product defined as:
 \]
 The norm, denoted as $\|.\|$, is defined by:
 \[
-\|y\| = \sqrt{\langle y, y \rangle} = \sqrt{\int_{\mathbb{R}^N} y^2(\boldsymbol{x}) \, d\nu(\boldsymbol{x})} = \mathbb{E}[y(\boldsymbol{X})^2], \quad \forall y \in \mathcal{L}^2.
+\|y\| = \sqrt{\langle y, y \rangle} = \sqrt{\int_{\mathbb{R}^N} y^2(\boldsymbol{x}) \, d\nu(\boldsymbol{x})} = \mathbb{E}[y^2(\boldsymbol{X})], \quad \forall y \in \mathcal{L}^2.
 \]
 
-We start by defining the fANOVA decomposition in a general form, which is independent of distribution assumptions about the input variables or anything of the sort. The decomposition consists of $2^N$ terms and its specific form is determined by the assumptions about the input variables and integration measure.
+We start by defining the fANOVA decomposition in a general form, which is independent of distribution assumptions about the input variables or anything of the sort. The decomposition consists of $2^N$ components and its specific form is determined by the assumptions about the input variables and integration measure.
 
-\begin{definition}
-Let $y$  denote a mathematical model with input vector $\boldsymbol{X} := (X_1, \dots, X_N)$. The functional ANOVA decomposition of $y$ takes the form:
+\begin{definition}\label{def:fanova_decomposition}
+Let $y$ denote a mathematical model with input vector $\boldsymbol{X} := (X_1, \dots, X_N)$. 
+The functional ANOVA (fANOVA) decomposition of $y$ takes the form:
 \begin{equation}
     y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u).
-    \label{eq:fanova_decomposition}
 \end{equation}
+The functions $y_u$ are referred to as \emph{fANOVA component functions} 
+(or simply \emph{components}) throughout this thesis.
 \end{definition}
+
 
 
 \subsection{Classical fANOVA}
@@ -39,7 +42,7 @@ For his original fANOVA decomposition, Sobol only considered function defined on
 In any case, we assume that the coordinates $X_1, \dots , X_N$ are independent of each other.
 Under independence, we work with a product-type probability measure of $\boldsymbol{X}$ given by \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu(x_i)\), where \(f_{\{i\}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}\) is the marginal probability density function of \(X_i\) defined on $(\Omega_i, \mathcal{F}_i, \nu_i)$ with a bounded or an unbounded support on $\mathbb{R}$.
 
-Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA terms to be well-defined and interpretable.
+Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which we would like to hold for the fANOVA component functions to be well-defined and interpretable.
 \begin{condition}[Strong annihilating conditions, \citep{rahman2014}]\label{cond:strong_annihilating_conditions}
     For the classical fANOVA decomposition we require, that all the nonconstant component functions $y_u$ integrate to zero w.r.t. the marginal probability density of each random variable in $u$, i.e.
 \begin{equation}
@@ -47,13 +50,13 @@ Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which
 \end{equation}
 \end{condition}
 
-\begin{proposition}
-    Given the strong annihilating conditions, the nonconstant fANOVA components are centered around zero. This means for all $\, \emptyset \neq u \subseteq \{1, \dots, N\}$ it holds that:
+\begin{proposition}\label{prop:zero_mean_classical}
+    Given the strong annihilating conditions are satisfied, the nonconstant fANOVA component functions are centered around zero. This means for all $\, \emptyset \neq u \subseteq \{1, \dots, N\}$ it holds that:
 \begin{equation}
     \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) := \mathbb{E}[y_u(\boldsymbol{X}_u)] = 0.
-    \label{eq:zero_mean_c}
 \end{equation}
 \end{proposition}
+
 \begin{proof}
 \begin{align*}
     \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
@@ -63,19 +66,18 @@ Given this setup, we formulate a condition, proposed by \cite{rahman2014}, which
 \end{align*}
 \end{proof}
 
-\begin{proposition}
-    Given the strong annihilating conditions, the fANOVA terms are orthogonal to each other. If two sets of indices are not completely equivalent, i.e.
+\begin{proposition}\label{prop:orthogonality_classical}
+    Given the strong annihilating conditions are satisfied, the fANOVA components functions are orthogonal to each other. If two sets of indices are not completely equivalent, i.e.
     $\emptyset \neq u \subseteq \{1, \dots, N\}, \, \emptyset \neq v \subseteq \{1, \dots, N\}, \text{ and } u \neq v$, then it holds that:
 \begin{equation}
     \int_{\mathbb{R}^N} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}) = \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0.
-    \label{eq:orthogonality_c}
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-Since $u \neq v$, there exists at least one index contained in exactly one of the sets. 
-Without loss of generality, we pick $i \in u \setminus v$. 
-Then $y_v(\boldsymbol{x}_v)$ is independent of $x_i$, and by the strong annihilating conditions
+Since $u \neq v$, there exists at least one index contained in exactly one of the sets.
+Without loss of generality, we pick $i \in u \setminus v$.
+Then $y_v(\boldsymbol{x_v})$ is independent of $x_i$, and assuming the strong annihilating conditions hold, we have:
 \[
     \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i)\,d\nu(x_i) = 0
     \quad \text{for all fixed } \boldsymbol{x}_{u\setminus \{i\}}.
@@ -93,38 +95,53 @@ Hence,
 \end{proof}
 
 
-As we have seen, the fANOVA terms are ``fully orthogonal'' to each other, meaning not only terms of different order are orthogonal to each other but also terms of the same order are. Zero-mean and orthogonality are desirable and important properties because they ensure that a fANOVA term can be interpreted as isolated effect of the specific variable or isolated effect of an interaction. The term $y_{\{1\}}$, for example, captures the isolated main effects of $X_1$;
-there is no other effect mixed into it, which $X_1$ might have through interactions with other variables.
-At the same time, the term $y_{\{1, 2\}}$ captures the interaction effect of $X_1$ and $X_2$, while the solo effect of $X_1$ is already captured by $y_{\{1\}}$ and does not merge into $y_{\{1, 2\}}$. From the lens of interpretability, this distinguishes the fANOVA decomposition from methods such as partial dependence (PD) or Shapley values.\par
+As we have seen, the fANOVA components are ``fully orthogonal'' to each other, meaning not only components of different order are orthogonal to each other but also ones of the same order are.
+These properties are desirable because they ensure that the 
+fANOVA component functions can be interpreted as 
+isolated effects of specific variables or their interactions. 
+For example, the component function $y_{\{1\}}$ represents the 
+isolated main effect of $X_1$; no other contributions 
+involving $X_1$ through interactions with other variables are mixed into it. 
+Similarly, the component function $y_{\{1,2\}}$ captures only the 
+interaction effect between $X_1$ and $X_2$, while the individual effect 
+of $X_1$ is already represented by $y_{\{1\}}$ and therefore does not 
+merge into $y_{\{1,2\}}$. 
+From the perspective of interpretability, this clean separation of effects 
+distinguishes the fANOVA decomposition from alternative methods such as 
+partial dependence (PD) or Shapley values.
 
 % And this is how the components finally look like
-\subsubsection{Construction of the fANOVA Terms}
-The individual fANOVA terms for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t. all variables expect for the ones in $u$, and subtracting the lower order terms. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which leaves us with a function of the variables of interest only. Subtracting lower order terms corresponds to accounting for effects that are already explained by other variables or interactions so that we obtain the isolated effects.\par
-Since $u = \emptyset$ for the constant term, we integrate w.r.t. all variables:
+\subsubsection{Construction of the fANOVA Component Functions}
+The individual fANOVA component functions for the variables with indices in $u$ are constructed by integrating the original function $y(\boldsymbol{X})$ w.r.t. all variables expect for the ones in $u$, and subtracting the lower order components. Intuitively the integral is averaging the original function over all other variables expect the ones of interest, which leaves us with a function of the variables of interest only.
+Subtracting lower-order components removes effects already explained by other variables or interactions, yielding the isolated effects.\par
+Since $u = \emptyset$ for the constant component, we integrate w.r.t. all variables and obtain:
 \begin{equation}
     y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
     \label{eq:intercept_classical}
 \end{equation}
-For all other effects $\emptyset \neq u \in \{1, \dots, N\}$ we can calculate:
+For all other components $\emptyset \neq u \in \{1, \dots, N\}$ we can calculate:
 \begin{equation}
     y_u(\boldsymbol{X}_u) = \int_{\mathbb{R}^{N- |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) \, d\nu (x_i)- \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
     \label{eq:fanova_components_classical}
 \end{equation}
 Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the second part of this section.\par
-As suggested earlier, the fANOVA components offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.\par
+As suggested earlier, the fANOVA component functions offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.\par
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
 \subsubsection{Example: Independent Multivariate Normal Inputs}
 
-Throughout this thesis, we will use the following simple function as a running example:
-\begin{align}\label{eq:running_example}
-    h(x_1, x_2) = a + x_1 + 2x_2 + x_1 x_2,
-\end{align}
-which contains both main effects and an interaction term. 
+Throughout this thesis, we use the following simple setup as a running example.
 
-We assume the input vector 
+\begin{example}[Running Example]\label{ex:running_example}
+Consider the bivariate function
+\begin{equation}\label{eq:running_example_function}
+    h(x_1, x_2) = a + x_1 + 2x_2 + x_1 x_2,
+\end{equation}
+which includes both main effects and an interaction term.
+
+Assume the input vector
 \[
-\boldsymbol{X} = (X_1, X_2)^T
+\boldsymbol{X} = (X_1, X_2)^\mathsf{T}
 \]
 follows a bivariate standard normal distribution
 \[
@@ -134,9 +151,9 @@ follows a bivariate standard normal distribution
 1 & \rho \\ 
 \rho & 1
 \end{pmatrix}
-\right).
+\right),
 \]
-This general formulation includes both independent inputs ($\rho = 0$) and correlated inputs ($\rho \neq 0$).
+covering both independent inputs ($\rho = 0$) and correlated inputs ($\rho \neq 0$).
 
 From properties of the multivariate normal distribution, the marginal distributions are
 \[
@@ -147,6 +164,10 @@ and the conditional distributions are given by
 X_1 \mid X_2=x_2 \sim \mathcal{N}(\rho x_2, 1-\rho^2), \quad
 X_2 \mid X_1=x_1 \sim \mathcal{N}(\rho x_1, 1-\rho^2).
 \]
+\end{example}
+
+
+
 This example will allow us to compute and compare the classical and generalized fANOVA decompositions for different correlation structures.\par
 
 The classical fANOVA decomposition we covered so far assumes independence, i.e., $\rho = 0$. 
@@ -157,7 +178,7 @@ Computing the constant component via expectation gives:
     &= \mathbb{E}[a + X_1 + 2X_2 + X_1X_2] \\
     &= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1]\mathbb{E}[X_2] = a.
 \end{align*}
-Under zero-mean constraint and independence, the main effects and the interaction effect can be computed as follows:
+Given the zero-mean property and independence, the main components and the interaction components can be computed as follows:
 \begin{align*}
 h_{\{1\}}(x_1) &= \mathbb{E}_{X_2}[h(x_1, X_2)] - h_{\emptyset} \\
 &= \mathbb{E}_{X_2}[a + x_1 + 2X_2 + x_1X_2] - a \\
@@ -175,7 +196,7 @@ This will make clearer what breaks down when we generalize to dependent variable
 
 \subsubsection{Equality to Hoeffding Decomposition}
 As we mentioned in \autoref{sec:related_work} the Hoeffding decomposition \citep{hoeffding1948} laid the groundwork for the fANOVA decomposition.
-Here, we want to point out that both decompositions yield the same component functions under the assumption of independent and zero-centered inputs. Though we provide no formal proof, we want to illustrate this with our running example from \autoref{eq:running_example}.
+Here, we want to point out that both decompositions yield the same component functions under the assumption of independent and zero-centered inputs. Though we provide no formal proof, we want to illustrate this with our running example (\autoref{ex:running_example}).
 
 \begin{definition}[Hoeffding decomposition]\label{def:hoeffding_decomposition}
 Let $y$ denote a real-valued function on $\mathbb{R}^N$ with independent inputs $X_1, \dots, X_N$. The Hoeffding decomposition of $y$ takes the form \citep{ilidrissi2025}:
@@ -188,7 +209,7 @@ y_A(\boldsymbol{X}_A),
 D := \{1,\dots,N\},
 \end{align}
 where, for each $A \subseteq D$, the component function $y_A$ is defined by
-\begin{align}
+\begin{align}\label{eq:hoeffding_components}
     y_A(\boldsymbol{X}_A)
 =
 \sum_{B \subseteq A}
@@ -201,10 +222,10 @@ where, for each $A \subseteq D$, the component function $y_A$ is defined by
 \end{align}
 \end{definition}
 
-We can now apply the Hoeffding decomposition to our running example from \autoref{eq:running_example}.\par
+We can now apply the Hoeffding decomposition to our running example, while we for now write generally $\mu_1 = \mathbb{E}[X_1]$ and $\mu_2 = \mathbb{E}[X_2]$.\par
 
 For $A=\emptyset$ there is only one subset $B=\emptyset$. 
-Substituting this into \autoref{def:hoeffding_decomposition} we obtain:
+Substituting this into \autoref{eq:hoeffding_components} of \autoref{def:hoeffding_decomposition} we obtain:
 \[
 h_{\emptyset}
 =
@@ -318,14 +339,16 @@ h_{\{1,2\}}(X_1,X_2) &= (X_1 - \mu_1)(X_2 - \mu_2).
 \end{aligned}
 \]
 
-Under the special case of centered input variables, so $\mathbb{E}[X_1] = \mathbb{E}[X_2] = 0$, the decomposition simplifies to:
+Under the special case of centered input variables, as we assumed in the running example, the decomposition simplifies to:
 \[
 h_{\emptyset}=a,\quad
-h_{\{1\}}(X_1)=X_1,\quad
-h_{\{2\}}(X_2)=2X_2,\quad
-h_{\{1,2\}}(X_1,X_2)=X_1 X_2,
+h_{\{1\}}(X_1)=x_1,\quad
+h_{\{2\}}(X_2)=2x_2,\quad
+h_{\{1,2\}}(X_1,X_2)=x_1 x_2,
 \]
-which coincides with the fANOVA terms calculated earlier. The principle of the Hoeffding decomposition is therefore the same as for the fANOVA decomposition, but the fANOVA decomposition is stated in a recursive form, which makes it clear that each effect accounts for the contribution of lower order terms. In addition, the fANOVA terms are themselves are zero-centered by construction.
+which coincides with the fANOVA component functions calculated for the polynomial from our running example (\autoref{eq:running_example_function}).\par
+The principle of the Hoeffding decomposition is the same as that of the fANOVA decomposition, but the latter is expressed in a recursive form, making explicit that each component accounts for the contributions of lower-order components.
+In addition, the fANOVA component functions are themselves are zero-centered by construction.
 
 
 \subsubsection{fANOVA via Projection}
@@ -341,16 +364,16 @@ Having this perspective on the fANOVA decomposition helps in bridging different 
 \end{align}
 \end{definition}
 
-When we define the constant term $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g_0(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$.\par
-In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write for the constant term $y_{\emptyset}$:
+When we define the constant component $y_\emptyset$ our goal is to best approximate the original function $y$ by a constant function. In other words, we want to minimize the squared difference between $y$ and a constant function $g_0(x) = a$ over all possible constant functions. The solution is the orthogonal projection of $y$ onto the linear subspace of all constant functions $\mathcal{G}_0 = \{g(x) = a; a \in \mathbb{R}\}$.\par
+In a probabilistic context, we want to minimize the expected squared different between the random variables $y(\boldsymbol{X})$ and $a$, which turns out to be equivalent to the expected value of the random variable \citep{Vaart_1998}. So intuitively, in the absence of any additional information, the expected value is our best approximation of $y$. More formally we can write for the constant component $y_{\emptyset}$:
 \begin{align*}
     \Pi_{\mathcal{G}_0}y
     &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ % here we still focus on the functions (function space view)
     &= \arg \min_{a_0 \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ % here we switch to the probabilistic view, focus on RV
     &= \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}
 \end{align*}
-The main effect $y_{\{i\}}(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$, i.e. $\mathcal{G}_i = \{g(x) = g_{\{i\}}(x_i)\}$. There is no need for additional constraints since subtracting lower order terms ensures that orthogonality and zero-mean are fulfilled.
-The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA terms \citep{muehlenstaedt2012}. Thus, for the main effect $y_{\{i\}}(x_i)$  we can write:
+The main component $y_{\{i\}}(x_i)$ is the projection of $y$ onto the subspace of all functions that only depend on $x_i$, i.e. $\mathcal{G}_i = \{g(x) = g_{\{i\}}(x_i)\}$. There is no need for additional constraints since subtracting lower order components ensures that we obtain mutual orthogonal, zero-mean components.
+The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$ is the solution to the minimization problem \citep{Vaart_1998}, and the conditional expected value is also a way to express the fANOVA component functions \citep{muehlenstaedt2012}. Thus, for the main component $y_{\{i\}}(x_i)$  we can write:
 \begin{align*}
     (\Pi_{\mathcal{G}_i}y)(.) - y_{\emptyset}
     &= \arg \min_{g_i \in \mathcal{G}_i} \|y - g_{\{i\}}\|^2 - y_{\emptyset}\\
@@ -358,7 +381,7 @@ The conditional expected value of $\mathbb{E}[y(\boldsymbol{X}) \mid X_i = x_i]$
     &= \mathbb{E}[y(\boldsymbol{X}) \mid X_i = .] - y_{\emptyset} = y_{\{i\}}(.)
 \end{align*}
 
-The two-way interaction effect $y_{\{i,j\}}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{\{i,j\}}(x_i, x_j)\}$. Again, we account for lower-order effects by subtracting the constant term and all main effects:
+The second-order interaction component $y_{\{i,j\}}(.,.)$ is the projection of $y$ onto the subspace of all functions that depend on $x_i$ and $x_j$. i.e. $\mathcal{G}_{i,j} = \{g(x) = g_{\{i,j\}}(x_i, x_j)\}$. Again, we account for effects captured by lower-order components by subtracting the constan and all main components:
 \begin{align*}
     &(\Pi_{\mathcal{G}_{ij}}y)(.;.) - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.)) \\
     &= \arg \min_{g_{\{i,j\}} \in \mathcal{G}_{ij}} \|y - g_{\{i,j\}}\|^2 - (y_{\emptyset} + y_{\{i\}}(.) + y_{\{j\}}(.))\\
@@ -373,8 +396,9 @@ In general, we can write for a subset of indices $u \subseteq \{1, \dots, N\}$ a
     &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
     &= \mathbb{E}[y(\boldsymbol{X}) | X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.),
 \end{align*}
-which means that we project $y$ onto the subspace spanned by the own terms of the fANOVA component to be defined, while accounting for all lower-order terms.\par
-On this note, we want to highlight that instead of subtracting the lower order terms from the projection, it is just as valid to first subtract lower order terms and project $y$ on what is left.
+which means that we project $y$ onto the subspace $\mathcal{G}_u$ of functions depending only on $X_u$, while subtracting all lower-order components to isolate the effect associated exclusively with $X_u$.\par
+
+On this note, we want to highlight that instead of subtracting the lower order components from the projection, it is just as valid to first subtract lower-order components and project $y$ on what is left.
 We can find both formulations in the literature.
 For example, \cite{muehlenstaedt2012} subtracts from the projection and defines:
 \begin{align*}
@@ -413,10 +437,10 @@ The variance of $y$ is then given by:
 & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})], \notag
 \end{align}
 
-where all the cross-terms vanish due to the orthogonality of the fANOVA terms, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
-This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA terms.\par
+where all the cross-terms vanish due to the orthogonality of the fANOVA component functions, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
+This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA component functions.\par
 
-We can verify that the variance decomposition holds for our example. This means, we verify that the following expression is true:
+We can verify that the variance decomposition holds for our running example. This means, we verify that the following expression is true:
 \[
   \operatorname{Var}\big(h(X_1,X_2)\big)
   = \mathbb{E}\big[h_{\{1\}}^2(X_1)\big]
@@ -425,7 +449,7 @@ We can verify that the variance decomposition holds for our example. This means,
 \]
 for the function
 \[
-  h(X_1,X_2) = a + X_1 + 2X_2 + X_1 X_2 ,
+  h(x_1,x_2) = a + x_1 + 2x_2 + x_1 x_2 ,
 \]
 where $X_1,X_2$ are independent with zero-mean and unit variance.
 
@@ -447,13 +471,20 @@ We start with the left-hand side and compute the variance of $h(X_1,X_2)$.
 \end{align*}
 For $(\star)$ we used the fact that independence of any measurable map of $X_1$ and $X_2$ follows from independence of $X_1$ and $X_2$ for the second line, and the definition of the variance for the third line.
 
-Next, we go in the other direction and start from the sum of the variances of the fANOVA terms.
+Next, we go in the other direction and start from the sum of the variances of the fANOVA component functions.
 Their variances are given by:
-\[
-\mathbb{E}[h_{\{1\}}^2(X_1)] = \mathbb{E}[X_1^2] = 1,\quad
-\mathbb{E}[h_{\{2\}}^2(X_2)] = \mathbb{E}[(2X_2)^2] = 4,\quad
-\mathbb{E}[h_{\{1,2\}}^2(X_1,X_2)] = \mathbb{E}[(X_1 X_2)^2] = 1.
-\]
+\begin{align*}
+\mathbb{E}[h_{\{1\}}^2(X_1)] 
+    &= \mathbb{E}[X_1^2] 
+    = 1, \\[0.5em]
+\mathbb{E}[h_{\{2\}}^2(X_2)] 
+    &= \mathbb{E}[(2X_2)^2] 
+    = 4, \\[0.5em]
+\mathbb{E}[h_{\{1,2\}}^2(X_1,X_2)] 
+    &= \mathbb{E}[(X_1 X_2)^2] 
+    = 1.
+\end{align*}
+
 Therefore, summing everything up we obtain:
 \[
  \mathbb{E}[h_{\{1\}}^2(X_1)] + \mathbb{E}[h_{\{2\}}^2(X_2)] + \mathbb{E}[h_{\{1,2\}}^2(X_1,X_2)] 

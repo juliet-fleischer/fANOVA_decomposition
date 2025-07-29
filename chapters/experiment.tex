@@ -1,7 +1,9 @@
 In the final section of this thesis, we will explore the fANOVA decomposition visually. This will provide a better understanding for how fANOVA components behave in different scenarios. We will first revisit our running example and then explore some other functions.
 \subsection{Comparison of Decompositions}
-Recall our running example (\autoref{eq:running_example}):
-$$h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2,$$
+Recall the polynomial in our running example:
+\[
+h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2,
+\]
 with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$.
 Under independent inputs ($\rho = 0$), the fANOVA components are given by:
 \begin{align*}
@@ -23,12 +25,12 @@ visualized in \autoref{fig:running_ex_independent}. As expected, we observe simp
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png}
     \end{subfigure}
-    \caption{Main effects (left) and interaction effect (right) of the fANOVA decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
     \label{fig:running_ex_independent}
 \end{figure}
 
-Now we assume $\rho = 0.5$. In attempt to compute the fANOVA terms under dependent inputs, we calculated the following effects, which do not satisfy the fANOVA property of orthogonality. Nevertheless, is it interesting to compare their visualization in \autoref{fig:hoeffding_rho05} to the one of the true generalized fANOVA components in \autoref{fig:running_ex_dependent}.
-The main effects are parabolic, and the interaction term seems to be non-symmetric.
+Now we assume $\rho = 0.5$. In attempt to compute the fANOVA component functions under dependent inputs, we calculated the following components, which do not satisfy the fANOVA property of orthogonality. Nevertheless, is it interesting to compare their visualization in \autoref{fig:hoeffding_rho05} to the one of the true generalized fANOVA components in \autoref{fig:running_ex_dependent}.
+The main effects are parabolic, and the interaction component seems to be non-symmetric.
 
 \begin{align*}
 \tilde{h}_0 &= a + 0.5, \\[3pt]
@@ -48,7 +50,7 @@ The main effects are parabolic, and the interaction term seems to be non-symmetr
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/hoeffding_rho05_interaction.png}
     \end{subfigure}
-    \caption{Main effects (left) and interaction effect (right) of a fANOVA-type decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of a fANOVA-type decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:hoeffding_rho05}
 \end{figure}
 The true fANOVA components under $\rho = 0.5$ are given by:
@@ -75,11 +77,11 @@ These are visualized in \autoref{fig:running_ex_dependent}.
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png}
     \end{subfigure}
-    \caption{Main effects (left) and interaction effect (right) of the generalized fANOVA decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of the generalized fANOVA decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:running_ex_dependent}
 \end{figure}
 Interestingly, the parabolic form of the main effects is similar between both decompositions, but the interaction effects diverge notably.\par
-Our running example (\autoref{eq:running_example}) included linear effects of both input variables and the interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
+Our running example included linear effects of both input variables and an interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
 
 \subsection{Comparison of Functions}
 \subsubsection{Scenario: Linear}
@@ -105,7 +107,7 @@ The function $q$ can solely be described by linear main effects (\autoref{fig:li
         \includegraphics[width=\textwidth]{images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png}
         \caption{$a_1 = -2$, $a_2 = 4$}
     \end{subfigure}
-    \caption{Main fANOVA components for linear terms with different coefficients. The components are given by: $y_1(x_1) = a_1 x_1$, $y_2(x_2) = a_2 x_2$.}
+    \caption{Main fANOVA component functions $q_{\{1\}}(x_1) = a_1 x_1$ and $q_{\{2\}}(x_2) = a_2 x_2$ for the linear function $q(x_1,x_2)=a_1x_1+a_2x_2$.}
     \label{fig:linear_main_effects}
 \end{figure}
 
@@ -121,8 +123,7 @@ The fANOVA components for $p$ are given by:
     p_{\{1\}}(x_1) &= a_1 x_1 + a_{11}(x_1^2 - 1), \\
     p_{\{2\}}(x_2) &= a_2 x_2 + a_{22}(x_2^2 - 1).
 \end{align*}
-The main effects are parabolas now. In \autoref{fig:mixed_main_effects}, we vary the coefficients $a_1$, $a_2$, $a_{11}$, and $a_{22}$, while the interaction term is still absent.
-% The shape of the parabolas in the upper left panel is representative of cases, where the coefficients of the linear terms $a_1$ and $a_2$ have the same sign and the ones of the quadratic terms $a_{11}$ and $a_{22}$ have the same sign.
+We observe parabolic main effects now. In \autoref{fig:mixed_main_effects}, we vary the coefficients $a_1$, $a_2$, $a_{11}$, and $a_{22}$, while the interaction component is still absent.
 The coefficients of the quadratic terms determine whether the parabola is facing downwards or upwards; when $a_{11}$ and $a_{22}$ are both negative or both positive the parabola is open downwards or upwards respectively, and when they have opposite signs the parabolas are open in different directions. Alongside the quadratic coefficients, the linear ones $a_1$ and $a_2$ influence how stretched or compressed the parabola is.
 
 \begin{figure}[htpb]
@@ -157,14 +158,14 @@ The coefficients of the quadratic terms determine whether the parabola is facing
         \label{fig:mixed_rho_0_panel4}
     \end{subfigure}
 
-    \caption{Main effects for different coefficient combinations of mixed main effects. The commponents are given by: $y_1(x_1) = a_1 x_1 + a_{11}(x_1^2 - 1)$, $y_2(x_2) = a_2 x_2 + a_{22}(x_2^2 - 1)$.}
+    \caption{Main fANOVA component functions $p_{\{1\}}(x_1) = a_1 x_1 + a_{11}(x_1^2 - 1)$ and $p_{\{2\}}(x_2) = a_2 x_2 + a_{22}(x_2^2 - 1)$ for the quadratic function $p(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2$.}
     \label{fig:mixed_main_effects}
 \end{figure}
 
 \subsubsection{Scenario: Interaction}
 Next, we consider a model, which solely consists of an interaction term:
 $$w(x_1, x_2) = a_{12} x_1 x_2.$$
-The fANOVA components for $w$ are given by:
+The fANOVA component functions for $w$ are given by:
 \begin{align*}
     w_{\emptyset} &= a_{12} \rho, \\[3pt]
     w_{\{1\}}(x_1) &= a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1), \\[3pt]
@@ -176,7 +177,7 @@ The fANOVA components for $w$ are given by:
     + \frac{\rho(\rho^2-1)}{1+\rho^2}
    \right).
 \end{align*}
-The main effects $y_1$ and $y_2$, as well as the interaction term $y_{12}$, are influenced by $\rho$ and $a_{12}$.
+The main components $w_{\{1\}}$ and $w_{\{2\}}$, as well as the interaction component $w_{\{1,2\}}$, are influenced by $\rho$ and $a_{12}$.
 In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.
 The main effects have the same form for every case of $\rho$ and $a_{12}$ and thus overlap. This example is simple yet interesting because it shows that in the case where the true function consists solely of an interaction term, fANOVA still attributes something to the isolated effect of each variable. Only when the variables are uncorrelated, all the effect is attributed to the interaction term. This functionality hints to why \cite{lengerich2020} build an algorithm around fANOVA to purify interaction effects\footnote{Because they see a pure interaction as an effect which cannot be attributed to lower order terms; this means when identifying interactions we want to attribute all we can to lower order terms and what is left is the true interaction effect.}.
 
@@ -224,9 +225,9 @@ The main effects have the same form for every case of $\rho$ and $a_{12}$ and th
         \caption{Interaction contour for $\rho = 1$}
     \end{subfigure}
 
-    \caption{Main effects (left column) and interaction contour plots (right column) for different values of $\rho$. The effects are given by $y_{1}(x_1) = a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1)$,
-    $y_{2}(x_2) = a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1)$,
-    $y_{12}(x_1,x_2) = -a_{12}\!\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right)$.}
+    \caption{Main fANOVA component functions (left column) and interaction component (right column) for different values of $\rho$. The components are given by $w_{\{1\}}(x_1) = a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1)$,
+    $w_{\{2\}}(x_2) = a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1)$,
+    $w_{\{12\}}(x_1,x_2) = -a_{12}\!\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right)$.}
     \label{fig:interaction_combined}
 \end{figure}
 
@@ -235,8 +236,8 @@ Finally, a full example, including all main and interaction effects:
 $$z(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
 We can vary the coefficients as well as $\rho$.\par
-When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction effect is present and variables exhibit dependency.
-In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlation between variables and in \autoref{fig:all_pair_02} we show the same for a strong linear correlation between variables. Similar to the visualization of our running example in \autoref{fig:running_ex_dependent}, we see that main effects are distorted slightly, while interaction effects look substantially different under dependent inputs.
+When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction term is present and variables exhibit dependency.
+In \autoref{fig:all_pair_01} we make this comparison for a weakly positive linear correlation between variables and in \autoref{fig:all_pair_02} we show the same for a strongly negative linear correlation between variables. Similar to the visualization of our running example in \autoref{fig:running_ex_dependent}, we see that main effects are distorted slightly, while interaction effects look substantially different under dependent inputs.
 
 \begin{figure}[htpb]
     \centering
@@ -270,7 +271,10 @@ In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlati
         \caption{Main and interaction effects for (2) $a_1 = 0$, $a_2 = 2$, 
                  $a_{11} = 0$, $a_{22} = 1$, $a_{12} = -0.5$, $\rho = 0$.}
     \end{subfigure}
-    \caption{Main effects (left) and interaction contours (right) for four different coefficient sets.}
+    \caption{Main fANOVA component functions (left) and the interaction component 
+(right) of the same polynomial model, shown once under weakly correlated input variables 
+($\rho = 0.3$) and once under independent inputs ($\rho = 0$). 
+The coefficient sets are identical except for the correlation structure.}
     \label{fig:all_pair_01}
 \end{figure}
 
@@ -303,8 +307,10 @@ In \autoref{fig:all_pair_01} we make this comparison for a weak linear correlati
         \caption{Main and interaction effects for (4) $a_1 = -2$, $a_2 = 2$, 
                  $a_{11} = -1$, $a_{22} = 1$, $a_{12} = -1$, $\rho = 0$.}
     \end{subfigure}
-
-    \caption{Main effects (left) and interaction contours (right) for four different \\ coefficient sets.}
+    \caption{Main fANOVA component functions (left) and the interaction component 
+(right) of the same polynomial model, shown once under strongly correlated input variables 
+($\rho = -0.8$) and once under independent inputs ($\rho = 0$). 
+The coefficient sets are identical except for the correlation structure.}
     \label{fig:all_pair_02}
 \end{figure}
 

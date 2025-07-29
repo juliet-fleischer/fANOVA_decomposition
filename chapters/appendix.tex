@@ -5,12 +5,13 @@ Here we show the proof of Theorem 1 in \cite{sobol1993sensitivity}.
     \begin{align*}
         y(\boldsymbol{X}) = \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{X}_u),
     \end{align*}
-    subject to the zero-mean constraint \autoref{eq:zero_mean_c}.
+    subject to the constraint that \autoref{prop:zero_mean_classical} is satisfied.
 \end{theorem}
-Sobol proofs existence and uniqueness of the fANOVA decomposition by showing how the summands of the desired decomposition look and showing that they satisfy the desired zero-mean property.
+Sobol proofs existence and uniqueness of the fANOVA decomposition by showing how the summands of the desired decomposition look and constructing them in such a way that they have the zero-mean property.
 
 \begin{proof}
-    Assume that $\boldsymbol{X}$ is an $N$-dimensional vector of independent random variables and that the zero-mean property holds for the - still abstract - fANOVA terms. He defines the integral w.r.t. all variables except for the ones with indices in \( v \):
+    Assume that $\boldsymbol{X}$ is an $N$-dimensional vector of independent random variables and
+    that the still unspecified fANOVA components have zero-mean. He defines the integral w.r.t. all variables except for the ones with indices in \( v \):
     \begin{align*}
         g_v(\boldsymbol{x}_v) &= \int_{[0, 1]^{N - |v|}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}_{-v})
     \end{align*}

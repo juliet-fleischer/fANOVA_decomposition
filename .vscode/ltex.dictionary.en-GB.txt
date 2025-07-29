@@ -10,3 +10,4 @@ analyzing
 zero-centered
 centered
 nonempty
+fulfills
