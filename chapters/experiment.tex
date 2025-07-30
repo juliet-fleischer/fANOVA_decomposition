@@ -1,11 +1,11 @@
-In the final section of this thesis, we will explore the fANOVA decomposition visually. This will provide a better understanding for how fANOVA components behave in different scenarios. We will first revisit our running example and then explore some other functions.
+In the final section of this thesis, we explore the fANOVA decomposition visually. This provides a better understanding for how the components behave in different scenarios. We will first revisit our running example and then explore some other functions.
 \subsection{Comparison of Decompositions}
 Recall the polynomial in our running example:
 \[
 h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2,
 \]
 with polynomial coefficients: $a_0 = 0$, $a_1 = 1$, $a_2 = 2$, $a_{11} = 0$, $a_{22} = 0$, $a_{12} = 1$.
-Under independent inputs ($\rho = 0$), the fANOVA components are given by:
+Under independent inputs ($\rho = 0$), the fANOVA component functions are given by:
 \begin{align*}
 h_{\emptyset} &= 0, \\
 h_{\{1\}}(x_1) &= x_1\\
@@ -29,14 +29,15 @@ visualized in \autoref{fig:running_ex_independent}. As expected, we observe simp
     \label{fig:running_ex_independent}
 \end{figure}
 
-Now we assume $\rho = 0.5$. In attempt to compute the fANOVA component functions under dependent inputs, we calculated the following components, which do not satisfy the fANOVA property of orthogonality. Nevertheless, is it interesting to compare their visualization in \autoref{fig:hoeffding_rho05} to the one of the true generalized fANOVA components in \autoref{fig:running_ex_dependent}.
-The main effects are parabolic, and the interaction component seems to be non-symmetric.
+Now we assume $\rho = 0.5$. In attempt to compute the fANOVA component functions under dependent inputs, we calculated the following components, which do not satisfy the fANOVA property of orthogonality:
 \begin{align*}
 \tilde{h}_0 &= a + 0.5, \\[0.5em]
 \tilde{h}_{\{1\}}(x_1) &= 2x_1 + 0.5x_1^2 - 0.5, \\[0.5em]
 \tilde{h}_{\{2\}}(x_2) &= 2.5x_2 + 0.5x_2^2 - 0.5, \\[0.5em]
-\tilde{h}_{\{1,2\}}(x_1,x_2) &= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5,
+\tilde{h}_{\{1,2\}}(x_1,x_2) &= x_1x_2 - x_1 - 0.5x_2 - 0.5x_1^2 - 0.5x_2^2 + 0.5.
 \end{align*}
+Nevertheless, it is interesting to compare their visualization in \autoref{fig:hoeffding_rho05} to the one of the true generalized components in \autoref{fig:running_ex_dependent}.
+The main effects are parabolic, and the interaction component seems to be non-symmetric.
 
 \begin{figure}[htpb]
     \centering
@@ -52,7 +53,7 @@ The main effects are parabolic, and the interaction component seems to be non-sy
     \caption{Main fANOVA component functions (left) and interaction component (right) of a fANOVA-type decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:hoeffding_rho05}
 \end{figure}
-The true fANOVA components under $\rho = 0.5$ are given by:
+The true fANOVA component functions under $\rho = 0.5$ are given by:
 \begin{align*}
 h_{\emptyset, G} &= 0.5, \\[0.5em]
 h_{{\{1\}}, G}(x_1) &= x_1 + 0.4\,(x_1^2 - 1)
@@ -86,7 +87,7 @@ Our running example included linear effects of both input variables and an inter
 \subsubsection{Scenario: Linear}
 First, we consider two-degree polynomials of the form:
 $$q(x_1, x_2) = a_1 x_1 + a_2 x_2.$$
-We can immediately read of the fANOVA components or use the general set of fANOVA components for a two-degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $g_1$ to:
+We can immediately read of the fANOVA component functions or use the general set of fANOVA components for a two-degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $q$ to:
 \begin{align*}
     q_{\{1\}}(x_1) &= a_1 x_1, \\
     q_{\{2\}}(x_2) &= a_2 x_2.
@@ -116,7 +117,7 @@ Slightly more complex is a two-degree polynomials, which allows for effects of l
 \[
 p(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2.
 \]
-The fANOVA components for $p$ are given by:
+The fANOVA component functions for $p$ are given by:
 \begin{align*}
     p_{\emptyset} &= a_{11} + a_{22}, \\
     p_{\{1\}}(x_1) &= a_1 x_1 + a_{11}(x_1^2 - 1), \\
@@ -178,7 +179,8 @@ The fANOVA component functions for $w$ are given by:
 \end{align*}
 The main components $w_{\{1\}, G}$ and $w_{\{2\}, G}$, as well as the interaction component $w_{\{1,2\}, G}$, are influenced by $\rho$ and $a_{12}$.
 In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.
-The main effects have the same form for every case of $\rho$ and $a_{12}$ and thus overlap. This example is simple yet interesting because it shows that in the case where the true function consists solely of an interaction term, fANOVA still attributes something to the isolated effect of each variable. Only when the variables are uncorrelated, all the effect is attributed to the interaction term. This functionality hints to why \cite{lengerich2020} build an algorithm around fANOVA to purify interaction effects\footnote{Because they see a pure interaction as an effect which cannot be attributed to lower order terms; this means when identifying interactions we want to attribute all we can to lower order terms and what is left is the true interaction effect.}.
+The main effects have the same form for every case of $\rho$ and $a_{12}$ and thus overlap.\\
+This example is simple yet interesting because it shows that in the case where the true function consists solely of an interaction term, fANOVA still attributes something to the isolated effect of each variable. Only when the variables are uncorrelated, all the effect is attributed to the interaction term. This functionality hints to why \cite{lengerich2020} build an algorithm around fANOVA to purify interaction effects\footnote{Because they see a pure interaction as an effect which cannot be attributed to lower order terms; this means when identifying interactions we want to attribute all we can to lower order terms and what is left is the true interaction effect.}.
 
 
 \begin{figure}[htpb]
@@ -231,9 +233,9 @@ The main effects have the same form for every case of $\rho$ and $a_{12}$ and th
 \end{figure}
 
 \subsubsection{Scenario: Full}
-Finally, a full example, including all main and interaction effects:
+Finally, we consider a full example, including all main and interaction effects:
 $$z(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
-Now the fANOVA components are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
+Now the fANOVA component functions are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
 We can vary the coefficients as well as $\rho$.\par
 When the true function has no interaction term, as in our first two scenarios, varying $\rho$ is uninteresting because there is no way it could influence the form of the main effects. In this full scenario, however, there is an interaction term present, and therefore it is most interesting to compare pairs of coefficient sets under $\rho = 0$ versus $\rho \neq 0$. With this we want to essentially ask how effects are distorted by performing the classical fANOVA decomposition when a true interaction term is present and variables exhibit dependency.
 In \autoref{fig:all_pair_01} we make this comparison for a weakly positive linear correlation between variables and in \autoref{fig:all_pair_02} we show the same for a strongly negative linear correlation between variables. Similar to the visualization of our running example in \autoref{fig:running_ex_dependent}, we see that main effects are distorted slightly, while interaction effects look substantially different under dependent inputs.
@@ -314,9 +316,15 @@ The coefficient sets are identical except for the correlation structure.}
 \end{figure}
 
 \subsection{Estimation of fANOVA Component Functions}
-This was all rather theoretical and the examples we used foster understanding, but they are toy examples and in reality the true function is unknown and more complex. So to become a more widely used, established interpretability method, an estimation scheme is inevitable.
+The discussion so far has been mostly theoretical, and the examples used were 
+deliberately simple to illustrate the key ideas. 
+In practical applications, however, the true function is typically unknown and 
+more complex. 
+This makes the development of suitable estimation procedures an important step 
+towards establishing the method as a practical interpretability tool.
+
 % Here we briefly present two estimation approaches by \cite{hooker2004, hooker2007},
-We already encountered one estimation scheme proposed by \cite{rahman2014} when computing the generalized fANOVA components for our running example; we refer to \autoref{sec:formalization_fANOVA} the conceptual idea behind it.
+We already encountered one estimation scheme proposed by \cite{rahman2014} when computing the generalized fANOVA component functions for our running example; we refer to \autoref{sec:formalization_fANOVA} the conceptual idea behind it.
 
 In \cite{hooker2004} an estimation framework based on partial dependence is proposed, which makes use of the formulation of fANOVA via projections. To obtain the component estimate for $y_u$, Hooker proposed to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
 One does so by first estimating the conditional expected value of the variables in $u$. % (keep variables in $u$ fixed an average over all others).
