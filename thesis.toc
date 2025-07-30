@@ -10,11 +10,11 @@
 \contentsline {subsection}{\numberline {3.2}Generalized fANOVA}{18}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Conditions for Generalized fANOVA}{19}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Construction of the Generalized fANOVA Component Functions}{22}{subsubsection.3.2.2}%
-\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subseteq u \)}{23}{section*.2}%
-\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{24}{section*.3}%
-\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{24}{section*.4}%
-\contentsline {paragraph}{Case: \( u = \emptyset \).}{25}{section*.5}%
-\contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{25}{section*.6}%
+\contentsline {paragraph}{Case 1: \( v \cap u \ne \emptyset \) and \( v \not \subseteq u \)}{23}{section*.4}%
+\contentsline {paragraph}{Case 2: $v \cap u \ne \emptyset \text { and } v \subseteq u$.}{24}{section*.5}%
+\contentsline {paragraph}{Case 3: \( v \cap u = \emptyset \).}{24}{section*.6}%
+\contentsline {paragraph}{Case: \( u = \emptyset \).}{25}{section*.7}%
+\contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{25}{section*.8}%
 \contentsline {subsubsection}{\numberline {3.2.3}Generalization via Projection}{27}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Generalized Variance Decomposition}{29}{subsubsection.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Inputs}{30}{subsubsection.3.2.5}%
@@ -27,5 +27,6 @@
 \contentsline {subsubsection}{\numberline {4.2.4}Scenario: Full}{39}{subsubsection.4.2.4}%
 \contentsline {subsection}{\numberline {4.3}Estimation of fANOVA Component Functions}{41}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusion}{44}{section.5}%
+\contentsline {section}{\numberline {6}References}{45}{section.6}%
 \contentsline {section}{\numberline {A}Appendix}{V}{appendix.A}%
 \contentsline {section}{\numberline {B}Electronic appendix}{VIII}{appendix.B}%
