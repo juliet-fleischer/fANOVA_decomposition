@@ -1,18 +1,19 @@
-The formal setup is based on \cite{rahman2014} and \cite{chastaing2012}.\par
-Let $\mathbb{N}, \mathbb{N}_0, \mathbb{R}, \text{ and } \mathbb{R}_0^{+}$ denote the sets of positive integer (natural), nonnegative integer, real, and nonnegative real numbers, respectively. Throughout this thesis, we represent the $k$-dimensional Euclidean space by $\mathbb{R}^k$ and the set of all $k \times k$ real-valued matrices by $\mathbb{R}^{k \times k}$.\par
+The formal setup is based on \cite{rahman2014} and \cite{chastaing2012}.
+Let $\mathbb{N}, \mathbb{N}_0, \mathbb{R}, \text{ and } \mathbb{R}_0^{+}$ denote the sets of positive integer (natural), nonnegative integer, real, and nonnegative real numbers, respectively. Throughout this thesis, we represent the $k$-dimensional Euclidean space by $\mathbb{R}^k$ and the set of all $k \times k$ real-valued matrices by $\mathbb{R}^{k \times k}$.
+
 Let $(\Omega, \mathcal{F}, \nu)$ be a measure space, where $\Omega$ is a sample space, $\mathcal{F}$ is a $\sigma-$algebra on $\Omega$ and $\nu: \mathcal{F} \rightarrow [0, 1]$ is a probability measure. $\mathcal{B}^N$ is the Borel $\sigma$-algebra on $\mathbb{R}^N, N \in \mathbb{N}$.
-$\boldsymbol{X} = (X_1, \dots, X_N): (\Omega, \mathcal{F}) \rightarrow (\mathbb{R}^N, \mathcal{B}^N)$ denotes an $\mathbb{R}^N$-valued random vector.\par
-We assume that the probability distribution of $\boldsymbol{X}$ is continuous and completely defined by the joint probability density function $f_{\boldsymbol{X}}: \mathbb{R}^N \rightarrow \mathbb{R}_{0}^+$. % $f_{\boldsymbol{X}}$ is the probability density function with respect to (w.r.t.) the measure $\nu$. \par
+$\boldsymbol{X} = (X_1, \dots, X_N): (\Omega, \mathcal{F}) \rightarrow (\mathbb{R}^N, \mathcal{B}^N)$ denotes an $\mathbb{R}^N$-valued random vector.
+We assume that the probability distribution of $\boldsymbol{X}$ is continuous and completely defined by the joint probability density function $f_{\boldsymbol{X}}: \mathbb{R}^N \rightarrow \mathbb{R}_{0}^+$. % $f_{\boldsymbol{X}}$ is the probability density function with respect to (w.r.t.) the measure $\nu$. 
 
 Let $u$ denote a subset of $\{1, \dots, N\}$ with the complementary set  $-u := \{1, \dots, N\} \backslash{} u$ and cardinality $0 \leq |u| \leq N$. We denote strict inclusion of a subset by $\subsetneq$ and $\subseteq$ allows for equality.
 $\boldsymbol{X_u} = (X_{i_1}, \dots, X_{i_{|u|}}), u \neq \emptyset, 1 \leq i_1 < \dots < i_{|u|} \leq N$ is a sub-vector of $\boldsymbol{X}$ and $\boldsymbol{X}_{-u} = \boldsymbol{X}_{\{1, \dots, N\} \backslash{} u}$ is the complementary subvector.
 
-The marginal density function of $\boldsymbol{X_u}$ is $f_u(\boldsymbol{x_u}) := \int_{\mathbb{R}^{N-|u|}} f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x}_{-u})$ for a given set $\emptyset \neq u \subseteq \{1, \dots N\}$.\par
+The marginal density function of $\boldsymbol{X_u}$ is $f_u(\boldsymbol{x_u}) := \int_{\mathbb{R}^{N-|u|}} f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x}_{-u})$ for a given set $\emptyset \neq u \subseteq \{1, \dots N\}$.
+
 Let $y(\boldsymbol{X}) := y(X_1, \dots, X_N)$ be a real-valued, measurable transformation on $(\Omega, \mathcal{F})$, which represents a probabilistic model with random variables as inputs. The Hilbert space of square-integrable functions $y$ with respect to the induced generic measure $f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x})$ supported on $\mathbb{R}^N$ is given by:
 \[
 \mathcal{L}^2(\Omega, \mathcal{F}, \nu) = \left\{ y: \Omega \rightarrow \mathbb{R} \; \textit{s.t.} \; \mathbb{E}[y^2(\boldsymbol{X})] < \infty \right\}.
 \]
-
 The inner product is defined by:
 \[
 \langle y, g \rangle = \int_{\mathbb{R}^N} y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}(\boldsymbol{x}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})], \quad \forall y,g \in \mathcal{L}^2.
@@ -33,8 +34,6 @@ The functional ANOVA (fANOVA) decomposition of $y$ takes the form:
 The functions $y_u$ are referred to as \emph{fANOVA component functions} 
 (or simply \emph{components}) throughout this thesis.
 \end{definition}
-
-
 
 \subsection{Classical fANOVA}
 For his original fANOVA decomposition, Sobol' only considered function defined on the unit hypercube, but later work shows that it is no problem to work within the measure space $(\mathbb{R}^N, \mathcal{B}^N, \nu)$.
@@ -148,8 +147,8 @@ For all other components, where $\emptyset \neq u \subseteq \{1, \dots, N\}$, we
     \label{eq:fanova_components_classical}
 \end{equation}
 
-Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the second part of this section.\par
-As suggested earlier, the fANOVA component functions offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.\par
+Notice that this definition relies on a product-type measure rooted in the independence assumption. We will see what changes when we let got of this assumption in the second part of this section.
+As suggested earlier, the fANOVA component functions offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
 \subsubsection{Example: Independent Multivariate Normal Inputs}
@@ -192,7 +191,7 @@ X_2 \mid X_1=x_1 \sim \mathcal{N}(\rho x_1, 1-\rho^2).
 
 
 
-This example will allow us to compute and compare the classical and generalized fANOVA decompositions for different correlation structures.\par
+This example will allow us to compute and compare the classical and generalized fANOVA decompositions for different correlation structures.
 
 The classical fANOVA decomposition we covered so far assumes independence, i.e., $\rho = 0$. 
 Here, $X_1$ and $X_2$ are independent and standard normal, so the conditional means vanish, and the classical fANOVA decomposition simplifies considerably. 
@@ -246,7 +245,7 @@ where, for each $A \subseteq D$, the component function $y_A$ is defined by:
 \end{align}
 \end{definition}
 
-We can now apply the Hoeffding decomposition to our running example, while we for now write generally $\mu_1 = \mathbb{E}[X_1]$ and $\mu_2 = \mathbb{E}[X_2]$.\par
+We can now apply the Hoeffding decomposition to our running example, while we for now write generally $\mu_1 = \mathbb{E}[X_1]$ and $\mu_2 = \mathbb{E}[X_2]$.
 
 For $A=\emptyset$ there is only one subset $B=\emptyset$. 
 Substituting this into \autoref{eq:hoeffding_components} of \autoref{def:hoeffding_decomposition} we obtain:
@@ -256,108 +255,101 @@ h_{\emptyset}
 (-1)^{0-0}\,
 \mathbb{E}[h(\boldsymbol{X})]
 =
-\mathbb{E}[h(X_1,X_2)].
+\mathbb{E}[h(\boldsymbol{X})].
 \]
 We compute
 \[
-\mathbb{E}[h(X_1,X_2)]
+\mathbb{E}[h(\boldsymbol{X})]
 = a + \mathbb{E}[X_1] + 2 \mathbb{E}[X_2] 
   + \mathbb{E}[X_1]\mathbb{E}[X_2]
 = a + \mu_1 + 2\mu_2 + \mu_1\mu_2.
 \]
-
 Next, the subsets of $A=\{1\}$ are $B=\emptyset$ and $B=\{1\}$, so
 \[
-h_{\{1\}}(X_1)
+h_{\{1\}}(x_1)
 =
 (-1)^{1-0}\,\mathbb{E}[h(\boldsymbol{X})]
 +
-(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_1]
+(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_1 = x_1]
 =
--\mathbb{E}[h] + \mathbb{E}[h(\boldsymbol{X})|X_1].
+-\mathbb{E}[h(\boldsymbol{X})] + \mathbb{E}[h(\boldsymbol{X})|X_1 = x_1].
 \]
 Since $X_1$ is independent of $X_2$, the conditional expectation is:
 \[
-\mathbb{E}[h(\boldsymbol{X})|X_1]
-= a + X_1 + 2\mu_2 + X_1 \mu_2,
+\mathbb{E}[h(\boldsymbol{X})|X_1 = x_1]
+= a + x_1 + 2\mu_2 + x_1 \mu_2,
 \]
 thus the final expression is given by:
 \[
-h_{\{1\}}(X_1)
-= - (a+\mu_1+2\mu_2+\mu_1\mu_2) + (a+X_1+2\mu_2+X_1\mu_2)
-= (1+\mu_2)(X_1 - \mu_1).
+h_{\{1\}}(x_1)
+= - (a+\mu_1+2\mu_2+\mu_1\mu_2) + (a+x_1+2\mu_2+x_1\mu_2)
+= (1+\mu_2)(x_1 - \mu_1).
 \]
-
 The subsets of $A=\{2\}$ are $B=\emptyset$ and $B=\{2\}$, so
 \[
-h_{\{2\}}(X_2)
+h_{\{2\}}(x_2)
 =
 (-1)^{1-0}\,\mathbb{E}[h(\boldsymbol{X})]
 +
-(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_2]
+(-1)^{1-1}\,\mathbb{E}[h(\boldsymbol{X})|X_2 = x_2]
 =
--\mathbb{E}[h(\boldsymbol{X})] + \mathbb{E}[h(\boldsymbol{X})|X_2].
+-\mathbb{E}[h(\boldsymbol{X})] + \mathbb{E}[h(\boldsymbol{X})|X_2 = x_2].
 \]
 Under independence the conditional expectation is:
 \[
-\mathbb{E}[h(\boldsymbol{X})|X_2]
-= a + \mu_1 + 2X_2 + \mu_1 X_2,
+\mathbb{E}[h(\boldsymbol{X})|X_2 = x_2]
+= a + \mu_1 + 2x_2 + \mu_1 x_2,
 \]
 which yields the final expression:
 \[
 h_{\{2\}}(X_2)
 = - (a+\mu_1+2\mu_2+\mu_1\mu_2) + (a+\mu_1+2X_2+\mu_1 X_2)
-= (2+\mu_1)(X_2 - \mu_2).
+= (2+\mu_1)(x_2 - \mu_2).
 \]
-
 Finally, the subsets of $A=\{1,2\}$ are 
 $B=\emptyset$, $B=\{1\}$, $B=\{2\}$, $B=\{1,2\}$. 
 We obtain:
 \begin{align*}
-h_{\{1,2\}}(X_1,X_2)
+h_{\{1,2\}}(x_1,x_2)
 &= (-1)^{2-0}\mathbb{E}[h(\boldsymbol{X})]
-   + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_1] \notag\\
-&\quad + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_2]
-   + (-1)^{2-2}\mathbb{E}[h(\boldsymbol{X})|X_1,X_2] \notag\\[0.3em]
+   + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_1 = x_1] \notag\\
+&\quad + (-1)^{2-1}\mathbb{E}[h(\boldsymbol{X})|X_2 = x_2]
+   + (-1)^{2-2}\mathbb{E}[h(\boldsymbol{X})|X_1 = x_1,X_2 = x_2] \notag\\[0.3em]
 &= \mathbb{E}[h(\boldsymbol{X})]
-   - \mathbb{E}[h(\boldsymbol{X})|X_1]
-   - \mathbb{E}[h(\boldsymbol{X})|X_2]
-   + \mathbb{E}[h(\boldsymbol{X})|X_1,X_2].
+   - \mathbb{E}[h(\boldsymbol{X})|X_1 = x_1]
+   - \mathbb{E}[h(\boldsymbol{X})|X_2 = x_2]
+   + \mathbb{E}[h(\boldsymbol{X})|X_1 = x_1,X_2 = x_2].
 \end{align*}
-
 We already know:
 \[
-\mathbb{E}[h(\boldsymbol{X})|X_1,X_2] = h(X_1,X_2) = a + X_1 + 2X_2 + X_1 X_2.
+\mathbb{E}[h(\boldsymbol{X})|X_1 = x_1,X_2 = x_2] = h(\boldsymbol{X}) = a + x_1 + 2x_2 + x_1 x_2.
 \]
 Thus, there interaction term is given by:
 \begin{align}
-h_{\{1,2\}}(X_1,X_2)
+h_{\{1,2\}}(x_1,x_2)
 &= (a+\mu_1+2\mu_2+\mu_1\mu_2)
-   - (a+X_1+2\mu_2+\mu_2 X_1) \notag\\
-&\quad - (a+\mu_1+2X_2+\mu_1 X_2)
-   + (a+X_1+2X_2+X_1 X_2) \notag\\[0.3em]
-&= X_1 X_2 - \mu_2 X_1 - \mu_1 X_2 + \mu_1 \mu_2 \notag\\
-&= (X_1 - \mu_1)(X_2 - \mu_2).
+   - (a+x_1+2\mu_2+\mu_2 x_1) \notag\\
+&\quad - (a+\mu_1+2x_2+\mu_1 x_2)
+   + (a+x_1+2x_2+x_1 x_2) \notag\\[0.3em]
+&= x_1 x_2 - \mu_2 x_1 - \mu_1 x_2 + \mu_1 \mu_2 \notag\\
+&= (x_1 - \mu_1)(x_2 - \mu_2).
 \end{align}
-
-
-Combining these results, the Hoeffding decomposition of $h(X_1,X_2)$ with general means 
+Combining these results, the Hoeffding decomposition of $h(x_1,x_2)$ with general means 
 $\mu_1=\mathbb{E}[X_1]$ and $\mu_2=\mathbb{E}[X_2]$ is:
 \[
-h(X_1,X_2)
+h(x_1,x_2)
 =
-h_{\emptyset} + h_1(X_1) + h_2(X_2) + h_{12}(X_1,X_2),
+h_{\emptyset} + h_{\{1\}}(x_1) + h_{\{2\}}(x_2) + h_{\{1,2\}}(x_1,x_2),
 \]
 with
 \[
 \begin{aligned}
 h_{\emptyset} &= a + \mu_1 + 2\mu_2 + \mu_1\mu_2, \\[0.3em]
-h_1(X_1) &= (1+\mu_2)(X_1 - \mu_1), \\[0.3em]
-h_2(X_2) &= (2+\mu_1)(X_2 - \mu_2), \\[0.3em]
-h_{\{1,2\}}(X_1,X_2) &= (X_1 - \mu_1)(X_2 - \mu_2).
+h_{\{1\}}(x_1) &= (1+\mu_2)(x_1 - \mu_1), \\[0.3em]
+h_{\{2\}}(x_2) &= (2+\mu_1)(x_2 - \mu_2), \\[0.3em]
+h_{\{1,2\}}(x_1,x_2) &= (x_1 - \mu_1)(x_2 - \mu_2).
 \end{aligned}
 \]
-
 Under the special case of centered input variables, as we assumed in the running example, the decomposition simplifies to:
 \[
 h_{\emptyset}=a,\quad
@@ -365,7 +357,7 @@ h_{\{1\}}(x_1)=x_1,\quad
 h_{\{2\}}(x_2)=2x_2,\quad
 h_{\{1,2\}}(x_1,x_2)=x_1 x_2,
 \]
-which coincides with the fANOVA component functions calculated for the polynomial from our running example (\autoref{eq:running_example_function}).\par
+which coincides with the fANOVA component functions calculated for the polynomial from our running example (\autoref{eq:running_example_function}).
 The principle of the Hoeffding decomposition is the same as that of the fANOVA decomposition, but the latter is expressed in a recursive form, making explicit that each component accounts for the contributions of lower-order components.
 In addition, the fANOVA component functions are themselves are zero-centered by construction.
 
@@ -373,7 +365,7 @@ In addition, the fANOVA component functions are themselves are zero-centered by 
 \subsubsection{fANOVA via Projection}
 In the following we revisit the fANOVA decomposition from the view of orthogonal projections.
 For this section the parallel between the (conditional) expected value and orthogonal projections formulated in \cite{Vaart_1998} is crucial.
-Having this perspective on the fANOVA decomposition helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA later in this section. First we define generally what an orthogonal projection is, and then we will use the idea in the context of fANOVA.\par
+Having this perspective on the fANOVA decomposition helps in bridging different notations of the method (e.g. via expected value or via integral) and also supports in understanding the generalization of fANOVA later in this section. First we define generally what an orthogonal projection is, and then we will use the idea in the context of fANOVA.
 
 \begin{definition}[Orthogonal Projection, {adapted from \cite{nagler2024mathstat}}]\label{def:orthogonal_projection}
     Let $\mathcal{G} \subset \mathcal{L}^2$ denote a linear subspace. The projection of $y$ onto $\mathcal{G}$ is defined by the function $\Pi_{\mathcal{G}}y$ which minimizes the distance to $y$ in $\mathcal{L}^2$:
@@ -466,8 +458,8 @@ For example, \cite{muehlenstaedt2012} subtracts from the projection and defines:
 \end{align*}
 The first equivalence in each formulation is simply the definition in each original paper, while the second equivalence holds under the assumption of independent inputs.
 % \subsubsection*{Notes \& Clarification}
-% Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.\par
-% \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.\par
+% Situation: $y(\boldsymbol{X}) \in \Omega, \mathcal{G} \subseteq \Omega, g(\boldsymbol{X}) \in \mathcal{G}$.
+% \cite{Vaart_1998} tells us that the expected value is equivalent to the projection \cite{muehlenstaedt2012} tells us that the fANOVA terms are equivalent to the conditional expected value.
 
 
 % further analysis of the model via fANOVA decomposition --> variance decomposition
@@ -488,7 +480,7 @@ Following the calculations in \cite{rahman2014}, the variance of $y$ is then giv
 & = \sum_{u} \mathbb{E}[y_u^2({\boldsymbol{X}_u})].
 \end{align}
 All the cross-terms vanish due to the orthogonality of the fANOVA component functions, i.e. $\mathbb{E}[y_u({\boldsymbol{X}_u})  y_v({\boldsymbol{X}_v})] = 0$ for $u \neq v$.
-This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA component functions.\par
+This means that the variance of $y(\boldsymbol{X})$ can be decomposed into the sum of the variances of the fANOVA component functions.
 
 We verify the variance decomposition for our running example:
 \[
