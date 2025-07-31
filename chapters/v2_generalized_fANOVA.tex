@@ -34,7 +34,6 @@ When we check if the components $\tilde{h}_{\emptyset}, \tilde{h}_{\{1\}}, \tild
 \end{align*}
 
 It turns out that naively computing the ``fANOVA decomposition'' under dependent inputs, results in components that lack orthogonality, which is a crucial property for interpretability.
-What we performed in this example is only a fANOVA-type decomposition, but not the true fANOVA decomposition for dependent inputs.
 This shows the need for a more involved approach for a generalization of this method.
 
 \subsubsection{Conditions for Generalized fANOVA}
@@ -408,7 +407,7 @@ This formulation is in parallel to projecting $y$ onto a subspace
 $\mathcal{G}$ under the given constraints (see \autoref{def:orthogonal_projection}).\par
 
 However, the constraint in \autoref{eq:hooker_hierarchical_orthogonality} is infeasible to enforce in practice.
-Therefore, Hooker formulated the following proposition, which ensures hierarchical orthogonality of the fANOVA components and thus forms the building block of his approach. It can be compared to the weak annihilating conditions (\autoref{cond:weak_annihilating_conditions}).
+Therefore, Hooker formulates the following proposition, which ensures hierarchical orthogonality of the fANOVA component functions and thus forms the building block of his approach. It can be compared to the weak annihilating conditions (\autoref{cond:weak_annihilating_conditions}).
 \begin{proposition}[\cite{hooker2007}]\label{prop:hooker_lemma_1}
     The hierarchical orthogonality of the fANOVA component functions is ensured if and only if the following integral conditions hold:
     \begin{equation}

@@ -1,0 +1,36 @@
+
+\begin{frame}{Overview of the fANOVA Research Field}
+\centering
+\begin{tikzpicture}[
+    node distance=0.7cm and 1.5cm,
+    every node/.style={font=\large},
+    >=Stealth, thick
+]
+
+% Nodes
+\node (foundations) {Foundations};
+\node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners] (fanova) {(Generalized) fANOVA};
+\node[above right=of fanova] (sensitivity) {Sensitivity Analysis};
+\node[right=of fanova] (nonparam) {Nonparametric Modeling};
+\node[below right=of fanova] (domain) {Domain-Specific Modeling};
+\node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
+\node[below left=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (iml) {IML};
+\node[below right=of interpret] (interactions) {Interactions};
+
+% Arrows
+\draw[->] (foundations) -- (fanova);
+\draw[->] (fanova) -- (sensitivity);
+\draw[->] (fanova) -- (nonparam);
+\draw[->] (fanova) -- (domain);
+\draw[->, color = lmugreen] (fanova) -- (interpret);
+\draw[->, color = lmugreen] (interpret) -- (iml);
+\draw[->] (interpret) -- (interactions);
+
+\end{tikzpicture}
+
+\vspace{0.5cm}
+\footnotesize
+References: \cite{hooker2004,hooker2007,rahman2014,stone1994,sobol1993sensitivity,lengerich2020,konig2024}
+
+\end{frame}
+

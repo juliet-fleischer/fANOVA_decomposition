@@ -13,14 +13,14 @@ Sobol' proofs existence and uniqueness of the fANOVA decomposition by showing ho
     Assume that $\boldsymbol{X}$ is an $N$-dimensional vector of independent random variables and
     that the still unspecified fANOVA components have zero-mean. He defines the integral w.r.t. all variables except for the ones with indices in \( v \):
     \begin{align*}
-        g_v(\boldsymbol{x}_v) &= \int_{[0, 1]^{N - |v|}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}_{-v})
+        g_v(\boldsymbol{x}_v) &= \int_{[0, 1]^{N - |v|}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}_{-v}).
     \end{align*}
 
 He then builds the fANOVA terms subsequently and shows that they indeed satisfy the desired properties.\par
 The very first term in the decomposition is the integral of \( y \) with respect to all variables:
 
 \begin{align*}
-    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x})
+    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}).
 \end{align*}
 
 This integral exists because \( y \in \mathcal{L}^2(\mathbb{R}^N, f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu) \), and the product measure is finite on the domain.
@@ -28,9 +28,9 @@ This integral exists because \( y \in \mathcal{L}^2(\mathbb{R}^N, f_{\boldsymbol
 Next, Sobol' derives the one-dimensional fANOVA terms. For this, he takes the integral of \autoref{def:fanova_decomposition} w.r.t. all variables except for the one with index \( i \), so $v_1 = \{i\}$:
 \begin{align*}
     \int_{\mathbb{R}^{N-1}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) 
-    &= \int_{\mathbb{R}^{N-1}} \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) \\
-    &= \sum_{u \subseteq \{1, \dots, N\}} \int_{\mathbb{R}^{N-1}} y_{u}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) \\
-    &= \sum_{u \subseteq \{1, \dots, N\}} \int_{\mathbb{R}^{N-1}} y_{u}(\boldsymbol{x}_u) \left( \prod_{j=1}^N f_{{\{j\}}}(x_j) \right) d\nu (\boldsymbol{x}_{-v_1})
+    &= \int_{\mathbb{R}^{N-1}} \sum_{u \subseteq \{1, \dots, N\}} y_{u}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) \\[0.5em]
+    &= \sum_{u \subseteq \{1, \dots, N\}} \int_{\mathbb{R}^{N-1}} y_{u}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu (\boldsymbol{x}_{-v_1}) \\[0.5em]
+    &= \sum_{u \subseteq \{1, \dots, N\}} \int_{\mathbb{R}^{N-1}} y_{u}(\boldsymbol{x}_u) \left( \prod_{j=1}^N f_{{\{j\}}}(x_j) \right) d\nu (\boldsymbol{x}_{-v_1}).
 \end{align*}
 
 For every summand \( y_u(\boldsymbol{x}_u) \) with \( u \not\ni i \), the integrand does not depend on \( x_i \), and thus vanished due to the zero-mean constraint.
@@ -47,54 +47,48 @@ This equation allows to define the one-dimensional term \( y_{\{i\}} \) explicit
 \end{align*}
 
 Next, he considers $v_2 = \{i, j\}$. The ANOVA decomposition is integrated over all variables except $x_i$ and $x_j$:
-
 \begin{align*}
     \int_{\mathbb{R}^{N-2}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(\boldsymbol{x}_{-\{i,j\}}) 
     &= \int_{\mathbb{R}^{N-2}} \sum_{u \subseteq \{1, \dots, N\}} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(\boldsymbol{x}_{-\{i,j\}}) \\
     &= \sum_{u \subseteq \{1, \dots, N\}} \int_{\mathbb{R}^{N-2}} y_u(\boldsymbol{x}_u) \left( \prod_{j=1}^N f_{X_j}(x_j) \right) d\nu(\boldsymbol{x}_{-\{i,j\}}) \\
-    &= y_{\emptyset} + y_{\{i\}}(x_i) + y_{\{j\}}(x_j) + y_{\{i,j\}}(x_i, x_j)
+    &= y_{\emptyset} + y_{\{i\}}(x_i) + y_{\{j\}}(x_j) + y_{\{i,j\}}(x_i, x_j).
 \end{align*}
 
 Hence, the two-dimensional components are given by:
-
 \begin{align*}
     y_{\{i,j\}}(x_i, x_j) 
     = \int_{\mathbb{R}^{N-2}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(\boldsymbol{x}_{-\{i,j\}})
-    - y_{\emptyset} - y_{\{i\}}(x_i) - y_{\{j\}}(x_j)
+    - y_{\emptyset} - y_{\{i\}}(x_i) - y_{\{j\}}(x_j).
 \end{align*}
 One can continue this process for all combinations of indices \( v \subseteq \{1, \ldots, N\} \) to derive the corresponding fANOVA terms \( y_v(\boldsymbol{x}_v) \).\par
 Now let \( v \subseteq \{1, \ldots, N\} \). The general expression for the component \( y_v(\boldsymbol{x}_v) \) is given by:
-
 \begin{align*}
     y_v(\boldsymbol{x}_v) = \int_{\mathbb{R}^{N - |v|}} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) d\nu(\boldsymbol{x}_{-v}) 
-    - \sum_{u \subsetneq v} y_u(\boldsymbol{x}_u)
+    - \sum_{u \subsetneq v} y_u(\boldsymbol{x}_u).
 \end{align*}
 
 The last term is the decomposition integrated with respect to no variables, i.e., the function itself:
 \begin{align*}
     y_{\{1, \ldots, N\}}(\boldsymbol{x}) = y(\boldsymbol{x}) 
-    - \sum_{u \subsetneq \{1, \ldots, N\}} y_u(\boldsymbol{x}_u)
+    - \sum_{u \subsetneq \{1, \ldots, N\}} y_u(\boldsymbol{x}_u).
 \end{align*}
 
 Finally, it remains to verify that the constructed component functions satisfy the zero-mean constraint. Let \( v \subseteq \{1, \ldots, N\} \), and let \( i \in v \). Then:
-
 \begin{align*}
-    \int y_v(\boldsymbol{x}_v) f_{X_i}(x_i) \, d\nu(x_i)
-    &= \int \left( \int y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}_{-v}) - \sum_{u \subsetneq v} y_u(\boldsymbol{x}_u) \right) f_{\{i\}}(x_i) \, d\nu(x_i) \\
+    &\int y_v(\boldsymbol{x}_v) f_{X_i}(x_i) \, d\nu(x_i) \\[0.5em]
+    &= \int \left( \int y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}_{-v}) - \sum_{u \subsetneq v} y_u(\boldsymbol{x}_u) \right) f_{\{i\}}(x_i) \, d\nu(x_i) \\[0.5em]
     &= \int \left( \int y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}_{-v}) \right) f_{\{i\}}(x_i) \, d\nu(x_i) 
-    - \sum_{u \subsetneq v} \int y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i) \, d\nu(x_i) \\
+    - \sum_{u \subsetneq v} \int y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i) \, d\nu(x_i) \\[0.5em]
     &= \int y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}_{-v}) d\nu(x_i)
     - \sum_{u \subsetneq v} \int y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu(\boldsymbol{x}_u)
 \end{align*}
 
 The first term integrates out all of \( \boldsymbol{x}_v \), leaving \( y_{\emptyset} \). Each term in the sum vanishes by the zero-mean property of lower-order components:
-
 \begin{align*}
-    \int y_v(\boldsymbol{x}_v) f_{\{i\}}(x_i) \, d\nu(x_i) = y_{\emptyset} - y_{\emptyset} = 0
+    \int y_v(\boldsymbol{x}_v) f_{\{i\}}(x_i) \, d\nu(x_i) = y_{\emptyset} - y_{\emptyset} = 0.
 \end{align*}
 
 Thus, every component \( y_v(\boldsymbol{x}_v) \) satisfies:
-
 \begin{align*}
     \int y_v(\boldsymbol{x}_v) f_{\{i\}}(x_i) \, d\nu(x_i) = 0, \quad \text{for all } i \in v.
 \end{align*}

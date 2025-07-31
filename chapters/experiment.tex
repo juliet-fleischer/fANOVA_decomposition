@@ -25,7 +25,7 @@ visualized in \autoref{fig:running_ex_independent}. As expected, we observe simp
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png}
     \end{subfigure}
-    \caption{Main fANOVA component functions (left) and interaction component (right) for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
     \label{fig:running_ex_independent}
 \end{figure}
 
@@ -50,7 +50,7 @@ The main effects are parabolic, and the interaction component seems to be non-sy
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/hoeffding_rho05_interaction.png}
     \end{subfigure}
-    \caption{Main fANOVA component functions (left) and interaction component (right) of a fANOVA-type decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \caption{Main effects (left) and interaction effect (right) from a fANOVA-type decomposition of $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:hoeffding_rho05}
 \end{figure}
 The true fANOVA component functions under $\rho = 0.5$ are given by:
@@ -77,7 +77,7 @@ These are visualized in \autoref{fig:running_ex_dependent}.
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png}
     \end{subfigure}
-    \caption{Main fANOVA component functions (left) and interaction component (right) of the generalized fANOVA decomposition for $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) from the generalized fANOVA decomposition of $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with dependent inputs, $\rho = 0.5$.}
     \label{fig:running_ex_dependent}
 \end{figure}
 Interestingly, the parabolic form of the main effects is similar between both decompositions, but the interaction effects diverge notably.\par
@@ -99,15 +99,15 @@ The function $q$ can solely be described by linear main effects (\autoref{fig:li
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png}
-        \caption{$a_1 = 1.5$, $a_2 = 3.5$}
+        \caption{$q(x_1, x_2) = 1.5 x_1 + 3.5 x_2$}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png}
-        \caption{$a_1 = -2$, $a_2 = 4$}
+        \caption{$q(x_1, x_2) = -2 x_1 + 4 x_2$}
     \end{subfigure}
-    \caption{Main fANOVA component functions $q_{\{1\}}(x_1) = a_1 x_1$ and $q_{\{2\}}(x_2) = a_2 x_2$ for the linear function $q(x_1,x_2)=a_1x_1+a_2x_2$.}
+    \caption{Main fANOVA component functions $q_{\{1\}}(x_1) = a_1 x_1$ and $q_{\{2\}}(x_2) = a_2 x_2$ of the linear function $q(x_1,x_2)=a_1x_1+a_2x_2$.}
     \label{fig:linear_main_effects}
 \end{figure}
 
@@ -132,14 +132,14 @@ The coefficients of the quadratic terms determine whether the parabola is facing
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1m20_a2m20_a11m10_a22m10_a12p00_rhop00_main.png}
-        \caption{$a_1=-2,\, a_2=-2,\, a_{11}=-1,\, a_{22}=-1$}
+        \caption{$p(x_1, x_2) = -2 x_1 - 2 x_2 - x_1^2 - x_2^2$}
         \label{fig:mixed_rho_0_panel1}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
-        \caption{$a_1=-2,\, a_2=2,\, a_{11}=1,\, a_{22}=-1$}
+        \caption{$p(x_1, x_2) = -2 x_1 + 2 x_2 + x_1^2 - x_2^2$}
         \label{fig:mixed_rho_0_panel2}
     \end{subfigure}
 
@@ -147,18 +147,18 @@ The coefficients of the quadratic terms determine whether the parabola is facing
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png}
-        \caption{$a_1=2,\, a_2=2,\, a_{11}=-1,\, a_{22}=1$}
+        \caption{$p(x_1, x_2) = 2 x_1 + 2 x_2 - x_1^2 + x_2^2$}
         \label{fig:mixed_rho_0_panel3}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/mixed_a1p20_a2m20_a11p10_a22p10_a12p00_rhop00_main.png}
-        \caption{$a_1=2,\, a_2=-2,\, a_{11}=1,\, a_{22}=1$}
+        \caption{$p(x_1, x_2) = 2 x_1 - 2 x_2 + x_1^2 + x_2^2$}
         \label{fig:mixed_rho_0_panel4}
     \end{subfigure}
 
-    \caption{Main fANOVA component functions $p_{\{1\}}(x_1) = a_1 x_1 + a_{11}(x_1^2 - 1)$ and $p_{\{2\}}(x_2) = a_2 x_2 + a_{22}(x_2^2 - 1)$ for the quadratic function $p(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2$.}
+    \caption{Main fANOVA component functions $p_{\{1\}}(x_1) = a_1 x_1 + a_{11}(x_1^2 - 1)$ and $p_{\{2\}}(x_2) = a_2 x_2 + a_{22}(x_2^2 - 1)$ of the polynomial $p(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2$.}
     \label{fig:mixed_main_effects}
 \end{figure}
 
@@ -195,7 +195,7 @@ This example is simple yet interesting because it shows that in the case where t
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png}
-        \caption{Interaction contour for $\rho = -0.5$}
+        \caption{Interaction effect for $\rho = -0.5$}
     \end{subfigure}
 
     \vspace{0.5em}
@@ -209,7 +209,7 @@ This example is simple yet interesting because it shows that in the case where t
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png}
-        \caption{Interaction contour for $\rho = 0$}
+        \caption{Interaction effect for $\rho = 0$}
     \end{subfigure}
 
     \vspace{0.5em}
@@ -223,12 +223,10 @@ This example is simple yet interesting because it shows that in the case where t
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop10_interaction.png}
-        \caption{Interaction contour for $\rho = 1$}
+        \caption{Interaction effect for $\rho = 1$}
     \end{subfigure}
 
-    \caption{Main fANOVA component functions (left column) and interaction component (right column) for different values of $\rho$. The components are given by $w_{\{1\}, G}(x_1) = a_{12} \frac{\rho}{1+ \rho} (x_1^2 - 1)$,
-    $w_{\{2\}, G}(x_2) = a_{12} \frac{\rho}{1+ \rho} (x_2^2 - 1)$,
-    $w_{\{12\}, G}(x_1,x_2) = -a_{12}\!\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right)$.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of the function $w(x_1, x_2) = 2x_1x_2$ for varying $\rho$.}
     \label{fig:interaction_combined}
 \end{figure}
 
@@ -249,14 +247,14 @@ In \autoref{fig:all_pair_01} we make this comparison for a weakly positive linea
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png}
+            \caption{Main effect for $\rho = 0.3$.}
         \end{minipage}%
         \hfill
         \begin{minipage}[t]{0.49\textwidth}
             \centering
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png}
+            \caption{Interaction effect for $\rho = 0.3$.}
         \end{minipage}
-        \caption{Main and interaction effects for (1) $a_1 = 2$, $a_2 = 0$, 
-                 $a_{11} = 1$, $a_{22} = 0$, $a_{12} = 0.5$, $\rho = 0.3$.}
     \end{subfigure}
 
     % -------- Pair 1.2 --------
@@ -264,18 +262,15 @@ In \autoref{fig:all_pair_01} we make this comparison for a weakly positive linea
         \centering
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png}
+            \caption{Main effect for $\rho = 0$.}
         \end{minipage}%
         \hfill
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png}
+            \caption{Interaction effect for $\rho = 0$.}
         \end{minipage}
-        \caption{Main and interaction effects for (2) $a_1 = 0$, $a_2 = 2$, 
-                 $a_{11} = 0$, $a_{22} = 1$, $a_{12} = -0.5$, $\rho = 0$.}
     \end{subfigure}
-    \caption{Main fANOVA component functions (left) and the interaction component 
-(right) of the same polynomial model, shown once under weakly correlated input variables 
-($\rho = 0.3$) and once under independent inputs ($\rho = 0$). 
-The coefficient sets are identical except for the correlation structure.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of the polynomial $z(x_1, x_2) = 2x_1 + x_1^2 + 0.5 x_1 x_2$ for varying $\rho$. The coefficient sets are identical while the correlation structure varies.}
     \label{fig:all_pair_01}
 \end{figure}
 
@@ -286,13 +281,13 @@ The coefficient sets are identical except for the correlation structure.}
         \centering
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_main.png}
+            \caption{Main effect for $\rho = -0.8$.}
         \end{minipage}%
         \hfill
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhom08_interaction.png}
+            \caption{Interaction effect for $\rho = -0.8$.}
         \end{minipage}
-        \caption{Main and interaction effects for (3) $a_1 = -2$, $a_2 = -2$, 
-                 $a_{11} = 1$, $a_{22} = -1$, $a_{12} = 1$, $\rho = -0.8$.}
     \end{subfigure}
 
     % -------- Pair 2.2 --------
@@ -300,18 +295,15 @@ The coefficient sets are identical except for the correlation structure.}
         \centering
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_main.png}
+            \caption{Main effect for $\rho = 0$.}
         \end{minipage}%
         \hfill
         \begin{minipage}[t]{0.49\textwidth}
             \includegraphics[width=\textwidth]{images/experiment_section/full_a1m20_a2m20_a11p10_a22m10_a12p10_rhop00_interaction.png}
+            \caption{Interaction effect for $\rho = 0$.}
         \end{minipage}
-        \caption{Main and interaction effects for (4) $a_1 = -2$, $a_2 = 2$, 
-                 $a_{11} = -1$, $a_{22} = 1$, $a_{12} = -1$, $\rho = 0$.}
     \end{subfigure}
-    \caption{Main fANOVA component functions (left) and the interaction component 
-(right) of the same polynomial model, shown once under strongly correlated input variables 
-($\rho = -0.8$) and once under independent inputs ($\rho = 0$). 
-The coefficient sets are identical except for the correlation structure.}
+    \caption{Main fANOVA component functions (left) and interaction component (right) of the polynomial $z(x_1, x_2) = -2x_1 - 2 x_2 + x_1^2 - x_2^2 + x_1x_2$ for varying $\rho$. The coefficient sets are identical, while the correlation structure varies.}
     \label{fig:all_pair_02}
 \end{figure}
 

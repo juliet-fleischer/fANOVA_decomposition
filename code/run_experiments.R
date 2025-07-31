@@ -93,3 +93,9 @@ full_cases <- list(
 for (params in full_cases) {
   save_plots("full", params)
 }
+
+
+# ----- Presentation Examples -----
+
+vary_params("classical_ex_1", 0, 2, 0, 0, 1, 1, rho = 0)
+vary_params("gen_ex_1", 0, 2, 0, 0, 1, 1, rho = 0.8)

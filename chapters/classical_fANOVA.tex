@@ -15,7 +15,7 @@ Let $y(\boldsymbol{X}) := y(X_1, \dots, X_N)$ be a real-valued, measurable trans
 
 The inner product is defined by:
 \[
-\langle y, g \rangle = \int_{\mathbb{R}^N} y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})], \quad \forall y,g \in \mathcal{L}^2.
+\langle y, g \rangle = \int_{\mathbb{R}^N} y(\boldsymbol{x}) g(\boldsymbol{x}) \, f_{\boldsymbol{X}}(\boldsymbol{x}d\nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})g(\boldsymbol{X})], \quad \forall y,g \in \mathcal{L}^2.
 \]
 The norm, denoted as $\|.\|$, is defined by:
 \[
@@ -67,7 +67,7 @@ $\emptyset \neq u \subseteq \{1,\dots,N\}$, are centered around zero:
     \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\[0.5em]
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{j \in u} f_{\{j\}}(x_j) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
-    &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{\{i\}}(x_i) \, d\nu(x_i) \prod_{j \in u, j \neq i} f_{\{j\}}(x_j) \, d\nu (x_{u \setminus \{i\}}) = 0
+    &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{\{i\}}(x_i) \, d\nu(x_i) \prod_{j \in u, j \neq i} f_{\{j\}}(x_j) \, d\nu (x_{u \setminus \{i\}}) = 0.
 \end{align*}
 \end{proof}
 
@@ -361,9 +361,9 @@ h_{\{1,2\}}(X_1,X_2) &= (X_1 - \mu_1)(X_2 - \mu_2).
 Under the special case of centered input variables, as we assumed in the running example, the decomposition simplifies to:
 \[
 h_{\emptyset}=a,\quad
-h_{\{1\}}(X_1)=x_1,\quad
-h_{\{2\}}(X_2)=2x_2,\quad
-h_{\{1,2\}}(X_1,X_2)=x_1 x_2,
+h_{\{1\}}(x_1)=x_1,\quad
+h_{\{2\}}(x_2)=2x_2,\quad
+h_{\{1,2\}}(x_1,x_2)=x_1 x_2,
 \]
 which coincides with the fANOVA component functions calculated for the polynomial from our running example (\autoref{eq:running_example_function}).\par
 The principle of the Hoeffding decomposition is the same as that of the fANOVA decomposition, but the latter is expressed in a recursive form, making explicit that each component accounts for the contributions of lower-order components.
@@ -447,7 +447,7 @@ isolates the effect associated exclusively with $x_u$. This yields the fANOVA co
     (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
     &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - \sum_{v \subsetneq u} y_v(.)\\
     &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.),
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.).
 \end{align*}
 
 On this note, we want to highlight that instead of subtracting the lower order components from the projection, it is just as valid to first subtract lower-order components and project $y$ on what is left.
