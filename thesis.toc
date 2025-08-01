@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {3}Formalization of fANOVA}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Classical fANOVA}{6}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Construction of the fANOVA Component Functions}{8}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Example: Independent Multivariate Normal Inputs}{9}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2}Example: Independent Multivariate Normal Input}{9}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}Equality to Hoeffding Decomposition}{10}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}fANOVA via Projection}{13}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Variance Decomposition}{15}{subsubsection.3.1.5}%
@@ -17,7 +17,7 @@
 \contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{25}{section*.8}%
 \contentsline {subsubsection}{\numberline {3.2.3}Generalization via Projection}{27}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Generalized Variance Decomposition}{29}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Inputs}{29}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Input}{29}{subsubsection.3.2.5}%
 \contentsline {section}{\numberline {4}Visualization and Estimation}{34}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Comparison of Decompositions}{34}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Comparison of Functions}{36}{subsection.4.2}%

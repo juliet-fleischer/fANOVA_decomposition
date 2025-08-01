@@ -61,7 +61,7 @@ $\emptyset \neq u \subseteq \{1,\dots,N\}$, are centered around zero:
 \end{proposition}
 
 \begin{proof}
-    Given an index $i \in u$, we write:
+    For an index $i \in u$, we write:
 \begin{align*}
     \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\[0.5em]
     &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
@@ -146,7 +146,7 @@ Notice that this definition relies on a product-type measure rooted in the indep
 As suggested earlier, the fANOVA component functions offer a clear interpretation of the model, decomposing it into main effects, two-way interaction effects, and so on. This is why fANOVA decomposition has received increasing attention in the IML literature, holding the potential for a global model-agnostic explanation method of black box models.
 % So this is what we did so far: we defined the decomposition, defined the terms it is made up of, and looked a bit deeper at their mathematical properties and how to satisfiy them.
 % There is an alternative way to define fANOVA, or just another way of looking at it, which builds on the connection between orthogonal projections and conditional expected values.
-\subsubsection{Example: Independent Multivariate Normal Inputs}
+\subsubsection{Example: Independent Multivariate Normal Input}
 
 Throughout this thesis, we use the following simple setup as a running example.
 
