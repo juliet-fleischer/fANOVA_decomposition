@@ -1,12 +1,13 @@
 \begin{frame}{Classical fANOVA Decomposition} % What is it?
   \begin{block}{General Form}
     \[
-      y(\boldsymbol{X}) = \sum_{u \subseteq \{1,\dots,N\}} y_{u}(\boldsymbol{X}_u)
+      y(\boldsymbol{X}) = \sum_{u \subseteq \{1,\dots,N\}} y_{u}(\boldsymbol{X}_u) = y_{\emptyset} + y_{\{1\}}(\boldsymbol{X}_1) + \dots + y_{\{1, 2\}}(\boldsymbol{X_1, X_2}) + \dots
     \]
   \end{block}
   \begin{itemize}
     \item $y$ : Model output
     \item $y_u$ : Component functions for subset $u$
+    \item Assumption: $X_1, \dots, X_N$ are independent
   \end{itemize}
 \end{frame}
 

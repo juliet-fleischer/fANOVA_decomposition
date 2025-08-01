@@ -1663,6 +1663,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSans
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-BoldIt-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-It-tlf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Bold-tlf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Bold-tlf-t1--base.tfm
 INPUT ./lmu_logo.png
 INPUT lmu_logo.png
 INPUT ./lmu_logo.png
@@ -1791,6 +1793,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex defense_main"] 1753954375 "defense_main.aux" "defense_main.bbl" "defense_main" 1753954393 0
-  "../bibliography_2.bib" 1753714903 249168 7c161a1494dddf19bbae8616572fb7e3 ""
+["bibtex defense_main"] 1754054662 "defense_main.aux" "defense_main.bbl" "defense_main" 1754054733 0
+  "../bibliography_2.bib" 1754051326 249164 7ecf19193d16d15ab01fa7208268f3c1 ""
   "../bibliography_manual.bib" 1753715204 8538 79bb64fc0648c1feb0c7489ee5d18ebe ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "defense_main.aux" 1753954393 5845 f5cbe906de5c84f0b288b7dceda04e5b "pdflatex"
+  "defense_main.aux" 1754054732 5845 f5cbe906de5c84f0b288b7dceda04e5b "pdflatex"
   (generated)
   "defense_main.bbl"
   "defense_main.blg"
   (rewritten before read)
-["pdflatex"] 1753954390 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" "defense_main.pdf" "defense_main" 1753954393 0
+["pdflatex"] 1754054729 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" "defense_main.pdf" "defense_main" 1754054733 0
   "../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png" 1753950220 73974 1a3422f53d898d412438f36b3edb21dd ""
   "../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png" 1753950219 70442 7c6607320161d2631022f87f4a3f233e ""
   "../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png" 1753950223 107885 836bda4c5408c0219a08b28f9bc524e4 ""
@@ -58,6 +58,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb" 1248133631 36912 b448ef9ad9d7228ec3c6e71005136d55 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1248133631 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb" 1248133631 24393 3b7eb51a67a0a62aec5849271bdb9c2e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb" 1248133631 24420 52dbb8e8aa0069a1b987309557f8d303 ""
@@ -283,15 +284,15 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "defense_main.aux" 1753954393 5845 f5cbe906de5c84f0b288b7dceda04e5b "pdflatex"
-  "defense_main.bbl" 1753954375 1944 7cd7bd9ef576afb346980bd0eabcff82 "bibtex defense_main"
-  "defense_main.nav" 1753954393 2961 e751de7b7a734e7321f0b4ae9fb0f92a "pdflatex"
-  "defense_main.out" 1753954393 126 a7a695bc24a2c2fe94ef7d167bb33b45 "pdflatex"
+  "defense_main.aux" 1754054732 5845 f5cbe906de5c84f0b288b7dceda04e5b "pdflatex"
+  "defense_main.bbl" 1754054663 1944 7cd7bd9ef576afb346980bd0eabcff82 "bibtex defense_main"
+  "defense_main.nav" 1754054732 2961 e751de7b7a734e7321f0b4ae9fb0f92a "pdflatex"
+  "defense_main.out" 1754054732 126 a7a695bc24a2c2fe94ef7d167bb33b45 "pdflatex"
   "defense_main.tex" 1753953409 3416 0a783be58882d29e0831953c3ddaa603 ""
-  "defense_main.toc" 1753954393 236 178318366ac722b45e2f4d9c367a4a3b "pdflatex"
+  "defense_main.toc" 1754054732 236 178318366ac722b45e2f4d9c367a4a3b "pdflatex"
   "lmu-background.pdf" 1753946856 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "lmu_logo.png" 1753946854 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
-  "sections/classical_fANOVA.tex" 1753950835 2065 28d6faa7a2697625c7640bb8f549ee3c ""
+  "sections/classical_fANOVA.tex" 1754054729 2221 b64bb122f06188c67ee7421aef827800 ""
   "sections/conclusion.tex" 1753952517 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/gen_fANOVA.tex" 1753953348 5880 fb08c1a6dca5179acfcc7f120293fbcf ""
   "sections/research_context.tex" 1753954389 1255 e65c06a9e3c8a2720f949c5e69449fe9 ""
