@@ -1,24 +1,20 @@
 With the rise of machine learning (ML) and increasingly more complex probabilistic models, interpretability has become a major concern for practitioners and researchers alike. One of the foundational mathematical methods supporting the goal of interpretability is the functional ANOVA decomposition (fANOVA).
 
-At its core, the fANOVA decomposition provides a method which allows decomposing integrable functions into a sum of mutually orthogonal component functions of varying dimensionality.
-It is not only useful in interpretability of black box models (\cite{hooker2004, molnar2025}), but also in areas, such as uncertainty quantification of complex systems \cite{rahman2014}, non-parametric statistical modelling (see for example \cite{stone1997}), sensitivity analysis \cite{sobol1993sensitivity}), and many more fields.
-Given this wide range of applications, fANOVA is an essential concept worth understanding in depth.\par
-% What is the problem?
+At its core, the fANOVA decomposition provides a method which allows decomposing integrable functions into the sum of mutually orthogonal component functions of varying dimensionality.
+It is not only useful in interpretability of black box models (\cite{hooker2004, molnar2025}), but also in areas, such as uncertainty quantification of complex systems \citep{rahman2014}, non-parametric statistical modelling (see for example \cite{stone1997}), sensitivity analysis \citep{sobol1993sensitivity}, and many more fields.
+Given this wide range of applications, fANOVA is an essential concept worth understanding in depth.
 
-However, learning about fANOVA is not straightforward.
-A problem is the mix of formalizations and definitions around the method, partly due to its long history and the different streams of science that have used it.
-This already starts with the name of the method. It has been called decomposition into summands of different order \citep{sobol1993sensitivity}, ANOVA representation \citep{sobol2001}, functional ANOVA decomposition \citep{hooker2004}, ANOVA dimensional decomposition \citep{rahman2014}, or Hoeffding-Sobol' decomposition \citep{chastaing2012} – in this thesis we will refer to it as the fANOVA decomposition.\par
-The variation does not stop at naming. Different authors formalize the decomposition using different notation, slightly different sets of assumptions, and either interpret fANOVA from a probabilistic perspective, using expectations, or from a more deterministic mathematical viewpoint, using integrals.
-While these approaches are mathematically equivalent and can be unified under the concept of orthogonal projections, this connection is often not obvious when first encountering the literature.\par
+However, learning about fANOVA is not straightforward. A problem is the mix of formalizations and definitions around the method, partly due to its long history and the various streams of science that have used it.
+This already starts with the name of the method. It has been called decomposition into summands of different order \citep{sobol1993sensitivity}, ANOVA representation \citep{sobol2001}, functional ANOVA decomposition \citep{hooker2004}, ANOVA dimensional decomposition \citep{rahman2014}, or Hoeffding-Sobol' decomposition \citep{chastaing2012} – in this thesis we will refer to it as the fANOVA decomposition.
 
+The variety does not stop at naming; authors also differ in how they formalize the decomposition, often using distinct notation, slightly different sets of assumptions, and either interpret fANOVA from a probabilistic perspective, using expectations, or from a more deterministic mathematical viewpoint, using integrals.
+While these approaches are mathematically equivalent and can be unified under the concept of orthogonal projections, this connection is often not obvious when first encountering the literature.
 
 Given this state of affairs, there is a clear need for a comprehensive overview of fANOVA-related work and for a unification of the various notations and definitions that ultimately express the same concepts.
-Bringing clarity into the fANOVA landscape is more relevant than ever as the method has recently attracted renewed attention in interpretable machine learning (IML) literature (see for example \cite{hu2025}), yet the theoretical foundation is often mentioned only briefly or left implicit.\par
+Bringing clarity into the fANOVA landscape is more relevant than ever as the method has recently attracted renewed attention in interpretable machine learning (IML) literature (see for example \cite{hu2025}), yet the theoretical foundation is often mentioned only briefly or left implicit.
 
-% What is (a possible) solution?
 This thesis addresses that gap by providing an accessible and intuitive introduction to the fANOVA decomposition while remaining mathematically rigorous.
-It can be viewed as a handbook of the fANOVA decomposition that will help researchers and practitioners to understand the mathematical background of this method as well as its more applied aspects.\par
-% The focus is not on developing new theory or novel algorithms but on giving a clear, unified presentation of existing results and their underlying ideas.
+It can be viewed as a handbook of the fANOVA decomposition that will help researchers and practitioners to understand the mathematical background of this method as well as its more applied aspects.
 
 This work is organized as follows: It starts with background and related work (\autoref{sec:related_work}). This is followed by the central part in which we give the formal definition of the classical and generalized fANOVA decomposition (\autoref{sec:formalization_fANOVA}).
-Next, we illustrate the characteristics of the method using analytical examples. We then briefly outline current estimation schemes (\autoref{sec:examples}) and conclude with a discussion of possible future research directions.
+Next, we illustrate the characteristics of the method using analytical examples. We then briefly outline current estimation schemes (\autoref{sec:examples}) and conclude with a discussion and possible future research directions.

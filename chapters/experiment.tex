@@ -1,4 +1,4 @@
-In the final section of this thesis, we explore the fANOVA decomposition visually. This provides a better understanding for how the components behave in different scenarios. We will first revisit our running example and then explore some other functions.
+In the final section of this thesis, we explore the fANOVA decomposition visually. This provides a better understanding for how the components behave in different scenarios. We first revisit our running example and then explore some other functions.
 \subsection{Comparison of Decompositions}
 Recall the polynomial in our running example:
 \[
@@ -28,7 +28,6 @@ visualized in \autoref{fig:running_ex_independent}. As expected, we observe simp
     \caption{Main fANOVA component functions (left) and interaction component (right) of $h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2$ with independent inputs.}
     \label{fig:running_ex_independent}
 \end{figure}
-
 Now we assume $\rho = 0.5$. In attempt to compute the fANOVA component functions under dependent inputs, we calculated the following components, which do not satisfy the fANOVA property of orthogonality:
 \begin{align*}
 \tilde{h}_0 &= a + 0.5, \\[0.5em]
@@ -81,13 +80,13 @@ These are visualized in \autoref{fig:running_ex_dependent}.
     \label{fig:running_ex_dependent}
 \end{figure}
 Interestingly, the parabolic form of the main effects is similar between both decompositions, but the interaction effects diverge notably.\par
-Our running example included linear effects of both input variables and an interaction term. For the remainder of this section, we will explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
+Our running example included linear effects of both input variables and an interaction term. For the remainder of this section, we explore other representative scenarios, we can build within the scaffold of a bivariate two-degree polynomial.
 
 \subsection{Comparison of Functions}
-\subsubsection{Scenario: Linear}
+\subsubsection{Linear}
 First, we consider two-degree polynomials of the form:
 $$q(x_1, x_2) = a_1 x_1 + a_2 x_2.$$
-We can immediately read of the fANOVA component functions or use the general set of fANOVA components for a two-degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $q$ to:
+We can immediately read off the fANOVA component functions or use the general set of fANOVA components for a two-degree polynomial in \autoref{eq:fanova_components_2D_polynomial} which simplify for $q$ to:
 \begin{align*}
     q_{\{1\}}(x_1) &= a_1 x_1, \\
     q_{\{2\}}(x_2) &= a_2 x_2.
@@ -112,7 +111,7 @@ The function $q$ can solely be described by linear main effects (\autoref{fig:li
 \end{figure}
 
 
-\subsubsection{Scenario: Linear and Quadratic}
+\subsubsection{Linear and Quadratic}
 Slightly more complex is a two-degree polynomials, which allows for effects of linear and quadratic nature:
 \[
 p(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2.
@@ -162,7 +161,7 @@ The coefficients of the quadratic terms determine whether the parabola is facing
     \label{fig:mixed_main_effects}
 \end{figure}
 
-\subsubsection{Scenario: Interaction}
+\subsubsection{Interaction}
 Next, we consider a model, which solely consists of an interaction term:
 $$w(x_1, x_2) = a_{12} x_1 x_2.$$
 The fANOVA component functions for $w$ are given by:
@@ -178,7 +177,7 @@ The fANOVA component functions for $w$ are given by:
    \right).
 \end{align*}
 The main components $w_{\{1\}, G}$ and $w_{\{2\}, G}$, as well as the interaction component $w_{\{1,2\}, G}$, are influenced by $\rho$ and $a_{12}$.
-In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it \autoref{fig:interaction_combined}.
+In our example we keep $a_{12} = 2$ fixed and show the interaction effect as a contour plot for varying $\rho$ with the corresponding main effects next to it in \autoref{fig:interaction_combined}.
 The main effects have the same form for every case of $\rho$ and $a_{12}$ and thus overlap.\\
 This example is simple yet interesting because it shows that in the case where the true function consists solely of an interaction term, fANOVA still attributes something to the isolated effect of each variable. Only when the variables are uncorrelated, all the effect is attributed to the interaction term. This functionality hints to why \cite{lengerich2020} build an algorithm around fANOVA to purify interaction effects\footnote{Because they see a pure interaction as an effect which cannot be attributed to lower order terms; this means when identifying interactions we want to attribute all we can to lower order terms and what is left is the true interaction effect.}.
 
@@ -230,7 +229,7 @@ This example is simple yet interesting because it shows that in the case where t
     \label{fig:interaction_combined}
 \end{figure}
 
-\subsubsection{Scenario: Full}
+\subsubsection{Full}
 Finally, we consider a full example, including all main and interaction effects:
 $$z(x_1, x_2) = a_1 x_1 + a_2 x_2 + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2.$$
 Now the fANOVA component functions are given by \autoref{eq:fanova_components_2D_polynomial}, where $a_0 = 0$.
@@ -316,17 +315,14 @@ This makes the development of suitable estimation procedures an important step
 towards establishing the method as a practical interpretability tool.
 
 % Here we briefly present two estimation approaches by \cite{hooker2004, hooker2007},
-We already encountered one estimation scheme proposed by \cite{rahman2014} when computing the generalized fANOVA component functions for our running example; we refer to \autoref{sec:formalization_fANOVA} the conceptual idea behind it.
+We already encountered one estimation scheme proposed by \cite{rahman2014} when computing the generalized fANOVA component functions for our running example; we refer to \autoref{sec:formalization_fANOVA} for the conceptual idea behind it.
 
-In \cite{hooker2004} an estimation framework based on partial dependence is proposed, which makes use of the formulation of fANOVA via projections. To obtain the component estimate for $y_u$, Hooker proposed to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
+In \cite{hooker2004}, an estimation framework based on partial dependence was proposed, which makes use of the formulation of fANOVA via projections. To obtain the component estimate for $y_u$, Hooker proposes to estimate the projections of $y$ onto the subspace of variables spanned by $u$ empirically.
 One does so by first estimating the conditional expected value of the variables in $u$. % (keep variables in $u$ fixed an average over all others).
 This is a simple Monte Carlo estimation, which results in the partial dependence function (PD Function) for the variables in $u$ \citep{hooker2004}.
-The PD Function can then be used to estimate the empirical projection of interest. He states that his method works well for functions that truly have nearly additive structure and purely additive functions are exactly recoverable with this approach. However, the approach suffers from extrapolation issues or artefacts when the true function involves interactions and inputs are dependent.\par
+The PD Function is then used to estimate the empirical projection of interest. He states that his method works well for functions that truly have nearly additive structure, and purely additive functions are exactly recoverable with this approach. However, the approach suffers from extrapolation issues or artefacts when the true function involves interactions and inputs are dependent.\par
 
-Therefore, in \cite{hooker2007} a new estimation scheme is proposed for his version of the generalized fANOVA decomposition (see \autoref{sec:formalization_fANOVA}).
-Hooker rewrites his proposed system of equations as restricted weighted least squares problem and solves it via Lagrange multiplier for the exact solution of the simultaneously defined generalized components.
+Therefore, in \cite{hooker2007}, a new estimation scheme was proposed for his version of the generalized fANOVA decomposition (see \autoref{sec:formalization_fANOVA}).
+Hooker rewrites his proposed system of equations as a restricted weighted least squares problem and solves it via a Lagrange multiplier for the exact solution of the simultaneously defined generalized components.
 The function is evaluated at a grid of points to reduce computational costs.
 Because of its parallel to weighted least squares, it is possible to compute a weighted standard ANOVA using existing software. However, this approach makes it difficult to incorporate system constraints, and the resulting components may fail to be hierarchically orthogonal.\par
-
-None of these estimation approaches has a standard software implementation.
-Some existing unfinished implementations are numerically instable or yield inconsistent results. This underpins the need for a more robust estimation scheme with stable software implementation.

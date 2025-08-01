@@ -1,38 +1,37 @@
 \subsection{Generalized fANOVA}
-For the classical fANOVA we make the assumption of independent inputs, which is often violated in practice. In the remainder of this section, we therefore investigate what happens, when we allow for dependency between variables.\par
-First, let us recall our running example (see \autoref{ex:running_example}). We modify it slightly by setting $\rho\neq 0$, while keeping everything else the same. When we follow the same logic as in the classical case we obtain the following terms:
+For the classical fANOVA we make the assumption of independent inputs, which is often violated in practice. In the remainder of this section, we therefore investigate what happens, when we allow for dependency between variables.
+First, let us recall our running example (see \autoref{ex:running_example}). We modify it slightly by setting $\rho\neq 0$, while keeping everything else the same. When we follow the identical logic as in the classical case we obtain the following terms:
 \begin{align*}
-\tilde{h}_{\emptyset} &= \mathbb{E}[h(X_1, X_2)] 
-= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\
-&= a + \mathbb{E}[X_1 X_2] 
-= a + \left( \operatorname{Cov}(X_1, X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \right) \\
-&= a + \rho \\[0.5em]
+\tilde{h}_{\emptyset}
+  &= \mathbb{E}[h(X_1, X_2)] \\[0.3em]
+  &= a + \mathbb{E}[X_1] + 2\mathbb{E}[X_2] + \mathbb{E}[X_1 X_2] \\[0.3em]
+  &= a + \mathbb{E}[X_1 X_2]  \\[0.3em]
+  &= a + \operatorname{Cov}(X_1,X_2) + \mathbb{E}[X_1]\mathbb{E}[X_2] \\[0.3em]
+  &= a + \rho\\[0.5em]
 \tilde{h}_{\{1\}}(x_1) 
-&= \mathbb{E}[h(X_1, X_2) | X_1 = x_1] - \tilde{h}_{\emptyset} \\
-&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 | X_1 = x_1] - (a + \rho) \\
-&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho \\
+&= \mathbb{E}[h(X_1, X_2) | X_1 = x_1] - \tilde{h}_{\emptyset} \\[0.3em]
+&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 | X_1 = x_1] - (a + \rho) \\[0.3em]
+&= a + x_1 + 2\mathbb{E}[X_2 | X_1 = x_1] + x_1 \mathbb{E}[X_2 | X_1 = x_1] - a - \rho \\[0.3em]
 &= x_1 + \rho(2x_1 + x_1^2 - 1) \\[0.5em]
 \tilde{h}_{\{2\}}(x_2) 
-&= \mathbb{E}[h(X_1, X_2) \mid X_2 = x_2] - \tilde{h}_{\emptyset} \\
-&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 \mid X_2 = x_2] - (a + \rho) \\
-&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho \\
+&= \mathbb{E}[h(X_1, X_2) \mid X_2 = x_2] - \tilde{h}_{\emptyset} \\[0.3em]
+&= \mathbb{E}[a + X_1 + 2X_2 + X_1 X_2 \mid X_2 = x_2] - (a + \rho) \\[0.3em]
+&= a + 2x_2 + x_2 \mathbb{E}[X_1 \mid X_2 = x_2] - a - \rho \\[0.3em]
 &= 2x_2 + \rho(x_2 + x_2^2 - 1) \\[0.5em]
 \tilde{h}_{\{1,2\}}(x_1, x_2) 
-&= h(x_1, x_2) - \tilde{h}_{\emptyset} - \tilde{h}_{\{1\}}(x_1) - \tilde{h}_{\{2\}}(x_2) \\
-&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) \\
-&- (x_1 + \rho(2x_1 + x_1^2 - 1)) - (2x_2 + \rho(x_2 + x_2^2 - 1))\\
+&= h(x_1, x_2) - \tilde{h}_{\emptyset} - \tilde{h}_{\{1\}}(x_1) - \tilde{h}_{\{2\}}(x_2) \\[0.3em]
+&= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) \\[0.3em]
+&- (x_1 + \rho(2x_1 + x_1^2 - 1)) - (2x_2 + \rho(x_2 + x_2^2 - 1))\\[0.3em]
 % &= a + x_1 + 2x_2 + x_1 x_2 - (a + \rho) - (x_1 + 2\rho x_1 + \rho x_1^2 - \rho) - (2x_2 + \rho x_2 + \rho x_2^2 - \rho) \\
 &= x_1 x_2 - 2\rho x_1 - \rho x_2  - \rho x_1^2  - \rho x_2^2 + \rho
 \end{align*}
 The fANOVA component functions are characterized by two central properties: zero-mean and mutual orthogonality, which follow from the strong annihilating conditions.
-When we check if the components $\tilde{h}_{\emptyset}, \tilde{h}_{\{1\}}, \tilde{h}_{\{2\}}, \tilde{h}_{\{1,2\}}$ satisfy these properties, we find out that all components are zero-centered, but not all are orthogonal to each other. We can, for example, immediately see that checking orthogonality between $\tilde{h}_{\{1\}}, \tilde{h}_{\{1,2\}}$ will yield the expectation over the constant term $\rho^2$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero:
+When we check if the components $\tilde{h}_{\emptyset}, \tilde{h}_{\{1\}}, \tilde{h}_{\{2\}}, \tilde{h}_{\{1,2\}}$ satisfy these properties, we find that all components are zero-centered, but not all are orthogonal to each other. We can, for example, immediately see that checking orthogonality between $\tilde{h}_{\{1\}}, \tilde{h}_{\{1,2\}}$ will yield the expectation over the constant term $\rho^2$ exactly once, meaning even if all the other expectations cancel out, this constant will remain and the entire expression will be unequal to zero:
 \begin{align*}
-    \mathbb{E}(\tilde{h}_{\{1\}}(X_1)\tilde{h}_{\{1,2\}}(X_1, X_2)) 
-    &= \mathbb{E}[(X_1 + 2\rho X_1 + \rho X_1^2 - \rho) \\
-    &\quad \cdot (X_1 X_2 - 2\rho X_1 - \rho X_2 - \rho X_1^2 - \rho X_2^2 + \rho)] \\
+    &\mathbb{E}(\tilde{h}_{\{1\}}(X_1)\tilde{h}_{\{1,2\}}(X_1, X_2)) \\
+    &= \mathbb{E}[(X_1 + 2\rho X_1 + \rho X_1^2 - \rho) \cdot (X_1 X_2 - 2\rho X_1 - \rho X_2 - \rho X_1^2 - \rho X_2^2 + \rho)] \\
     &= \mathbb{E}[X_{1}^2X_2] \ldots - \mathbb{E}[\rho^2] \neq 0.
 \end{align*}
-
 It turns out that naively computing the ``fANOVA decomposition'' under dependent inputs, results in components that lack orthogonality, which is a crucial property for interpretability.
 This shows the need for a more involved approach for a generalization of this method.
 
@@ -42,16 +41,15 @@ This shows the need for a more involved approach for a generalization of this me
 
 % As our example illustrated, the classical definition of fANOVA breaks down under dependent inputs.
 % Consequently, the terms under dependence have to be defined differently.
-\citet{stone1994} inspired the pioneering work of \citet{hooker2007} who offers a first solution to the problem of dependent inputs in fANOVA. Work by \cite{chastaing2012} and \cite{rahman2014} build on his framework with modifications and extensions.\par
-% Classical fANOVA boils down to integration w.r.t. the uniform measure and in generalized fANOVA we integrate w.r.t. the distribution of $(X_1, \dots, X_n)$.\par
+\citet{stone1994} inspired the pioneering work of \citet{hooker2007} who offered a first solution to the problem of dependent inputs in fANOVA. Work by \cite{chastaing2012} and \cite{rahman2014} built on his framework with modifications and extensions.
 The generalized fANOVA decomposition still follows the overarching form of \autoref{def:fanova_decomposition}.
 However, we no longer work with a product-type probability measure. 
-Instead, $f_{\boldsymbol{X}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$ 
+Now $f_{\boldsymbol{X}}: \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$ 
 denotes an arbitrary probability density function, and we consider 
 the marginal probability measure 
 $f_{u}(\boldsymbol{x}_u) d\nu(\boldsymbol{x}_u)$ supported on $\mathbb{R}^{|u|}$.
 
-Instead of requiring the strong annihilating conditions (\autoref{cond:strong_annihilating_conditions}) for desirable properties of the components, \cite{rahman2014} proposed to formulate a milder version.
+Rather than requiring the strong annihilating conditions (\autoref{cond:strong_annihilating_conditions}) for desirable properties of the components, \cite{rahman2014} proposed to formulate a milder version.
 The milder version fulfills the same function as the strong version in the classical case but works with the joint density of the variables of interest, instead of the individual marginal probability density functions.
 % {\color{red}This makes sense, because when there are dependencies between variables then the individual pdfs would not assign the correct weight to each function value as they ignore the dependence between features in $u$.}
 \begin{condition}[Weak annihilating conditions, \citep{rahman2014}]\label{cond:weak_annihilating_conditions}
@@ -60,9 +58,6 @@ The milder version fulfills the same function as the strong version in the class
     \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} \quad i \in u \neq \emptyset.
 \end{equation}
 \end{condition}
-
-
-% What conditions do they fulfill? Does it differ? Yes, slightly.
 If components are defined under the weak annihilating conditions, we can ensure that they have zero-mean and exhibit a milder form of orthogonality - hierarchical orthogonality, which means that components of different order are orthogonal to each other while components of the same order are not. Hierarchical orthogonality is the best we can do when independence cannot be assumed.
 \begin{proposition}[\cite{rahman2014}]\label{eq:zero_mean_g}
     Given the weak annihilating conditions are satisfied, the generalized fANOVA component functions $y_{u, G}$, where $\emptyset \neq u \subseteq \{1, \ldots, N\}$, are centered around zero, i.e.,
@@ -78,7 +73,7 @@ The proof is adjusted from \cite{rahman2014}. For any subset $\emptyset \ne u \s
 &:= \int_{\mathbb{R}^N} y_{u,G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (\boldsymbol{x}) \\[0.5em]
 &= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}_{-u}) \right) d \nu(\boldsymbol{x}_u) \\[0.5em]
 &= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u)\, d \nu(\boldsymbol{x}_u) \\[0.5em]
-&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\boldsymbol{x}_j) \\[0.5em]
+&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(x_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\boldsymbol{x}_j) \\[0.5em]
 &= 0,
 \end{align*}
 where we make use of Fubini's theorem and the last line follows from using the weak annihilating conditions.
@@ -103,13 +98,12 @@ The proof is adjusted from \cite{rahman2014}. For any two subsets $\emptyset \ne
     \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_{u \setminus v}) \, d \nu(\boldsymbol{x}_v) \\[0.5em]
 &= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
     \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) \right) \\[0.5em]
-&\times \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(\boldsymbol{x}_j) \, d \nu(\boldsymbol{x}_v) \\[0.5em]
+&\times \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(x_j) \, d \nu(\boldsymbol{x}_v) \\[0.5em]
 &= 0.
 \end{align*}
 Repeatedly using Fubini's theorem and assuming the weak annihilating conditions are satisfied the equality to zero follows.
 \end{proof}
-
-A key contribution from \cite{hooker2007} and \cite{rahman2014} is that they construct a generalization of the fANOVA decomposition method as a whole, not only parts, such as the Sobol' indices.
+A key contribution from \cite{hooker2007} and \cite{rahman2014} is that they construct a generalization of the fANOVA decomposition method as a whole, not only parts, such as generalizing the Sobol' indices.
 This means it is important that Rahman's generalized statements are coherent with the classical fANOVA decomposition.
 \begin{proposition}
     The weak annihilating conditions become the strong annihilating conditions under independence assumption.
@@ -123,11 +117,11 @@ f_u(\boldsymbol{x}_u) = \prod_{j \in u} f_{\{j\}}(x_j).
 \]
 Now we require the weak annihilating conditions for some $i \in u \neq \emptyset$:
 \[
-\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) = 0.
+\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(x_i) = 0.
 \]
 Since we assume independence, we can substitute the joint marginal density with the product of the marginal densities:
 \[
-\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) \left( \prod_{j \in u} f_{{\{j\}}}(x_j) \right) d \nu(\boldsymbol{x}_i) = 0.
+\int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) \left( \prod_{j \in u} f_{{\{j\}}}(x_j) \right) d \nu(x_i) = 0.
 \]
 For fixed $x_j$ with $j \ne i$, the term $x_i$ is independent of $f_{{\{j\}}}(x_j)$, and can therefore be pulled out of the integral:
 \[
@@ -140,11 +134,10 @@ As product of probability density functions the prefactor is strictly positive f
 which is equivalent to the strong annihilating conditions (\autoref{cond:strong_annihilating_conditions}).
 \end{proof}
 
-
 \subsubsection{Construction of the Generalized fANOVA Component Functions}
 Recall the construction of the classical fANOVA component functions (\autoref{eq:fanova_components_classical}). The equation tells us that the nonconstant classical components are defined via the integral of the original function w.r.t. to the product-type probability density function, minus the effects attributed to other components.
 Ideally, for a well-aligned generalization, we would like the general fANOVA component functions 
-to be interpretable in a similar manner, namely as the integral of $y$ with respect to an 
+to be built in a similar manner, namely as the integral of $y$ with respect to an 
 appropriately chosen probability density function, minus the effects explained by other components. This is exactly what \cite{rahman2014} accomplishes.
 To understand this, we first need to distinguish three cases of integration that will occur in the construction of the generalized components.
 \begin{proposition}[\cite{rahman2014}]\label{prop:generalized_fanova_integration_cases}
@@ -172,7 +165,7 @@ Consider the generalized fANOVA component functions $y_{v,G}$, $\emptyset \ne v 
 \begin{proof}
 The proof is adjusted from \cite{rahman2014}. Let $u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$.
 We distinguish between three types of relationships between $v$ and $u$.
-Before analysing the first case, note that for any such $u$ and $v$, it is possible to write
+Before analyzing the first case, note that for any such $u$ and $v$, it is possible to write
 \[
 (v \cap -u) \subseteq -u \quad \text{and} \quad -u = (-u \setminus (v \cap -u)) \cup (v \cap -u),
 \]
@@ -251,7 +244,7 @@ In this case, we have \( v \subseteq -u \), so \( v \cap -u = v \). Thus, one ca
 d \nu(\boldsymbol{x}_v) \\[3ex]
 &= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v) f_v(\boldsymbol{x}_v) \, d \nu(\boldsymbol{x}_v) \\[3ex]
 &= \int_{\mathbb{R}^{|v|-1}} \left( \int_{\mathbb{R}} y_{v,G}(\boldsymbol{x}_v) f_v(\boldsymbol{x}_v) \, d \nu(x_i) \right)
-\prod_{\substack{j \in v \\ j \ne i}} d \nu (x_j) \\
+\prod_{\substack{j \in v, \, j \ne i}} d \nu (x_j) \\
 &= 0,
 \end{aligned}
 \]
@@ -326,7 +319,7 @@ Making use of the three integration cases from \autoref{prop:generalized_fanova_
   \]
 
   \item[\textbf{(B)}] \( v \subsetneq u \): \\
-  This is contained in case 2 of the three integration cases. The integrals reduce to the component functions themselves:
+  This is contained in case 2 of the three integration cases. The integrals reduce to:
   \[
   \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{x}_v).
   \]
@@ -387,7 +380,7 @@ As a final step, it remains to write \( v = (v \cap u) \cup (v \cap -u) \) to ob
 
 % Alternative definition of components by Hooker
 \subsubsection{Generalization via Projection}
-\cite{hooker2007} generalizes the fANOVA decomposition by defining the component 
+In \cite{hooker2007} one finds an alternative approach to generalizing the fANOVA decomposition. He extends the framework to dependent input variables by defining the component 
 functions jointly as the solution to a constrained minimization problem:
 \begin{equation}
 \left\{ y_{u, G}(\boldsymbol{x}_u) \,\middle|\, u \subseteq d \right\}
@@ -396,64 +389,64 @@ functions jointly as the solution to a constrained minimization problem:
 f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x}),
 \label{eq:generalized_fanova_components_hooker}
 \end{equation}
-subject to hierarchical orthogonality conditions:
+subject to the hierarchical orthogonality conditions:
 \begin{equation}
     \forall v \subseteq u,\ \forall g_v:\ 
-    \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) g_v(\boldsymbol{x}_v) 
+    \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) g_v(\boldsymbol{x}_v) 
     f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (\boldsymbol{x}) = 0.
 \label{eq:hooker_hierarchical_orthogonality}
 \end{equation}
 This formulation is in parallel to projecting $y$ onto a subspace 
-$\mathcal{G}$ under the given constraints (see \autoref{def:orthogonal_projection}).\par
+$\mathcal{G}$ under the given constraints (see \autoref{def:orthogonal_projection}).
 
 However, the constraint in \autoref{eq:hooker_hierarchical_orthogonality} is infeasible to enforce in practice.
 Therefore, Hooker formulates the following proposition, which ensures hierarchical orthogonality of the fANOVA component functions and thus forms the building block of his approach. It can be compared to the weak annihilating conditions (\autoref{cond:weak_annihilating_conditions}).
 \begin{proposition}[\cite{hooker2007}]\label{prop:hooker_lemma_1}
     The hierarchical orthogonality of the fANOVA component functions is ensured if and only if the following integral conditions hold:
     \begin{equation}
-\forall u \subseteq N,\ \forall i \in u:\ \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (\boldsymbol{x}_{-u}) = 0.
+\forall u \subseteq N,\ \forall i \in u:\ \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (\boldsymbol{x}_{-u}) = 0.
 \end{equation}
 \end{proposition}
 \begin{proof}
-    The proof is adjusted from \cite{hooker2007}. It is organized in two parts. First, Hooker shows that, the hierarchical orthogonality is true, if the integral conditions hold. Second, he shows that hierarchical orthogonality breaks down if the integral conditions are not true.\par
-    For the first part, assume that the integral conditions from \autoref{prop:hooker_lemma_1} hold. Let $i \in u \setminus v$, then $y_v(\boldsymbol{x}_v)$ is independent of $x_i$ and $\boldsymbol{x}_{-u}$, which allows us to write:
+    The proof is adjusted from \cite{hooker2007}. It is organized in two parts. First, Hooker shows that, the hierarchical orthogonality is true, if the integral conditions hold. Second, he shows that hierarchical orthogonality breaks down if the integral conditions are not true.
+    For the first part, assume that the integral conditions from \autoref{prop:hooker_lemma_1} hold. Let $i \in u \setminus v$, then $y_{v, G}(\boldsymbol{x}_v)$ is independent of $x_i$ and $\boldsymbol{x}_{-u}$, which allows us to write:
 \begin{align*}
-\langle y_u, y_v \rangle 
+\langle y_{u, G}, y_{v, G} \rangle 
 &:= \int_{\mathbb{R}^N} 
-        y_v(\boldsymbol{x}_v)\, y_u(\boldsymbol{x}_u)\, 
+        y_{v, G}(\boldsymbol{x}_v)\, y_{u, G}(\boldsymbol{x}_u)\, 
         f_{\boldsymbol{X}}(\boldsymbol{x})\, 
         d \nu(\boldsymbol{x}) \\[0.3em]
-&= y_v(\boldsymbol{x}_v) 
+&= y_{v, G}(\boldsymbol{x}_v) 
    \int_{\mathbb{R}^N} 
-        y_u(\boldsymbol{x}_u)\, 
+        y_{u, G}(\boldsymbol{x}_u)\, 
         f_{\boldsymbol{X}}(\boldsymbol{x})\, 
         d \nu(\boldsymbol{x}) \\[0.3em]
 &= 0.
 \end{align*}
 For the second part, assume that there exists a subset $u$ and an index $i$ for which the integral conditions do not hold, that is,
 \begin{equation*}
-    \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u)\, f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (\boldsymbol{x}_{-u}) \ne 0 
+    \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u)\, f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (x_i)\, d \nu (\boldsymbol{x}_{-u}) \ne 0 
     \quad \text{for some} \quad i, u.
 \end{equation*}
 Further, assume that hierarchical orthogonality holds for all subsets $v \neq u$ and indices $j \neq i$. 
 Hooker then constructs a fANOVA component function $y_v$ with lower order than $y_u$, which is not orthogonal to $y_u$. 
-He sets $v = u \setminus \{i\}$, so $y_v$ is one order lower than $y_u$ and defined by:
+He sets $v = u \setminus \{i\}$, so $y_{v, G}$ is one order lower than $y_{u, G}$ and defined by:
 \begin{equation*}
-    y_v(\boldsymbol{x}_v) := \int_{\mathbb{R}^N} f_u(\boldsymbol{x}_u) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_i) \, d \nu (\boldsymbol{x}_{-u}).
+    y_{v, G}(\boldsymbol{x}_v) := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_i) \, d \nu (\boldsymbol{x}_{-u}).
 \end{equation*}
-The constructed \(y_v\) is a valid fANOVA component function, which is unequal to zero by assumption of hierarchical orthogonality being false, while it itself satisfies hierarchical orthogonality by the assumption that
+The constructed \(y_{v, G}\) is a valid fANOVA component function, which is unequal to zero by assumption of hierarchical orthogonality being false, while it itself satisfies hierarchical orthogonality by the assumption that
 \begin{equation*}
-    \forall j \in v, \quad \int_{\mathbb{R}^N} y_v(\boldsymbol{x}_v) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_j) \, d \nu (\boldsymbol{x}_{-v}) = 0.
+    \forall j \in v, \quad \int_{\mathbb{R}^N} y_{v, G}(\boldsymbol{x}_v) \, f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu (x_j) \, d \nu (\boldsymbol{x}_{-v}) = 0.
 \end{equation*}
-Lastly, it remains to show, that $y_v$ is not orthogonal to $y_u$:
+Lastly, it remains to show, that $y_{v, G}$ is not orthogonal to $y_{u, G}$:
 \begin{align*}
-    \langle y_u, y_v \rangle
-        &= \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, y_v(\boldsymbol{x}_v) \, f_X(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
-        &= \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) 
-           \left( \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right) 
+    \langle y_{u, G}, y_{v, G} \rangle
+        &= \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) \, y_{v, G}(\boldsymbol{x}_v) \, f_X(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
+        &= \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) 
+           \left( \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right) 
            f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\
         &= \int_{\mathbb{R}^N} 
-           \left( \int_{\mathbb{R}^N} y_u(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right)^2 
+           \left( \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) \, f_X(\boldsymbol{x}) \, d \nu(x_i) \, d \nu(\boldsymbol{x}_{-u}) \right)^2 
            d \nu(\boldsymbol{x}_{u \setminus \{i\}}) \\
         &\neq 0.
 \end{align*}
@@ -482,17 +475,13 @@ while the first sum in the final line goes over all nonempty subsets $u$ and the
 Conceptually this means that the first term is the sum of the variances of the components, while the second term is the sum of the covariances between components that are not hierarchically orthogonal.
 The indices under the second component capture precisely the cross-terms that do not vanish under hierarchical orthogonality. As we saw earlier, cross-terms of the same hierarchy also cancel out under the orthogonality assumption of the classical fANOVA.
 \subsubsection{Example: Dependent Multivariate Normal Inputs}
-Before ending this section, it remains to answer how the true generalized fANOVA decomposition looks like for our running example. While the interdependence of the generalized components makes it difficult to arrive at an analytical solution, \citet{rahman2014} provides a way to obtain the closed-form solution for any polynomial of maximum two degree under normally distributed input variables.\par
-The approach in \cite{rahman2014} is based on a Fourier–polynomial expansion, 
-which expresses each generalized fANOVA component functions as a weighted sum of basis functions. 
-This shifts the problem from directly determining the components 
-to identifying suitable basis functions that can represent the fANOVA component functions. 
-Rahman chooses Hermite polynomials as these basis functions because they are, 
-by construction, zero-centered and hierarchically orthogonal. 
-These properties ensure that the resulting components are also 
-zero-centered and hierarchically orthogonal. 
-The remaining challenge is then to determine the weights associated with the basis functions, 
-which can be obtained through coefficient matching.
+Before ending this section, it remains to answer how the true generalized fANOVA decomposition looks like for our running example. While the interdependence of the generalized components makes it difficult to arrive at an analytical solution, \citet{rahman2014} provides a way to obtain the closed-form solution for any polynomial of maximum two degree under normally distributed input variables.
+The approach in \cite{rahman2014} is based on Fourier–polynomial expansion, which expresses a function as a weighted sum of orthogonal basis functions.
+This shifts the problem from directly determining the components
+to identifying the explicit form of the basis functions, through which the generalized fANOVA component functions can be expressed.
+Under the assumption of normally distributed input variables, \citet{rahman2014} chooses Hermite polynomials as the basis functions.
+It remains to determine the weights associated with the basis functions,
+which can be done via coefficient matching.
 A polynomial of degree two has the general form:
 \begin{align}\label{eq:quadratic_polynomial}
     y(x_1,x_2)
@@ -514,7 +503,6 @@ y(x_1,x_2)
      + c_{12,11}\,\psi_{12,11}(x_1,x_2),
 \end{aligned}
 \]
-
 where the $\psi_{i,j}$ are the basis functions with corresponding weights 
 $c_0, \dots , c_{12,11} \in \mathbb{R}$.
 The idea is to carefully construct a set of hierarchically orthogonal basis functions with zero-mean property. Then the expansion in these basis functions is already the 
@@ -540,7 +528,7 @@ y(x_1,x_2)
 &\quad
    + \underbrace{c_{12,11}\,\psi_{12,11}(x_1,x_2)}_{y_{12}(x_1,x_2)}.
 \end{align*}
-Derived from the probability density of a multivariate normal distribution, \cite{rahman2014} chooses multivariate Hermite polynomials. We use a slightly simplified version of the proposed basis functions to find an explicit solution for our running example\footnote{We omit the scaling factor, which means the basis functions are not orthonormal anymore but still orthogonal.}. The basis functions we work with are given by:
+We use a slightly simplified version of the basis functions proposed in \cite{rahman2014} to find an explicit solution for our running example\footnote{We omit the scaling factor, which means the basis functions are not orthonormal anymore but still orthogonal.}. The basis functions we work with are given by:
 \[
 \begin{aligned}
 \psi_{\emptyset}(x_1,x_2) &= 1, \\[0.5em]
@@ -553,7 +541,7 @@ Derived from the probability density of a multivariate normal distribution, \cit
                          + \frac{\rho(\rho^2 - 1)}{1 + \rho^2},
 \end{aligned}
 \]
-where $\rho$ is the correlation coefficient between $X_1$ and $X_2$. So this formula will work for dependent as well as independent inputs.\par
+where $\rho$ is the correlation coefficient between $X_1$ and $X_2$. So this formula will work for dependent as well as independent inputs.
 % --- Model decomposition (general coefficients) ---
 What remains it to find the coefficients $c_0, c_{1,1}, \dots, c_{12, 11}$ such that the weighted sum of the basis functions truly recovers the original polynomial (\autoref{eq:quadratic_polynomial}).
 To find the correct weights, we substitute the basis functions and rearrange terms to recognize the groups more easily:
@@ -627,15 +615,16 @@ y_{\{1,2\}, G}(x_1,x_2)
 \end{split}
 \label{eq:fanova_components_2D_polynomial}
 \end{align}
-This chosen set of basis functions yields valid generalized fANOVA component functions under the assumption of Gaussian inputs. The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function; however, the components would not be hierarchically orthogonal anymore.\par
+This chosen set of basis functions yields valid generalized fANOVA component functions under the assumption of Gaussian inputs. The basis representation is still correct for other distribution assumptions in the sense that it recovers the original function; however, the components would not be hierarchically orthogonal anymore.
 With this we are able to give the fANOVA component functions for our running example in a generalized form. For $h(x_1,x_2) = x_1 + 2x_2 + x_1 x_2$  we have $a_0 = 0, a_1 = 1, a_2 = 2, a_{11} = 0, a_{22} = 0, a_{12} = 1$, and therefore obtain with \autoref{eq:fanova_components_2D_polynomial}:
 \begin{align*}
-h_{\emptyset} &= \rho, \\[0.5em]
-h_{\{1\}}(x_1) &= x_1 + \frac{\rho}{1+\rho^2}(x_1^2 - 1), \\[0.5em]
-h_{\{2\}}(x_2) &= 2\,x_2 + \frac{\rho}{1+\rho^2}(x_2^2 - 1), \\[0.5em]
-h_{\{1,2\}}(x_1,x_2) 
+h_{\emptyset, G} &= \rho, \\[0.5em]
+h_{\{1\}, G}(x_1) &= x_1 + \frac{\rho}{1+\rho^2}(x_1^2 - 1), \\[0.5em]
+h_{\{2\}, G}(x_2) &= 2\,x_2 + \frac{\rho}{1+\rho^2}(x_2^2 - 1), \\[0.5em]
+h_{\{1,2\}, G}(x_1,x_2) 
 &= -\left(\frac{\rho(x_1^2+x_2^2)}{1+\rho^2} - x_1 x_2 + \frac{\rho(\rho^2-1)}{1+\rho^2}\right).
 \end{align*}
+We refer back to \autoref{eq:running_example_fanova_components} for a comparison with the classical fANOVA components.
 
 % Let us come back to our example from the beginning. The goal is to write
 % \[
