@@ -1,3 +1,13 @@
+\begin{frame}{Formal Setting}
+  \begin{itemize}
+    \item measure space, probability measure, random vector, subvector, complementary vector, pdf
+    \item measure space of square integrable functions
+    \item inner product
+    \item norm
+  \end{itemize}
+  
+\end{frame}
+
 \begin{frame}{Classical fANOVA Decomposition} % What is it?
   \begin{block}{General Form}
     \[
@@ -5,7 +15,7 @@
     \]
   \end{block}
   \begin{itemize}
-    \item $y$ : Model output
+    \item $y$ : Model
     \item $y_u$ : Component functions for subset $u$
     \item Assumption: $X_1, \dots, X_N$ are independent
   \end{itemize}
@@ -43,13 +53,25 @@
     \[
       y_u(x_u) =
         \int y(x) f_{-u}(x_{-u}) dx_{-u}
-        - \sum_{v \subset u} y_v(x_v)
+        - \sum_{v \subsetneq u} y_v(x_v)
     \]
   \begin{itemize}
     \item $f_{-u}$ : marginal density of variables not in $u$
     \item Components solved sequentially by increasing order
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Example: Two degree Polynomial} % Example of a 2D function
+  \begin{align}
+    y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2
+  \end{align}
+  \begin{itemize}
+    \item Coefficients: $a_1 = 20$, $a_2 = 0$, $a_{11} = 0$, $a_{22} = 10$, $a_{12} = 10$
+    \item Independent variables: $\rho = 0$
+  \end{itemize}  
+\end{frame}
+
 
 \begin{frame}{Example: 2D Function} % How does it look?
   \begin{columns}
@@ -60,7 +82,63 @@
   \end{columns}
 \end{frame}
 
-% Equality to Hoeffding Decomposition
+\begin{frame}{Equality to Hoeffding Decomposition} % How does it relate to Hoeffding?
+  \begin{block}{Hoeffding Decomposition}
+    \begin{align}
+    y(\boldsymbol{X})
+=
+\sum_{A \subseteq D} 
+y_A(\boldsymbol{X}_A),
+\qquad
+D := \{1,\dots,N\},
+\end{align}
+where, for each $A \subseteq D$, the component function $y_A$ is defined by:
+\begin{align}\label{eq:hoeffding_components}
+    y_A(\boldsymbol{X}_A)
+=
+\sum_{B \subseteq A}
+(-1)^{|A|-|B|}
+\,\mathbb{E}\!\left[
+  y(\boldsymbol{X}) 
+  \,\middle|\, 
+  \boldsymbol{X}_B
+\right],
+\end{align}
+  where $y_u$ are orthogonal components.
+  \end{block}
+  \begin{itemize}
+    \item Classical fANOVA and Hoeffding decomposition yield same components under zero-centered inputs
+    \item Both assume independence of input variables
+  \end{itemize}
+  
+\end{frame}
+
 
 
 % fANOVA through lens of Orthogonal Projections
+\begin{frame}{General Definition of Orthogonal Projection} % How do we define it?
+  \begin{align}
+    \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
+\end{align}
+  \begin{itemize}
+    \item $\mathcal{G}$ : linear subspace of $\mathcal{L}^2$ we project onto
+    \item $g$ all functions in the subspace
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{fANOVA as Orthogonal Projection} % How does it relate to orthogonal projection?
+  \begin{align*}
+    \Pi_{\mathcal{G}_0}y
+    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ 
+    &= \arg \min_{a \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ 
+    &= \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.
+\end{align*}
+  \begin{align*}
+    (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
+    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - \sum_{v \subsetneq u} y_v(.)\\
+    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.).
+\end{align*}
+  
+\end{frame}
