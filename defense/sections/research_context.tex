@@ -14,7 +14,7 @@
 \node[right=of fanova] (nonparam) {Nonparametric Modeling};
 \node[below right=of fanova] (domain) {Domain-Specific Modeling};
 \node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
-\node[below left=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (iml) {IML};
+\node[below left=of interpret] (iml) {IML};
 \node[below right=of interpret] (interactions) {Interactions};
 
 % Arrows
@@ -23,7 +23,7 @@
 \draw[->] (fanova) -- (nonparam);
 \draw[->] (fanova) -- (domain);
 \draw[->, color = lmugreen] (fanova) -- (interpret);
-\draw[->, color = lmugreen] (interpret) -- (iml);
+\draw[->] (interpret) -- (iml);
 \draw[->] (interpret) -- (interactions);
 
 \end{tikzpicture}

@@ -1,4 +1,7 @@
-\begin{frame}{Example with Dependent Inputs ($\rho = 0.8$)} % How does it look?
+\begin{frame}{Example with Dependent Inputs} % How does it look?
+    \begin{align*}
+    y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2, \qquad \rho = 0.8
+  \end{align*}
   \begin{columns}
     \column{0.5\textwidth}
       \includegraphics[width=\linewidth]{../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png}
@@ -20,23 +23,14 @@
     \item Allows dependent input distributions
     \item Leads to hierarchical orthogonality
   \end{itemize}
-\end{frame}
-
-%==================================================
-% Slide 3 – Properties
-%==================================================
-\begin{frame}{Key Properties (Generalized)}
-  \[
+    \[
   \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
   \]
   \[
   \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
   \]
-  \begin{itemize}
-    \item Zero mean components remain
-    \item Orthogonality is weaker: hierarchical
-  \end{itemize}
 \end{frame}
+
 
 %==================================================
 % Slide 4 – Construction
@@ -51,6 +45,23 @@
     \item All components solved simultaneously
     \item Depends on marginal densities and coupling terms
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+    \item $N = 3$
+  \end{itemize}
+    \begin{equation*}
+    y_{\emptyset,G} = \int_{\mathbb{R}^3} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) = \mathbb{E}[y(\boldsymbol{X})]
+    \end{equation*}
+    \begin{itemize}
+      \item $u = \{1\}$
+      \begin{itemize}
+        \item $v \subsetneq u \rightarrow \emptyset$
+        \item $(\emptyset \ne v \subseteq \{1,\dots,N\},\ v \cap u \ne \emptyset,\ v \not\subset u) \rightarrow \{1,2\}, \{1,2,3\}$
+      \end{itemize}
+    \end{itemize}
+
 \end{frame}
 
 %==================================================

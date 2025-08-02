@@ -433,12 +433,12 @@ For example, \cite{muehlenstaedt2012} subtracts from the projection and defines:
 \begin{align*}
     y_u(\boldsymbol{x}_u) &:=
     \mathbb{E}[y(\boldsymbol{X}) | \boldsymbol{X}_{u} = \boldsymbol{x}_u] - \sum_{v \subsetneq u} y_v(\boldsymbol{x}) \\
-    &= \int_{\mathbb{R}^{N-|u|}} y(\boldsymbol{x}) d \nu(\boldsymbol{x}_{-u}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x}).
+    &= \int_{\mathbb{R}^{N-|u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) f_{-u}(\boldsymbol{x}_{-u}) d \nu(\boldsymbol{x}_{-u}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x}).
 \end{align*}
 \cite{hooker2004} takes the alternative view and defines the fANOVA component functions via the integral, which can be rewritten as the expected value:
 \begin{align*}
     y_u(\boldsymbol{x}_u)
-    &:= \int_{\mathbb{R}^{N-|u|}} (y(\boldsymbol{x}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x})) d \nu(\boldsymbol{x}_{-u}) \\
+    &:= \int_{\mathbb{R}^{N-|u|}} (y(\boldsymbol{X}_{u}, \boldsymbol{x}_{-u}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x})) f_{-u}(\boldsymbol{x}_{-u}) d \nu(\boldsymbol{x}_{-u}) \\
     &= \mathbb{E}[y(\boldsymbol{X}) - \sum_{v \subsetneq u} y_v(\boldsymbol{x}) | \boldsymbol{X}_{u} = \boldsymbol{x}_u ].
 \end{align*}
 The first equivalence in each formulation is simply the definition in each original paper, while the second equivalence holds under the assumption of independent inputs.
