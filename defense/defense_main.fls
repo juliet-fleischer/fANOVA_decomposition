@@ -1702,6 +1702,9 @@ INPUT ./lmu_logo.png
 INPUT ./lmu_logo.png
 INPUT lmu_logo.png
 INPUT ./lmu_logo.png
+INPUT ./lmu_logo.png
+INPUT lmu_logo.png
+INPUT ./lmu_logo.png
 INPUT ./defense_main.toc
 INPUT defense_main.toc
 INPUT defense_main.toc
@@ -1754,6 +1757,15 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSans
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1--base.tfm
+INPUT ./lmu_logo.png
+INPUT lmu_logo.png
+INPUT ./lmu_logo.png
+INPUT ./lmu_logo.png
+INPUT lmu_logo.png
+INPUT ./lmu_logo.png
+INPUT ./lmu_logo.png
+INPUT lmu_logo.png
+INPUT ./lmu_logo.png
 INPUT ./lmu_logo.png
 INPUT lmu_logo.png
 INPUT ./lmu_logo.png

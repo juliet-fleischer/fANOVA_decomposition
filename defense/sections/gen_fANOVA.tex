@@ -100,8 +100,10 @@ y(x_1,x_2)
 \end{frame}
 
 \begin{frame}{Basis Functions proposed by Rahman (2014)\cite{rahman2014}}
-    \begin{align*}
-\psi_{\emptyset}(x_1,x_2) &= 1, \\[0.5em]
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{align*}
+    \psi_{\emptyset}(x_1,x_2) &= 1, \\[0.5em]
 \psi_{1,1}(x_1) &= x_1, \\[0.5em]
 \psi_{2,1}(x_2) &= x_2, \\[0.5em]
 \psi_{1,2}(x_1) &= x_1^2 - 1, \\[0.5em]
@@ -110,7 +112,58 @@ y(x_1,x_2)
                          - x_1 x_2 
                          + \frac{\rho(\rho^2 - 1)}{1 + \rho^2},
 \end{align*}
+  \end{column}
+  \begin{column}{0.48\textwidth}
+    placeholder for the second column
+\end{column}
+\end{columns}
 \end{frame}
+
+\begin{frame}{Coefficient Matching}
+      \begin{align*}
+-\,c_{12, 11} &= a_{12} &\Rightarrow\quad c_{12, 11} &= -a_{12} \\[0.5em]
+c_{1,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} &= a_{11} 
+&\Rightarrow\quad c_{1,2} &= a_{11} + \tfrac{\rho}{1+\rho^2}a_{12} \\[0.5em]
+c_{2,2} + c_{12, 11}\,\tfrac{\rho}{1+\rho^2} &= a_{22} 
+&\Rightarrow\quad c_{2,2} &= a_{22} + \tfrac{\rho}{1+\rho^2}a_{12} \\[0.5em]
+c_{1,1} &= a_1 \\[0.5em]
+c_{2,1} &= a_2 \\[0.5em]
+c_0 - c_{1,2} - c_{2,2} + c_{12, 11}\,\tfrac{\rho(\rho^2 - 1)}{1+\rho^2} &= a_0 
+&\Rightarrow\quad 
+c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
+\end{align*}
+\end{frame}
+
+\begin{frame}{General Form of fANOVA Components}
+  \begin{itemize}
+    \item True for Multivariate Gaussian Inputs
+    \item Works for polynomials of degree up to $d = 2$
+  \end{itemize}
+  \begin{align}
+\begin{split}
+y_{\emptyset, G} &= a_0 + a_{11} + a_{22} + \rho\,a_{12}, \\[0.5em]
+y_{\{1\}, G}(x_1) &= a_1\,x_1 
+  + \left(a_{11} + \frac{\rho}{1+\rho^2}a_{12}\right)\bigl(x_1^2 - 1\bigr), \\[0.5em]
+y_{\{2\}, G}(x_2) &= a_2\,x_2 
+  + \left(a_{22} + \frac{\rho}{1+\rho^2}a_{12}\right)\bigl(x_2^2 - 1\bigr), \\[0.5em]
+y_{\{1,2\}, G}(x_1,x_2) 
+&= -a_{12}\!\left(
+    \frac{\rho(x_1^2+x_2^2)}{1+\rho^2} 
+    - x_1 x_2 
+    + \frac{\rho(\rho^2-1)}{1+\rho^2}
+   \right).
+\end{split}
+\label{eq:fanova_components_2D_polynomial}
+\end{align}
+\end{frame}
+  
+
+\begin{frame}{More Visualizations}
+  with this Fourier-polynomial expansion, we can build many more examples
+  
+\end{frame}
+
+
 
 \begin{frame}{Alternative Generalization of fANOVA, \cite{hooker2007}}
     \begin{align*}

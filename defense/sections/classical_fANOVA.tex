@@ -117,14 +117,14 @@
 \right),
 \]
 \[
-X_1 \mid X_2=x_2 \sim \mathcal{N}(\rho x_2, 1-\rho^2), \quad
-X_2 \mid X_1=x_1 \sim \mathcal{N}(\rho x_1, 1-\rho^2).
+X_1 \mid X_2=x_2 \sim \mathcal{N}(0, 1), \quad
+X_2 \mid X_1=x_1 \sim \mathcal{N}(0, 1).
 \]
 Components:
 \begin{equation*}
-    y_{\emptyset} = 0, \qquad
+    y_{\emptyset} = 1, \qquad
     y_{\{1\}}(x_1) = 2x_1, \qquad
-    y_{\{2\}}(x_2) = x_2^{2}, \qquad
+    y_{\{2\}}(x_2) = x_2^{2} - 1, \qquad
     y_{\{1,2\}}(x_1, x_2) = x_1 x_2.
 \end{equation*}
 \end{frame}
@@ -141,10 +141,10 @@ Components:
 
 % fANOVA through lens of Orthogonal Projections
 \begin{frame}{Reminder: Definition of Orthogonal Projection} % How do we define it?
-  \begin{align}
+  \begin{align*}
     \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
 = \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
-\end{align}
+\end{align*}
   \begin{itemize}
     \item $\mathcal{G}$ : linear subspace of $\mathcal{L}^2$ we project onto
     \item $g$ all functions in the subspace
@@ -152,18 +152,20 @@ Components:
 \end{frame}
 
 \begin{frame}{fANOVA as Orthogonal Projection} % How does it relate to orthogonal projection?
-  \begin{align*}
-    \Pi_{\mathcal{G}_0}y
-    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2 \\ 
+\begin{align*}
+    y_{\emptyset}
+    &= \mathbb{E}[y(\boldsymbol{X})] \\ 
     &= \arg \min_{a \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ 
-    &= \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.
+    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2
+    = \Pi_{\mathcal{G}_0}y,
 \end{align*}
-  \begin{align*}
-    (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
-    &= \arg \min_{g_u \in \mathcal{G}_u} \|y - g_u\|^2 - \sum_{v \subsetneq u} y_v(.)\\
-    &= \arg \min_{g_u \in \mathcal{G}_{u}} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.)\\
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(x) = y_u(.).
+\begin{align*}
+    y_u(.) 
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(.) \\ 
+    &= \arg \min_{g_u \in \mathcal{G}_u} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.) \\ 
+    &= (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
 \end{align*}
+
   
 \end{frame}
 
@@ -197,6 +199,57 @@ where, for each $A \subseteq D$, the component function $y_A$ is defined by:
     \item Both assume independence of input variables
   \end{itemize}
   
+\end{frame}
+
+\begin{frame}{Hoeffding Decomposition Example} % Example of Hoeffding decomposition
+  \begin{align*}
+    y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2
+  \end{align*}
+  \begin{align*}
+    % --- constant component
+    y_{\emptyset}
+    &= \mathbb{E}[y(X_1,X_2)] 
+     = 2\,\mathbb{E}[X_1] + \mathbb{E}[X_2^2] + \mathbb{E}[X_1 X_2] 
+     = 1,
+    \\[1.2em]
+    % --- first-order component for X1
+    y_{\{1\}}(x_1)
+    &= \sum_{B \subseteq \{1\}} (-1)^{1-|B|}
+       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] \\[2pt]
+    &= -\,\mathbb{E}[y] + \mathbb{E}[y|X_1=x_1] \\[2pt]
+    &= -1 + (2x_1 + \mathbb{E}[X_2^2] + x_1\mathbb{E}[X_2]) \\[2pt]
+    &= 2x_1,
+    \\[1.2em]
+    % --- first-order component for X2
+    y_{\{2\}}(x_2)
+    &= \sum_{B \subseteq \{2\}} (-1)^{1-|B|}
+       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] \\[2pt]
+    &= -\,\mathbb{E}[y] + \mathbb{E}[y|X_2=x_2] \\[2pt]
+    &= -1 + (2\mathbb{E}[X_1] + x_2^2 + x_2\mathbb{E}[X_1]) \\[2pt]
+    &= x_2^2 - 1.
+\end{align*}
+\end{frame}
+
+\begin{frame}
+  \begin{align*}
+    % --- second-order interaction component
+    y_{\{1,2\}}(x_1,x_2)
+    &= \sum_{B \subseteq \{1,2\}} (-1)^{2-|B|}
+       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] \\[2pt]
+    &= (+1)\,\mathbb{E}[y] 
+     - \mathbb{E}[y|X_1=x_1]
+     - \mathbb{E}[y|X_2=x_2]
+     + y(x_1,x_2) \\[2pt]
+    &= 1 - (2x_1+1) - (x_2^2) + (2x_1+x_2^2+x_1x_2) \\[2pt]
+    &= x_1 x_2.
+\end{align*}
+
+\[
+y(x_1,x_2)
+= y_{\emptyset} + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1,x_2)
+= 1 + 2x_1 + (x_2^2 - 1) + x_1 x_2
+\]
+
 \end{frame}
 
 

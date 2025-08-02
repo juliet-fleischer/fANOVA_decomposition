@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  2 AUG 2025 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  2 AUG 2025 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1203,31 +1203,44 @@ Package pdftex.def Info: lmu_logo.png  used on input line 152.
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 168.
+Package pdftex.def Info: lmu_logo.png  used on input line 170.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [13
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 200.
+Package pdftex.def Info: lmu_logo.png  used on input line 202.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [14
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 231.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+
+Overfull \vbox (52.71263pt too high) detected at line 231
+ []
+
+[15
+
+] [16
 
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 123.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [15
+ [17
 
 ] (./sections/gen_fANOVA.tex
-<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png, id=215, 433.62pt x 289.08pt>
+<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png, id=227, 433.62pt x 289.08pt>
 File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png Graphic file (type png)
 <use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png>
 Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png  used on input line 11.
 (pdftex.def)             Requested size: 216.67201pt x 144.447pt.
-<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png, id=216, 433.62pt x 289.08pt>
+<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png, id=228, 433.62pt x 289.08pt>
 File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png Graphic file (type png)
 <use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>
 Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png  used on input line 11.
@@ -1236,21 +1249,21 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 11.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [16
+ [18
 
  <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png> <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 32.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [17
+ [19
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 48.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [18
+ [20
 
 ]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
@@ -1277,84 +1290,109 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/it' on input line 65.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
 (Font)              scaled to size 7.0pt on input line 65.
- [19
+ [21
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 76.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [20
+ [22
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 100.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [21
-
-]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 113.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [22
-
-]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 129.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [23
 
 ]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 145.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [24
+Overfull \hbox (7.1053pt too wide) detected at line 120
+[]
+ []
 
-]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 126.
+Package pdftex.def Info: lmu_logo.png  used on input line 120.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+[24
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 135.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [25
 
-] (./sections/conclusion.tex
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 3.
+Package pdftex.def Info: lmu_logo.png  used on input line 158.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [26
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 10.
+Package pdftex.def Info: lmu_logo.png  used on input line 164.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [27
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 182.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [28
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 198.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [29
+
+]) (./defense_main.toc)
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 126.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [30
+
+] (./sections/conclusion.tex
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 3.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [31
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 10.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [32
 
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 129.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [28
+ [33
 
 ] (./sections/extra_slides.tex
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 9.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [29
+ [34
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 21.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [30
+ [35
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
@@ -1365,21 +1403,21 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 27.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [31
+ [36
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]) (./defense_main.bbl)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 136.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [32
+ [37
 
  </usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 136.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [33
+ [38
 
 
 ]
@@ -1387,7 +1425,7 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 136.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [34
+ [39
 
 
 ]
@@ -1405,18 +1443,18 @@ Package rerunfilecheck Info: File `defense_main.out' has not changed.
 (rerunfilecheck)             Checksum: A7A695BC24A2C2FE94EF7D167BB33B45;126.
  ) 
 Here is how much of TeX's memory you used:
- 30773 strings out of 476025
- 616587 string characters out of 5790017
- 1865388 words of memory out of 5000000
- 50468 multiletter control sequences out of 15000+600000
+ 30795 strings out of 476025
+ 616832 string characters out of 5790017
+ 1866388 words of memory out of 5000000
+ 50479 multiletter control sequences out of 15000+600000
  732251 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,470b,819s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-BoldIt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on defense_main.pdf (34 pages, 782443 bytes).
+Output written on defense_main.pdf (39 pages, 789631 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
- 335 compressed objects within 4 object streams
- 84 named destinations out of 1000 (max. 500000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 366 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
  248 words of extra memory for PDF output out of 10000 (max. 10000000)
 
