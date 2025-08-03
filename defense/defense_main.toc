@@ -2,5 +2,5 @@
 \beamer@sectionintoc {1}{Research Context}{2}{0}{1}
 \beamer@sectionintoc {2}{Classical fANOVA}{4}{0}{2}
 \beamer@sectionintoc {3}{Generalized fANOVA}{17}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{30}{0}{4}
-\beamer@sectionintoc {5}{Extra Slides}{33}{0}{5}
+\beamer@sectionintoc {4}{Conclusion}{33}{0}{4}
+\beamer@sectionintoc {5}{Extra Slides}{36}{0}{5}

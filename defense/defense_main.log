@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  2 AUG 2025 18:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  3 AUG 2025 09:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -813,7 +813,49 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlinewidth=\dimen330
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box84
+\pgfnodeparttwobox=\box85
+\pgfnodepartthreebox=\box86
+\pgfnodepartfourbox=\box87
+\pgfnodeparttwentybox=\box88
+\pgfnodepartnineteenbox=\box89
+\pgfnodeparteighteenbox=\box90
+\pgfnodepartseventeenbox=\box91
+\pgfnodepartsixteenbox=\box92
+\pgfnodepartfifteenbox=\box93
+\pgfnodepartfourteenbox=\box94
+\pgfnodepartthirteenbox=\box95
+\pgfnodeparttwelvebox=\box96
+\pgfnodepartelevenbox=\box97
+\pgfnodeparttenbox=\box98
+\pgfnodepartninebox=\box99
+\pgfnodeparteightbox=\box100
+\pgfnodepartsevenbox=\box101
+\pgfnodepartsixbox=\box102
+\pgfnodepartfivebox=\box103
+))) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/03/12 v3.6j Customizing captions (AR)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
@@ -837,7 +879,7 @@ Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count353
-\lst@gtempboxa=\box84
+\lst@gtempboxa=\box104
 \lst@token=\toks56
 \lst@length=\count354
 \lst@currlwidth=\dimen339
@@ -852,7 +894,7 @@ Package caption Info: Hyperref support is turned off
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count359
 \lst@skipnumbers=\count360
-\lst@framebox=\box85
+\lst@framebox=\box105
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -864,45 +906,45 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
-LaTeX Font Info:    Trying to load font information for T1+SourceSansPro-TLF on input line 86.
+LaTeX Font Info:    Trying to load font information for T1+SourceSansPro-TLF on input line 90.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/sourcesanspro/T1SourceSansPro-TLF.fd
 File: T1SourceSansPro-TLF.fd 2020/01/19 (autoinst) Font definitions for T1/SourceSansPro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 86.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 90.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 10.95pt on input line 86.
+(Font)              scaled to size 10.95pt on input line 90.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count361
-\l__pdf_internal_box=\box86
+\l__pdf_internal_box=\box106
 ) (./defense_main.aux)
 \openout1 = `defense_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 86.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 90.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 90.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    ... okay on input line 90.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -942,7 +984,7 @@ LaTeX Font Info:    ... okay on input line 86.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count362
 \scratchdimen=\dimen343
-\scratchbox=\box87
+\scratchbox=\box107
 \nofMPsegments=\count363
 \nofMParguments=\count364
 \everyMPshowfont=\toks57
@@ -957,53 +999,53 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 86.
+Package hyperref Info: Link coloring OFF on input line 90.
  (./defense_main.out) (./defense_main.out)
 \@outlinefile=\write5
 \openout5 = `defense_main.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 86.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 86.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 90.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 86.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 86.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/SourceSansPro-TLF/b/n on input line 86.
+(Font)                  OT1/cmr/bx/n --> T1/SourceSansPro-TLF/b/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/SourceSansPro-TLF/b/n on input line 86.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 86.
+(Font)                  OT1/cmr/bx/n --> T1/SourceSansPro-TLF/b/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/SourceSansPro-TLF/m/n on input line 86.
+(Font)                  OT1/cmss/m/n --> T1/SourceSansPro-TLF/m/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/SourceSansPro-TLF/m/n on input line 86.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 86.
+(Font)                  OT1/cmss/bx/n --> T1/SourceSansPro-TLF/m/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/SourceSansPro-TLF/m/it on input line 86.
+(Font)                  OT1/cmr/m/it --> T1/SourceSansPro-TLF/m/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/SourceSansPro-TLF/m/it on input line 86.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 86.
+(Font)                  OT1/cmr/bx/it --> T1/SourceSansPro-TLF/m/it on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 86.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 86.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n on input line 86.
+(Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it on input line 86.
+(Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 86.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/SourceSansPro-TLF/b/n --> T1/SourceSansPro-TLF/b/n on input line 86.
+(Font)                  T1/SourceSansPro-TLF/b/n --> T1/SourceSansPro-TLF/b/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n on input line 86.
+(Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it on input line 86.
+(Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 86.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 90.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -1023,70 +1065,70 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count368
  (./defense_main.nav)
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 86.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 90.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 6.0pt on input line 86.
+(Font)              scaled to size 6.0pt on input line 90.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 10.95pt on input line 108.
+(Font)              scaled to size 10.95pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 14.4pt on input line 108.
+(Font)              scaled to size 14.4pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 108.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 108.
+(Font)              scaled to size 9.0pt on input line 112.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 112.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 108.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 112.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 8.0pt on input line 108.
+(Font)              scaled to size 8.0pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 10.95pt on input line 108.
+(Font)              scaled to size 10.95pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 8.0pt on input line 108.
+(Font)              scaled to size 8.0pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 6.0pt on input line 108.
+(Font)              scaled to size 6.0pt on input line 112.
 <showcase_figure.png, id=18, 963.6pt x 542.025pt>
 File: showcase_figure.png Graphic file (type png)
 <use showcase_figure.png>
-Package pdftex.def Info: showcase_figure.png  used on input line 108.
+Package pdftex.def Info: showcase_figure.png  used on input line 112.
 (pdftex.def)             Requested size: 212.34094pt x 119.43608pt.
 <lmu-background.pdf, id=19, 963.6pt x 542.025pt>
 File: lmu-background.pdf Graphic file (type pdf)
 <use lmu-background.pdf>
-Package pdftex.def Info: lmu-background.pdf  used on input line 108.
+Package pdftex.def Info: lmu-background.pdf  used on input line 112.
 (pdftex.def)             Requested size: 455.24408pt x 256.07507pt.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 108.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 4.0pt on input line 108.
+(Font)              scaled to size 4.0pt on input line 112.
  [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <./lmu-background.pdf> <./showcase_figure.png (PNG copy)>] (./defense_main.toc)
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 115.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 119.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 115.
+(Font)              scaled to size 14.4pt on input line 119.
 <lmu_logo.png, id=45, 2007.5pt x 1050.92625pt>
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 115.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [2
 
@@ -1104,7 +1146,7 @@ Package pdftex.def Info: lmu_logo.png  used on input line 35.
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 120.
+Package pdftex.def Info: lmu_logo.png  used on input line 124.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [4
 
@@ -1158,21 +1200,21 @@ Package pdftex.def Info: lmu_logo.png  used on input line 50.
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 70.
+Package pdftex.def Info: lmu_logo.png  used on input line 71.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [8
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 103.
+Package pdftex.def Info: lmu_logo.png  used on input line 104.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [9
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 130.
+Package pdftex.def Info: lmu_logo.png  used on input line 131.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [10
 
@@ -1180,47 +1222,47 @@ Package pdftex.def Info: lmu_logo.png  used on input line 130.
 <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png, id=164, 433.62pt x 289.08pt>
 File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png Graphic file (type png)
 <use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png>
-Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png  used on input line 140.
+Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png  used on input line 141.
 (pdftex.def)             Requested size: 216.67201pt x 144.447pt.
 <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png, id=165, 433.62pt x 289.08pt>
 File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png Graphic file (type png)
 <use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>
-Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png  used on input line 140.
+Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png  used on input line 141.
 (pdftex.def)             Requested size: 216.67201pt x 144.447pt.
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 140.
+Package pdftex.def Info: lmu_logo.png  used on input line 141.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [11
 
  <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png> <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 152.
+Package pdftex.def Info: lmu_logo.png  used on input line 153.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [12
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 170.
+Package pdftex.def Info: lmu_logo.png  used on input line 171.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [13
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 202.
+Package pdftex.def Info: lmu_logo.png  used on input line 203.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [14
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 231.
+Package pdftex.def Info: lmu_logo.png  used on input line 232.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
 
-Overfull \vbox (52.71263pt too high) detected at line 231
+Overfull \vbox (52.71263pt too high) detected at line 232
  []
 
 [15
@@ -1230,7 +1272,7 @@ Overfull \vbox (52.71263pt too high) detected at line 231
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 123.
+Package pdftex.def Info: lmu_logo.png  used on input line 127.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [17
 
@@ -1261,80 +1303,51 @@ Package pdftex.def Info: lmu_logo.png  used on input line 32.
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 48.
+Package pdftex.def Info: lmu_logo.png  used on input line 53.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [20
 
 ]
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 5.0pt on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 65.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 7.0pt on input line 65.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 110.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [21
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 76.
+Package pdftex.def Info: lmu_logo.png  used on input line 110.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [22
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 100.
+Package pdftex.def Info: lmu_logo.png  used on input line 110.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [23
 
 ]
-Overfull \hbox (7.1053pt too wide) detected at line 120
-[]
- []
-
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 120.
+Package pdftex.def Info: lmu_logo.png  used on input line 110.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
-[24
+ [24
+
+] [25
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 135.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [25
-
-]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 158.
+Package pdftex.def Info: lmu_logo.png  used on input line 152.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [26
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 164.
+Package pdftex.def Info: lmu_logo.png  used on input line 166.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [27
 
@@ -1348,51 +1361,72 @@ Package pdftex.def Info: lmu_logo.png  used on input line 182.
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 198.
+Package pdftex.def Info: lmu_logo.png  used on input line 205.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [29
 
-]) (./defense_main.toc)
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 126.
+Package pdftex.def Info: lmu_logo.png  used on input line 211.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [30
 
-] (./sections/conclusion.tex
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 3.
+Package pdftex.def Info: lmu_logo.png  used on input line 230.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [31
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 10.
+Package pdftex.def Info: lmu_logo.png  used on input line 246.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [32
 
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 129.
+Package pdftex.def Info: lmu_logo.png  used on input line 130.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [33
 
-] (./sections/extra_slides.tex
+] (./sections/conclusion.tex
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 9.
+Package pdftex.def Info: lmu_logo.png  used on input line 3.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [34
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 21.
+Package pdftex.def Info: lmu_logo.png  used on input line 10.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [35
+
+]) (./defense_main.toc)
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 133.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [36
+
+] (./sections/extra_slides.tex
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 9.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [37
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 21.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [38
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
@@ -1403,29 +1437,29 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 27.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [36
+ [39
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]) (./defense_main.bbl)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 136.
+Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [37
+ [40
 
  </usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 136.
+Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [38
+ [41
 
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 136.
+Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [39
+ [42
 
 
 ]
@@ -1443,18 +1477,18 @@ Package rerunfilecheck Info: File `defense_main.out' has not changed.
 (rerunfilecheck)             Checksum: A7A695BC24A2C2FE94EF7D167BB33B45;126.
  ) 
 Here is how much of TeX's memory you used:
- 30795 strings out of 476025
- 616832 string characters out of 5790017
- 1866388 words of memory out of 5000000
- 50479 multiletter control sequences out of 15000+600000
- 732251 words of font info for 110 fonts, out of 8000000 for 9000
+ 32603 strings out of 476025
+ 670163 string characters out of 5790017
+ 1867388 words of memory out of 5000000
+ 52245 multiletter control sequences out of 15000+600000
+ 676398 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,122p,470b,819s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-BoldIt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on defense_main.pdf (39 pages, 789631 bytes).
+ 128i,20n,122p,470b,1003s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-BoldIt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on defense_main.pdf (42 pages, 787881 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 366 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 500000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 378 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
  248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

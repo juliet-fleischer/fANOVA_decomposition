@@ -54,15 +54,16 @@
     \[
     y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
     \]
-\begin{equation}
+\begin{align*}
     y_u(\boldsymbol{X}_u) 
-    = \int_{\mathbb{R}^{N- |u|}} 
+    &= \int_{\mathbb{R}^{N- |u|}} 
         y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) 
         \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) 
         \, d\nu (x_i) 
-      - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v).
+      - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v) \\
+    &= \mathbb{E}[y(\boldsymbol{X}_{u}, \boldsymbol{X}_{-u}) \mid \boldsymbol{X}_u = \boldsymbol{x}_u] - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v)
     \label{eq:fanova_components_classical}
-\end{equation}
+\end{align*}
   \begin{itemize}
     \item $f_{-u}$ : marginal density of variables not in $u$
     \item Components solved sequentially by increasing order
@@ -71,7 +72,7 @@
 
 \begin{frame}{Recursive Form Example}
   \begin{itemize}
-    \item $N = 3$
+    \item $N = 3$, $u = \emptyset$
   \end{itemize}
     \[
     y_{\emptyset} = \int_{\mathbb{R}^3} y(\boldsymbol{x}) \prod_{i=1}^{3} f_{\{i\}}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
