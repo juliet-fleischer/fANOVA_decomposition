@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  2 AUG 2025 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  4 AUG 2025 00:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -765,7 +765,7 @@ Overfull \hbox (5.5249pt too wide) in paragraph at lines 8--8
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.168 \newpage
+l.172 \newpage
                [1] [2] (./chapters/related_work.tex [3]) [4] (./chapters/classical_fANOVA.tex [5]
 Overfull \hbox (10.23933pt too wide) in paragraph at lines 44--45
 [][]\OT1/cmr/bx/n/12 Condition 3.1 \OT1/cmr/m/n/12 (Strong an-ni-hi-lat-ing con-di-tions, [][]Rah-man[][] ([][]2014[][]))\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 For the clas-si-cal fANOVA
@@ -776,12 +776,12 @@ Overfull \hbox (1.63959pt too wide) detected at line 250
 [][]
  []
 
-
-Overfull \hbox (15.26796pt too wide) in paragraph at lines 274--275
+[24]
+Overfull \hbox (15.26796pt too wide) in paragraph at lines 275--276
 [][]\OT1/cmr/bx/n/12 Proposition 3.7 \OT1/cmr/m/n/12 ([][]Rah-man[][] ([][]2014[][]))\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 The gen-er-al-ized fANOVA com-po-nent func-tions $\OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 ([][])$\OT1/cmr/m/it/12 ,
  []
 
-[24] [25] [26] [27] [28] [29] [30] [31] [32]) [33] (./chapters/experiment.tex
+[25] [26] [27] [28] [29] [30] [31] [32]) [33] (./chapters/experiment.tex
 <images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png, id=626, 433.62pt x 289.08pt>
 File: images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png Graphic file (type png)
 <use images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png>
@@ -936,17 +936,17 @@ l.64 N
 pdfTeX warning (ext4): destination with the same identifier (name{page.VII}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.214 \newpage
+l.218 \newpage
                [7]
 pdfTeX warning (ext4): destination with the same identifier (name{page.VIII}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.223 \newpage
+l.227 \newpage
                [8]
 pdfTeX warning (ext4): destination with the same identifier (name{page.IX}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.270 \end{document}
+l.274 \end{document}
                      [9{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 36486A0E92353AEE6C8991D5B6BC9CA6;5098.
@@ -954,13 +954,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  26397 strings out of 476025
  523430 string characters out of 5790017
- 1873388 words of memory out of 5000000
+ 1877388 words of memory out of 5000000
  46149 multiletter control sequences out of 15000+600000
  529991 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,131p,832b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (62 pages, 2375469 bytes).
+Output written on thesis.pdf (62 pages, 2439152 bytes).
 PDF statistics:
  910 PDF objects out of 1000 (max. 8388607)
  764 compressed objects within 8 object streams

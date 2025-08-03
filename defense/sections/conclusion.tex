@@ -1,10 +1,38 @@
-\begin{frame}{Limitations}
-    
-\end{frame}
+\begin{frame}{Summary and Future Research}
 
-\begin{frame}{Future Research}
-    \begin{itemize}
-        \item Estimation schemes and software implementation
-        \item Extension of Fourier polynomial expansion to other distributions
-    \end{itemize}
+\centering
+\begin{tikzpicture}[
+    node distance=0.7cm and 1.5cm,
+    every node/.style={font=\large},
+    >=Stealth, thick
+]
+
+% Nodes
+\node (foundations) {Foundations};
+\node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners] (fanova) {(Generalized) fANOVA};
+\node[above right=of fanova] (sensitivity) {Sensitivity Analysis};
+\node[right=of fanova] (nonparam) {Nonparametric Modeling};
+\node[below right=of fanova] (domain) {Domain-Specific Modeling};
+\node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
+\node[below left=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (iml) {IML};
+\node[below right=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (interactions) {Interactions};
+
+% Arrows
+\draw[->] (foundations) -- (fanova);
+\draw[->] (fanova) -- (sensitivity);
+\draw[->] (fanova) -- (nonparam);
+\draw[->] (fanova) -- (domain);
+\draw[->, color = lmugreen] (fanova) -- (interpret);
+\draw[->, color = lmugreen] (interpret) -- (iml);
+\draw[->, color = lmugreen] (interpret) -- (interactions);
+
+\end{tikzpicture}
+
+\vspace{0.5cm}
+\footnotesize
+\begin{itemize}
+    \item Purify Interactions \cite{lengerich2020,konig2024}
+    \item Model-agnostic tool for effect quantification and visualization \cite{hooker2004, hooker2007,hu2025}
+    \item But mainly theoretical application so far
+\end{itemize}
 \end{frame}

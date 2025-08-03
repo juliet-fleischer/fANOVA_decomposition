@@ -450,7 +450,6 @@ The first equivalence in each formulation is simply the definition in each origi
 \subsubsection{Variance Decomposition}
 Studying the second moments of  a function through the lens of the fANOVA decomposition can be useful, especially with regard to the construction of Sobol' indices. We already established that:
 $$ \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset}.$$
-
 We can also compute the variance of $y(\boldsymbol{X})$ via the fANOVA decomposition.
 Let the sum over $u$ denote the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}$ and the sum over $u \neq v$ denote the sum over $\emptyset \neq u \subseteq \{1, \dots, N\}, \, \emptyset \neq v \subseteq \{1, \dots, N\}, \, u \neq v$.
 Following the calculations in \cite{rahman2014}, the variance of $y$ is then given by:
@@ -494,7 +493,6 @@ Starting with the left-hand side and computing the variance of $h(X_1,X_2)$ yiel
 &= 1\cdot 1 = 1.
 \end{align*}
 For the second line in $(\star)$, we used the fact that independence of any measurable map of $X_1$ and $X_2$ follows from independence of $X_1$ and $X_2$.
-
 Next, we verify the decomposition from the opposite perspective by starting with the variances of the fANOVA component functions:
 \begin{align*}
 \mathbb{E}[h_{\{1\}}^2(X_1)] 
@@ -513,11 +511,4 @@ Combining these expressions, we find:
  = 1 + 4 + 1 = 6
  = \operatorname{Var}\big(h(X_1,X_2)\big).
 \]
-
-
-
-
-
-
-
-
+From an interpretability perspective, the variance decomposition can be interesting, as it allows us to quantify the contribution of each fANOVA component function to the overall variance of the model.

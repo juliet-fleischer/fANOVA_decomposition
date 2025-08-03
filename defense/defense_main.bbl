@@ -10,6 +10,11 @@ Giles Hooker.
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}.
 \newblock {\em Journal of Computational and Graphical Statistics}, 16(3):709--732, September 2007.
 
+\bibitem{hu2025}
+Linwei Hu, Vijayan~N. Nair, Agus Sudjianto, Aijun Zhang, Jie Chen, and Zebin Yang.
+\newblock Interpretable {Machine} {Learning} {Based} on {Functional} {ANOVA} {Framework}: {Algorithms} and {Comparisons}.
+\newblock {\em Applied Stochastic Models in Business and Industry}, 41(1):e2916, January 2025.
+
 \bibitem{konig2024}
 Gunnar König, Eric Günther, and Ulrike~von Luxburg.
 \newblock Disentangling {Interactions} and {Dependencies} in {Feature} {Attribution}, October 2024.
@@ -30,11 +35,5 @@ Sharif Rahman.
 I.~M. Sobol.
 \newblock {Sensitivity Estimates for Nonlinear Mathematical Models}.
 \newblock {\em Mathematical Modelling and Computational Experiments}, 1:407--414, 1993.
-
-\bibitem{stone1994}
-Charles~J. Stone.
-\newblock The {Use} of {Polynomial} {Splines} and {Their} {Tensor} {Products} in {Multivariate} {Function} {Estimation}.
-\newblock {\em The Annals of Statistics}, 22(1):118--171, 1994.
-\newblock Publisher: Institute of Mathematical Statistics.
 
 \end{thebibliography}

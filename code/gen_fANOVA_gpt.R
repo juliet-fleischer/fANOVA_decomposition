@@ -13,7 +13,7 @@ theme_pub <- theme_minimal(base_size = 12) +
   )
 
 
-plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
+plot_effects <- function(func_name = "y", a0, a1, a2, a11, a22, a12, rho,
                          xlim = c(-2, 2), n = 200) {
   # ---- Corrected coefficients ----
   c_int <- -a12
@@ -45,13 +45,27 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
     "Effect2" = "#C2A5CF"   # dusty lavender
   )
 
+  # ---- dynamic labels ----
+  if (grepl("\\\\", func_name)) {
+    # convert LaTeX-like \tilde{z} to R's tilde(z)
+    func_name_r <- gsub("\\\\tilde\\{(.*)\\}", "tilde(\\1)", func_name)
+    expr_name <- parse(text = func_name_r)[[1]]
+  } else {
+    expr_name <- as.name(func_name)
+  }
+  
+  
+  labels_dynamic <- list(
+    bquote(.(expr_name)[{"{1}"}]),
+    bquote(.(expr_name)[{"{2}"}])
+  )
+  
   p1 <- ggplot(df_main, aes(x = x, y = Effect, color = Variable)) +
     geom_line(linewidth = 2) +
     labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
-    scale_color_manual(values = main_colors,
-                       labels = c(expression(y[1]),
-                                  expression(y[2]))) +
+    scale_color_manual(values = main_colors, labels = labels_dynamic) +
     theme_pub
+  
   
   # ---- Interaction effect ----
   grid <- expand.grid(x1 = x, x2 = x)
@@ -73,11 +87,11 @@ plot_effects <- function(a0, a1, a2, a11, a22, a12, rho,
   )
 }
 
-plot_effects(0, 2, 0, 1, 0, 0.5, rho = 0.3)
-plot_effects(0, 2, 0, 1, 0, 0.5, rho = 0)
+plot_effects(func_name = "z", 0, 2, 0, 1, 0, 0.5, rho = 0.3)
+plot_effects("z", 0, 2, 0, 1, 0, 0.5, rho = 0)
 
-plot_effects(0, -2, -2, 1, -1, 1, rho = -0.8)
-plot_effects(0, -2, -2, 1, -1, 1, rho = 0)
+plot_effects("z", 0, -2, -2, 1, -1, 1, rho = -0.8)
+plot_effects("z", 0, -2, -2, 1, -1, 1, rho = 0)
 
 
 

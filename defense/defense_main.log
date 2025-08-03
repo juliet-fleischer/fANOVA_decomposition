@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  3 AUG 2025 09:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.15)  3 AUG 2025 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1072,10 +1072,6 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/bold/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
 (Font)              scaled to size 10.95pt on input line 112.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 112.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 14.4pt on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
@@ -1104,11 +1100,11 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/it' on input line 112.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
 (Font)              scaled to size 6.0pt on input line 112.
-<showcase_figure.png, id=18, 963.6pt x 542.025pt>
-File: showcase_figure.png Graphic file (type png)
-<use showcase_figure.png>
-Package pdftex.def Info: showcase_figure.png  used on input line 112.
-(pdftex.def)             Requested size: 212.34094pt x 119.43608pt.
+<../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png, id=18, 433.62pt x 289.08pt>
+File: ../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png  used on input line 112.
+(pdftex.def)             Requested size: 212.34094pt x 141.56221pt.
 <lmu-background.pdf, id=19, 963.6pt x 542.025pt>
 File: lmu-background.pdf Graphic file (type pdf)
 <use lmu-background.pdf>
@@ -1120,7 +1116,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 4.0pt on input line 112.
  [1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <./lmu-background.pdf> <./showcase_figure.png (PNG copy)>] (./defense_main.toc)
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc} <./lmu-background.pdf> <../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png>] (./defense_main.toc)
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 119.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
@@ -1134,12 +1130,12 @@ Package pdftex.def Info: lmu_logo.png  used on input line 119.
 
  <./lmu_logo.png>] (./sections/research_context.tex
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 35.
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 31.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 35.
+(Font)              scaled to size 12.0pt on input line 31.
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 35.
+Package pdftex.def Info: lmu_logo.png  used on input line 31.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [3
 
@@ -1151,13 +1147,6 @@ Package pdftex.def Info: lmu_logo.png  used on input line 124.
  [4
 
 ] (./sections/classical_fANOVA.tex
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 9.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [5
-
-]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
@@ -1188,270 +1177,512 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 32.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [5
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 32.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [6
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 50.
+Package pdftex.def Info: lmu_logo.png  used on input line 32.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [7
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 71.
+Package pdftex.def Info: lmu_logo.png  used on input line 32.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [8
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 104.
+Package pdftex.def Info: lmu_logo.png  used on input line 32.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [9
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 131.
+Package pdftex.def Info: lmu_logo.png  used on input line 54.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [10
 
 ]
-<../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png, id=164, 433.62pt x 289.08pt>
-File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png Graphic file (type png)
-<use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png>
-Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png  used on input line 141.
-(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
-<../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png, id=165, 433.62pt x 289.08pt>
-File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png Graphic file (type png)
-<use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>
-Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png  used on input line 141.
-(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 141.
+Package pdftex.def Info: lmu_logo.png  used on input line 54.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [11
 
- <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png> <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>]
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 153.
+Package pdftex.def Info: lmu_logo.png  used on input line 54.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [12
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 171.
+Package pdftex.def Info: lmu_logo.png  used on input line 54.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [13
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 203.
+Package pdftex.def Info: lmu_logo.png  used on input line 76.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [14
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 232.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [15
 
-Overfull \vbox (52.71263pt too high) detected at line 232
- []
-
-[15
-
-] [16
-
-]) (./defense_main.toc)
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 127.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [16
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [17
 
-] (./sections/gen_fANOVA.tex
-<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png, id=227, 433.62pt x 289.08pt>
-File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png Graphic file (type png)
-<use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png>
-Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png  used on input line 11.
-(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
-<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png, id=228, 433.62pt x 289.08pt>
-File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png Graphic file (type png)
-<use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>
-Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png  used on input line 11.
-(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 11.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [18
 
- <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png> <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>]
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 32.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [19
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 53.
+Package pdftex.def Info: lmu_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [20
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 110.
+Package pdftex.def Info: lmu_logo.png  used on input line 132.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [21
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 110.
+Package pdftex.def Info: lmu_logo.png  used on input line 148.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [22
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 110.
+Package pdftex.def Info: lmu_logo.png  used on input line 187.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [23
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 110.
+Package pdftex.def Info: lmu_logo.png  used on input line 187.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [24
-
-] [25
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 152.
+Package pdftex.def Info: lmu_logo.png  used on input line 187.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [25
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 187.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [26
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 166.
+Package pdftex.def Info: lmu_logo.png  used on input line 187.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [27
 
 ]
+<../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png, id=319, 433.62pt x 289.08pt>
+File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png  used on input line 199.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png, id=320, 433.62pt x 289.08pt>
+File: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png Graphic file (type png)
+<use ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png  used on input line 199.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 182.
+Package pdftex.def Info: lmu_logo.png  used on input line 199.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [28
 
-]
+ <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png> <../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 205.
+Package pdftex.def Info: lmu_logo.png  used on input line 236.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [29
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 211.
+Package pdftex.def Info: lmu_logo.png  used on input line 261.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [30
 
-]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 230.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [31
-
-]
-File: lmu_logo.png Graphic file (type png)
-<use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 246.
-(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [32
+] [31
 
 ]) (./defense_main.toc)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 130.
+Package pdftex.def Info: lmu_logo.png  used on input line 127.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [32
+
+] (./sections/gen_fANOVA.tex
+<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png, id=370, 433.62pt x 289.08pt>
+File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png Graphic file (type png)
+<use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png>
+Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png  used on input line 13.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png, id=371, 433.62pt x 289.08pt>
+File: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png Graphic file (type png)
+<use ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png  used on input line 13.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 13.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [33
 
-] (./sections/conclusion.tex
+ <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png> <../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 3.
+Package pdftex.def Info: lmu_logo.png  used on input line 58.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [34
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 10.
+Package pdftex.def Info: lmu_logo.png  used on input line 58.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [35
 
-]) (./defense_main.toc)
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 133.
+Package pdftex.def Info: lmu_logo.png  used on input line 58.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [36
 
-] (./sections/extra_slides.tex
+]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 9.
+Package pdftex.def Info: lmu_logo.png  used on input line 58.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [37
 
 ]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 21.
+Package pdftex.def Info: lmu_logo.png  used on input line 118.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
  [38
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 118.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [39
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 118.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [40
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 118.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [41
+
+] [42
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 160.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [43
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 174.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [44
+
+] [45
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 227.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [46
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 250.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [47
+
+]
+<../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png, id=507, 433.62pt x 289.08pt>
+File: ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png  used on input line 263.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png, id=508, 433.62pt x 289.08pt>
+File: ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png Graphic file (type png)
+<use ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png  used on input line 263.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 263.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [48
+
+ <../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png> <../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png>]
+<../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png, id=515, 433.62pt x 289.08pt>
+File: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png Graphic file (type png)
+<use ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png>
+Package pdftex.def Info: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png  used on input line 280.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 280.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 5.0pt on input line 280.
+<../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png, id=516, 433.62pt x 289.08pt>
+File: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png Graphic file (type png)
+<use ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png  used on input line 280.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 280.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [49
+
+ <../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png> <../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png>]
+<../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png, id=524, 433.62pt x 289.08pt>
+File: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png  used on input line 294.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png, id=525, 433.62pt x 289.08pt>
+File: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png Graphic file (type png)
+<use ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png  used on input line 294.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 294.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [50
+
+ <../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png> <../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png>]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 315.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [51
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 331.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [52
+
+]) (./defense_main.toc)
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 130.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [53
+
+] (./sections/conclusion.tex
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 38.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [54
+
+]) (./defense_main.toc)
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 133.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [55
+
+] (./sections/extra_slides.tex
+<../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png, id=585, 433.62pt x 289.08pt>
+File: ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 12.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png, id=586, 433.62pt x 289.08pt>
+File: ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 12.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 12.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [56
+
+ <../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png> <../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png>]
+<../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png, id=593, 433.62pt x 289.08pt>
+File: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png Graphic file (type png)
+<use ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png>
+Package pdftex.def Info: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png  used on input line 25.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png, id=594, 433.62pt x 289.08pt>
+File: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png Graphic file (type png)
+<use ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png  used on input line 25.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 25.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [57
+
+ <../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_main.png> <../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhom05_interaction.png>]
+<../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png, id=601, 433.62pt x 289.08pt>
+File: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png  used on input line 38.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+<../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png, id=602, 433.62pt x 289.08pt>
+File: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png Graphic file (type png)
+<use ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png>
+Package pdftex.def Info: ../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png  used on input line 38.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 38.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [58
+
+ <../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_main.png> <../images/experiment_section/interaction_a1p00_a2p00_a11p00_a22p00_a12p20_rhop00_interaction.png>]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 43.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [59
+
+]
+File: ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 54.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png Graphic file (type png)
+<use ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png>
+Package pdftex.def Info: ../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png  used on input line 54.
+(pdftex.def)             Requested size: 216.67201pt x 144.447pt.
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 54.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [60
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 62.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [61
+
+]
+File: lmu_logo.png Graphic file (type png)
+<use lmu_logo.png>
+Package pdftex.def Info: lmu_logo.png  used on input line 74.
+(pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
+ [62
+
+]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 80.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
-Package pdftex.def Info: lmu_logo.png  used on input line 27.
+Package pdftex.def Info: lmu_logo.png  used on input line 80.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [39
+ [63
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]) (./defense_main.bbl)
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [40
+ [64
 
  </usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [41
+ [65
 
 
 ]
@@ -1459,7 +1690,7 @@ File: lmu_logo.png Graphic file (type png)
 <use lmu_logo.png>
 Package pdftex.def Info: lmu_logo.png  used on input line 140.
 (pdftex.def)             Requested size: 56.88351pt x 28.44754pt.
- [42
+ [66
 
 
 ]
@@ -1477,18 +1708,18 @@ Package rerunfilecheck Info: File `defense_main.out' has not changed.
 (rerunfilecheck)             Checksum: A7A695BC24A2C2FE94EF7D167BB33B45;126.
  ) 
 Here is how much of TeX's memory you used:
- 32603 strings out of 476025
- 670163 string characters out of 5790017
- 1867388 words of memory out of 5000000
- 52245 multiletter control sequences out of 15000+600000
- 676398 words of font info for 91 fonts, out of 8000000 for 9000
+ 32765 strings out of 476025
+ 679005 string characters out of 5790017
+ 1873388 words of memory out of 5000000
+ 52345 multiletter control sequences out of 15000+600000
+ 685587 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,470b,1003s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-BoldIt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on defense_main.pdf (42 pages, 787881 bytes).
+Output written on defense_main.pdf (66 pages, 1556717 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 378 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 500000)
- 248 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 765 PDF objects out of 1000 (max. 8388607)
+ 552 compressed objects within 6 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 614 words of extra memory for PDF output out of 10000 (max. 10000000)
 

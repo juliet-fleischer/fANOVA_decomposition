@@ -43,10 +43,15 @@ main_colors <- c(
 dep_hoeffding_main <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
   geom_line(size = 2) +
   labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
-  scale_color_manual(values = main_colors,
-                     labels = c(expression(y[1]),
-                                expression(y[2]))) +
+  scale_color_manual(
+    values = main_colors,
+    labels = c(
+      expression(tilde(h)[{"{1}"}]),
+      expression(tilde(h)[{"{2}"}])
+    )
+  ) +
   theme_pub
+
 
 # Filled contour plot ----
 

@@ -5,52 +5,60 @@
   \begin{columns}
     \column{0.5\textwidth}
       \includegraphics[width=\linewidth]{../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_main.png}
+      \captionof{figure}{Main effects}
     \column{0.5\textwidth}
       \includegraphics[width=\linewidth]{../images/experiment_section/gen_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop08_interaction.png}
+      \captionof{figure}{Interaction}
   \end{columns}
 \end{frame}
 
 %==================================================
 % Slide 2 – Conditions (Weaker Annihilating Conditions)
 %==================================================
-\begin{frame}{Weaker Annihilating Conditions}
+\begin{frame}{Ensuring Interpretability under Dependent Inputs}
   \begin{block}{Weak Annihilating Conditions}
-    \[
-      \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} \quad i \in u \neq \emptyset.
-    \]
+    \uncover<1->{
+      \[
+        \int_{\mathbb{R}^{N-|u|}} 
+        y_{u, G}(\boldsymbol{x}_u) 
+        f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) 
+        \, d\nu (x_i) 
+        = 0 
+        \quad \text{for} \quad i \in u \neq \emptyset.
+      \]
+    }
   \end{block}
-  \begin{itemize}
-    \item Allows dependent input distributions
-    \item Leads to hierarchical orthogonality
-  \end{itemize}
+
+  \uncover<2->{It follows:}
+
+  \uncover<3->{
     \[
-  \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
-  \]
-  \[
-  \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)y_{v, G}(\boldsymbol{X}_v)] := \int_{\mathbb{R}^N} y_{u, G}(\boldsymbol{x}_u) y_{v, G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) = 0.
-  \]
+      \mathbb{E}[y_{u, G}(\boldsymbol{X}_u)] 
+      := \int_{\mathbb{R}^N} 
+          y_{u, G}(\boldsymbol{x}_u) 
+          f_{\boldsymbol{X}}(\boldsymbol{x}) 
+          \, d\nu (\boldsymbol{x}) 
+        = 0.
+    \]
+  }
+
+  \uncover<4->{
+    \[
+      \mathbb{E}[y_{u, G}(\boldsymbol{X}_u) 
+                 y_{v, G}(\boldsymbol{X}_v)] 
+      := \int_{\mathbb{R}^N} 
+          y_{u, G}(\boldsymbol{x}_u) 
+          y_{v, G}(\boldsymbol{x}_v) 
+          f_{\boldsymbol{X}}(\boldsymbol{x}) 
+          \, d\nu (\boldsymbol{x}) 
+        = 0 
+        \quad (v \subsetneq u)
+    \]
+  }
 \end{frame}
 
 
-%==================================================
-% Slide 4 – Construction
-%==================================================
-\begin{frame}{Component Definition (Coupled System)}
-  \begin{align*}
-    y_{\emptyset,G} 
-      &= \int_{\mathbb{R}^N} y(\boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\[3ex]
-    y_{u,G}(\boldsymbol{X}_u) 
-      &= \int_{\mathbb{R}^{N - |u|}} y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) 
-         f_{-u}(\boldsymbol{x}_{-u}) \, d \nu(\boldsymbol{x}_{-u})
-         - \sum_{v \subsetneq u} y_{v,G}(\boldsymbol{X}_v) \\ 
-      &\quad - \!\!\!\!\!\!\sum_{\substack{\emptyset \ne v \subseteq \{1,\dots,N\} \\ 
-         v \cap u \ne \emptyset,\ v \not\subset u}} 
-         \int_{\mathbb{R}^{|v \cap -u|}} 
-         y_{v,G}(\boldsymbol{X}_{v \cap u}, \boldsymbol{x}_{v \cap -u}) 
-         f_{v \cap -u}(\boldsymbol{x}_{v \cap -u}) \, 
-         d \nu(\boldsymbol{x}_{v \cap -u})
-  \end{align*}
-\end{frame}
+
 
 \begin{frame}{Component Definition (Coupled System)}
 \begin{align*}
@@ -99,10 +107,10 @@
           \draw[black, thin] (-1.5,-1.5) rectangle (4,2) 
                 node[anchor=north east] {$\mathbb{N}$};
           \draw[thick,pastelRed] (0.5,0.2) ellipse (1.7cm and 1.2cm);
-          \node[pastelRed] at (-0.2,0.2) {$u$};
+          \node[pastelRed] at (-0.2,0.2) {$v$};
           \draw[thick,pastelRed] (2.0,0.2) ellipse (1.7cm and 1.2cm);
-          \node[pastelRed] at (2.7,0.2) {$v$};
-          \node[pastelRed] at (1.2,0.2) {$u \cap v$};
+          \node[pastelRed] at (2.7,0.2) {$u$};
+          \node[pastelRed] at (1.2,0.2) {$v \cap u$};
         \end{tikzpicture}
       }
     \end{column}
@@ -165,6 +173,43 @@ y(x_1,x_2)
 \end{align*}
 \end{frame}
 
+% \begin{frame}
+%   Substituting the basis functions:
+%   \begin{align*}
+%    y(x_1,x_2)  &= 
+%    \underbrace{c_0}_{y_0}
+%    + \underbrace{\big(c_{1,1}\,\psi_{1,1}(x_1) 
+%                      + c_{1,2}\,\psi_{1,2}(x_1)\big)}_{y_1(x_1)} \\[0.5em]
+% &\quad
+%    + \underbrace{\big(c_{2,1}\,\psi_{2,1}(x_2) 
+%                      + c_{2,2}\,\psi_{2,2}(x_2)\big)}_{y_2(x_2)} \\[0.5em]
+% &\quad
+%    + \underbrace{c_{12,11}\,\psi_{12,11}(x_1,x_2)}_{y_{12}(x_1,x_2)}.
+% \end{align*}
+% \end{frame}
+
+\begin{frame}
+  Substituting the basis functions:
+  \begin{align*}
+   y(x_1,x_2)  = \underbrace{c_0}_{y_0}
+   &+ \underbrace{\big(c_{1,1}\,x_1 
+                     + c_{1,2}\,(x_1^2 - 1)\big)}_{y_1(x_1)} \\[0.5em]
+   &\quad
+   + \underbrace{\big(c_{2,1}\,x_2 
+                     + c_{2,2}\,(x_2^2 - 1)\big)}_{y_2(x_2)} \\[0.5em]
+   &\quad
+   + \underbrace{c_{12,11}\,\left(\frac{\rho (x_1^2 + x_2^2)}{1 + \rho^2} 
+                         - x_1 x_2 
+                         + \frac{\rho(\rho^2 - 1)}{1 + \rho^2}\right)}_{y_{12}(x_1,x_2)}.
+\end{align*}
+Find weights to recover original polynomial while fulfilling zero-mean and hierarchical orthogonality:
+\[
+y(x_1,x_2) = a_0 + a_1 x_1 + a_2 x_2 
+   + a_{11} x_1^2 + a_{22} x_2^2 + a_{12} x_1 x_2 
+\]
+
+\end{frame}
+
 \begin{frame}{Coefficient Matching}
   The corresponding weights can be found via coefficient matching. Start from the interaction term:
       \begin{align*}
@@ -205,10 +250,50 @@ y_{\{1,2\}, G}(x_1,x_2)
 \end{frame}
   
 
-\begin{frame}{More Visualizations}
-  with this Fourier-polynomial expansion, we can build many more examples
+\begin{frame}{Example: Only Main}
+  \[
+  y(x_1, x_2) = -2 x_1 - 2x_2 + x_1^2 + x_2^2 \qquad \rho = 0
+  \]
+    \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png}
+  \end{columns}
+\end{frame}
+
+
+
+\begin{frame}{Decomposition for different correlations}
+    \[
+    z(x_1, x_2) = 2x_1 + x_1^2 + 0.5 x_1 x_2
+    \]
+  \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_main.png}
+      \captionof{figure}{Main effect for $\rho = 0.3$.}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop03_interaction.png}
+      \captionof{figure}{Interaction effect for $\rho = 0.3$.}
+  \end{columns}
   
 \end{frame}
+
+\begin{frame}{Decomposition for different correlations}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_main.png}
+      \captionof{figure}{Main effect for $\rho = 0$.}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png}
+      \captionof{figure}{Interaction effect for $\rho = 0$.}
+  \end{columns}
+  \[
+  \Rightarrow \text{nonzero main effect of } X_2 \text{ only present under correlation.}
+  \]
+\end{frame}
+
+
 
 
 
@@ -229,11 +314,11 @@ subject to hierarchical orthogonality conditions:
 \end{align*}
 \end{frame}
 
-\begin{frame}{Variance Decomposition, \cite{sobol1993sensitivity}}
-    \[
-    \mu := \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset,G}.
-    \]
-    \begin{align*}
+\begin{frame}{Variance Decomposition}
+  First proposed by \cite{sobol1993sensitivity}, Sobol' indices build on variance decomposition:
+
+\begin{align*}
+\mu &:= \mathbb{E}[y(\boldsymbol{X})] = y_{\emptyset,G} \\[1em]
 \sigma^2 
 &:= \mathbb{E}\left[ \left( y(\boldsymbol{X}) - \mu \right)^2 \right] \notag \\
 &= \mathbb{E} \left[ \left( y_{\emptyset,G} + \sum_{u} y_{u,G}(\boldsymbol{X}_u) - y_{\emptyset,G} \right)^2 \right] \notag \\

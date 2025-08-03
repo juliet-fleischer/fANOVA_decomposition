@@ -17,7 +17,7 @@
 \contentsline {paragraph}{Case: \( \emptyset \ne u \subseteq \{1,\dots ,N\} \).}{25}{section*.8}%
 \contentsline {subsubsection}{\numberline {3.2.3}Generalization via Projection}{27}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Generalized Variance Decomposition}{29}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Input}{29}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.5}Example: Dependent Multivariate Normal Input}{30}{subsubsection.3.2.5}%
 \contentsline {section}{\numberline {4}Visualization and Estimation}{34}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Comparison of Decompositions}{34}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Comparison of Functions}{36}{subsection.4.2}%
