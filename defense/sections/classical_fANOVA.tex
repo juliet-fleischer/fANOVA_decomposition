@@ -8,7 +8,7 @@
   
 % \end{frame}
 
-\begin{frame}{Decompose model into interpretable components} % What is it?
+\begin{frame}{Decomposition of Model into Interpretable Components} % What is it?
 \begin{block}{General Form}
 \[
   \begin{aligned}
@@ -25,9 +25,9 @@
 \end{block}
 
 \begin{itemize}
-  \item<2-> $y$ : Model
-  \item<2-> $y_u$ : Component functions for subvector $\boldsymbol{X}_u$
-  \item<2-> $\boldsymbol{X} := X_1, \dots, X_N$ independent input variables
+  \item<2-> $y : \text{Model}$
+  \item<2-> $y_u : \text{Component functions for subvector } \boldsymbol{X}_u$
+  \item<2-> $\boldsymbol{X} = (X_1, \dots, X_N)$: independent input variables
 \end{itemize}
 \end{frame}
 
@@ -54,28 +54,46 @@
 \end{frame}
 
 
-\begin{frame}{Recursive Form of the Components} % How do we construct it?
+\begin{frame}{Recursive Form of the Components}
+    % y_emptyset always visible
     \[
-    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu (x_i) = \mathbb{E}[y(\boldsymbol{X})].
+    y_{\emptyset} = \int_{\mathbb{R}^N} y(\boldsymbol{x}) 
+    \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu (x_i) 
+    = \mathbb{E}[y(\boldsymbol{X})].
     \]
-\begin{align*}
-    y_u(\boldsymbol{X}_u) 
-    &= \int_{\mathbb{R}^{N- |u|}} 
-        y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) 
-        \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) 
-        \, d\nu (x_i) 
-      - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v) \\
-    &= \mathbb{E}[y(\boldsymbol{X}_{u}, \boldsymbol{X}_{-u}) \mid \boldsymbol{X}_u = \boldsymbol{x}_u] - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v)
-    \label{eq:fanova_components_classical}
-\end{align*}
-Under independence:
-  \begin{itemize}
-    \item \(f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu(\boldsymbol{x}) = \prod_{i=1}^{N} f_{\{i\}}(x_i) \, d\nu(x_i)\)
-    \item $f_{\boldsymbol{X}}(\boldsymbol{x})d \nu (\boldsymbol{x}_{-u})$ = $\prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) \, d\nu (x_i)$
-  \end{itemize}
+
+    % Single align with overlays
+    \begin{align*}
+        \onslide<3->{%
+        y_u(\boldsymbol{X}_u) 
+        &= \int_{\mathbb{R}^{N- |u|}} 
+            y(\boldsymbol{X}_u, \boldsymbol{x}_{-u}) 
+            \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i) 
+            \, d\nu (x_i) 
+          - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v) 
+        } \\[0.5em]
+        \onslide<4->{%
+        y_u(\boldsymbol{X}_u) 
+        &= \mathbb{E}[y(\boldsymbol{X}_{u}, \boldsymbol{X}_{-u}) 
+           \mid \boldsymbol{X}_u = \boldsymbol{x}_u]
+           - \sum_{v \subsetneq u} y_v(\boldsymbol{X}_v)
+        }
+    \end{align*}
+
+    \uncover<2->{
+        \begin{itemize}
+        \item \(f_{\boldsymbol{X}}(\boldsymbol{x})\,d\nu(\boldsymbol{x})
+               = \prod_{i=1}^{N} f_{\{i\}}(x_i)\,d\nu(x_i)\)
+        \item \(f_{\boldsymbol{X}}(\boldsymbol{x})\,d\nu (\boldsymbol{x}_{-u})
+               = \prod_{i=1, i \notin u}^{N} f_{\{i\}}(x_i)\,d\nu(x_i)\)
+    \end{itemize}
+    }
+
 \end{frame}
 
-\begin{frame}{Recursive Form Example}
+
+
+\begin{frame}{Example of Recursive Form}
   \begin{itemize}
     \item<1-> $N = 3$, $u = \emptyset$
   \end{itemize}
@@ -89,7 +107,7 @@ Under independence:
   }
 
   \begin{itemize}
-    \item<3-> $u = \{1\}$ $\rightarrow$ $v = \emptyset$
+    \item<3-> $u = \{1\}$ $\rightarrow$ $v \in \{\emptyset\}$
   \end{itemize}
   \uncover<4->{
     \[
@@ -102,10 +120,26 @@ Under independence:
     \]
   }
 
-  \begin{itemize}
-    \item<5-> $u = \{1,2\}$ $\rightarrow$ $v = \{1\}, \{2\}, \emptyset$
+    \begin{itemize}
+    \item<5-> $u = \{2\}$ $\rightarrow$ $v \in \{\emptyset\}$
   \end{itemize}
   \uncover<6->{
+    \[
+    y_{\{2\}}(x_2) 
+      = \int_{\mathbb{R}^{2}} 
+          y(x_{1}, x_{2}, x_{3}) 
+          \prod_{i=1, i \neq 2}^{3} f_{\{i\}}(x_i) \, d\nu (x_i) 
+        -  y_{\emptyset}
+      = \mathbb{E}[y(X_1, X_2, X_3)|X_2 = x_2] - y_{\emptyset}.
+    \]
+  }
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+    \item $u = \{1,2\}$ $\rightarrow$ $v \in \{\emptyset, \{1\}, \{2\}\}$
+  \end{itemize}
+  \uncover<2->{
     \begin{align*}
     y_{\{1,2\}}(x_1, x_2) 
       &= \int_{\mathbb{R}} 
@@ -116,19 +150,17 @@ Under independence:
         - y_{\{1\}}(x_1) - y_{\{2\}}(x_2) - y_{\emptyset}.
     \end{align*}
   }
-\end{frame}
-
-
-
-\begin{frame}{Reminder: Definition of Orthogonal Projection} % How do we define it?
-  \begin{align*}
-    \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
-= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
-\end{align*}
   \begin{itemize}
-    \item $\mathcal{G}$ : linear subspace of $\mathcal{L}^2$ we project onto
-    \item $g$ all functions in the subspace
+      \item<3-> $u = \{1, 2, 3\}$ $\rightarrow$ $v \in \{\emptyset, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}\}$
   \end{itemize}
+  \uncover<4->{
+    \begin{align*}
+    y_{\{1,2,3\}}(x_1, x_2, x_3) 
+      &= y(x_1, x_2, x_3)
+        -  y_{\{1\}}(x_1) -  y_{\{2\}}(x_2) - y_{\{3\}}(x_3) - y_{\emptyset} \\[3pt]
+      &= - y_{\{1, 2\}}(x_1, x_2) - y_{\{1, 3\}}(x_1, x_3) - y_{\{2, 3\}}(x_2, x_3) 
+    \end{align*}
+  }
 \end{frame}
 
 \begin{frame}{fANOVA as Orthogonal Projection} % How does it relate to orthogonal projection?
@@ -139,15 +171,18 @@ Under independence:
     &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2
     = \Pi_{\mathcal{G}_0}y,
 \end{align*}
-\begin{align*}
+\uncover<2->{
+  \begin{align*}
     y_u(.) 
     &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(.) \\ 
     &= \arg \min_{g_u \in \mathcal{G}_u} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.) \\ 
     &= (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
 \end{align*}
+}
+
 \end{frame}
 
-\begin{frame}{Example: Independent MVN} % Example of a 2D function
+\begin{frame}{Example with Independent MVN Input} % Example of a 2D function
   \uncover<1->{
     \begin{align*}
       y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2
@@ -160,8 +195,8 @@ Under independence:
     \mathcal{N}\!\left(
       \begin{pmatrix}0 \\ 0\end{pmatrix},
       \begin{pmatrix}
-        1 & \rho \\ 
-        \rho & 1
+        1 & 0 \\ 
+        0 & 1
       \end{pmatrix}
     \right)
     \]
@@ -187,7 +222,7 @@ Under independence:
 \end{frame}
 
 
-\begin{frame}{Example: Only Linear Terms}
+\begin{frame}{Visualization of MVN Example under Independence}
   \begin{columns}
     \column{0.5\textwidth}
       \includegraphics[width=\linewidth]{../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png}
@@ -202,84 +237,3 @@ Under independence:
 
 
 % fANOVA through lens of Orthogonal Projections
-
-
-\begin{frame}{Equality to Hoeffding Decomposition} % How does it relate to Hoeffding?
-  \begin{block}{Hoeffding Decomposition}
-    \begin{align}
-    y(\boldsymbol{X})
-=
-\sum_{A \subseteq D} 
-y_A(\boldsymbol{X}_A),
-\qquad
-D := \{1,\dots,N\},
-\end{align}
-where, for each $A \subseteq D$, the component function $y_A$ is defined by:
-\begin{align}\label{eq:hoeffding_components}
-    y_A(\boldsymbol{X}_A)
-=
-\sum_{B \subseteq A}
-(-1)^{|A|-|B|}
-\,\mathbb{E}\!\left[
-  y(\boldsymbol{X}) 
-  \,\middle|\, 
-  \boldsymbol{X}_B
-\right],
-\end{align}
-  where $y_u$ are orthogonal components.
-  \end{block}
-  \begin{itemize}
-    \item Classical fANOVA and Hoeffding decomposition yield same components under zero-centered inputs
-    \item Both assume independence of input variables
-  \end{itemize}
-  
-\end{frame}
-
-\begin{frame}{Hoeffding Decomposition Example} % Example of Hoeffding decomposition
-  \begin{align*}
-    y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2
-  \end{align*}
-  \begin{align*}
-    % --- constant component
-    y_{\emptyset}
-    &= \mathbb{E}[y(X_1,X_2)] 
-     = 2\,\mathbb{E}[X_1] + \mathbb{E}[X_2^2] + \mathbb{E}[X_1 X_2] 
-     = 1,
-    \\[1.2em]
-    % --- first-order component for X1
-    y_{\{1\}}(x_1)
-    &= \sum_{B \subseteq \{1\}} (-1)^{1-|B|}
-       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] = -\,\mathbb{E}[y] + \mathbb{E}[y|X_1=x_1] \\[2pt]
-    &= -1 + (2x_1 + \mathbb{E}[X_2^2] + x_1\mathbb{E}[X_2]) = 2x_1,
-    \\[1.2em]
-    % --- first-order component for X2
-    y_{\{2\}}(x_2)
-    &= \sum_{B \subseteq \{2\}} (-1)^{1-|B|}
-       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] -\,\mathbb{E}[y] + \mathbb{E}[y|X_2=x_2] \\[2pt]
-    &= -1 + (2\mathbb{E}[X_1] + x_2^2 + x_2\mathbb{E}[X_1]) = x_2^2 - 1.
-\end{align*}
-\end{frame}
-
-\begin{frame}
-  \begin{align*}
-    % --- second-order interaction component
-    y_{\{1,2\}}(x_1,x_2)
-    &= \sum_{B \subseteq \{1,2\}} (-1)^{2-|B|}
-       \,\mathbb{E}[y(\boldsymbol{X})\,|\,X_B] \\[2pt]
-    &= (+1)\,\mathbb{E}[y] 
-     - \mathbb{E}[y|X_1=x_1]
-     - \mathbb{E}[y|X_2=x_2]
-     + y(x_1,x_2) \\[2pt]
-    &= 1 - (2x_1+1) - (x_2^2) + (2x_1+x_2^2+x_1x_2) \\[2pt]
-    &= x_1 x_2.
-\end{align*}
-
-\[
-y(x_1,x_2)
-= y_{\emptyset} + y_{\{1\}}(x_1) + y_{\{2\}}(x_2) + y_{\{1,2\}}(x_1,x_2)
-= 1 + 2x_1 + (x_2^2 - 1) + x_1 x_2
-\]
-
-\end{frame}
-
-
