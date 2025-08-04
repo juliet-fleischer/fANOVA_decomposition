@@ -12,7 +12,24 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{fANOVA as Orthogonal Projection} % How does it relate to orthogonal projection?
+\begin{align*}
+    y_{\emptyset}
+    &= \mathbb{E}[y(\boldsymbol{X})] \\ 
+    &= \arg \min_{a \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ 
+    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2
+    = \Pi_{\mathcal{G}_0}y,
+\end{align*}
+\uncover<2->{
+  \begin{align*}
+    y_u(.) 
+    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(.) \\ 
+    &= \arg \min_{g_u \in \mathcal{G}_u} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.) \\ 
+    &= (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
+\end{align*}
+}
 
+\end{frame}
 
 \begin{frame}{Equality to Hoeffding Decomposition} % How does it relate to Hoeffding?
   \begin{block}{Hoeffding Decomposition}

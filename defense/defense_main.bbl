@@ -1,30 +1,9 @@
 \begin{thebibliography}{1}
 
-\bibitem{hooker2004}
-Giles Hooker.
-\newblock Discovering additive structure in black box functions.
-\newblock In {\em Proceedings of the tenth {ACM} {SIGKDD} international conference on {Knowledge} discovery and data mining}, pages 575--580, Seattle WA USA, August 2004. ACM.
-
 \bibitem{hooker2007}
 Giles Hooker.
 \newblock Generalized {Functional} {ANOVA} {Diagnostics} for {High}-{Dimensional} {Functions} of {Dependent} {Variables}.
 \newblock {\em Journal of Computational and Graphical Statistics}, 16(3):709--732, September 2007.
-
-\bibitem{hu2025}
-Linwei Hu, Vijayan~N. Nair, Agus Sudjianto, Aijun Zhang, Jie Chen, and Zebin Yang.
-\newblock Interpretable {Machine} {Learning} {Based} on {Functional} {ANOVA} {Framework}: {Algorithms} and {Comparisons}.
-\newblock {\em Applied Stochastic Models in Business and Industry}, 41(1):e2916, January 2025.
-
-\bibitem{konig2024}
-Gunnar König, Eric Günther, and Ulrike~von Luxburg.
-\newblock Disentangling {Interactions} and {Dependencies} in {Feature} {Attribution}, October 2024.
-\newblock arXiv:2410.23772.
-
-\bibitem{lengerich2020}
-Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, and Rich Caruana.
-\newblock Purifying {Interaction} {Effects} with the {Functional} {ANOVA}: {An} {Efficient} {Algorithm} for {Recovering} {Identifiable} {Additive} {Models}.
-\newblock In {\em Proceedings of the {Twenty} {Third} {International} {Conference} on {Artificial} {Intelligence} and {Statistics}}, pages 2402--2412. PMLR, June 2020.
-\newblock ISSN: 2640-3498.
 
 \bibitem{rahman2014}
 Sharif Rahman.

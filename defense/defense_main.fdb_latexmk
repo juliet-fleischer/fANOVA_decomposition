@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex defense_main"] 1754316604 "defense_main.aux" "defense_main.bbl" "defense_main" 1754316686 0
+["bibtex defense_main"] 1754336725 "defense_main.aux" "defense_main.bbl" "defense_main" 1754336751 0
   "../bibliography_2.bib" 1754051326 249164 7ecf19193d16d15ab01fa7208268f3c1 ""
-  "../bibliography_manual.bib" 1753715204 8538 79bb64fc0648c1feb0c7489ee5d18ebe ""
+  "../bibliography_manual.bib" 1754336549 10486 f18e9c11307bcb1fb0d6cb61cdf3b340 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "defense_main.aux" 1754316686 9331 b25b510af4bd473b1721daf554026623 "pdflatex"
+  "defense_main.aux" 1754336749 8721 2033da55d854354d40b78a6d908c22bd "pdflatex"
   (generated)
   "defense_main.bbl"
   "defense_main.blg"
   (rewritten before read)
-["pdflatex"] 1754316679 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" "defense_main.pdf" "defense_main" 1754316686 0
+["pdflatex"] 1754336726 "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" "defense_main.pdf" "defense_main" 1754336751 0
   "../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png" 1754256350 73974 1a3422f53d898d412438f36b3edb21dd ""
   "../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png" 1754256350 72169 276db82d9d2e18be1db5f0c9ca00dd1a ""
   "../images/experiment_section/full_a1p20_a2p00_a11p10_a22p00_a12p05_rhop00_interaction.png" 1754256347 80312 566ff7b46196c38e38b5ad13fc906087 ""
@@ -26,7 +26,7 @@
   "../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png" 1754256345 25909 359d7f8837624f476856f5263e2bc1f3 ""
   "../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png" 1754256345 62803 54fb24e7a82242cd8d5c5053387c2683 ""
   "../images/experiment_section/mixed_a1p20_a2p20_a11m10_a22p10_a12p00_rhop00_main.png" 1754256344 61540 4e62b81ccfa6c1716197ce8d74d3716e ""
-  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" 1754312638 3729 bbe455b7ddd7333559d5c9d960aeae2e ""
+  "/Users/julietfleischer/Documents/Studium_lokal/fANOVA/defense/defense_main.tex" 1754336077 3708 203b10bfa6e56163c13b9da80160aba9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1587936753 3021 665788e9679767ade2a71155215d25e0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -311,19 +311,19 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708020085 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708019902 7883456 288d1573b5feed0f3354a6251375646a ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "defense_main.aux" 1754316686 9331 b25b510af4bd473b1721daf554026623 "pdflatex"
-  "defense_main.bbl" 1754316604 1979 6c5b3c5bda1b441cfeb41f6e5ca972bb "bibtex defense_main"
-  "defense_main.nav" 1754316686 5269 17189cfb7f83d43da8bfedc00599e57e "pdflatex"
-  "defense_main.out" 1754316686 126 a7a695bc24a2c2fe94ef7d167bb33b45 "pdflatex"
-  "defense_main.tex" 1754312638 3729 bbe455b7ddd7333559d5c9d960aeae2e ""
-  "defense_main.toc" 1754316686 236 9695d1deeb86c86af8418db5264d5a59 "pdflatex"
+  "defense_main.aux" 1754336749 8721 2033da55d854354d40b78a6d908c22bd "pdflatex"
+  "defense_main.bbl" 1754336726 725 3423a2b6c8af888bc987ca14d5e22474 "bibtex defense_main"
+  "defense_main.nav" 1754336749 5099 7441ac0a669ced757b5471cbf8a69867 "pdflatex"
+  "defense_main.out" 1754336749 126 a7a695bc24a2c2fe94ef7d167bb33b45 "pdflatex"
+  "defense_main.tex" 1754336077 3708 203b10bfa6e56163c13b9da80160aba9 ""
+  "defense_main.toc" 1754336749 237 c62871dd5d0c8d8d2dae06d4b9a9ce89 "pdflatex"
   "lmu-background.pdf" 1753946856 66051 db0b87484d5e254e6f8288c8895b57e1 ""
   "lmu_logo.png" 1753946854 63248 66fd65dbd91c42a8fc02109f0ffbf0f6 ""
-  "sections/classical_fANOVA.tex" 1754316595 7210 0ebe3f84b57e0fcbb4a0fd78eae48278 ""
-  "sections/conclusion.tex" 1754315957 1485 4f7ed3a778b9d48eabe82d764022a6ab ""
-  "sections/extra_slides.tex" 1754314892 8461 0fa7c601fbff3b72cecc41132f27295d ""
-  "sections/gen_fANOVA.tex" 1754316679 10610 3b3fdc8cca96b5194a292d322993e1f0 ""
-  "sections/research_context.tex" 1754237041 1050 e6b9517d291c501b3b18ddddb4f9a6e4 ""
+  "sections/classical_fANOVA.tex" 1754335376 6701 e79a9579bb2293217e2eb52c56fc14eb ""
+  "sections/conclusion.tex" 1754336671 1622 48ba85091fbd74f860723b937837ca74 ""
+  "sections/extra_slides.tex" 1754334464 9143 a2623f89374c22313ae3b1de098e5a8b ""
+  "sections/gen_fANOVA.tex" 1754336077 10654 382ba4c5fd28b956070d880fa6c78b30 ""
+  "sections/research_context.tex" 1754333146 1192 cae5fe500a6f8926acbd295c39e7f469 ""
   (generated)
   "defense_main.aux"
   "defense_main.log"

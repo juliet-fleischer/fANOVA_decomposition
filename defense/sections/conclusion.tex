@@ -1,38 +1,39 @@
 \begin{frame}{Summary and Future Research}
 
-\centering
 \begin{tikzpicture}[
     node distance=0.7cm and 1.5cm,
-    every node/.style={font=\large},
-    >=Stealth, thick
+    every node/.style={font=\large, text=gray!70}, % default grey text
+    every path/.style={draw=gray!70, thick},       % default grey arrows
+    >=Stealth
 ]
 
 % Nodes
 \node (foundations) {Foundations};
-\node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners] (fanova) {(Generalized) fANOVA};
+\node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners, text=black] (fanova) {(Generalized) fANOVA};
 \node[above right=of fanova] (sensitivity) {Sensitivity Analysis};
 \node[right=of fanova] (nonparam) {Nonparametric Modeling};
 \node[below right=of fanova] (domain) {Domain-Specific Modeling};
-\node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
-\node[below left=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (iml) {IML};
-\node[below right=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners] (interactions) {Interactions};
+\node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners, text=black] (interpret) {Interpretability};
+\node[below left=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners, text=black] (iml) {IML};
+\node[below right=of interpret, draw=lmugreen, fill=lmugreen!20, rounded corners, text=black] (interactions) {Interactions};
 
 % Arrows
 \draw[->] (foundations) -- (fanova);
 \draw[->] (fanova) -- (sensitivity);
 \draw[->] (fanova) -- (nonparam);
 \draw[->] (fanova) -- (domain);
-\draw[->, color = lmugreen] (fanova) -- (interpret);
-\draw[->, color = lmugreen] (interpret) -- (iml);
-\draw[->, color = lmugreen] (interpret) -- (interactions);
+\draw[->, color=lmugreen] (fanova) -- (interpret);
+\draw[->, color=lmugreen] (interpret) -- (iml);
+\draw[->, color=lmugreen] (interpret) -- (interactions);
 
 \end{tikzpicture}
 
-\vspace{0.5cm}
-\footnotesize
-\begin{itemize}
-    \item Purify Interactions \cite{lengerich2020,konig2024}
-    \item Model-agnostic tool for effect quantification and visualization \cite{hooker2004, hooker2007,hu2025}
-    \item HPO based on fANOVA components estimated by surrogate models % hutter
-\end{itemize}
+
+% \vspace{0.5cm}
+% \footnotesize
+% \begin{itemize}
+%     \item Purify Interactions \cite{lengerich2020,konig2024}
+%     \item Model-agnostic tool for effect quantification and visualization \cite{hooker2004, hooker2007,hu2025}
+%     \item Hyper Parameter Optimization based on fANOVA \cite{hutter14}
+% \end{itemize}
 \end{frame}

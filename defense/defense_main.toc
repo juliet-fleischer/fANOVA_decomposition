@@ -1,5 +1,5 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Research Context}{2}{0}{1}
-\beamer@sectionintoc {2}{Classical fANOVA}{4}{0}{2}
-\beamer@sectionintoc {3}{Generalized fANOVA}{36}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{61}{0}{4}
+\beamer@sectionintoc {2}{Classical fANOVA}{11}{0}{2}
+\beamer@sectionintoc {3}{Generalized fANOVA}{42}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{71}{0}{4}

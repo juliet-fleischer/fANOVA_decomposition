@@ -1,4 +1,3 @@
-
 \begin{frame}{Overview of the fANOVA Research Field}
 \centering
 \begin{tikzpicture}[
@@ -7,26 +6,43 @@
     >=Stealth, thick
 ]
 
-% Nodes
+% --- Nodes ---
 \node (foundations) {Foundations};
-\node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners] (fanova) {(Generalized) fANOVA};
-\node[above right=of fanova] (sensitivity) {Sensitivity Analysis};
-\node[right=of fanova] (nonparam) {Nonparametric Modeling};
-\node[below right=of fanova] (domain) {Domain-Specific Modeling};
-\node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
-\node[below left=of interpret] (iml) {IML};
-\node[below right=of interpret] (interactions) {Interactions};
 
-% Arrows
-\draw[->] (foundations) -- (fanova);
-\draw[->] (fanova) -- (sensitivity);
-\draw[->] (fanova) -- (nonparam);
-\draw[->] (fanova) -- (domain);
-\draw[->, color = lmugreen] (fanova) -- (interpret);
-\draw[->] (interpret) -- (iml);
-\draw[->] (interpret) -- (interactions);
+\onslide<2->{
+  \node[right=of foundations, draw=lmugreen, fill=lmugreen!20, rounded corners] (fanova) {(Generalized) fANOVA};
+  \draw[->] (foundations) -- (fanova);
+}
+
+\onslide<3->{
+  \node[above right=of fanova] (sensitivity) {Sensitivity Analysis};
+  \draw[->] (fanova) -- (sensitivity);
+}
+
+\onslide<4->{
+  \node[right=of fanova] (nonparam) {Nonparametric Modeling};
+  \draw[->] (fanova) -- (nonparam);
+}
+
+\onslide<5->{
+  \node[below right=of fanova] (domain) {Domain-Specific Modeling};
+  \draw[->] (fanova) -- (domain);
+}
+
+\onslide<6->{
+  \node[below=of fanova, draw=lmugreen, fill=lmugreen!20, rounded corners] (interpret) {Interpretability};
+  \draw[->, color = lmugreen] (fanova) -- (interpret);
+}
+
+\onslide<7->{
+  \node[below left=of interpret] (iml) {IML};
+  \draw[->] (interpret) -- (iml);
+}
+
+\onslide<8->{
+  \node[below right=of interpret] (interactions) {Interactions};
+  \draw[->] (interpret) -- (interactions);
+}
 
 \end{tikzpicture}
-
 \end{frame}
-

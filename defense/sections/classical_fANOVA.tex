@@ -45,12 +45,12 @@
   \end{itemize}
 
   \uncover<3->{It follows:}
-  \[
+  \begin{align*}
     \uncover<3->{\mathbb{E}[y_u(\boldsymbol{X}_u)] = 0}
-  \]
-  \[
+  \end{align*}
+  \begin{align*}
     \uncover<4->{\mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] = 0 \quad (u \neq v)}
-  \]
+  \end{align*}
 \end{frame}
 
 
@@ -161,26 +161,9 @@
       &= - y_{\{1, 2\}}(x_1, x_2) - y_{\{1, 3\}}(x_1, x_3) - y_{\{2, 3\}}(x_2, x_3) 
     \end{align*}
   }
+  \uncover<5->{Remark: fANOVA components can be seen from lens of orthogonal projections.}
 \end{frame}
 
-\begin{frame}{fANOVA as Orthogonal Projection} % How does it relate to orthogonal projection?
-\begin{align*}
-    y_{\emptyset}
-    &= \mathbb{E}[y(\boldsymbol{X})] \\ 
-    &= \arg \min_{a \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ 
-    &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2
-    = \Pi_{\mathcal{G}_0}y,
-\end{align*}
-\uncover<2->{
-  \begin{align*}
-    y_u(.) 
-    &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(.) \\ 
-    &= \arg \min_{g_u \in \mathcal{G}_u} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.) \\ 
-    &= (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
-\end{align*}
-}
-
-\end{frame}
 
 \begin{frame}{Example with Independent MVN Input} % Example of a 2D function
   \uncover<1->{
@@ -222,16 +205,20 @@
 \end{frame}
 
 
-\begin{frame}{Visualization of MVN Example under Independence}
+\begin{frame}{Visualization of fANOVA components under Independence}
+  \begin{align*}
+    y(x_1, x_2) = 2x_1 + x_2^{2} + x_1 x_2
+  \end{align*}
   \begin{columns}
     \column{0.5\textwidth}
+      \centering
       \includegraphics[width=\linewidth]{../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_main.png}
-      \captionof{figure}{Main effects}
     \column{0.5\textwidth}
+      \centering
       \includegraphics[width=\linewidth]{../images/experiment_section/classical_ex_1_a1p20_a2p00_a11p00_a22p10_a12p10_rhop00_interaction.png}
-      \captionof{figure}{Interaction}
   \end{columns}
 \end{frame}
+
 
 
 
