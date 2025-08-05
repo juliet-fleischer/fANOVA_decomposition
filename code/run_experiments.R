@@ -4,7 +4,7 @@
 library(ggplot2)
 
 # load plotting function
-source(file.path("code", "gen_fANOVA_gpt.R"))
+source(file.path("code", "gen_fANOVA_function.R"))
 
 # helper to create file-friendly labels for coefficients
 label_val <- function(v) {
@@ -68,17 +68,6 @@ for (rho in rhos) {
   params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = 2, rho = rho)
   save_plots("interaction", params, func_name = "w")
 }
-
-## we could also vary a12 but then we have to limit the y axis of the plot
-# to see how main effects are stretched or compressed
-# interact_vals <- c(-0.5, 3)
-# for (rho in rhos) {
-#   for (a12 in interact_vals) {
-#     params <- list(a0 = 0, a1 = 0, a2 = 0, a11 = 0, a22 = 0, a12 = a12, rho = rho)
-#     print(do.call(plot_effects, params))
-#   }
-#   
-# }
 
 # ----- Mixed (linear + quadratic) scenario -----
 # Select a few representative coefficient combinations instead of
