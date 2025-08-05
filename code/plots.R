@@ -42,7 +42,7 @@ main_colors <- c(
 
 dep_hoeffding_main <- ggplot(df_long, aes(x = x, y = y, color = Effects)) +
   geom_line(size = 2) +
-  labs(x = expression(X[i]), y = "Effect", color = "fANOVA term") +
+  labs(x = expression(X[i]), y = "Effect", color = "term") +
   scale_color_manual(
     values = main_colors,
     labels = c(

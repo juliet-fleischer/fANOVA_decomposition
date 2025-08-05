@@ -16,14 +16,9 @@
 \begin{frame}{Ensuring Interpretability under Dependent Inputs}
   \begin{block}{Weak Annihilating Conditions}
     \uncover<1->{
-      \[
-        \int_{\mathbb{R}^{N-|u|}} 
-        y_{u, G}(\boldsymbol{x}_u) 
-        f_{\boldsymbol{X}_u}(\boldsymbol{x}_u) 
-        \, d\nu (x_i) 
-        = 0 
-        \quad \text{for} \quad i \in u \neq \emptyset.
-      \]
+\begin{equation}
+    \int_{\mathbb{R}} y_{u, G}(\boldsymbol{x}_u) f_{\boldsymbol{u}}(\boldsymbol{x}_u) d\nu (x_i) = 0 \quad \text{for} \quad i \in u \neq \emptyset.
+\end{equation}
     }
   \end{block}
 
@@ -113,7 +108,7 @@
     \end{itemize}
     \begin{align*}
        y_{{\{1, 2\}},G}(\boldsymbol{X}_u) &= \int_{\mathbb{R}} y(x_1, x_2, x_3) f_{{\{3\}}}(x_3) \, d \nu(x_3) - y_{\emptyset,G} - y_{{\{1\}},G} - y_{{\{2\}},G}\\[1em]
-    &\quad - \int_{\mathbb{R}^2}y_{{\{1, 2, 3\}}, G}(x_1, x_2, x_3)f_{{\{2, 3\}}}(x_2, x_3) \, d \nu(x_2, x_3)
+    &\quad - \int_{\mathbb{R}}y_{{\{1, 2, 3\}}, G}(x_1, x_2, x_3)f_{{\{3\}}}(x_3) \, d \nu(x_3)
     \end{align*}
 \end{frame}
 
@@ -123,7 +118,7 @@
       \item \textcolor{pastelRedDark}{$u = \{1, 2, 3\}$ $\rightarrow$ $v \subsetneq u \in \{\emptyset\,, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}\}$} and \textcolor{pastelBlueDark}{$(\emptyset \ne v \subseteq \{1,\dots,N\},\ v \cap u \ne \emptyset,\ v \not\subset u) \in \{\emptyset\}$}
     \end{itemize}
     \begin{align*}
-       y_{{\{1, 2, 3\}},G}(\boldsymbol{X}_u) &= \int_{\mathbb{R}} y(x_1, x_2, x_3) f_{{\{3\}}}(x_3) \, d \nu(x_3) - y_{\emptyset,G}\\[1em]
+       y_{{\{1, 2, 3\}},G}(\boldsymbol{X}_u) &= y(x_1, x_2, x_3) f_{{\{3\}}}(x_3) - y_{\emptyset,G}\\[1em]
     &\quad - y_{{\{1\}},G} - y_{{\{2\}},G} - y_{{\{3\}},G} \\[1em]
     &\quad - y_{{\{1, 2\}},G} - y_{{\{1, 3\}},G} - y_{{\{2, 3\}},G}
     \end{align*}
