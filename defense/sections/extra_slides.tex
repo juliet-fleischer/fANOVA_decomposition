@@ -217,18 +217,70 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
 \end{frame}
 
 
-\begin{frame}{Classical fANOVA Proofs}
-    \begin{itemize}
-        \item Zero mean property: factorized density, Fubinis Theorem, strong annihilating conditions
-        \item Mutual orthogonality: factorized density, Fubinis Theorem, strong annihilating conditions
-    \end{itemize}
+\begin{frame}{Proof of zero-mean Property for Classical Components}
+  Strong annihilating conditions hold, so:
+  \begin{align*}
+    \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\[0.5em]
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{u}}(\boldsymbol{x}_u) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
+    &= \int_{\mathbb{R}^{|u|}} y_u(\boldsymbol{x_u}) \prod_{j \in u} f_{\{j\}}(x_j) \, d\nu (\boldsymbol{x}_u) \\[0.5em]
+    &= \int_{\mathbb{R}^{|u|-1}} \int_{\mathbb{R}} y_u(\boldsymbol{x_u}) f_{\{i\}}(x_i) \, d\nu(x_i) \prod_{j \in u, j \neq i} f_{\{j\}}(x_j) \, d\nu (x_{u \setminus \{i\}}) = 0.
+\end{align*}
+
 \end{frame}
+
+\begin{frame}{Proof of orthogonality for Classical Components}
+  \begin{itemize}
+    \item $u \neq v$, so pick $i \in u \setminus v$
+    \item $y_v(\boldsymbol{x_v})$ is independent of $x_i$
+    \item strong annihilating conditions hold by assumption
+  \end{itemize}
+\[
+    \int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i)\,d\nu(x_i) = 0
+    \quad \text{for all fixed } \boldsymbol{x}_{u\setminus \{i\}}.
+\]
+Hence,
+\begin{align*}
+    \mathbb{E}[y_u(\boldsymbol{X}_u) y_v(\boldsymbol{X}_v)] &= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) y_v(\boldsymbol{x_v}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\
+    &= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x}_u) y_v(\boldsymbol{x}_v)
+       \prod_{j=1}^N f_{\{j\}}(x_j)\, d\nu(\boldsymbol{x}) \\
+    &= \int_{\mathbb{R}^{N-1}}
+        \left(\int_{\mathbb{R}} y_u(\boldsymbol{x}_u) f_{\{i\}}(x_i)\,d\nu(x_i)\right)
+        y_v(\boldsymbol{x}_v)\prod_{j \neq i} f_{\{j\}}(x_j)\,d\nu(\boldsymbol{x}_{-i}) = 0.
+\end{align*}
+\end{frame}
+
+\begin{frame}{Proof of zero-mean Property for Generalized Components}
+  We assume the weak annihilating conditions hold, then:
+  \begin{align*}
+\mathbb{E}[y_{u,G}(\boldsymbol{X}_u)] 
+&:= \int_{\mathbb{R}^N} y_{u,G}(\boldsymbol{x}_u) f_{\boldsymbol{X}}(\boldsymbol{x})\, d \nu (\boldsymbol{x}) \\[0.5em]
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) \left( \int_{\mathbb{R}^{N - |u|}} f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}_{-u}) \right) d \nu(\boldsymbol{x}_u) \\[0.5em]
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u)\, d \nu(\boldsymbol{x}_u) \\[0.5em]
+&= \int_{\mathbb{R}^{|u| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(x_i) \right) \prod_{j \in u,\, j \ne i} d \nu(\boldsymbol{x}_j) \\[0.5em]
+&= 0.
+\end{align*}
+  
+\end{frame}
+
+\begin{frame}{Proof of hierarchical orthogonality}
+For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$, where $v \subsetneq u$, the subset $u = v \cup (u \setminus v)$. Let $i \in (u \setminus v) \subseteq u$. Then we obtain:
+\begin{align*}
+\mathbb{E}[y_{u,G}(\boldsymbol{X}_u) \, y_{v,G}(\boldsymbol{X}_v)]
+&:= \int_{\mathbb{R}^N} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}) \\[0.5em]
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) \left( \int_{\mathbb{R}^{N - |u|}} f_{\boldsymbol{X}}(\boldsymbol{x}) \, d \nu(\boldsymbol{x}_{-u}) \right) d \nu(\boldsymbol{x}_u) \\[0.5em]
+&= \int_{\mathbb{R}^{|u|}} y_{u,G}(\boldsymbol{x}_u) y_{v,G}(\boldsymbol{x}_v) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_u) \\[0.5em]
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v|}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_{u \setminus v}) \, d \nu(\boldsymbol{x}_v) \\[0.5em]
+&= \int_{\mathbb{R}^{|v|}} y_{v,G}(\boldsymbol{x}_v)
+    \int_{\mathbb{R}^{|u \setminus v| - 1}} \left( \int_{\mathbb{R}} y_{u,G}(\boldsymbol{x}_u) f_u(\boldsymbol{x}_u) \, d \nu(\boldsymbol{x}_i) \right) \\[0.5em]
+&\times \prod_{\substack{j \in (u \setminus v) \\ j \ne i}} d \nu(x_j) \, d \nu(\boldsymbol{x}_v) = 0.
+\end{align*}
+\end{frame}
+
+
 
 \begin{frame}{Generalized fANOVA Proofs}
     \begin{itemize}
-        \item Zero mean property: separating $x$ into subvectors, marginal density, Fubinis Theorem, weak annihilating conditions
-        \item Hierarchical orthogonality: set the scene, u is a proper subset of v $u \subsetneq v$, so there is an index in u which is not in v; divide $x_u$ into subvectors, marginal density, Fubini and weak annihilating conditions
-        \item Weak annihilating becomes strong under independence: assume the weak ones, product density, factor out
         \item Three integration cases: distinguish between different relationships u and v, depending on the relationship the integral w.r.t. to marginal density simplifies
         \item Generalized fANOVA components by Rahman: first build constant term; for nonconstant terms use integration cases
         \item Integration constraint Hooker: show that hierarchical orthogonality is fulfilled if the conditions hold, show that it is not fulfilled if they do not hold; but why exactly these conditions a bit unclear

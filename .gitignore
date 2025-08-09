@@ -50,3 +50,4 @@ rsconnect/
 
 # Mac specific files
 .DS_Storefanova/
+.DS_Store
