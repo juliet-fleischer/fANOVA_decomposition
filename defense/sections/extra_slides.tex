@@ -4,7 +4,7 @@
 \begin{frame}{Reminder: Definition of Orthogonal Projection} % How do we define it?
   \begin{align*}
     \Pi_{\mathcal{G}}y = \arg\min_{g \in \mathcal{G}} \|y - g\|^2
-= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2].
+= \arg\min_{g \in \mathcal{G}} \mathbb{E}[(y(\boldsymbol{X}) - g(\boldsymbol{X}))^2]
 \end{align*}
   \begin{itemize}
     \item $\mathcal{G}$ : linear subspace of $\mathcal{L}^2$ we project onto
@@ -18,17 +18,14 @@
     &= \mathbb{E}[y(\boldsymbol{X})] \\ 
     &= \arg \min_{a \in \mathbb{R}} \mathbb{E}[(y(\boldsymbol{X}) - a)^2] \\ 
     &= \arg \min_{g_0 \in \mathcal{G}_0} \|y - g_0\|^2
-    = \Pi_{\mathcal{G}_0}y,
+    = \Pi_{\mathcal{G}_0}y
 \end{align*}
-\uncover<2->{
-  \begin{align*}
+\begin{align*}
     y_u(.) 
     &= \mathbb{E}[y(\boldsymbol{X}) \mid X_{u} = .] - \sum_{v \subsetneq u} y_v(.) \\ 
     &= \arg \min_{g_u \in \mathcal{G}_u} \mathbb{E}[(y(\boldsymbol{X}) - g_u(.))^2] - \sum_{v \subsetneq u} y_v(.) \\ 
     &= (\Pi_{\mathcal{G}_u}y)(.) - \sum_{v \subsetneq u} y_v(.)
 \end{align*}
-}
-
 \end{frame}
 
 \begin{frame}{Equality to Hoeffding Decomposition} % How does it relate to Hoeffding?
@@ -149,19 +146,29 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
 \end{align*}
 \end{frame}
 
-\begin{frame}{Example: Only Main}
-  \[
-  y(x_1, x_2) = -2 x_1 - 2x_2 + x_1^2 + x_2^2 \qquad \rho = 0
-  \]
+\begin{frame}{Running Example from Thesis under Independence}
+\begin{equation}
+  h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2 \qquad \rho = 0
+\end{equation}
     \begin{columns}
     \column{0.5\textwidth}
-      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
+      \includegraphics[width=\linewidth]{../images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_main.png}
     \column{0.5\textwidth}
-      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png}
+      \includegraphics[width=\linewidth]{../images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop00_interaction.png}
   \end{columns}
 \end{frame}
 
-
+\begin{frame}{Running Example from Thesis under Dependence}
+\begin{equation}
+  h(x_1, x_2) = x_1 + 2 x_2 + x_1 x_2 \qquad \rho = 0.5
+\end{equation}
+    \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_main.png}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/running_example_a1p10_a2p20_a11p00_a22p00_a12p10_rhop05_interaction.png}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{Example: Only Linear Terms}
   \begin{columns}
@@ -174,7 +181,21 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Example: Interaction}
+
+\begin{frame}{Example: Only Main Terms under Independence}
+  \[
+  y(x_1, x_2) = -2 x_1 - 2x_2 + x_1^2 + x_2^2 \qquad \rho = 0
+  \]
+    \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_main.png}
+    \column{0.5\textwidth}
+      \includegraphics[width=\linewidth]{../images/experiment_section/mixed_a1m20_a2p20_a11p10_a22m10_a12p00_rhop00_interaction.png}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{Example: Only Interaction Term under Dependence}
   \[
   y(x_1, x_2) = x_1 x_2 \qquad \rho = -0.5
   \]
@@ -187,7 +208,7 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
   
 \end{frame}
 
-\begin{frame}{Example: Interaction}
+\begin{frame}{Example: Interaction under Independence}
   \[
   y(x_1, x_2) = x_1 x_2 \qquad \rho = 0
   \]
@@ -201,23 +222,8 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
 \end{frame}
 
 
-\begin{frame}{Sobol Indices}
-    Formula for classical Sobol' indices?
-\end{frame}
 
-\begin{frame}{Decomposition of linear functions}
-  \begin{columns}
-    \column{0.5\textwidth}
-      \includegraphics[width=\linewidth]{../images/experiment_section/linear_a1p15_a2p35_a11p00_a22p00_a12p00_rhop00_main.png}
-      \captionof{figure}{$q(x_1, x_2) = 1.5 x_1 + 3.5 x_2$}
-    \column{0.5\textwidth}
-      \includegraphics[width=\linewidth]{../images/experiment_section/linear_a1m20_a2p40_a11p00_a22p00_a12p00_rhop00_main.png}
-      \captionof{figure}{$q(x_1, x_2) = -2 x_1 + 4 x_2$}
-  \end{columns}
-\end{frame}
-
-
-\begin{frame}{Proof of zero-mean Property for Classical Components}
+\begin{frame}{Proof of Zero-Mean Property for Classical Components}
   Strong annihilating conditions hold, so:
   \begin{align*}
     \mathbb{E}[y_u(\boldsymbol{X}_u)] &:= \int_{\mathbb{R}^{N}} y_u(\boldsymbol{x_u}) f_{\boldsymbol{X}}(\boldsymbol{x}) \, d\nu (\boldsymbol{x}) \\[0.5em]
@@ -228,7 +234,7 @@ c_0 &= a_0 + a_{11} + a_{22} + \rho\,a_{12}
 
 \end{frame}
 
-\begin{frame}{Proof of orthogonality for Classical Components}
+\begin{frame}{Proof of Orthogonality for Classical Components}
   \begin{itemize}
     \item $u \neq v$, so pick $i \in u \setminus v$
     \item $y_v(\boldsymbol{x_v})$ is independent of $x_i$
@@ -249,7 +255,7 @@ Hence,
 \end{align*}
 \end{frame}
 
-\begin{frame}{Proof of zero-mean Property for Generalized Components}
+\begin{frame}{Proof of Zero-Mean Property for Generalized Components}
   We assume the weak annihilating conditions hold, then:
   \begin{align*}
 \mathbb{E}[y_{u,G}(\boldsymbol{X}_u)] 
@@ -262,7 +268,7 @@ Hence,
   
 \end{frame}
 
-\begin{frame}{Proof of hierarchical orthogonality}
+\begin{frame}{Proof of Hierarchical Orthogonality}
 For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne v \subseteq \{1,\dots,N\}$, where $v \subsetneq u$, the subset $u = v \cup (u \setminus v)$. Let $i \in (u \setminus v) \subseteq u$. Then we obtain:
 \begin{align*}
 \mathbb{E}[y_{u,G}(\boldsymbol{X}_u) \, y_{v,G}(\boldsymbol{X}_v)]
@@ -277,18 +283,28 @@ For any two subsets $\emptyset \ne u \subseteq \{1,\dots,N\}$ and $\emptyset \ne
 \end{align*}
 \end{frame}
 
-
-
-\begin{frame}{Generalized fANOVA Proofs}
-    \begin{itemize}
-        \item Three integration cases: distinguish between different relationships u and v, depending on the relationship the integral w.r.t. to marginal density simplifies
-        \item Generalized fANOVA components by Rahman: first build constant term; for nonconstant terms use integration cases
-        \item Integration constraint Hooker: show that hierarchical orthogonality is fulfilled if the conditions hold, show that it is not fulfilled if they do not hold; but why exactly these conditions a bit unclear
-        \item Take a look at Sobols proof again
-    \end{itemize}
+\begin{frame}{Sobol' Indices}
+\[
+S_u = \frac{\operatorname{Var}\!\left( \mathbb{E}\left[ y(\boldsymbol{X}) \,\middle|\, \mathbf{X}_u = . \right] \right)}{\operatorname{Var}(y(\boldsymbol{X}))},
+\]
+where
+\begin{itemize}
+  \item $y(\boldsymbol{X})$ is the probabilistic model, which is decomposed
+  \item $\mathbb{E}[y(\boldsymbol{X}) \mid \mathbf{X}_u = .]$ is the fANOVA component $y_u$
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Relevant External Links}
+
+% \begin{frame}{Generalized fANOVA Proofs}
+%     \begin{itemize}
+%         \item Three integration cases: distinguish between different relationships u and v, depending on the relationship the integral w.r.t. to marginal density simplifies
+%         \item Generalized fANOVA components by Rahman: first build constant term; for nonconstant terms use integration cases
+%         \item Integration constraint Hooker: show that hierarchical orthogonality is fulfilled if the conditions hold, show that it is not fulfilled if they do not hold; but why exactly these conditions a bit unclear
+%         \item Take a look at Sobols proof again
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{External Links}
     \begin{itemize}
         \item \url{https://docs.google.com/spreadsheets/d/1K5ECL6hDPDnHwM_k342xa29H-vHWzdk27PTgDHUwfFE/edit?usp=sharing} - Table with fANOVA-related literature
     \end{itemize}

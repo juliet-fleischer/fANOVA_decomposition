@@ -1,9 +1,10 @@
 \begin{thebibliography}{1}
 
-\bibitem{fumagalli2025}
-Fabian Fumagalli, Maximilian Muschalik, Eyke Hüllermeier, Barbara Hammer, and Julia Herbinger.
-\newblock Unifying {Feature}-{Based} {Explanations} with {Functional} {ANOVA} and {Cooperative} {Game} {Theory}, April 2025.
-\newblock arXiv:2412.17152 [cs].
+\bibitem{hoeffding1948}
+Wassily Hoeffding.
+\newblock A {Class} of {Statistics} with {Asymptotically} {Normal} {Distribution}.
+\newblock {\em The Annals of Mathematical Statistics}, 19(3):293--325, 1948.
+\newblock Publisher: Institute of Mathematical Statistics.
 
 \bibitem{hooker2004}
 Giles Hooker.
@@ -30,6 +31,11 @@ Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, and Rich Caruana.
 \newblock Purifying {Interaction} {Effects} with the {Functional} {ANOVA}: {An} {Efficient} {Algorithm} for {Recovering} {Identifiable} {Additive} {Models}.
 \newblock In {\em Proceedings of the {Twenty} {Third} {International} {Conference} on {Artificial} {Intelligence} and {Statistics}}, pages 2402--2412. PMLR, June 2020.
 \newblock ISSN: 2640-3498.
+
+\bibitem{muehlenstaedt2012}
+Thomas Muehlenstaedt, Olivier Roustant, Laurent Carraro, and Sonja Kuhnt.
+\newblock Data-driven {Kriging} models based on {FANOVA}-decomposition.
+\newblock {\em Statistics and Computing}, 22(3):723--738, May 2012.
 
 \bibitem{rahman2014}
 Sharif Rahman.
